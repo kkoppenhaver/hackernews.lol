@@ -1,0 +1,13 @@
+{
+  "name": "hackernews-lol",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "node scripts/scrape-corpus.mjs",
+    "label": "node scripts/label-corpus.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
