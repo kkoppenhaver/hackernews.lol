@@ -1,0 +1,667 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47872324,
+    "title": "I am building a cloud",
+    "points": 197,
+    "descendants": 70,
+    "article_url": "https://crawshaw.io/blog/building-a-cloud",
+    "hn_url": "https://news.ycombinator.com/item?id=47872324",
+    "self_post": false
+  },
+  "story": {
+    "id": 47872324,
+    "title": "I am building a cloud",
+    "url": "https://crawshaw.io/blog/building-a-cloud",
+    "by": "bumbledraven",
+    "score": 204,
+    "time": 1776919459,
+    "descendants": 72,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47873073,
+      "by": "dajonker",
+      "time": 1776929472,
+      "parent": 47872324,
+      "text": "> Making Kubernetes good is inherently impossible, a project in putting (admittedly high quality) lipstick on a pig.\n\nSo well put, my good sir, this describes exactly my feelings with k8s. It always starts off all good with just managing a couple of containers to run your web app. Then before you know it, the devops folks have decided that they need to put a gazillion other services and an entire software-defined networking layer on top of it.\n\nAfter spending a lot of time \"optimizing\" or \"hardening\" the cluster, cloud spend has doubled or tripled. Incidents have also doubled or tripled, as has downtime. Debugging effort has doubled or tripled as well.\n\nI ended up nuking the cluster, booted up a single VM with debian, enabled the firewall and used Kamal to deploy the app with docker. Despite having only a single VM rather than a cluster, things have never been more stable and reliable from an infrastructure point of view. Costs have plummeted as well, it's so much cheaper to run. It's also so much easier and more fun to debug.",
+      "kids": []
+    },
+    {
+      "id": 47872884,
+      "by": "clktmr",
+      "time": 1776927357,
+      "parent": 47872324,
+      "text": "> Agents, by making it easiest to write code, means there will be a lot more software. Economists would call this an instance of Jevons paradox. Each of us will write more programs, for fun and for work.\n\nThere is already so much software out there, which isn't used by anyone. Just take a look at any appstore. I don't understand why we are so obsessed with cranking out even more, whereas the obvious usecase for LLMs should be to write better software. Let's hope the focus shifts from code generation to something else. There are many ways LLMs can assist in writing better code.",
+      "kids": [
+        {
+          "id": 47873063,
+          "by": "esjeon",
+          "time": 1776929396,
+          "parent": 47872884,
+          "text": "> Let's hope the focus shifts from code generation to something else. There are many ways LLMs can assist in writing better code.\n\nMy view is actually the opposite. Software now belongs to cattle, not pet. We should use one-offs. We should use micro-scale snippets. Speaking language should be equivalent to programming. (I know, it's a bit of pipe dream)\n\nIn that sense, exe.dev (and tailscale) is a bit like pet-driven projects.",
+          "kids": []
+        },
+        {
+          "id": 47873068,
+          "by": "cush",
+          "time": 1776929445,
+          "parent": 47872884,
+          "text": "> I don't understand why we are so obsessed with cranking out even more... the obvious usecase for LLMs should be to write better software\n\nI honestly think this is ideal. Video games aside, I think one day we'll look back and realize just how insane it was that we built software for millions or even billions of users to use. People can now finally build the software that does exactly what they've wanted their software to do without competing priorities and misaligned revenue models working against them. One could argue this kind of software, by definition, is higher quality.",
+          "kids": []
+        },
+        {
+          "id": 47872960,
+          "by": "skybrian",
+          "time": 1776928232,
+          "parent": 47872884,
+          "text": "Sometimes “better” means “customized for my specific use case.” I expect that there will be a lot of custom software that never appears in any app store.",
+          "kids": [
+            {
+              "id": 47872991,
+              "by": "stingraycharles",
+              "time": 1776928519,
+              "parent": 47872960,
+              "text": "The amount of single purpose scripts in my ~/playground/ folder has increased dramatically over the past year. Super useful, wouldn’t have had the time for it otherwise, but not in any way shareable. Eg “parse this excel sheet I got from my obscure bank and upload it to my budgeting app’s REST API”. Wouldn’t have had the time or energy to do this before, now I have it and it scratches an itch.",
+              "kids": []
+            },
+            {
+              "id": 47873001,
+              "by": "AussieWog93",
+              "time": 1776928700,
+              "parent": 47872960,
+              "text": "This.  Just today I added a full on shopping list system to our internal dashboard at work (small business) simply because it was slightly annoying and could be solved in 3 prompts and 15 minutes.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872920,
+          "by": "dgb23",
+          "time": 1776927838,
+          "parent": 47872884,
+          "text": "Both will likely happen to some degree.\n\nAs for the average quality: it’s unclear.\n\nMy intuition is that agents lift up the floor to some degree, but at the same time will lead to more software being produced that’s of mediocre quality, with outliers of higher quality emerging at a higher rate than before.",
+          "kids": []
+        },
+        {
+          "id": 47872940,
+          "by": "andai",
+          "time": 1776927990,
+          "parent": 47872884,
+          "text": "Alas, we shifted from quality to quantity somewhere in the mid 19th century.",
+          "kids": [
+            {
+              "id": 47872992,
+              "by": "fragmede",
+              "time": 1776928544,
+              "parent": 47872940,
+              "text": "For software?",
+              "kids": [
+                {
+                  "id": 47873005,
+                  "by": "bell-cot",
+                  "time": 1776928787,
+                  "parent": 47872992,
+                  "text": "https://en.wikipedia.org/wiki/Shovelware",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47872928,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872412,
+      "by": "stingraycharles",
+      "time": 1776920736,
+      "parent": 47872324,
+      "text": "Potentially useful context: OP is one of the cofounders of Tailscale.\n\n> Traditional Cloud 1.0 companies sell you a VM with a default of 3000 IOPS, while your laptop has 500k. Getting the defaults right (and the cost of those defaults right) requires careful thinking through the stack.\n\nI wish them a lot of luck! I admire the vision and am definitely a target customer, I'm just afraid this goes the way things always go: start with great ideals, but as success grows, so must profit.\n\nCloud vendor pricing often isn't based on cost. Some services they lose money on, others they profit heavily from. These things are often carefully chosen: the type of costs that only go up when customers are heavily committed—bandwidth, NAT gateway, etc.\n\nBut I'm fairly certain OP knows this.",
+      "kids": [
+        {
+          "id": 47873042,
+          "by": "faangguyindia",
+          "time": 1776929225,
+          "parent": 47872412,
+          "text": "i was just curious so i tested this actually.\n\nUsing fio\n\nHetzner (cx23, 2vCPU, 4 GB)\n~3900 IOPS (read/write)\n~15.3 MB/s\navg latency ~2.1 ms\n99.9th percentile ≈ ~5 ms\nmax ≈ ~7 ms\n\nDigitalOcean (SFO1 / 2 GB RAM / 30 GB Disk)\n~3900 IOPS (same!)\n~15.7 MB/s (same!)\navg latency ~2.1 ms (same!)\n99.9th percentile ≈ ~18 ms\nmax ≈ ~85 ms (!!)\n\nusing sequential dd\n\nHetzner: 1.9 GB/s\nDO:      850 MB/s\n\nUsing low end plan on both but this Hetzner is 4 euro and DO instance is $18.",
+          "kids": [
+            {
+              "id": 47873085,
+              "by": "stingraycharles",
+              "time": 1776929597,
+              "parent": 47873042,
+              "text": "You’re comparing SAN with local NVMe, which is apples / oranges.\n\nHetzner is also pretty notorious, e.g. when a customer reports a disk as faulty they’ll plug the same disk, etc. So they’re not really the same thing being offered, with wildly different SLAs and failure modes.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872729,
+          "by": "sroussey",
+          "time": 1776925156,
+          "parent": 47872412,
+          "text": "Many cloud vendors have you pay through the nose for IOPS and bandwidth.\n\nEdit: I posted this before reading, and these two are the same he points out.",
+          "kids": [
+            {
+              "id": 47872977,
+              "by": "stingraycharles",
+              "time": 1776928369,
+              "parent": 47872729,
+              "text": "Yes, but you can’t directly compare SAN-style storage with a local NVMe. But I agree that it’s too expensive, but not nearly as insane as the bandwidth pricing. If you go to a vendor and ask for a petabyte of storage, and it needs to be fully redundant, and you need the ability to take PIT-consistent multi-volume snapshots, be ready to pay up. And this is what’s being offered here.\n\nAnd yes, IO typically happens in 4kb blocks, so you need a decent amount of IOPS to get the full bandwidth.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872723,
+      "by": "farfatched",
+      "time": 1776924990,
+      "parent": 47872324,
+      "text": "Nice post. exe.dev is a cool service that I enjoyed.\n\nI agree there is opportunity in making LLM development flows smooth, paired with the flexibility of root-on-a-Linux-machine.\n\n> Time and again I have said “this is the one” only to be betrayed by some half-assed, half-implemented, or half-thought-through abstraction. No thank you.\n\nThe irony is that this is my experience of Tailscale.\n\nFinally, networking made easy. Oh god, why is my battery doing so poorly. Oh god, it's modified my firewall rules in a way that's incompatible with some other tool, and the bug tracker is silent. Now I have to understand their implementation, oh dear.\n\nNo thank you.",
+      "kids": [
+        {
+          "id": 47873003,
+          "by": "LoganDark",
+          "time": 1776928722,
+          "parent": 47872723,
+          "text": "I find it difficult to configure Tailscale for my use case because they seem to completely not support making ACL rules based on the identity of the device rather than a part of the address space. I'm not configuring a router here, I'm configuring a peer-to-peer networking layer... or at least I'm supposed to be...",
+          "kids": [
+            {
+              "id": 47873041,
+              "by": "spockz",
+              "time": 1776929218,
+              "parent": 47873003,
+              "text": "I remember from the docs you can use node names. At the very least you can use tags for sure. Assign tags to nodes and define the ACL based on those.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872619,
+      "by": "faangguyindia",
+      "time": 1776923550,
+      "parent": 47872324,
+      "text": "i just use Hetzner.\n\nEverything which cloud companies provide just cost so much, my own postgres running with HA setup and backup cost me 1/10th the price of RDS or CloudSQL service running in production over 10 years with no downtime.\n\ni directly autoscales instances off of the Metrics harvested from graphana it works fine for us, we've autoscaler configured via webhooks. Very simple and never failed us.\n\ni don't know why would i even ever use GCP or AWS anymore.\n\nAll my services are fully HA and backup works like charm everyday.",
+      "kids": [
+        {
+          "id": 47872671,
+          "by": "Manfred",
+          "time": 1776924314,
+          "parent": 47872619,
+          "text": "Companies buy cloud services because they want to reduce in-house server management and operations, for them it's a trade-off with hiring the right people. But you are right, when you can find the right people doing it yourself can be a lot cheaper.",
+          "kids": [
+            {
+              "id": 47872724,
+              "by": "fnoef",
+              "time": 1776925011,
+              "parent": 47872671,
+              "text": "Right... That's why the hire \"AWS Certified specialist ninja\"",
+              "kids": []
+            },
+            {
+              "id": 47872714,
+              "by": "Tepix",
+              "time": 1776924864,
+              "parent": 47872671,
+              "text": "I get the feeling that with LLMs in the mix, in-house server management can do a lot more than it used to.",
+              "kids": [
+                {
+                  "id": 47872755,
+                  "by": "tgv",
+                  "time": 1776925636,
+                  "parent": 47872714,
+                  "text": "Perhaps it saves some time looking through the docs, but do you really trust an LLM to do the actual work?",
+                  "kids": [
+                    {
+                      "id": 47872816,
+                      "by": "windex",
+                      "time": 1776926490,
+                      "parent": 47872755,
+                      "text": "Yes and an LLM checks it as well. I am yet to find a sysadmin task that an LLM couldn't solve neatly.",
+                      "kids": [
+                        {
+                          "id": 47873095,
+                          "by": "jdkoeck",
+                          "time": 1776929647,
+                          "parent": 47872816,
+                          "text": "A nice bonus is that sysadmin tasks tend to be light in terms of token usage, that’s very convenient given the increasingly strict usage limits these days.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47872737,
+          "by": "huijzer",
+          "time": 1776925351,
+          "parent": 47872619,
+          "text": "Agree, I used to always use Heroku or Render style platforms for my own software, but nowadays I just have a Linux server with Docker Compose and a Cron job. The cron job every minute runs docker pull (downloads latest image) and docker up -d (switches to new version only if there is a new version). And put caddy in front for the HTTPS. This has been very cheap and reliable for years now.",
+          "kids": [
+            {
+              "id": 47872750,
+              "by": "saltmate",
+              "time": 1776925562,
+              "parent": 47872737,
+              "text": "What images are you running that you'd need the latest version up after just a minute?",
+              "kids": [
+                {
+                  "id": 47872862,
+                  "by": "burner420042",
+                  "time": 1776927036,
+                  "parent": 47872750,
+                  "text": "I'm not the OP but I'd clarify the cron check for new versions is done every minute. So when new images are pushed they're picked up quickly.\n\nOP is not saying they push new versions at such a high frequency they need checks every one minute.\n\nThe choice of one minute vs 15 minute is implementation detail and when architected like this costs nothing.\n\nI hope that helps. Again this is my own take.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47872806,
+          "by": "pants2",
+          "time": 1776926304,
+          "parent": 47872619,
+          "text": "Especially these days you can SSH to a baremetal server and just tell Claude to set up Postgres. Job done. You don't need autoscaling because you can afford a server that's 5X faster from the start.",
+          "kids": [
+            {
+              "id": 47872817,
+              "by": "i5heu",
+              "time": 1776926494,
+              "parent": 47872806,
+              "text": "You just use docker.\n\nIt is like 4 lines of config for Postgres, the only line you need to change is on which path  Postgres should store the data.",
+              "kids": [
+                {
+                  "id": 47873059,
+                  "by": "spockz",
+                  "time": 1776929379,
+                  "parent": 47872817,
+                  "text": "You also probably want the Postgres storage on a different (set) of disks.\n\nMaybe change the filesystem?",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47872700,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47872776,
+          "by": "TiccyRobby",
+          "time": 1776925882,
+          "parent": 47872619,
+          "text": "Honestly I like Hetzner a lot but lately it has been very unstable for us. https://status.hetzner.com/ this page always has couple of incidents happening at the same time. I really appreciate the services they provide but i wish they were more stable.",
+          "kids": []
+        },
+        {
+          "id": 47872958,
+          "by": "MagicMoonlight",
+          "time": 1776928219,
+          "parent": 47872619,
+          "text": "Because if I have a government service with millions of users, I don’t want the cheap shitter servers to crap out on me.\n\nAn employee is going to cost anywhere between 8k and 50k per month. Hiring an employee to save 200/month on servers by using a shitty VPS provider is not saving you any money.",
+          "kids": [
+            {
+              "id": 47873100,
+              "by": "kennywinker",
+              "time": 1776929691,
+              "parent": 47872958,
+              "text": "If you have millions of users, you absolutely need to have someone whose whole job is managing servers. Expecting servers or cloud services to not crap out on you without someone with the skills and time to keep things running seems foolish.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872663,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47873082,
+      "by": "sudo_cowsay",
+      "time": 1776929564,
+      "parent": 47872324,
+      "text": "I'm still new to cloud computing. I've only ever used linode. What is this supposed to be? I couldn't figure out a specific design through the article well. Pls help",
+      "kids": []
+    },
+    {
+      "id": 47872872,
+      "by": "k9294",
+      "time": 1776927198,
+      "parent": 47872324,
+      "text": "That's really cool!\n\nOne thing I'm confused with is how to create a shared resources like e.g. a redis server and connect to it from other vms? It looks now quite cumbersome to setup tailscale or connect via ssh between VMS. Also what about egress? My guess is that all traffic billed at 0.07$ per GB. It looks like this cloud is made to run statefull agents and personal isolated projects and distributed systems or horizontal scaling isn't a good fit for it?\n\nAlso I'm curious why not railway like billing per resource utilization pricing model? It’s very convenient and I would argue is made for agents era.\n\nI did setup for my friends and family a railway project that spawns a vm with disk (statefull service) via a tg bot and runs an openclaw like agent - it costs me something like 2$ to run 9 vms like this.",
+      "kids": []
+    },
+    {
+      "id": 47872419,
+      "by": "zackify",
+      "time": 1776920883,
+      "parent": 47872324,
+      "text": "That's insane funding so congrats.\n\nJust shows I'm the Dropbox commentator. I have what exe provides on my own and am shocked by the value these abstractions provide everyone else!! One off containers on my own hardware spin up spin down run async agents, etc, tailscale auth, team can share or connect easily by name.",
+      "kids": [
+        {
+          "id": 47872769,
+          "by": "sixhobbits",
+          "time": 1776925795,
+          "parent": 47872419,
+          "text": "Investment is done by relationships, belief in a future vision and team, and growth metrics like number of paying customers.\n\nThe technology itself in its current form is not valuable",
+          "kids": [
+            {
+              "id": 47872883,
+              "by": "isoprophlex",
+              "time": 1776927351,
+              "parent": 47872769,
+              "text": "Sobering comment for all the little people like myself who dream of owning a business based on a vision of cool tech that just does what it promises (as opposed to all the corporate shovelware out there)",
+              "kids": [
+                {
+                  "id": 47872968,
+                  "by": "dgb23",
+                  "time": 1776928283,
+                  "parent": 47872883,
+                  "text": "You can still do that. Not every business needs to be a hyperscaling startup.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872742,
+      "by": "sroussey",
+      "time": 1776925460,
+      "parent": 47872324,
+      "text": "> The standard price for a GB of egress from a cloud provider is 10x what you pay racking a server in a normal data center.\n\nOh, that’s too kind. More like 100x to 1000x. Raw bandwidth is cheap.",
+      "kids": []
+    },
+    {
+      "id": 47872893,
+      "by": "esher",
+      "time": 1776927519,
+      "parent": 47872324,
+      "text": "Much respect for the ambitous plan, I wish I could do such bold thinking. I am running a small PHP PaaS (fortrabbit) for more than 10 years. For me, it's not only \"scratch your own itch\", but also \"know your audience\". So, a limited feature set with a high level of abstraction can also be useful for some users > clear path.",
+      "kids": []
+    },
+    {
+      "id": 47872551,
+      "by": "st-keller",
+      "time": 1776922465,
+      "parent": 47872324,
+      "text": "Hahaha! Have fun! I‘m doing the same - together with Claude Code. Since August. With https (mTLS1.3) everywhere, because i can. Just my money, just my servers, just for me. Just for fun. And what a fun it is!",
+      "kids": [
+        {
+          "id": 47872698,
+          "by": "anonzzzies",
+          "time": 1776924728,
+          "parent": 47872551,
+          "text": "Me too. I already moved our products to it and it is getting fairly robust. Guess many smaller companies got tired with the big guys asking a lot of money for things that should be cheap.",
+          "kids": []
+        },
+        {
+          "id": 47872575,
+          "by": "setnone",
+          "time": 1776922862,
+          "parent": 47872551,
+          "text": "Yeah i feel like it's getting cloudy",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872765,
+      "by": "pjc50",
+      "time": 1776925717,
+      "parent": 47872324,
+      "text": "The \"one price\" is oddly small for a cloud company. I'm sure it's nice and fast but the $20/mo seems smaller than some companies' free tiers, especially for disk.\n\nThe main reason clouds offer network block devices is abstraction.",
+      "kids": [
+        {
+          "id": 47872931,
+          "by": "imafish",
+          "time": 1776927943,
+          "parent": 47872765,
+          "text": "Don’t worry - that will certainly change in the future if they have any kind of success :)",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47873037,
+      "by": "troupo",
+      "time": 1776929142,
+      "parent": 47872324,
+      "text": "Did... did you just scare Microsoft? They now announced a similar thing https://x.com/satyanadella/status/2047033636923568440",
+      "kids": []
+    },
+    {
+      "id": 47872582,
+      "by": "ianpurton",
+      "time": 1776923013,
+      "parent": 47872324,
+      "text": "I don't get it, what is this, how is it different?",
+      "kids": [
+        {
+          "id": 47872756,
+          "by": "saltmate",
+          "time": 1776925645,
+          "parent": 47872582,
+          "text": "As I understand, a cloud provider where instead of paying for each VM (with a set of resources), you pay for the resources, and can get as many VMs as you can fit on these resources.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872856,
+      "by": "Growtika",
+      "time": 1776926932,
+      "parent": 47872324,
+      "text": "Congrats. Just checked your homepage. I love the fact you also show this comment\n\n\"That must be worst website ever made\"\n\nMade me love the site and style even more",
+      "kids": []
+    },
+    {
+      "id": 47872838,
+      "by": "speedgoose",
+      "time": 1776926794,
+      "parent": 47872324,
+      "text": "I welcome the initiative but it’s pretty costly compared to the bare metal cloud providers. So the value as to be the platform as service too.",
+      "kids": []
+    },
+    {
+      "id": 47873049,
+      "by": "pelasaco",
+      "time": 1776929321,
+      "parent": 47872324,
+      "text": "Such statement is so off:\n\n\"In some tech circles, that is an unusual statement. (“In this house, we curse computers!”) I get it, computers can be really frustrating. But I like computers. I always have. It is really fun getting computers to do things. Painful, sure, but the results are worth it. Small microcontrollers are fun, desktops are fun, phones are fun, and servers are fun, whether racked in your basement or in a data center across the world. I like them all.\"\n\nThe reality: Everyone reading his blog or this HN entry loves computers.",
+      "kids": []
+    },
+    {
+      "id": 47872858,
+      "by": "achille",
+      "time": 1776926955,
+      "parent": 47872324,
+      "text": "What will happen to my \"Grandfathered Plan\" I signed up to test it, don't recall if I gave you my credit card",
+      "kids": []
+    },
+    {
+      "id": 47872727,
+      "by": "47872324",
+      "time": 1776925057,
+      "parent": 47872324,
+      "text": "exe.dev.  111 IN A 52.35.87.134\n\n52.35.87.134 <- Amazon Technologies Inc. (AT-88-Z)",
+      "kids": [
+        {
+          "id": 47873008,
+          "by": "skybrian",
+          "time": 1776928826,
+          "parent": 47872727,
+          "text": "Their first location (PDX) is on Amazon I believe and not accepting new customers. They’ve said it’s much more expensive for them than the others. Their other locations are listed here:\n\nhttps://exe.dev/docs/regions",
+          "kids": []
+        },
+        {
+          "id": 47872972,
+          "by": "MagicMoonlight",
+          "time": 1776928326,
+          "parent": 47872727,
+          "text": "Well yes, because they needed high availability and flexibility and tons of features…\n\nHey wait a minute!",
+          "kids": []
+        },
+        {
+          "id": 47872751,
+          "by": "awhitty",
+          "time": 1776925565,
+          "parent": 47872727,
+          "text": "\"I am white labeling a cloud\"",
+          "kids": [
+            {
+              "id": 47872815,
+              "by": "transitorykris",
+              "time": 1776926463,
+              "parent": 47872751,
+              "text": "FTA “Hence the Series A: we have some computers to buy.”",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872786,
+      "by": "qaq",
+      "time": 1776926017,
+      "parent": 47872324,
+      "text": "With LLMs there is no real dev velocity penalty of using high perf. langs like say Rust. A pair of 192 Core AMD EPYC boxes will have enough headroom for 99.9% of projects.",
+      "kids": []
+    },
+    {
+      "id": 47872675,
+      "by": "import",
+      "time": 1776924345,
+      "parent": 47872324,
+      "text": "Article doesn’t really tell what fundamental problems will be solved, except fancy VM allocation. Nothing about hardware, networking, reliability, tooling and such. Well, nice, good luck.",
+      "kids": []
+    },
+    {
+      "id": 47872719,
+      "by": "z3t4",
+      "time": 1776924907,
+      "parent": 47872324,
+      "text": "You can run several VM's or containers with isolation on your phone hardware, why even use the cloud when you just want to show your friends?",
+      "kids": [
+        {
+          "id": 47873055,
+          "by": "skybrian",
+          "time": 1776929343,
+          "parent": 47872719,
+          "text": "For me it’s so my coding agent keeps running when I close my laptop lid and it goes to sleep. VM in the cloud because I’m too lazy to set up a computer to be running as a server all the time.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872605,
+      "by": "kjok",
+      "time": 1776923329,
+      "parent": 47872324,
+      "text": "How difficult is it to build a second startup on the side?",
+      "kids": []
+    },
+    {
+      "id": 47872442,
+      "by": "poly2it",
+      "time": 1776921131,
+      "parent": 47872324,
+      "text": "Why is an imperative SSH interface a better way of setting cloud resources than something like OpenTofu? In my experience humans and agents work better in declarative environments. If an OpenTofu integration is offered in the future, will exe.dev offer any value over existing cost-effective VPS providers like Hetzner? Technically, Hetzner, for example, also allows you to set up shared disk volumes:\n\nhttps://github.com/hetzneronline/community-content/blob/mast...\n\nIt also has a CLI, hcloud. Am I getting any value with exe.dev I couldn't get with an 80 line hcloud wrapper?",
+      "kids": [
+        {
+          "id": 47872812,
+          "by": "ZihangZ",
+          "time": 1776926428,
+          "parent": 47872442,
+          "text": "I don't think SSH vs OpenTofu is the core issue here.\n\nFor agents, declarative plans are still valuable because they are reviewable. The interesting question is whether exe.dev changes the primitive: resource pools for many isolated VM-like processes, or just nicer VPS provisioning.",
+          "kids": [
+            {
+              "id": 47872818,
+              "by": "poly2it",
+              "time": 1776926505,
+              "parent": 47872812,
+              "text": "It doesn't do either at competitive rates by the looks of it.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872720,
+      "by": "vasco",
+      "time": 1776924913,
+      "parent": 47872324,
+      "text": "I know its a personal blog but the writing style is really full of himself. What a martyr, starting a second company.",
+      "kids": [
+        {
+          "id": 47872852,
+          "by": "Animats",
+          "time": 1776926896,
+          "parent": 47872720,
+          "text": "It's hard to see the scale of what he's doing. Could be:\n\n- I'm building a server farm in my homelab.\n\n- I'm doing a small startup to see if this idea works.\n\n- We're taking on AWS by being more cost effective. Funding secured.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47873104,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872832,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872736,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872690,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872767,
+      "by": "WhereIsTheTruth",
+      "time": 1776925726,
+      "parent": 47872324,
+      "text": "> 100 GB data transfer+\n\n> $20 a month\n\n2025 or 2005, what's the difference?",
+      "kids": [
+        {
+          "id": 47873089,
+          "by": "sudo_cowsay",
+          "time": 1776929615,
+          "parent": 47872767,
+          "text": "inflation",
+          "kids": []
+        }
+      ]
+    }
+  ]
+}

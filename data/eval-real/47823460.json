@@ -1,0 +1,555 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47823460,
+    "title": "Show HN: Prompt-to-Excalidraw demo with Gemma 4 E2B in the browser (3.1GB)",
+    "points": 160,
+    "descendants": 62,
+    "article_url": "https://teamchong.github.io/turboquant-wasm/draw.html",
+    "hn_url": "https://news.ycombinator.com/item?id=47823460",
+    "self_post": false
+  },
+  "story": {
+    "id": 47823460,
+    "title": "Show HN: Prompt-to-Excalidraw demo with Gemma 4 E2B in the browser (3.1GB)",
+    "url": "https://teamchong.github.io/turboquant-wasm/draw.html",
+    "by": "teamchong",
+    "score": 160,
+    "time": 1776597447,
+    "descendants": 62,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47826920,
+      "by": "locusofself",
+      "time": 1776626932,
+      "parent": 47823460,
+      "text": "I've had excellent luck using Claude Code to generate \"mermaid diagrams\" for me, and convert them to .png format headlessly using mmdc/puppeteer. Really helped me out with an engineering proposal I just finished. In past years I would have fumbled around with Visio forever and the result would have been worse.",
+      "kids": [
+        {
+          "id": 47831194,
+          "by": "ascorbic",
+          "time": 1776668775,
+          "parent": 47826920,
+          "text": "I find Mermaid diagram rendering is quite ugly by default. I've gotten much better-looking results by asking it to just generate SVGs. As a bonus it can do animations too. e.g. see slide 3 here, which I first tried with Mermaid and then switched to SVG when I couldn't get the rendering to look good: https://talks.mk.gg/2026/atmosphereconf/",
+          "kids": []
+        },
+        {
+          "id": 47832367,
+          "by": "d4rkp4ttern",
+          "time": 1776680807,
+          "parent": 47826920,
+          "text": "I now often have CC make technical/architecture diagrams with tikz, the results look much better than mermaid but still requires multiple iterations to fix bad arrows, bad layouts etc.\n\nDiagrams are still far from solved. We need a good non-gameable diagrams benchmark.",
+          "kids": []
+        },
+        {
+          "id": 47832861,
+          "by": "0xchamin",
+          "time": 1776685182,
+          "parent": 47826920,
+          "text": "I use Claude Code and Gemini and to LLM as a judge among the two to review each others result and generate a final mermiad diagram.",
+          "kids": []
+        },
+        {
+          "id": 47827625,
+          "by": "system_operator",
+          "time": 1776632570,
+          "parent": 47826920,
+          "text": "do the same.\n\nI just ask Claude code for mermaid to visualize any topic I'm discussing.",
+          "kids": [
+            {
+              "id": 47832150,
+              "by": "lxgr",
+              "time": 1776678466,
+              "parent": 47827625,
+              "text": "In a pinch, Claude is also quite good at ASCII art in my experience!",
+              "kids": []
+            },
+            {
+              "id": 47835443,
+              "by": "alfiedotwtf",
+              "time": 1776697747,
+              "parent": 47827625,
+              "text": "Same here!",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47831050,
+          "by": "thawab",
+          "time": 1776667016,
+          "parent": 47826920,
+          "text": "You can copy past the mermaid to excalidraw to visualize it.",
+          "kids": []
+        },
+        {
+          "id": 47855506,
+          "by": "chermi",
+          "time": 1776810746,
+          "parent": 47826920,
+          "text": "Could you share your setup + workflow? How do you get it to not give shit layouts?",
+          "kids": []
+        },
+        {
+          "id": 47826956,
+          "by": "halJordan",
+          "time": 1776627212,
+          "parent": 47826920,
+          "text": "And yet people here insist that the height of an llm is not being above to draw a pelican or count letters in a word",
+          "kids": [
+            {
+              "id": 47829117,
+              "by": "wongarsu",
+              "time": 1776645868,
+              "parent": 47826956,
+              "text": "Well, mermaid diagrams are \"just\" a list of nodes and their relations. You'd expect any llm capable of generating code to be able to generate them\n\nWriting an SVG of a pelican riding a bicycle without being able to see the result and iterate based on that is incredibly difficult by comparison. I'm sure some humans could do it, but I sure can't. That's part of the beauty of it: it's very difficult to do but a toddler could judge the results\n\nWriting an SVG of a diagram by hand would be somewhere on the middle ground. Or depending on the number of nodes might be even harder than the pelican. Layouting diagrams can get tricky very quickly. It's also one of Mermaid's biggest weaknesses",
+              "kids": []
+            },
+            {
+              "id": 47827353,
+              "by": "christkv",
+              "time": 1776630148,
+              "parent": 47826956,
+              "text": "Just wait if they go public. Claude 5.4 fails the Pelican test stock sheds 20% of value pf news. Wall street wonders if the lack of front wheel means there is something seriously wrong with the stocks underlying value",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47827715,
+      "by": "userbinator",
+      "time": 1776633390,
+      "parent": 47823460,
+      "text": "Am I correct in interpreting the title to mean that visiting the page will result in a 3.1GB download?",
+      "kids": [
+        {
+          "id": 47829100,
+          "by": "avrionov",
+          "time": 1776645703,
+          "parent": 47827715,
+          "text": "Yes. I tested it. It downloaded 3.1GB",
+          "kids": [
+            {
+              "id": 47830955,
+              "by": "userbinator",
+              "time": 1776665857,
+              "parent": 47829100,
+              "text": "Given what the page does, that's not a surprising amount, but consider it would take over 5 days to download on a 56k dialup connection, and even at 100Mbps that's over 4 minutes.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47824999,
+      "by": "logicallee",
+      "time": 1776612439,
+      "parent": 47823460,
+      "text": "I love this idea. Unfortunately, it says \"Unsupported browser/GPU\" for me. This is Desktop Chrome version 147 (page says it requires 134+) and I have a 1060 card with 6 GB of RAM on this specific device, so it should fit. I have more than 4 GB of free RAM as well.",
+      "kids": [
+        {
+          "id": 47825148,
+          "by": "teamchong",
+          "time": 1776613583,
+          "parent": 47824999,
+          "text": "sorry it’s not working for you. I built this as a personal project for self-learning, but I plan to take a look at this issue next weekend. you can check out a video demo of it here: https://github.com/user-attachments/assets/71ae6e5c-a5ec-4d0...",
+          "kids": [
+            {
+              "id": 47825225,
+              "by": "logicallee",
+              "time": 1776614140,
+              "parent": 47825148,
+              "text": "That's amazing. Very good result. Thanks for sharing.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47826542,
+      "by": "OsamaJaber",
+      "time": 1776624015,
+      "parent": 47823460,
+      "text": "Small models in the browser are a different optimization problem than small models on a server.\nOn server you chase throughput so you batch. In browser you're stuck at batch size 1, which means kernel launch overhead and memory bandwidth dominate, not FLOPs",
+      "kids": []
+    },
+    {
+      "id": 47826932,
+      "by": "walthamstow",
+      "time": 1776627010,
+      "parent": 47823460,
+      "text": "The Gemma models really are amazing. I was on a flight a few days ago and used E2B to do some basic research on the place I was going to, running the model locally on my Pixel 10 Pro. It gave me basically the same as Gemini or ChatGPT would do when I landed",
+      "kids": [
+        {
+          "id": 47827245,
+          "by": "tredre3",
+          "time": 1776629243,
+          "parent": 47826932,
+          "text": "> It gave me basically the same as Gemini or ChatGPT would do\n\nI'm very surprised by this, in my tests E2B has very limited general knowledge.",
+          "kids": [
+            {
+              "id": 47827423,
+              "by": "walthamstow",
+              "time": 1776630756,
+              "parent": 47827245,
+              "text": "It was genuinely outstanding for a tiny local model. I'm in Marrakech and it gave 3 separate one-day itineraries that contained most of the same stuff I got from Gemini when I landed. I followed up to ask specifically about souks (markers/bazaars) and it listed the main ones and what types of products you can get from each.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47828182,
+          "by": "avadodin",
+          "time": 1776637455,
+          "parent": 47826932,
+          "text": "I haven't tried E2B but E4B isn't particularly better than the old Gemma3 4B model(which was already very good at multilingual and decent at other tasks) but the voice recognition is a nice addition.",
+          "kids": [
+            {
+              "id": 47832793,
+              "by": "maxlegav",
+              "time": 1776684571,
+              "parent": 47828182,
+              "text": "Do you see a real difference with AI agents working together",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47826991,
+          "by": "alwyn",
+          "time": 1776627443,
+          "parent": 47826932,
+          "text": "May I ask what setup you used to run it on your phone and if it's satisfactory (it sounds like it)?",
+          "kids": [
+            {
+              "id": 47827333,
+              "by": "walthamstow",
+              "time": 1776629967,
+              "parent": 47826991,
+              "text": "Edge Gallery, which is a bloody terrible name for an app by the way",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47827244,
+      "by": "billyp-rva",
+      "time": 1776629236,
+      "parent": 47823460,
+      "text": "> \"OAuth 2.0 authorization code flow with PKCE as a sequence diagram — user, browser, app server, auth server, API\"\n\nIf you do a Google image search for \"OAuth 2.0 PKCE sequence diagram\" you get good results also. Maybe if you ask for something more esoteric this becomes valuable? Of course, that also makes hallucinations more likely.",
+      "kids": []
+    },
+    {
+      "id": 47826456,
+      "by": "Sathwickp",
+      "time": 1776623393,
+      "parent": 47823460,
+      "text": "just tried it out, must say it's amazing the speed at which it generates these diagrams\nIs this opensource by any chance? \nWould love to take a look at the code and understand how it works",
+      "kids": []
+    },
+    {
+      "id": 47835815,
+      "by": "Mystery-Machine",
+      "time": 1776699202,
+      "parent": 47823460,
+      "text": "Please never do this again. It's insane that the 3.1GB download kicks off as soon as you open the page.",
+      "kids": []
+    },
+    {
+      "id": 47825880,
+      "by": "rahimnathwani",
+      "time": 1776619115,
+      "parent": 47823460,
+      "text": "How does this part work?\n\n\"The LLM outputs compact code (~50 tokens) instead of raw Excalidraw JSON (~5,000 tokens).\"\n\nI see on the left that the LLM is outputting some instructions to add nodes and edges to the diagram. But what is interpreting those commands and turning them into an Excalidraw file?",
+      "kids": [
+        {
+          "id": 47826957,
+          "by": "evrydayhustling",
+          "time": 1776627213,
+          "parent": 47825880,
+          "text": "had the same question!  looks like it's another project called Drawmode[1] from the same group...\n\n[1] https://github.com/teamchong/drawmode",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47832852,
+      "by": "0xchamin",
+      "time": 1776685108,
+      "parent": 47823460,
+      "text": "very interesting. Prompt to \"generate System Design like ChatGPT end to end\". Took about ~3-5 mins the model to download. It generated a reasonably good system design.",
+      "kids": []
+    },
+    {
+      "id": 47832800,
+      "by": "classified",
+      "time": 1776684628,
+      "parent": 47823460,
+      "text": "Bloat will expand to fill all available space.",
+      "kids": []
+    },
+    {
+      "id": 47825402,
+      "by": "wesleynepo",
+      "time": 1776615539,
+      "parent": 47823460,
+      "text": "Really interesting, I wish I could understand the under the hood better but I guess I don't have all the background needed.",
+      "kids": []
+    },
+    {
+      "id": 47830298,
+      "by": "vismit2000",
+      "time": 1776658061,
+      "parent": 47823460,
+      "text": "https://skemio.com",
+      "kids": []
+    },
+    {
+      "id": 47828086,
+      "by": "xnx",
+      "time": 1776636513,
+      "parent": 47823460,
+      "text": "It seems like Gemma should replace Gemini Nano as the AI built into Chrome.",
+      "kids": []
+    },
+    {
+      "id": 47825162,
+      "by": "agent37",
+      "time": 1776613727,
+      "parent": 47823460,
+      "text": "Very cool. Did you happen to try other models like Qwen and was there a difference as opposed to Gemma ?",
+      "kids": []
+    },
+    {
+      "id": 47824114,
+      "by": "hhthrowaway1230",
+      "time": 1776604786,
+      "parent": 47823460,
+      "text": "so multiple of these browser wasm demos make me re-download the models, can someone make a cdn for it or some sort u uberfast downloader? just throw some claude credits against it ty!",
+      "kids": [
+        {
+          "id": 47826000,
+          "by": "logicallee",
+          "time": 1776620014,
+          "parent": 47824114,
+          "text": ">can someone make a cdn for it or some sort u uberfast downloader? just throw some claude credits against it ty!\n\nOkay, I did so.  I realize that in your later followup comment you might want something different (like for Chrome itself to cache these downloads or something) but for now I made what you asked for, here you go:\n\nhttps://stateofutopia.com/experiments/ephemeralcdn/\n\nIt's an ultrafast temporary CDN for one-off experiments like this.  Should be lightning fast.  By including the script, you can include any file this CDN serves.",
+          "kids": [
+            {
+              "id": 47833494,
+              "by": "hhthrowaway1230",
+              "time": 1776689153,
+              "parent": 47826000,
+              "text": "haha this is awesome! this is fantastic.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47824307,
+          "by": "wereHamster",
+          "time": 1776606664,
+          "parent": 47824114,
+          "text": "CDN wouldn't help much. These days browsers partition caches by origin, so if two different tools (running on different domains) fetch the same model from the CDN, the browser would download it twice.",
+          "kids": [
+            {
+              "id": 47825637,
+              "by": "cjbgkagh",
+              "time": 1776617509,
+              "parent": 47824307,
+              "text": "Did not know that. That sounds extraordinary wasteful, there must be a file hash based method that would allow sharing such files between domains.",
+              "kids": [
+                {
+                  "id": 47826383,
+                  "by": "faangguyindia",
+                  "time": 1776622827,
+                  "parent": 47825637,
+                  "text": "It offers security.\n\nJust like you wouldn't use same table in your system for all users in a multi tenant application.",
+                  "kids": [
+                    {
+                      "id": 47826416,
+                      "by": "cjbgkagh",
+                      "time": 1776623071,
+                      "parent": 47826383,
+                      "text": "If the file is hashed strongly enough then it can be no other file. I can see how information on previous sites visited can be leaked and how this could be bad but I think whitelisting by end users could still allow some files to be used. E.g. the code for react.",
+                      "kids": [
+                        {
+                          "id": 47832867,
+                          "by": "stavros",
+                          "time": 1776685219,
+                          "parent": 47826416,
+                          "text": "The fact that you don't see it doesn't mean it doesn't exist. I make up a unique file, put it on site X and ask your browser to cache it. I try to load the same file on site Y and time how long it takes. If it's instant, site Y knows you visited site X.\n\nTadaaa! Tracking.",
+                          "kids": [
+                            {
+                              "id": 47832960,
+                              "by": "cjbgkagh",
+                              "time": 1776685812,
+                              "parent": 47832867,
+                              "text": "I said I ‘can see’ I already understand that. Hence the whitelisting on files that are not unique / created for this purpose.",
+                              "kids": [
+                                {
+                                  "id": 47832970,
+                                  "by": "stavros",
+                                  "time": 1776685865,
+                                  "parent": 47832960,
+                                  "text": "Ah, my bad, sorry.",
+                                  "kids": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": 47825937,
+                  "by": "thornewolf",
+                  "time": 1776619606,
+                  "parent": 47825637,
+                  "text": "it's a security feature. otherwise my malicious site could check for cdn.sensitivephotoswebsite.com and blackmail you if it was cached already",
+                  "kids": [
+                    {
+                      "id": 47825965,
+                      "by": "cjbgkagh",
+                      "time": 1776619791,
+                      "parent": 47825937,
+                      "text": "It would be nice if there was a whitelist option for non-sensitive content. I stopped using cdn links due to the overhead of the extra domain lookups but I did think that my self hosted content would be cached across domains.",
+                      "kids": [
+                        {
+                          "id": 47831600,
+                          "by": "onion2k",
+                          "time": 1776673426,
+                          "parent": 47825965,
+                          "text": "It would be nice if there was a whitelist option for non-sensitive content.\n\nThere's no such thing as non-sensitive content from a CDN though. Scripts are obviously sensitive, styles can be used to exfiltrate data through background-url directives, and anything like images has no benefit being cached across sites.\n\nFonts might be one exception, but I bet those are exploitable somehow.",
+                          "kids": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": 47827480,
+                      "by": "pyrolistical",
+                      "time": 1776631390,
+                      "parent": 47825937,
+                      "text": "Seem like a solvable problem. Per origin cache control. But actually just load the data locally",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47824476,
+          "by": "embedding-shape",
+          "time": 1776608214,
+          "parent": 47824114,
+          "text": "Adding a file input where users can upload files to the frontend directly from their file manager would probably work as a stop-gap measure, for the ones who want something quick that let people manage their own \"cache\" of model files.",
+          "kids": []
+        },
+        {
+          "id": 47824927,
+          "by": "logicallee",
+          "time": 1776611846,
+          "parent": 47824114,
+          "text": "Would you be okay with it using your upload at the same time, then a p2p model would work.  (This is potentially a good match for p2p because edge connections are very fast, they don't have to go across the whole Internet).  You could be downloading from uploaders in your region. Let me know if you would be okay with uploading at the same time, then this model works and I can build it for you for people to use this way.",
+          "kids": []
+        },
+        {
+          "id": 47824123,
+          "by": "Rekindle8090",
+          "time": 1776604874,
+          "parent": 47824114,
+          "text": "What? downloaded for me at 2gbps",
+          "kids": [
+            {
+              "id": 47824151,
+              "by": "hhthrowaway1230",
+              "time": 1776605096,
+              "parent": 47824123,
+              "text": "Ah let me clarify, many of the in the browser demos make me download certain models even if I already have them It would be great if there was a way that I don't have to redownload them across demos so that I just have a cache. or an in browser model manager. hope this makes sense.\n\nOr indeed use some sort of huggingface model downloader (if that exist with XET)",
+              "kids": [
+                {
+                  "id": 47824615,
+                  "by": "varun_ch",
+                  "time": 1776609303,
+                  "parent": 47824151,
+                  "text": "I think this would sit best at the browser level. I’m not sure there’s a nice way for multiple websites to share a cache like that.",
+                  "kids": []
+                },
+                {
+                  "id": 47824166,
+                  "by": "hhthrowaway1230",
+                  "time": 1776605205,
+                  "parent": 47824151,
+                  "text": "also maybe a good usecase to finally have P2P web torrents :)",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47824157,
+              "by": "hhthrowaway1230",
+              "time": 1776605129,
+              "parent": 47824123,
+              "text": "Yeah that's great but I'm in a cafe outside burning my phone data. ty!",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47828721,
+      "by": "busssard",
+      "time": 1776641707,
+      "parent": 47823460,
+      "text": "no firefox? sad :(",
+      "kids": []
+    },
+    {
+      "id": 47840897,
+      "by": "moralestapia",
+      "time": 1776719769,
+      "parent": 47823460,
+      "text": "I, for one, welcome this new trend of Gigabyte-sized websites.",
+      "kids": []
+    },
+    {
+      "id": 47823998,
+      "by": "COOLmanYT",
+      "time": 1776603693,
+      "parent": 47823460,
+      "text": "no firefox support?",
+      "kids": [
+        {
+          "id": 47824715,
+          "by": "teamchong",
+          "time": 1776610027,
+          "parent": 47823998,
+          "text": "firefox has webgpu already, but the subgroups extension isn't in yet. every matmul / softmax kernel here leans on subgroupShuffleXor for reductions, that's the blocker. same reason mlc webllm and friends don't run on firefox either. once mozilla ships it this should work",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47829409,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47823853,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}

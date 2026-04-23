@@ -1,0 +1,1756 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47866913,
+    "title": "Over-editing refers to a model modifying code beyond what is necessary",
+    "points": 347,
+    "descendants": 193,
+    "article_url": "https://nrehiew.github.io/blog/minimal_editing/",
+    "hn_url": "https://news.ycombinator.com/item?id=47866913",
+    "self_post": false
+  },
+  "story": {
+    "id": 47866913,
+    "title": "Over-editing refers to a model modifying code beyond what is necessary",
+    "url": "https://nrehiew.github.io/blog/minimal_editing/",
+    "by": "pella",
+    "score": 347,
+    "time": 1776880277,
+    "descendants": 194,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47870179,
+      "by": "hathawsh",
+      "time": 1776897196,
+      "parent": 47866913,
+      "text": "I'm either in a minority or a silent majority. Claude Code surpasses all my expectations. When it makes a mistake like over-editing, I explain the mistake, it fixes it, and I ask it to record what it learned in the relevant project-specific skills. It rarely makes that mistake again. When the skill file gets big, I ask Claude to clean and compact it. It does a great job.\n\nIt doesn't really make sense economically for me to write software for work anymore. I'm a teacher, architect, and infrastructure maintainer now. I hand over most development to my experienced team of Claude sessions. I review everything, but so does Claude (because Claude writes thorough tests also.) It has no problem handling a large project these days.\n\nI don't mean for this post to be an ad for Claude. (Who knows what Anthropic will do to Claude tomorrow?) I intend for this post to be a question: what am I doing that makes Claude profoundly effective?\n\nAlso, I'm never running out of tokens anymore. I really only use the Opus model and I find it very efficient with tokens. Just last week I landed over 150 non-trivial commits, all with Claude's help, and used only 1/3 of the tokens allotted for the week. The most commits I could do before Claude was 25-30 per week.\n\n(Gosh, it's hard to write that without coming across as an ad for Anthropic. Sorry.)",
+      "kids": [
+        {
+          "id": 47870531,
+          "by": "Swizec",
+          "time": 1776900178,
+          "parent": 47870179,
+          "text": "> I'm either in a minority or a silent majority. Claude Code surpasses all my expectations.\n\nI looked at some stats yesterday and was surprised to learn Cursor AI now writes 97% of my code at work. Mostly through cloud agents (watching it work is too distracting for me)\n\nMy approach is very simple: Just Talk To It\n\nPeople way overthink this stuff. It works pretty good. Sharing .md files and hyperfocusing on various orchestrations and prompt hacks of the week feels as interesting as going deep on vim shortcuts and IDE skins.\n\nJust ask for what you want, be clear, give good feedback. That’s it",
+          "kids": [
+            {
+              "id": 47873088,
+              "by": "theshrike79",
+              "time": 1776929608,
+              "parent": 47870531,
+              "text": "[delayed]",
+              "kids": []
+            },
+            {
+              "id": 47872803,
+              "by": "TranquilMarmot",
+              "time": 1776926250,
+              "parent": 47870531,
+              "text": "Right - I have a ton of coworkers who obsess over \"skills\" and different ways to run agents and whatnot but I just... spend some time to give very thorough, detailed instructions and it just Does The Thing. I rarely fight with Claude Code these days.",
+              "kids": []
+            },
+            {
+              "id": 47872558,
+              "by": "shinycode",
+              "time": 1776922597,
+              "parent": 47870531,
+              "text": "I agree it works nicely for me. \nFrom my experience it’s not realistic to expect one-shot each time. But asking it to build chunks and entering a review cycle with nudging works well. Once I changed my mindset from it « didn’t do a one-shot so it’s crap » and took it as an iterative tool that build pieces that I assemble it’s been working nicely without external frameworks or anything. Plan-review, iterate, split, build, review iterate",
+              "kids": []
+            },
+            {
+              "id": 47872604,
+              "by": "Foobar8568",
+              "time": 1776923321,
+              "parent": 47870531,
+              "text": "My experience as well on non trivial stuff for personal projects, just talk... \nIt makes mistakes but considering the code I see in professionnal settings, I rather deal with an agent than third parties.",
+              "kids": []
+            },
+            {
+              "id": 47871683,
+              "by": "WatchDog",
+              "time": 1776911431,
+              "parent": 47870531,
+              "text": "How do you collect these stats?\n\nIs it by characters human typed vs AI generated, or by commit or something?",
+              "kids": [
+                {
+                  "id": 47872166,
+                  "by": "Swizec",
+                  "time": 1776917252,
+                  "parent": 47871683,
+                  "text": "> How do you collect these stats?\n\nCursor dashboard. I know they're incentivized to over-estimate but feels directionally accurate when I look at recent PRs.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47870569,
+              "by": "hathawsh",
+              "time": 1776900518,
+              "parent": 47870531,
+              "text": "I love the IDE skins analogy. Very true.",
+              "kids": [
+                {
+                  "id": 47871308,
+                  "by": "acessoproibido",
+                  "time": 1776907163,
+                  "parent": 47870569,
+                  "text": "Everyone knows that a red UI skin goes faster",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47871155,
+              "by": "anabis",
+              "time": 1776905810,
+              "parent": 47870531,
+              "text": "Are you mostly using the Composer model?",
+              "kids": [
+                {
+                  "id": 47871184,
+                  "by": "Swizec",
+                  "time": 1776906082,
+                  "parent": 47871155,
+                  "text": "> Are you mostly using the Composer model?\n\nDon’t really think about it. I think when I talk to it through Slack, cursor users codex, in my ide looks like it’s whatever highest claude. In Github comments, who even knows",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47870783,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872886,
+          "by": "nicbou",
+          "time": 1776927392,
+          "parent": 47870179,
+          "text": "Same. It's surprisingly good as a labour saving device. It produces code that I would accept without reservations from a coworker. I still read every line and make tweaks, but they're the same tweaks I would ask for in a code review.\n\nI don't measure my productivity, but I see it in the sort of tasks I tackle after years of waiting. It's especially good at tedious tasks like turning 100 markdown files into 5 json files and updating the code that reads them, for example.",
+          "kids": []
+        },
+        {
+          "id": 47870558,
+          "by": "maxbond",
+          "time": 1776900445,
+          "parent": 47870179,
+          "text": "When I see people talking about Claude Code becoming \"unusable\" for them recently, I believe them, but I don't understand. It's a deeply flawed and buggy piece of software but it's very effective. One of the strangest things about AI to me is that everyone seems to have a radically different experience.",
+          "kids": [
+            {
+              "id": 47872137,
+              "deleted": true,
+              "kids": []
+            },
+            {
+              "id": 47870778,
+              "by": "shimman",
+              "time": 1776902269,
+              "parent": 47870558,
+              "text": "My workflow is to just use LLMs for small context work. Anything that involves multiple files it truly doesn't do better than what I'd expect from a competent dev.\n\nIt's bitten me several times at work, and I rather not waste any more of my limited time doing the re-prompt -> modify code manually cycle. I'm capable of doing this myself.\n\nIt's great for the simple tasks tho, most feature work are simple tasks IMO. They were only \"costly\" in the sense that it took a while to previously read the code, find appropriate changes, create tests for appropriate changes, etc. LLMs reduce that cycle of work, but that type of work in general isn't the majority of my time at my job.\n\nI've worked at feature factories before, it's hell. I can't imagine how much more hell it has become since the introduction of these tools.\n\nFeature factories treat devs as literal assembly line machines, output is the only thing that matters not quality. Having it mass induced because of these tools is just so shitty to workers.\n\nI fully expect a backlash in the upcoming years.\n\n---\n\nMy only Q to the OP of this thread is what kind of teacher they are, because if you teach people anything about software while admitting that you no longer write code because it's not profitable (big LOL at caring about money over people) is just beyond pathetic.",
+              "kids": []
+            },
+            {
+              "id": 47870628,
+              "by": "enraged_camel",
+              "time": 1776900992,
+              "parent": 47870558,
+              "text": "I use it through the desktop app, which has a lot of features I appreciate. Today it was implementing a feature. It came across a semi-related bug that wasn’t a stopper but should really be fixed before go live. Instead of tackling it itself or mentioning it at the final summary (where it becomes easy to miss), it triggered a modal inside the Claude app with a description of the issue and two choices: fix in another session or fix in current session. Really good way to preserve context integrity and save tokens!",
+              "kids": [
+                {
+                  "id": 47871350,
+                  "by": "sroussey",
+                  "time": 1776907632,
+                  "parent": 47870628,
+                  "text": "How to you get CC to connect to your dev container? I have the CC app but it’s kinda useless as I’m not have it barebacking my system, so I’m left with the cli and vs code extension.",
+                  "kids": [
+                    {
+                      "id": 47872610,
+                      "by": "gommm",
+                      "time": 1776923424,
+                      "parent": 47871350,
+                      "text": "I just run CC in a VM. It gets full control over the VM. The VM doesn't have access to my internal networks. I share the code repos it works on over virtiofs so it has access to the repos but doesn't have access to my github keys for pushing and pulling.\n\nThis means it can do anything in the VM, install dependencies, etc... So far, it managed to bork the VM once (unbootable), I could have spent a bit of time figuring out what happened but I had a script to rebuild the VM so didn't bother. To be entirely fair to claude, the VM runs arch linux which is definitely easier to break than other distros.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47870693,
+          "by": "rtpg",
+          "time": 1776901464,
+          "parent": 47870179,
+          "text": "Are you writing code that gets reviewed by other people? Were code reviews hard in the past? Do your coworkers care about \"code quality\" (I mean this in scare quotes because that means different things to different people).\n\nAre you working more on operational stuff or on \"long-running product\" stuff?\n\nMy personal headcanon: this tooling works well when built on simple patterns, and can handle complex work. This tooling has also been not great at coming up with new patterns, and if left unsupervised will totally make up new patterns that are going to go south very quickly. With that lens, I find myself just rewriting what Claude gives me in a good number of cases.\n\nI sometimes race the robot and beat the robot at doing a change. I am \"cheating\" I guess cuz I know what I want already in many cases and it has to find things first but... I think the futzing fraction[0] is underestimated for some people.\n\nAnd like in the \"perils of laziness lost\"[1] essay... I think that sometimes the machine trying too hard just offends my sensibilities. Why are you doing 3 things instead of just doing the one thing!\n\nOne might say \"but it fixes it after it's corrected\"... but I already go through this annoying \"no don't do A,B, C just do A, yes just that it's fine\" flow when working with coworkers, and it's annoying there too!\n\n\"Claude writes thorough tests\" is also its own micro-mess here, because while guided test creation works very well for me, giving it any leeway in creativity leads to so many \"test that foo + bar == bar + foo\" tests. Applying skepticism to utility of tests is important, because it's part of the feedback loop. And I'm finding lots of the test to be mainly useful as a way to get all the imports I need in.\n\nIf we have all these machines doing this work for us, in theory average code quality should be able to go up. After all we're more capable! I think a lot of people have been using it in a \"well most of the time it hits near the average\" way, but depending on how you work there you might drag down your average.\n\n[0]: https://blog.glyph.im/2025/08/futzing-fraction.html\n[1]: https://bcantrill.dtrace.org/2026/04/12/the-peril-of-lazines...",
+          "kids": [
+            {
+              "id": 47872639,
+              "by": "gommm",
+              "time": 1776923810,
+              "parent": 47870693,
+              "text": "> My personal headcanon: this tooling works well when built on simple patterns, and can handle complex work. This tooling has also been not great at coming up with new patterns, and if left unsupervised will totally make up new patterns that are going to go south very quickly. With that lens, I find myself just rewriting what Claude gives me in a good number of cases.\n\nI've been doing a greenfield project with Claude recently. The initial prototype worked but was very ugly (repeated duplicate boilerplate code, a few methods doing the same exact thing, poor isolation between classes)... I was very much tempted to rewrite it on my own. This time, I decided to try and get it to refactor so get the target architecture and fix those code quality issues, it's possible but it's very much like pulling teeths... I use plan mode, we have multiple round of reviews on a plan (that started based on me explaining what I expect), then it implements 95% of it but doesn't realize that some parts of it were not implemented... It reminds me of my experience mentoring a junior employee except that claude code is both more eager (jumping into implementation before understanding the problem), much faster at doing things and dumber.\n\nThat said, I've seen codebases created by humans that were as bad or worse than what claude produced when doing prototype.",
+              "kids": []
+            },
+            {
+              "id": 47870788,
+              "by": "hathawsh",
+              "time": 1776902368,
+              "parent": 47870693,
+              "text": "You hinted at an aspect I probably haven't considered enough: The code I'm working on already has many well-established, clean patterns and nearly all of Claude's work builds on those patterns. I would probably have a very different experience otherwise.",
+              "kids": [
+                {
+                  "id": 47872820,
+                  "by": "TranquilMarmot",
+                  "time": 1776926535,
+                  "parent": 47870788,
+                  "text": "We noticed this and spent a week or two going through and cleaning up tests, UI components, comments, and file layout to be a lot more consistent throughout the codebase. Codebase was not all AI written code - just many humans being messy and inconsistent over time as they onboard/offboard from the project.\n\nMuch like giving a codebase to a newbie developer, whatever patterns exist will proliferate and the lack of good patterns means that patterns will just be made up in an ad-hoc and messy way.",
+                  "kids": []
+                },
+                {
+                  "id": 47872773,
+                  "by": "chickensong",
+                  "time": 1776925873,
+                  "parent": 47870788,
+                  "text": "This is it right here. Claude loves to follow existing patterns, good or bad. Once you have a solid foundation, it really starts to shine.\n\nI think you're likely in the silent majority. LLMs do some stupid things, but when they work it's amazing and it far outweighs the negatives IMHO, and they're getting better by leaps and bounds.\n\nI respect some of the complaints against them (plagiarism, censorship, gatekeeping, truth/bias, data center arms race, crawler behavior, etc.), but I think LLMs are a leap forward for mankind (hopefully). A Young Lady's Illustrated Primer for everyone. An entirely new computing interface.",
+                  "kids": []
+                },
+                {
+                  "id": 47870963,
+                  "by": "rtpg",
+                  "time": 1776903887,
+                  "parent": 47870788,
+                  "text": "I legit think this is the biggest danger with velocity-focused usage of these tools. Good patterns are easy to use and (importantly!) work! So the 32nd usage of a good pattern will likely be smooth.\n\nThe first (and maybe even second) usage of a gnarly, badly thought out pattern might work fine. But you're only a couple steps away from if statement soup. And in the world where your agent's life is built around \"getting the tests to pass\", you can quickly find it doing _very_ gnarly things to \"fix\" issues.",
+                  "kids": [
+                    {
+                      "id": 47871393,
+                      "by": "sroussey",
+                      "time": 1776908055,
+                      "parent": 47870963,
+                      "text": "I’ve seen ai coding agents spin out and create 1_000 line changesets that I have to stop before they are 10_000. And then I look at the problem and change one line instead.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47872034,
+                  "by": "esalman",
+                  "time": 1776915603,
+                  "parent": 47870788,
+                  "text": "You haven't answered the question though. Are your code peer reviewed? Are they part of client-facing product? No offense, I like what you are doing, but I wouldn't risk delegation this much workload in my day job, even though there is a big push towards AI.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47870359,
+          "by": "swader999",
+          "time": 1776898542,
+          "parent": 47870179,
+          "text": "I feel the same way. Doesn't make sense economically or even in good faith for me to use company paid time writing code for line of business apps at anymore and I'm 28 years into this kind of work.",
+          "kids": []
+        },
+        {
+          "id": 47871937,
+          "by": "ytoawwhra92",
+          "time": 1776914186,
+          "parent": 47870179,
+          "text": "> I intend for this post to be a question: what am I doing that makes Claude profoundly effective?\n\nI'm fascinated by this question.\n\nI think the first two sections of this article point towards an answer: https://aphyr.com/posts/412-the-future-of-everything-is-lies...\n\nI've personally had radically different experiences working on different projects, different features within the same project, etc.",
+          "kids": []
+        },
+        {
+          "id": 47872179,
+          "by": "leonidasv",
+          "time": 1776917448,
+          "parent": 47870179,
+          "text": "The article has a benchmark and Opus has best score in two categories and the second-best in another (there are only three categories). Opus is probably the best choice when it comes to producing readable code right now. GPT (for example) lags way behind.",
+          "kids": [
+            {
+              "id": 47872456,
+              "by": "baq",
+              "time": 1776921321,
+              "parent": 47872179,
+              "text": "Anecdotally it’s the exact opposite for me: gpt 5.4 is leagues ahead of opus for the kind of backend work I do. Opus keeps making stupid mistakes while overengineering the irrelevant parts. However when I have to work on the backoffice ui, I still pick opus.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47870564,
+          "by": "Unbeliever69",
+          "time": 1776900488,
+          "parent": 47870179,
+          "text": "I think a lot of use have implemented our own ad hoc self-improvement checks into our agentic workflows. My observations are the same as yours.",
+          "kids": []
+        },
+        {
+          "id": 47872870,
+          "by": "nobodywillobsrv",
+          "time": 1776927175,
+          "parent": 47870179,
+          "text": "How much does it cost though?\n\nThis is the problem.\n\nI think there is a huge gap between people on salaries getting effectively more responsibility by being given spend that they otherwise would not have had and people hustling on projects on their own.\n\nYes it is 100% what I use but I am never happy with usage. It burns up by sub fast and there is little feelings of control. Experiments like using lower tier models are hard to understand in reality. Graphify might work or it might not. I have no idea.",
+          "kids": []
+        },
+        {
+          "id": 47870361,
+          "by": "Powdering7082",
+          "time": 1776898563,
+          "parent": 47870179,
+          "text": "Is your claude.md, skills or other settings that you have honed public?",
+          "kids": [
+            {
+              "id": 47870411,
+              "by": "hathawsh",
+              "time": 1776898925,
+              "parent": 47870361,
+              "text": "Sorry, no, and they're highly project specific anyway. I just started with the \"/init\" skill a few weeks ago and gradually improved it from there.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47870419,
+          "by": "p1necone",
+          "time": 1776899000,
+          "parent": 47870179,
+          "text": "Which subscription tier are you using?",
+          "kids": [
+            {
+              "id": 47870438,
+              "by": "hathawsh",
+              "time": 1776899262,
+              "parent": 47870419,
+              "text": "I'm on the $200/month max plan.",
+              "kids": [
+                {
+                  "id": 47871051,
+                  "by": "p1necone",
+                  "time": 1776904755,
+                  "parent": 47870438,
+                  "text": "Makes sense, maybe it is worth it...",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47872439,
+          "by": "baq",
+          "time": 1776921091,
+          "parent": 47870179,
+          "text": "Wait till you try codex so you don’t have to keep saying ‘don’t be lazy’",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867253,
+      "by": "jstanley",
+      "time": 1776881833,
+      "parent": 47866913,
+      "text": "Conversely, I often find coding agents privileging the existing code when they could do a much better job if they changed it to suit the new requirement.\n\nI guess it comes down to how ossified you want your existing code to be.\n\nIf it's a big production application that's been running for decades then you probably want the minimum possible change.\n\nIf you're just experimenting with stuff and the project didn't exist at all 3 days ago then you want the agent to make it better rather than leave it alone.\n\nProbably they just need to learn to calibrate themselves better to the project context.",
+      "kids": [
+        {
+          "id": 47867859,
+          "by": "_pastel",
+          "time": 1776884705,
+          "parent": 47867253,
+          "text": "The tradeoff is highly contextual; it's not a tradeoff an agent can always make by inspecting the project themselves.\n\nEven within the same project, for a given PR, there are some parts of the codebase I want to modify freely and some that I want fixed to reduce the diff and testing scope.\n\nI try to explain up-front to the agent how aggressively they can modify the existing code and which parts, but I've had mixed success; usually they bias towards a minimal diff even if that means duplication or abusing some abstractions.   If anyone has had better success, I'd love to hear your approach.",
+          "kids": [
+            {
+              "id": 47868922,
+              "by": "mncharity",
+              "time": 1776889886,
+              "parent": 47867859,
+              "text": "Just brainstorming, but perhaps a more tangible gradient, with social backpressure?\nImagine three identical patch tools: \"patch\", \"submit patch\", and \"send patch to chief architect and wait\". With the \"where each can be used\" explained or even enforced. Having the contrast of less-aggressive options, might make it easier to encourage more aggressive refactoring elsewhere. Or pushing the impact further up the CoT, \"patch'ing X requires an analysis field describing less invasive alternatives and their un/suitability; for Y, just do it, refactor aggressively\".",
+              "kids": []
+            },
+            {
+              "id": 47872771,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47870065,
+          "by": "jauntywundrkind",
+          "time": 1776896462,
+          "parent": 47867253,
+          "text": "To get the agent to think for itself sometimes it feels like I have to delete a bunch of code and markdown first. Instruction to refactor/reconsider broadly has such mild success, I find.\n\nI'll literally run an agent & tell it to clean up a markdown file that has too much design in it, delete the technical material, and/or delete key implementations/interfaces in the source, then tell a new session to do the work, come up with the design. (Then undelete and reconcile with less naive sessions.)\n\nPath dependence is so strong. Right now I do this flow manually but I would very much like to codify this, make a skill for this pattern that serves so well.",
+          "kids": []
+        },
+        {
+          "id": 47870378,
+          "by": "jdkoeck",
+          "time": 1776898689,
+          "parent": 47867253,
+          "text": "Tell me you’re using Codex without telling me you’re using Codex :)",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868297,
+      "by": "foo12bar",
+      "time": 1776886876,
+      "parent": 47866913,
+      "text": "I've noticed AI's often try and hide failure by catching exceptions and returning some dummy value maybe with some log message buried in tons of extraneous other log messages. And the logs themselves are often over abbreviated and missing key data to successfully debug what is happening.\n\nI suspect AI's learned to do this in order to game the system. Bailing out with an exception is an obvious failure and will be penalized, but hiding a potential issue can sometimes be regarded as a success.\n\nI wonder how this extrapolates to general Q&A. Do models find ways to sound convincing enough to make the user feels satisfied and the go away? I've noticed models often use \"it's not X, it's Y\", which is a binary choice designed to keep the user away from thinking about other possibilities. Also they often come up with a plan of action at the end of their answer, a sales technique known as the  \"assumptive close\", which tries to get the user to think about the result after agreeing with the AI, rather than the answer itself.",
+      "kids": [
+        {
+          "id": 47871026,
+          "by": "hexaga",
+          "time": 1776904491,
+          "parent": 47868297,
+          "text": "AI behavior is pretty easy to understand and predict if you view it from the lens of: they will shamelessly do any/everything possible to game whatever metric they are trained on. Because... that's how hill-climbing a metric looks. It's A/B enshittification taken to inscrutable heights.\n\nThey are trained on human feedback, so there is no other way this goes. Every bit of every response is pointed toward subversion of the assumed evaluator.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867899,
+      "by": "Isolated_Routes",
+      "time": 1776884921,
+      "parent": 47866913,
+      "text": "I think building something really well with AI takes a lot of work. You can certainly ask it to do things and it will comply, and produce something pretty good. But you don't know what you don't know, especially when it speaks to you authoritatively. So checking its work from many different angles and making sure it's precise can be a challenge. Will be interesting to see how all of this iterates over time.",
+      "kids": [
+        {
+          "id": 47867957,
+          "by": "deepfriedbits",
+          "time": 1776885246,
+          "parent": 47867899,
+          "text": "I agree 100%. At the same time, I feel like this piece, and our comments on it are snapshots in time because of the rate of advancement in the industry. These coding models are already significantly better than they were even nine months ago.\n\nI can't help but read complaints about the capabilities of AI – and I'm certainly not accusing you of complaining about AI, just a general thought – and think \"Yet\" to myself every time.",
+          "kids": [
+            {
+              "id": 47868067,
+              "by": "Isolated_Routes",
+              "time": 1776885732,
+              "parent": 47867957,
+              "text": "Exactly! I completely agree. I think figuring out how to use this new tool well develop into a bit of an art form, which we will race to keep up with.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47868442,
+          "by": "ValentineC",
+          "time": 1776887712,
+          "parent": 47867899,
+          "text": "> But you don't know what you don't know, especially when it speaks to you authoritatively. So checking its work from many different angles and making sure it's precise can be a challenge.\n\nI've spent far more time pitting one AI context against another (reviewing each other's work) than I have using AI to build stuff these days.\n\nThe benefit is that since it mostly happens asynchronously, I'm free to do other stuff.",
+          "kids": []
+        },
+        {
+          "id": 47870647,
+          "by": "mleo",
+          "time": 1776901102,
+          "parent": 47867899,
+          "text": "If I don’t know what I don’t know, how am I going to build something any better than a coding agent? \nAn approach on a couple of projects has been to prototype with the agent, learn, write a design and then start over. I then know the areas to look into more detail.",
+          "kids": []
+        },
+        {
+          "id": 47871027,
+          "by": "nunez",
+          "time": 1776904512,
+          "parent": 47867899,
+          "text": "Yep. It's quite good at getting you to 80% of the solution. The other 20% depends on the problem!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867281,
+      "by": "anonu",
+      "time": 1776881979,
+      "parent": 47866913,
+      "text": "Here, the author means the agent over-edits code. But agents also do \"too much\": as in they touch multiple files, run tests, do deployments, run smoke tests, etc... And all of this gets abstracted away. On one hand, its incredible. But on the other hand I have deep anxiety over this:\n\n1. I have no real understanding of what is actually happening under the hood. The ease of just accepting a prompt to run some script the agent has assembled is too enticing. But, I've already wiped a DB or two just because the agent thought it was the right thing to do. I've also caught it sending my AWS credentials to deployment targets when it should never do that.\n\n2. I've learned nothing. So the cognitive load of doing it myself, even assembling a simple docker command, is just too high. Thus, I repeatedly fallback to the \"crutch\" of using AI.",
+      "kids": [
+        {
+          "id": 47867330,
+          "by": "ok_dad",
+          "time": 1776882218,
+          "parent": 47867281,
+          "text": "Why are you letting the LLM drive? Don't turn on auto-approve, approve every command the agent runs. Don't let it make design or architecture decisions, you choose how it is built and you TELL that clanker what's what! No joke, if you treat the AI like a tool then you'll get more mileage out of it. You won't get 10x gains, but you will still understand the code.",
+          "kids": [
+            {
+              "id": 47867765,
+              "by": "soiltype",
+              "time": 1776884284,
+              "parent": 47867330,
+              "text": "Personally I've found \"carefully review every move it makes\" to be an extremely unpleasant and difficult workflow. The effort needed to parse every action is immense, but there's a complete absence of creative engagement - no chance of flow state. Just the worst kind of work which I've been unable to sustain, unfortunately. At this point I mostly still do work by hand.",
+              "kids": [
+                {
+                  "id": 47869311,
+                  "by": "est31",
+                  "time": 1776892142,
+                  "parent": 47867765,
+                  "text": "It's unpleasant for me at normal speed settings, but on fast mode it works really well: the AI does changes quickly enough for me to stay focused.\n\nOf course this requires being fortunate enough that you have one of those AI positive employers where you can spend lots of money on clankers.\n\nI don't review every move it makes, I rather have a workflow where I first ask it questions about the code, and it looks around and explores various design choices. then i nudge it towards the design choice I think is best, etc. That asking around about the code also loads up the context in the appropriate manner so that the AI knows how to do the change well.\n\nIt's a me in the loop workflow but that prevents a lot of bugs, makes me aware of the design choices, and thanks to fast mode, it is more pleasant and much faster than me manually doing it.",
+                  "kids": []
+                },
+                {
+                  "id": 47868927,
+                  "by": "lambda",
+                  "time": 1776889893,
+                  "parent": 47867765,
+                  "text": "This is my biggest problem with the promises of agentic coding (well, there are an awful lot of problems, but this is the biggest one from an immediate practical perspective).\n\nOne the one hand, reviewing and micromaning everything it does is tedious and unrewarding. Unlike reviewing a colleague's code, you're never going to teach it anything; maybe you'll get some skills out of it if you finds something that comes up often enough it's worth writing a skill for. And this only gets you, at best, a slight speedup over writing it yourself, as you have to stay engaged and think about everything that's going on.\n\nOr you can just let it grind away agentically and only test the final output. This allows you to get those huge gains at first, but it can easily just start accumulating more and more cruft and bad design decisions and hacks on top of hacks. And you increasingly don't know what it's doing or why, you're losing the skill of even being able to because you're not exercising it.\n\nYou're just building yourself a huge pile of technical debt. You might delete your prod database without realizing it. You might end up with an auth system that doesn't actually check the auth and so someone can just set a username of an admin in a cookie to log in. Or whatever; you have no idea, and even if the model gets it right 95% of the time, do you want to be periodically rolling a d20 and if you get a 1 you lose everything?",
+                  "kids": []
+                },
+                {
+                  "id": 47867908,
+                  "by": "JoshTriplett",
+                  "time": 1776884949,
+                  "parent": 47867765,
+                  "text": "I agree, but I also think that giving the LLM free rein is also extremely unpleasant and difficult. And you still need to review the resulting code.",
+                  "kids": [
+                    {
+                      "id": 47868828,
+                      "by": "soiltype",
+                      "time": 1776889435,
+                      "parent": 47867908,
+                      "text": "I don't think there's anything difficult or unpleasant about the process of letting the LLM run free, that's the whole point, it's nearly frictionless. Which includes not reviewing the code carefully. You say \"need\" but you mean \"ought\".",
+                      "kids": [
+                        {
+                          "id": 47869243,
+                          "by": "JoshTriplett",
+                          "time": 1776891764,
+                          "parent": 47868828,
+                          "text": "Friction is not the only source of displeasure. I've tried out vibe-coding for something non-trivial; I found it deeply unpleasant.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": 47870276,
+                  "by": "tabwidth",
+                  "time": 1776897932,
+                  "parent": 47867765,
+                  "text": "Reviewing isn't hard when the diff is what you asked for. It's when you asked for a one-line fix and get back 40 changed lines across four files. At that point you're not even reviewing your change anymore, you're auditing theirs.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868514,
+              "by": "Lihh27",
+              "time": 1776888074,
+              "parent": 47867330,
+              "text": "That's the trap though. The moment you approve every step, you're no longer getting the product that was sold to you. You're doing code review on a stochastic intern. The whole 10x story depends on you eventually looking away.",
+              "kids": [
+                {
+                  "id": 47869913,
+                  "by": "ok_dad",
+                  "time": 1776895617,
+                  "parent": 47868514,
+                  "text": "Just don’t buy the tools for 10x improvements, buy them for the 1.1x improvement and the help it gives with the annoying stuff like refactoring arguments to a function that’s used all over, writing tests, etc. They can also help reduce cognitive load in certain ways when you just use them to ask about your large code base.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868089,
+              "by": "threatofrain",
+              "time": 1776885831,
+              "parent": 47867330,
+              "text": "Because the degree to which the LLM prompts you back to the terminal is too frequent for the human to engage in parallel work.",
+              "kids": [
+                {
+                  "id": 47869937,
+                  "by": "ok_dad",
+                  "time": 1776895721,
+                  "parent": 47868089,
+                  "text": "I’m basically saying don’t do parallel work, use it as a tool. Just sit there and watch it do stuff, make sure it’s doing what you want, and stop it if it’s doing too much or not what you want to do.\n\nMaybe I’m just weird (actually that’s a given) but I don’t mind babysitting the clanker while it works.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869726,
+              "by": "sornaensis",
+              "time": 1776894603,
+              "parent": 47867330,
+              "text": "I define tools that perform individual tasks, like build the application, run the tests, access project management tools with task context, web search, edit files in the workspace, read only vs write access source control, etc.\n\nThe agent only has access to exactly what it needs, be it an implementation agent, analysis agent, or review agent.\n\nMakes it very easy to stay in command without having to sit and approve tons of random things the agent wants to do.\n\nI do not allow bash or any kind of shell. I don't want to have to figure out what some random python script it's made up is supposed to do all the time.",
+              "kids": [
+                {
+                  "id": 47869892,
+                  "by": "ok_dad",
+                  "time": 1776895470,
+                  "parent": 47869726,
+                  "text": "This is a cool idea, can you write more about how your tools work or maybe short descriptions of a few of them? I’m interested in more rails for my bots.",
+                  "kids": [
+                    {
+                      "id": 47870013,
+                      "by": "sornaensis",
+                      "time": 1776896185,
+                      "parent": 47869892,
+                      "text": "I just made MCP servers that wrap the tools I need the agents to use, and give no-ask permissions to the specific tools the agents need in the agent definition.\n\nBoth OpenCode and VsCode support this. I think in ClaudeCode you can do it with skills now.\n\nThe other benefit is the MCP tool can mediate e.g. noisy build tool output, and reduce token usage by only showing errors or test failures, nothing else, or simply an ok response with the build run or test count.\n\nSo far, I have not needed to give them access to more than build tools, git, and a project/knowledge system (e.g. Obsidian) for the work I have them doing. Well and file read/write and web search.",
+                      "kids": [
+                        {
+                          "id": 47871853,
+                          "by": "ok_dad",
+                          "time": 1776913353,
+                          "parent": 47870013,
+                          "text": "Cool, thanks for the additional details!\n\nI use Cursor but it's getting expensive lately, so I'm trying to reduce context size and move to OpenCode or something like that which I can use with some cheaper provider and Kimi 2.5 or whatever.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47867806,
+              "by": "andoando",
+              "time": 1776884457,
+              "parent": 47867330,
+              "text": "Because its SO much faster not to have to do all that. I think 10x is no joke, and if you're doing MVP, its just not worth the mental effort.",
+              "kids": [
+                {
+                  "id": 47869153,
+                  "by": "pron",
+                  "time": 1776891193,
+                  "parent": 47867806,
+                  "text": "POC, sure (although 10x-ing a POC doesn't actually get you 10x velocity). MVP, though? No way. Today's frontier models are nowhere near smart enough to write a non-trivial product (i.e. something that others are meant to use), minimal or otherwise, without careful supervision. Anthropic weren't able to get agents to write even a usable C compiler (not a huge deal to begin with), even with a practically infeasible amount of preparatory work (write a full spec and a reference implementation, train the model on them as well as on relevant textbooks, write thousands of tests). The agents just make too many critical architectural mistakes that pretty much guarantee you won't be able to evolve the product for long, with or without their help. The software they write has an evolution horizon between zero days and about a year, after which the codebase is effectively bricked.",
+                  "kids": [
+                    {
+                      "id": 47869644,
+                      "by": "andoando",
+                      "time": 1776894114,
+                      "parent": 47869153,
+                      "text": "There is a million things in between a C compiler and a non-trivial product. They do make a ton of horrible architectural decisions, but I only need to review the output/ask questions to guide that, not review every diff.",
+                      "kids": [
+                        {
+                          "id": 47870094,
+                          "by": "pron",
+                          "time": 1776896674,
+                          "parent": 47869644,
+                          "text": "A C compiler is a 10-50KLOC job, which the agents bricked in 0 days despite a full spec and thousands of hand-written tests, tests that the software passed until it collapsed beyond saving. Yes, smaller products will survive longer, but how would you know about the time bombs that agents like hiding in their code without looking? When I review the diffs I see things that, if had let in, the codebase would have died in 6-18 months.\n\nBTW, one tip is to look at the size of the codebase. When you see 100KLOC for a first draft of a C compiler, you know something has gone horribly wrong. I would suggest that you at least compare the number of lines the agent produced to what you think the project should take. If it's more than double, the code is in serious, serious trouble. If it's in the <1.5x range, there's a chance it could be saved.\n\nAsking the agent questions is good - as an aid to a review, not as a substitute. The agents lie with a high enough frequency to be a serious problem.\n\nThe models don't yet write code anywhere near human quality, so they require much closer supervision than a human programmer.",
+                          "kids": []
+                        },
+                        {
+                          "id": 47870064,
+                          "by": "sarchertech",
+                          "time": 1776896454,
+                          "parent": 47869644,
+                          "text": "A C compiler with an existing C compiler as oracle, existing C compilers in the training set, and a formal spec, is already the easiest possible non-trivial product an agent could build without human review.\n\nYou could have it build something that takes fewer lines of code, but you aren’t gonna to find much with that level of specification and guardrails.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47867547,
+              "deleted": true,
+              "kids": []
+            },
+            {
+              "id": 47869350,
+              "by": "sdevonoes",
+              "time": 1776892342,
+              "parent": 47867330,
+              "text": "For that kind of flow, I prefer to work without AI.",
+              "kids": [
+                {
+                  "id": 47869954,
+                  "by": "ok_dad",
+                  "time": 1776895832,
+                  "parent": 47869350,
+                  "text": "The agent mostly helps me reduce cognitive load and avoid the fiddly bits. I still review and understand all of the code but I don’t have to think about writing all of it. I also still hand write tons of code when I want to be very specific about behavior.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47867951,
+              "by": "applfanboysbgon",
+              "time": 1776885225,
+              "parent": 47867330,
+              "text": "This is significantly slower than just writing the code yourself.",
+              "kids": [
+                {
+                  "id": 47869971,
+                  "by": "ok_dad",
+                  "time": 1776895933,
+                  "parent": 47867951,
+                  "text": "I don’t find it slower overall, personally, but YMMV depending on how you like to tackle problems. Also the problem space and the project details can dictate that these tools aren’t helpful. Luckily the code I write tends to be perfect for a coding agent to clank away for me.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47867463,
+              "by": "giraffe_lady",
+              "time": 1776882805,
+              "parent": 47867330,
+              "text": "I agree with this too. I decided on constraints for myself around these tools and I give my complete focus & attention to every prompt, often stopping for minutes to figure things through and make decisions myself. Reviewing every line they produce. I'm a senior dev with a lot of experience with pair programming and code review, and I treat its output just as I would those tasks.\n\nIt has about doubled my development pace. An absolutely incredible gain in a vacuum, though tiny compared to what people seem to manage without these self-constraints. But in exchange, my understanding of the code is as comprehensive as if I had paired on it, or merged a direct report's branch into a project I was responsible for. A reasonable enough tradeoff, for me.",
+              "kids": []
+            },
+            {
+              "id": 47868186,
+              "by": "arjie",
+              "time": 1776886322,
+              "parent": 47867330,
+              "text": "I have never found any utility in that. After all, you can still just review the diffs and ask it for explanation for sections instead.",
+              "kids": [
+                {
+                  "id": 47868203,
+                  "by": "pavel_lishin",
+                  "time": 1776886420,
+                  "parent": 47868186,
+                  "text": "> After all, you can still just review the diffs\n\nanonu has explicitly said that they've wiped a database twice as a result of agents doing stuff. What sort of diff would help against an agent running commands, without your approval?",
+                  "kids": [
+                    {
+                      "id": 47870822,
+                      "by": "arjie",
+                      "time": 1776902646,
+                      "parent": 47868203,
+                      "text": "Agent does not have to run in your user context. It is easy mistake to make in yolo mode but after that it's easy to fix. e.g. this is what I use now so I can release agent from my machine and also constrain its access:\n\n    $ main-app git:(main) kubectl get pods | grep agent | head -n 1 | sed -E 's/[a-z]+-agent(.*)/app-agent\\1/'\n    app-agent-656c6ff85d-p86t8                          1/1     Running     0             13d\n\nAgent is fully capable of making PR etc. if you provide appropriate tooling. It wipes DB but DB is just separate ephemeral pod. One day perhaps it will find 0-day and break out, but so far it has not done it.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47868791,
+                      "by": "exe34",
+                      "time": 1776889311,
+                      "parent": 47868203,
+                      "text": "Hah I run my agent inside a docker with just the code. Anything clever it tries to do just goes nowhere.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47868412,
+                  "by": "ModernMech",
+                  "time": 1776887505,
+                  "parent": 47868186,
+                  "text": "> After all, you can still just review the diffs\n\nThe diff: +8000 -4000",
+                  "kids": [
+                    {
+                      "id": 47870935,
+                      "by": "arjie",
+                      "time": 1776903633,
+                      "parent": 47868412,
+                      "text": "You can ask it to make the changes in appropriate PRs. SOTA model + harness can do it. I find it useful to separate refactors and implementations, just like with humans, but I admittedly rely heavily on multi-provider review.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47867887,
+              "by": "wahnfrieden",
+              "time": 1776884878,
+              "parent": 47867330,
+              "text": "It’s terribly slow",
+              "kids": [
+                {
+                  "id": 47869995,
+                  "by": "ok_dad",
+                  "time": 1776896087,
+                  "parent": 47867887,
+                  "text": "I get it, but if tomorrow every inference provider doubled costs I still understand my applications code and can continue to work on it myself.",
+                  "kids": [
+                    {
+                      "id": 47870466,
+                      "by": "wahnfrieden",
+                      "time": 1776899553,
+                      "parent": 47869995,
+                      "text": "I hear this a lot but I don't think decades of experience atrophies irretrievably so quickly as to make it worth it (alone) to abstain from making full use of these tools. I still read and direct enough of the architecture to not be lost in the code it generates. Maybe you haven't tried using agents to reorganize/refactor as much - I have cleaner code than I did before when it was done by hand, because I can afford to tackle debts.\n\nI also don't find the permissions it prompts for very meaningful. Permission to use a file search tool? Permission to make a web request? It's a clumsy way to slow it down enough for me to catch up.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47868169,
+                  "by": "esafak",
+                  "time": 1776886222,
+                  "parent": 47867887,
+                  "text": "You can push thousands of LOC every day while approving manually. If you went any faster you would not be able to read the code.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47867419,
+          "by": "harikb",
+          "time": 1776882575,
+          "parent": 47867281,
+          "text": "On the credentials point. Here is what I find.\n\nDay 1: Carefully handles the creds, gives me a lecture (without asking) about why .env should be in .gitignore and why I should edit .env and not hand over the creds to it.\n\nDay 2: I ask for a repeat, has lost track of that skill or setting, frantically searches my entire disk, reads .env including many other files, understands that it is holding a token, manually creates curl commands to test the token and then comes back with some result.\n\nIt is like it is a security expert on Day 1 and absolute mediocre intern on Day 2",
+          "kids": [
+            {
+              "id": 47867658,
+              "by": "eterm",
+              "time": 1776883779,
+              "parent": 47867419,
+              "text": "I found the same, it was super careful handling the environment variable until it hit an API error, and I caught in it's thinking \"Let me check the token is actually set correctly\" and it just echoed the token out.\n\n( This was low-stakes test creds anyway which I was testing with thankfully. )\n\nI never pass creds via env or anything else it can access now.\n\nMy approach now is to get it to write me linqpad scripts, which has a utility function to get creds out of a user-encrypted share, or prompts if it's not in the store.\n\nThis works well, but requires me to run the scripts and guide it.\n\nUltimately, fully autotonous isn't compatible with secrets. Otherwise, if it really wanted to inspect it, then it could just redirect the request to an echo service.\n\nThe only real way is to deal with it the same way we deal with insider threat.\n\nA proxy layer / secondary auth, which injects the real credentials. Then give claude it's own user within that auth system, so it owns those creds. Now responsibilty can be delegated to it without exposing the original credentials.\n\nThat's a lot of work when you're just exploring an API or DB or similar.",
+              "kids": []
+            },
+            {
+              "id": 47869858,
+              "by": "jbreckmckye",
+              "time": 1776895263,
+              "parent": 47867419,
+              "text": "I think it is just because they are having to load shed! Some days you may be getting much less compute - the main way \"thinking\" operates, is to just iterate on the result a few more times",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47868131,
+          "by": "boron1006",
+          "time": 1776886001,
+          "parent": 47867281,
+          "text": "I essentially have 3 modes:\n\n1. Everything is specified, written and tested by me, then cleaned up by AI. This is for the core of the application.\n\n2. AI writes the functions, then sets up stub tests for me to write. Here I’ll often rewrite the functions as they often don’t do what I want, or do too much. I just find it gets rid of a lot of boilerplate to do things this way.\n\n3. AI does everything. This is for experiments or parts of an application that I am perfectly willing to delete. About 70% of the time I do end up deleting these parts. I don’t allow it to touch 1 or 2.\n\nOf course this requires that the architecture is setup in a way where this is possible. But I find it pretty nice.",
+          "kids": [
+            {
+              "id": 47872441,
+              "by": "suzzer99",
+              "time": 1776921099,
+              "parent": 47868131,
+              "text": "This is the way imo, at least for now.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47868106,
+          "by": "stult",
+          "time": 1776885913,
+          "parent": 47867281,
+          "text": "This seems like a really easy problem to solve. Just don't give the LLM access to any prod credentials[1]. If you can't repro a problem locally or in staging/dev environments, you need to update your deployment infra so it more closely matches prod. If you can't scope permissions tightly enough to distinguish between environments, update your permissions system to support that. I've never had anything even vaguely resembling the problems you are describing because I follow this approach.\n\n[1] except perhaps read-only credentials to help diagnose problems, but even then I would only issue it an extremely short-lived token in case it leaks it somehow",
+          "kids": []
+        },
+        {
+          "id": 47867977,
+          "by": "lucasgerads",
+          "time": 1776885329,
+          "parent": 47867281,
+          "text": "I usually try to review all the code written by claude. And also let claude review all the code that i write. So, usually I have some understanding of what is going on. And Claude definitely sometimes makes \"unconventional\" decisions. But if you are working on a large code base with other team members (some of which may already have left the company). Their are also large parts of the code that one doesn't understand and are abstracted away.",
+          "kids": []
+        },
+        {
+          "id": 47867319,
+          "by": "Barbing",
+          "time": 1776882176,
+          "parent": 47867281,
+          "text": "Must consider ourselves lucky for having the intuition to notice skill stagnation and atrophy.\n\nOnly helps if we listen to it :) which is fun b/c it means staying sharp which is inherently rewarding",
+          "kids": []
+        },
+        {
+          "id": 47869005,
+          "by": "stared",
+          "time": 1776890332,
+          "parent": 47867281,
+          "text": "I really recommend using Agent Safehouse (https://news.ycombinator.com/item?id=47301085).\n\nDon’t give your agent access to content it should not edit, don’t give keys it shouldn’t use.",
+          "kids": []
+        },
+        {
+          "id": 47867350,
+          "by": "raincole",
+          "time": 1776882295,
+          "parent": 47867281,
+          "text": "It never ceases to scare me how they just run python code I didn't write via:\n\n> python <<'EOF'\n\n> ${code the agent wrote on the spot}\n\n> EOF\n\nI mean, yeah, in theory it's just as dangerous as running arbitrary shell commands, which the agent is already doing anyway, but still...",
+          "kids": [
+            {
+              "id": 47868344,
+              "by": "dns_snek",
+              "time": 1776887164,
+              "parent": 47867350,
+              "text": "The good news is that some of these harnesses (like Codex) use sandboxing. The bad news is that they're too inflexible to be effective.\n\nBy default these shell commands don't have network access or write access outside the project directory which is good, but nowhere near customizable enough. Once you approve a command because it needs network access, its other restrictions are lifted too. It's all or nothing.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47867341,
+          "by": "onlyrealcuzzo",
+          "time": 1776882249,
+          "parent": 47867281,
+          "text": "> 2. I've learned nothing. So the cognitive load of doing it myself, even assembling a simple docker command, is just too high. Thus, I repeatedly fallback to the \"crutch\" of using AI.\n\nI'm not trying to be offense, so with all due respect... this sounds like a \"you\" problem.  (And I've been there, too)\n\nYou can ask the LLMs: how do I run this, how do I know this is working, etc etc.\n\nSure... if you really know nothing or you put close to zero effort into critically thinking about what they give you, you can be fooled by their answers and mistake complete irrelevance or bullshit for evidence that something works is suitably tested to prove that it works, etc.\n\nYou can ask 2 or 3 other LLMs: check their work, is this conclusive, can you find any bugs, etc etc.\n\nBut you don't sound like you know nothing. You sound like you're rushing to get things done, cutting corners, and you're getting rushed results.\n\nWhat do you expect?\n\nTheir work is cheap.  They can pump out $50k+ worth of features in a $200/mo subscription with minimal baby-sitting.  Be EAGER to reject their work.  Send it back to them over and over again to do it right, for architectural reviews, to check for correctness, performance, etc.\n\nThey are not expensive people with feelings you need to consider in review, that might quit and be hard to replace. Don't let them cut corners. For whatever reason, they are EAGER to cut corners no matter how much you tell them not to.",
+          "kids": [
+            {
+              "id": 47870182,
+              "by": "devilsdata",
+              "time": 1776897237,
+              "parent": 47867341,
+              "text": "Good advice. Personally I'm waiting until it is worthwhile to run these models locally, then I'm going to pin a version and just use that.\n\nI'm only 5 years into this career, and I'm going to work manually and absorb as much knowledge as possible while I'm still able to do it. Yes, that means manually doing shit-kicker work. If AI does get so good that I need to use it, as you say, then I'll be running it locally on a version I can master and build tooling for.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47867539,
+          "by": "cortesoft",
+          "time": 1776883174,
+          "parent": 47867281,
+          "text": "While I share some of the feelings about 'not understanding what is actually happening under the hood', I can't help but think about how this feeling is the exact same response that programmers had when compilers were invented:\n\nhttps://vivekhaldar.com/articles/when-compilers-were-the--ai...\n\nWe are completely comfortable now letting the compilers do their thing, and never seem to worry that we \"don't know what is actually happening under the hood\".\n\nI am not saying these situations are exactly analogous, but I am saying that I don't think we can know yet if this will be one of those things that we stop worrying about or it will be a serious concern for a while.",
+          "kids": [
+            {
+              "id": 47867706,
+              "by": "msteffen",
+              "time": 1776884000,
+              "parent": 47867539,
+              "text": "I think about this a lot, though one paragraph from that article:\n\n> Many assembly programmers were accustomed to having intimate control over memory and CPU instructions. Surrendering this control to a compiler felt risky. There was a sentiment of, if I don’t code it down to the metal, how can I trust what’s happening? In some cases, this was about efficiency. In other cases, it was about debuggability and understanding programming behavior. However, as compilers matured, they began providing diagnostic output and listings that actually improved understanding.\n\nI would 100% use LLMs more and more aggressively if they were more transparent. All my reservations come from times when I prompt “change this one thing” and it rewrites my db schema for some reason, or adds a comment that is actively wrong in several ways. I also think I have a decent working understanding of the assembly my code compiles to, and do occasionally use https://godbolt.org/. Of course, I didn’t start out that way, but I also don’t really have any objections to teenagers vibe-coding games, I just think at some point you have to look under the hood if you’re serious.",
+              "kids": [
+                {
+                  "id": 47867863,
+                  "by": "cortesoft",
+                  "time": 1776884753,
+                  "parent": 47867706,
+                  "text": "> I would 100% use LLMs more and more aggressively if they were more transparent. All my reservations come from times when I prompt “change this one thing” and it rewrites my db schema for some reason, or adds a comment that is actively wrong in several ways.\n\nIsn't that what git is for, though? Just have your LLM work in a branch, and then you will have a clear record of all the changes it made when you review the pull request.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47867625,
+              "by": "ManuelKiessling",
+              "time": 1776883584,
+              "parent": 47867539,
+              "text": "(I‘m saying this as someone who uses AI for coding a lot and mostly love it) Yeah, but is that really the same? Compilers work deterministically — if it works once, it will work always. LLMs are a different story for now.",
+              "kids": [
+                {
+                  "id": 47867781,
+                  "by": "betenoire",
+                  "time": 1776884343,
+                  "parent": 47867625,
+                  "text": "Said another way, compilers are a translation of existing formal code. Compilers don't add features, they don't create algorithms (unrolling, etc., notwithstanding), they are another expression of the same encoded solution.\n\nLLMs are nothing like that",
+                  "kids": [
+                    {
+                      "id": 47868001,
+                      "by": "cortesoft",
+                      "time": 1776885449,
+                      "parent": 47867781,
+                      "text": "LLMs are just translating text into output, too, and are running on deterministic computers like every other bit of code we run. They aren't magic.\n\nIt is just the scope that makes it appear non-deterministic to a human looking at it, and it is large enough to be impossible for a human to follow the entire deterministic chain, but that doesn't mean it isn't in the end a function that translates input data into output data in a deterministic way.",
+                      "kids": [
+                        {
+                          "id": 47868701,
+                          "by": "betenoire",
+                          "time": 1776888878,
+                          "parent": 47868001,
+                          "text": "just text !== syntactically correct code that solves a defined problem\n\nThere is a world of difference between translation and generation. It's even in the name: generative AI. I didn't say anything about magic.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": 47867955,
+                  "by": "cortesoft",
+                  "time": 1776885237,
+                  "parent": 47867625,
+                  "text": "LLMs are deterministic, too. I know there is randomness in the choosing tokens, but that randomness is derived from a random seed that can be repeated.",
+                  "kids": [
+                    {
+                      "id": 47869697,
+                      "by": "Supermancho",
+                      "time": 1776894437,
+                      "parent": 47867955,
+                      "text": "Only if the seed is known. Determinism is often predicated on perfect information. Many programs do not have that. Their operations cannot be reproduced practically. The difference between saying deterministic and non-deterministic is contextual based on if you are concerned with theory or practicality.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47868460,
+                      "by": "lelanthran",
+                      "time": 1776887825,
+                      "parent": 47867955,
+                      "text": "If I understand your argument, you're saying that models can be deterministic, right?\n\nCare to point to any that are set up to be deterministic?\n\nDid you ever stop to think about why no one can get any use out of a model with temp set to zero?",
+                      "kids": [
+                        {
+                          "id": 47869352,
+                          "by": "mrob",
+                          "time": 1776892346,
+                          "parent": 47868460,
+                          "text": "llama.cpp is deterministic when run with a specified PRNG seed, at least when running on CPU without caching. This is true regardless of temperature. But when people say \"non-deterministic\", they really mean something closer to \"chaotic\", i.e. the output can vary greatly with small changes to input, and there is no reliable way to predict when this will happen without running the full calculation. This is very different behavior from traditional compilers.",
+                          "kids": []
+                        },
+                        {
+                          "id": 47868723,
+                          "by": "cortesoft",
+                          "time": 1776888942,
+                          "parent": 47868460,
+                          "text": "No, LLMs ARE deterministic, just like all computer programs are.\n\nI get why that is in practice different then the manner in which compilers are deterministic, but my point is the difference isnt because of determinism.",
+                          "kids": [
+                            {
+                              "id": 47870116,
+                              "by": "betenoire",
+                              "time": 1776896769,
+                              "parent": 47868723,
+                              "text": "I think you are misunderstanding the term \"deterministic\". Running on deterministic hardware does not mean an algorithm is deterministic.\n\nCreate a program that reads from /dev/random (not urandom). It's not determistic.",
+                              "kids": [
+                                {
+                                  "id": 47870872,
+                                  "by": "cortesoft",
+                                  "time": 1776903048,
+                                  "parent": 47870116,
+                                  "text": "Fair, although you can absolutely use local LLMs in a deterministic way (by using fixed seeds for the random number generation), and my point is that even if you did that with your LLM, it wouldn't change the feeling someone has about not being able to reason out what was happening.\n\nIn other words, it isn't the random number part of LLMs that make them seem like a black box and unpredictable, but rather the complexity of the underlying model. Even if you ran it in a deterministic way, I don't think people would suddenly feel more confident about the outputted code.",
+                                  "kids": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47868037,
+              "by": "nextaccountic",
+              "time": 1776885614,
+              "parent": 47867539,
+              "text": "The difference is that compilers are supposed to be deterministic and low level inclined people often investigate compiler bugs (specially performance bugs) and can pinpoint to some deterministic code that triggered it. Fix the underlying code and it stops misbehaving with high assurance\n\nA non deterministic compiler is probably defective and in any case much less useful",
+              "kids": []
+            },
+            {
+              "id": 47867702,
+              "by": "mathieudombrock",
+              "time": 1776883993,
+              "parent": 47867539,
+              "text": "A major difference is that _someone_ knew what was going on (compiler devs).",
+              "kids": [
+                {
+                  "id": 47867915,
+                  "by": "cortesoft",
+                  "time": 1776885049,
+                  "parent": 47867702,
+                  "text": "That is an interesting difference, I agree.\n\nAlthough, while the compiler devs might know what was going on in the compiler, they wouldn't know what the compiler was doing with that particular bit of code that the FORTRAN developer was writing. They couldn't possibly foresee every possible code path that a developer might traverse with the code they wrote. In some ways, you could say LLMs are like that, too; the LLM developers know how the LLM code works, but they don't know the end result with all the training data and what it will do based on that.\n\nIn addition, to the end developer writing FORTRAN it was a black box either way. Sure, someone else knows how the compiler works, but not the developer.",
+                  "kids": [
+                    {
+                      "id": 47868510,
+                      "by": "lelanthran",
+                      "time": 1776888055,
+                      "parent": 47867915,
+                      "text": "I think you have an incorrect mental model of how LLMs work.\n\nThere's plenty of resources online to rectify that, though.",
+                      "kids": [
+                        {
+                          "id": 47868669,
+                          "by": "cortesoft",
+                          "time": 1776888743,
+                          "parent": 47868510,
+                          "text": "I think you may be misreading my comment, then, because I know how LLMs work. Which part of my comment do you think shows that I don’t?",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47867653,
+              "by": "mnkypete",
+              "time": 1776883734,
+              "parent": 47867539,
+              "text": "Except that compilers are (at least to a large degree) deterministic. It's complexity that you don't need to worry about. You don't need to review the generated assembly. You absolutely need to review AI generated code.",
+              "kids": [
+                {
+                  "id": 47867942,
+                  "by": "cortesoft",
+                  "time": 1776885157,
+                  "parent": 47867653,
+                  "text": "At the end of the day, LLMs are also deterministic. They are running on computers just like all software, and if you have all the same data and random seeds, and you give the same prompt to the same LLM, you will get back the exact same response.",
+                  "kids": [
+                    {
+                      "id": 47869716,
+                      "by": "Supermancho",
+                      "time": 1776894531,
+                      "parent": 47867942,
+                      "text": "> you give the same prompt to the same LLM, you will get back the exact same response.\n\nDemonstrably incorrect. This is because the model selection, among other data, is not fixed for (I would say most) LLMs. They are constantly changing. I think you meant something more like an LLM with a fixed configuration. Maybe additional constraints, depending on the specific implementation.",
+                      "kids": [
+                        {
+                          "id": 47870885,
+                          "by": "cortesoft",
+                          "time": 1776903127,
+                          "parent": 47869716,
+                          "text": "Yes, by 'same LLM', I mean literally the same model with the same random seeds. You are correct, the big LLMs from providers like Anthropic and OpenAI do not meet this definition.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47868036,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47867240,
+      "by": "eterm",
+      "time": 1776881774,
+      "parent": 47866913,
+      "text": "It's funny, because the wisdom that was often taught ( but essentially never practiced ) was \"Refactor as you go\".\n\nThe idea being that if you're working in an area, you should refactor and tidy it up and clean up \"tech debt\" while there.\n\nIn practice, it was seldom done, and here we have LLMs actually doing it, and we're realising the drawbacks.",
+      "kids": [
+        {
+          "id": 47867495,
+          "by": "hirako2000",
+          "time": 1776882985,
+          "parent": 47867240,
+          "text": "When the model write new code doing the same thing as existing logic that's not a refactor.\n\nAt times even when a function is right there doing exactly what's needed.\n\nWorse, when it modifies a function that exists, supposedly maintaining its behavior, but breaks for other use cases. Good try I guess.\n\nWorst. Changing state across classes not realising the side effect. Deadlock, or plain bugs.",
+          "kids": []
+        },
+        {
+          "id": 47867496,
+          "by": "aerhardt",
+          "time": 1776882990,
+          "parent": 47867240,
+          "text": "When they decide to touch something as they go, they often don't improve it. Not what I would call \"refactoring\" but rather a yank of the slot machine's arm.",
+          "kids": []
+        },
+        {
+          "id": 47868331,
+          "by": "whimblepop",
+          "time": 1776887025,
+          "parent": 47867240,
+          "text": "> In practice, it was seldom done, and here we have LLMs actually doing it, and we're realising the drawbacks.\n\nI spent some time dealing with this today. The real issue for me, though, was that the refactors the agent did were bad. I only wanted it to stop making those changes so I could give it more explicit changes on what to fix and how.",
+          "kids": []
+        },
+        {
+          "id": 47867409,
+          "by": "localhoster",
+          "time": 1776882519,
+          "parent": 47867240,
+          "text": "So I think theres some more nuance than that.\nA lot of the times, the abstraction is solid enough for you to work with that code area, ie tracking down some bug or extending a functionality.\nBut sometimes you find yourself at a crossroad - which is either hacking around the existing implementation, or rethink it. With LLMs, how do you even rethink it? Does it even matter to rethink it? And on any who, those decisions are hidden away from you.",
+          "kids": [
+            {
+              "id": 47867922,
+              "by": "traderj0e",
+              "time": 1776885096,
+              "parent": 47867409,
+              "text": "It's only hidden if you don't read the code. Even if you don't, at some point you'll notice the LLM starting to struggle.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47867306,
+          "by": "hyperpape",
+          "time": 1776882126,
+          "parent": 47867240,
+          "text": "That's a real question, maybe the changes are useful, though I think I'd like to see some examples. I do not trust cognitive complexity metrics, but it is a little interesting that the changes seem to reliably increase cognitive complexity.",
+          "kids": []
+        },
+        {
+          "id": 47867561,
+          "by": "raincole",
+          "time": 1776883275,
+          "parent": 47867240,
+          "text": "Really? I've never heard it's considered wise to put refactoring and new features (or bugfixes) in the same commit. Everyone I know from every place I've seen consider it bad. From harmful to a straight rejection in code review.\n\n\"Refactor-as-you-go\" means to refactor right after you add features / fix bugs, not like what the agent does in this article.",
+          "kids": [
+            {
+              "id": 47869872,
+              "by": "xboxnolifes",
+              "time": 1776895355,
+              "parent": 47867561,
+              "text": "Notice how they didn't say to put it in the same commit. The real issue, and why refactor as you go isn't done as much, is the overhead of splitting changes that touch the same code into different commits without disrupting your workflow. It's not as easy as it should be to support this strategy.\n\nInstead you to do it later, and then never do it.",
+              "kids": [
+                {
+                  "id": 47869974,
+                  "by": "raincole",
+                  "time": 1776895947,
+                  "parent": 47869872,
+                  "text": "I think you're talking about a different topic unrelated to the linked article. In the linked article the LLM doesn't split it into several commits. If LLM had a button to split the bug fix and the overall refactoring, the author wouldn't complain and we wouldn't see this article.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47867461,
+          "by": "bluefirebrand",
+          "time": 1776882794,
+          "parent": 47867240,
+          "text": "There is a pretty substantial difference between \"making changes\" and \"refactoring\"\n\nIf LLMs are doing sensible and necessary refactors as they go then great\n\nI have basically zero confidence that is actually the case though",
+          "kids": []
+        },
+        {
+          "id": 47867339,
+          "by": "ramesh31",
+          "time": 1776882245,
+          "parent": 47867240,
+          "text": ">The idea being that if you're working in an area, you should refactor and tidy it up and clean up \"tech debt\" while there.\n\nThis is horrible practice, and very typical junior behavior that needs to be corrected against. Unless you wrote it,  Chesterton's Fence applies; you need to think deeply for a long time about why that code exists as it does, and that's not part of your current task. Nothing worse than dealing with a 1000 line PR opened for a small UI fix because the code needed to be \"cleaned up\".",
+          "kids": [
+            {
+              "id": 47867462,
+              "by": "cassianoleal",
+              "time": 1776882798,
+              "parent": 47867339,
+              "text": "That is the flip side of what you're arguing against, and is also very typical junior behaviour that needs to be corrected against.\n\nTech debt needs to be dealt with when it makes sense. Many times it will be right there and then as you're approaching the code to do something else. Other times it should be tackled later with more thought. The latter case is frequently a symptom of the absence of the former.\n\nIn Extreme Programming, that's called the Boy Scouting Rule.\n\nhttps://furqanramzan.github.io/clean-code-guidelines/princip...",
+              "kids": [
+                {
+                  "id": 47867762,
+                  "by": "traderj0e",
+                  "time": 1776884267,
+                  "parent": 47867462,
+                  "text": "The Boy Scout \"leave it better than you found it\" is a good rule to follow. All code has its breaking points, so when you're adding a new feature and find that the existing code doesn't support it without hacks, it probably needs a refactor.",
+                  "kids": []
+                },
+                {
+                  "id": 47870507,
+                  "by": "ramesh31",
+                  "time": 1776899942,
+                  "parent": 47867462,
+                  "text": "Indeed there's a distinction that needs to be made here between \"not refactoring this code means I'll need to add hacks\" and \"Oh I'll just clean that up while I'm in here.\" The former can be necessary,  but the latter is something you learn with experience to avoid.",
+                  "kids": [
+                    {
+                      "id": 47873105,
+                      "by": "cassianoleal",
+                      "time": 1776929730,
+                      "parent": 47870507,
+                      "text": "> the latter is something you learn with experience to avoid.\n\nThe latter is something you learn to judge the right time to tackle. Sometimes a small improvement that's not required will mean you're not pressed to make the refactor to avoid hacks. The earliest you can tackle problems, the cheaper they are to solve.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47868299,
+              "by": "esafak",
+              "time": 1776886892,
+              "parent": 47867339,
+              "text": "Just do it in a follow up PR to keep them atomic. But do clean up; it's so easy now.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47867909,
+      "by": "simonw",
+      "time": 1776884968,
+      "parent": 47866913,
+      "text": "I've not seen over-editing in Claude Code or Codex in quite a while, so I was interested to see the prompts being used for this study.\n\nI think they're in here, last edited 8 months ago: https://github.com/nreHieW/fyp/blob/5a4023e4d1f287ac73a616b5...",
+      "kids": [
+        {
+          "id": 47869338,
+          "by": "59nadir",
+          "time": 1776892281,
+          "parent": 47867909,
+          "text": "Just had one today where GPT-5.4, instead of adding the 10 lines I asked for (an addition that could be done pretty mechanically by just looking at some previous code and adding a similar thing with different/new variable names) proceeded to rewrite 50 lines instead, because it was \"cleaner\". It was not. It also didn't originally add the thing I asked for either, which was perplexing.\n\nOver-editing is definitely not some long gone problem. This was on xhigh thinking, because I forgot to set it to lower.",
+          "kids": []
+        },
+        {
+          "id": 47868933,
+          "by": "qweiopqweiop",
+          "time": 1776889926,
+          "parent": 47867909,
+          "text": "Likewise, this felt like an early agent problem to me.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868919,
+      "by": "janalsncm",
+      "time": 1776889879,
+      "parent": 47866913,
+      "text": "This is a really solid writeup. LLMs are way too verbose in prose and code, and my suspicion is this is driven mainly by the training mechanism.\n\nCross entropy loss steers towards garden path sentences. Using a paragraph to say something any person could say with a sentence, or even a few precise words. Long sentences are the low perplexity (low statistical “surprise”) path.",
+      "kids": []
+    },
+    {
+      "id": 47867406,
+      "by": "Almured",
+      "time": 1776882504,
+      "parent": 47866913,
+      "text": "I feel ambivalent about it. In most cases, I fully agree with the overdoing assessment and then having to spend 30min correcting and fixing. But I also agree with the fact sometimes the system is missing out on more comprehensive changes (context limitations I suppose)! I am starting to be very strict when coding with these tool but still not quite getting the level of control I would like to see",
+      "kids": []
+    },
+    {
+      "id": 47872125,
+      "by": "jacek-123",
+      "time": 1776916646,
+      "parent": 47866913,
+      "text": "Feels like a training-data artifact. SFT and preference data are full of \"here's a cleaner version of your file\", not \"here's the minimum 3-line diff\". The model learned bigger, more polished outputs win. Prompting around it helps a bit but you're fighting the prior.",
+      "kids": []
+    },
+    {
+      "id": 47867460,
+      "by": "aerhardt",
+      "time": 1776882791,
+      "parent": 47866913,
+      "text": "I'm building a website in Astro and today I've been scaffolding localization. I asked Codex 5.4 x-high to follow the official guidelines for localization and from that perspective the implementation was good. But then it decides to re-write the copy and layout of all pages. They were placeholders, but still?\n\nCodex also has a tendency to apply unwanted styles everywhere.\n\nI see similar tendencies in backend and data work, but I somehow find it easier to control there.\n\nI'm pretty much all in on AI coding, but I still don't know how to give these things large units of work, and I still feel like I have to read everything but throwaway code.",
+      "kids": [
+        {
+          "id": 47867670,
+          "by": "magicalhippo",
+          "time": 1776883844,
+          "parent": 47867460,
+          "text": "You can steer it though. When I see it going off the reservation I steer it back. I also commit often, just about after every prompt cycle, so I can easily revert and pick up the ball in a fresh context.\n\nBut yeah, I saw a suggestion about adding a long-lived agent that would keep track of salient points (so kinda memory) but also monitor current progress by main agent in relation to the \"memory\" and give the main agent commands when it detects that the current code clashes with previous instructions or commands. Would be interesting to see if it would help.",
+          "kids": []
+        },
+        {
+          "id": 47867789,
+          "by": "traderj0e",
+          "time": 1776884381,
+          "parent": 47867460,
+          "text": "They also don't understand how exceptions work. They'll try-catch everything, print the error, and continue. If I see a big diff, I know it just added 10 try-catches in random parts of my codebase.",
+          "kids": []
+        },
+        {
+          "id": 47867530,
+          "by": "jasonjmcghee",
+          "time": 1776883132,
+          "parent": 47867460,
+          "text": "I never use xhigh due to overthinking. I find high nearly always works better.\n\nPurely anecdotal.",
+          "kids": [
+            {
+              "id": 47869255,
+              "by": "sabas123",
+              "time": 1776891827,
+              "parent": 47867530,
+              "text": "This is even the official OpenAI guideline too.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47871834,
+      "by": "ozozozd",
+      "time": 1776913146,
+      "parent": 47866913,
+      "text": "There is no need for a new name. It’s called a high-impact change. As opposed to a low-impact change, where one changes or adds the least number of lines necessary to achieve the goal.\n\nNot surprised to see this, since once again, because some of us didn’t like history as a subject, lines of code is a performance measure, like a pissing contest.",
+      "kids": []
+    },
+    {
+      "id": 47867508,
+      "by": "pilgrim0",
+      "time": 1776883054,
+      "parent": 47866913,
+      "text": "Like others mentioned, letting the agent touch the code makes learning difficult and induces  anxiety. By introducing doubt it actually increases the burden of revision, negating the fast apparent progress. The way I found around this is to use LLMs for designing and auditing, not programming per se. Even more so because it’s terrible at keeping the coding style. Call it skill issue, but I’m happier treating it as a lousy assistant rather than as a dependable peer.",
+      "kids": []
+    },
+    {
+      "id": 47869431,
+      "by": "kgeist",
+      "time": 1776892788,
+      "parent": 47866913,
+      "text": "Interesting, my assumption used to be that models over-edit when they're run with optimizations in attention blocks (quantization, Gated DeltaNet, sliding window etc.). I.e. they can't always reconstruct the original code precisely and may end up re-inventing some bits. Can't it be one of the reasons too?",
+      "kids": []
+    },
+    {
+      "id": 47871119,
+      "by": "rcvassallo83",
+      "time": 1776905450,
+      "parent": 47866913,
+      "text": "This resonates\n\nI've had success with greenfield code followed by frustration when asking for changes to that code due to over editing\n\nAnd prompting for \"minimal changes\" does keep the edits down. In addition to this instruction, adding specifics about how to make the change and what not to do tends to get results I'm looking for.\n\n\"add one function that does X, add one property to the data structure, otherwise leave it as is, don't add any new validation\"",
+      "kids": []
+    },
+    {
+      "id": 47867774,
+      "by": "dbvn",
+      "time": 1776884310,
+      "parent": 47866913,
+      "text": "Don't forget the non-stop unnecessary comments",
+      "kids": [
+        {
+          "id": 47867796,
+          "by": "Flavius",
+          "time": 1776884417,
+          "parent": 47867774,
+          "text": "Token bonanza! Inference sellers love this simple trick.",
+          "kids": [
+            {
+              "id": 47869462,
+              "by": "kgeist",
+              "time": 1776892960,
+              "parent": 47867796,
+              "text": "Custom constrained decoding could have solved this. Penalize comment tokens :)",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47868672,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47868571,
+      "by": "brianwmunz",
+      "time": 1776888302,
+      "parent": 47866913,
+      "text": "I feel like a core of this is that agents aren't exactly a replacement for a junior developer like some people say.  A junior dev has its own biases, predispositions, history and understanding of the internal and external aspects of a product and company.  An AI agent wants to do what you ask in the best way possible which is...not always what a dev wants :) The fix the article talks about is simple but shows that these models have no inherent sense of project scope or proportionality. You have to give context (as much context as possible) explicitly to fill in the gaps so it infers less and makes smaller decisions.",
+      "kids": []
+    },
+    {
+      "id": 47868471,
+      "by": "btbuildem",
+      "time": 1776887885,
+      "parent": 47866913,
+      "text": "I wish there was a reliable way to choke the agents back and prevent them from doing this. Every line of code added is a potential bug, and they overzealously spew pages and pages of code. I've routinely gone through my (hobby) projects and (yes, still with the aid of an LLM) trimmed some 80% of the generated code with barely any loss of functionality.\n\nThe cynic in me thinks it's done on purpose to burn more tokens. The pragmatist however just wants full control over the harness and system prompts. I'm sure this could be done away with if we had access to all the knobs and levers.",
+      "kids": [
+        {
+          "id": 47868829,
+          "by": "qurren",
+          "time": 1776889438,
+          "parent": 47868471,
+          "text": "> if we had access to all the knobs and levers.\n\nWe do, just tell it what you want in your AGENTS.md file.\n\nAgents also often respond well to user frustration signs, like threatening to not continue your subscription.",
+          "kids": [
+            {
+              "id": 47870842,
+              "by": "gobdovan",
+              "time": 1776902826,
+              "parent": 47868829,
+              "text": "> Agents also often respond well to user frustration signs, like threatening to not continue your subscription.\n\nFrom the phrasing, I can't but imagine you as a very calm, completely unemotional person that only emulates user frustration signs, strategically threatening AI that you'll close your subscription when it nukes your code.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47867768,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47867554,
+      "by": "pyrolistical",
+      "time": 1776883236,
+      "parent": 47866913,
+      "text": "I attempt to solve most agent problems by treating them as a dumb human.\n\nIn this case I would ask for smaller changes and justify every change. Have it look back upon these changes and have it ask itself are they truly justified or can it be simplified.",
+      "kids": []
+    },
+    {
+      "id": 47870407,
+      "by": "collimarco",
+      "time": 1776898890,
+      "parent": 47866913,
+      "text": "Over-editing and over-adding... I can find solutions that are just a few lines of code in a single file where AI would change 10 files and add 100s of lines of code. Writing less code is more important than ever. Too much code means more technical debt, a maintainability nightmare and more places where bugs can hide.",
+      "kids": [
+        {
+          "id": 47870717,
+          "by": "Gigachad",
+          "time": 1776901655,
+          "parent": 47870407,
+          "text": "I've seen this at work where people submit PRs that implement whole internal libraries to do something that could have been done with an existing tool or just done simpler in general.\n\nIt's impossible to properly review this in a reasonable time and they always introduce tons of subtle bugs.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868873,
+      "by": "recursivecaveat",
+      "time": 1776889682,
+      "parent": 47866913,
+      "text": "My experience is usually the opposite. The code they write is verbose yes, but the diffs are over-minimal. Whenever I see a comment like \"Tool X doesn't support Y or has a bug with Z [insert terrible kludge]\" and actually fixing the problem in the other file would be very easy, I know it is AI-generated. I suspect there is a bias towards local fixes to reduce token usage.",
+      "kids": []
+    },
+    {
+      "id": 47872156,
+      "by": "bluequbit",
+      "time": 1776917098,
+      "parent": 47866913,
+      "text": "I call this overcooking. Adding unnecesary features.",
+      "kids": []
+    },
+    {
+      "id": 47867223,
+      "by": "whinvik",
+      "time": 1776881712,
+      "parent": 47866913,
+      "text": "Yeah I have always felt GPT 5.4 does too much. It is amazing at following instructions precisely but it convinces itself to do a bit too much.\n\nI am surprised Gemini 3.1 Pro is so high up there. I have never managed to make it work reliably so maybe there's some metric not being covered here.",
+      "kids": []
+    },
+    {
+      "id": 47868291,
+      "by": "vibe42",
+      "time": 1776886833,
+      "parent": 47866913,
+      "text": "With the pi-mono coding agent (running local, open models) this works very well:\n\n\"Do not modify any code; only describe potential changes.\"\n\nI often add it to the end when prompting to e.g. review code for potential optimizations or refactor changes.",
+      "kids": []
+    },
+    {
+      "id": 47867292,
+      "by": "itopaloglu83",
+      "time": 1776882038,
+      "parent": 47866913,
+      "text": "I always described it as over-complicating the code, but doing too much is a better diagnosis.",
+      "kids": []
+    },
+    {
+      "id": 47867384,
+      "by": "exitb",
+      "time": 1776882411,
+      "parent": 47866913,
+      "text": "As mentioned in the article, prompting for minimal changes does help. I find GPT models to be very steerable, but it doesn’t mean much when you take your hands of the wheel. These type of issues should be solved at planning stage.",
+      "kids": [
+        {
+          "id": 47867531,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868329,
+      "by": "Bengalilol",
+      "time": 1776887005,
+      "parent": 47866913,
+      "text": "Tangent and admittedly off-topic but I've come to see LLM-assisted coding as a kind of teleportation.\n\nWith LLMs, you glimpse a distant mountain. In the next instant, you're standing on its summit. Blink, and you are halfway down a ridge you never climbed. A moment later, you're flung onto another peak with no trail behind you, no sense of direction, no memory of the ascent. The landscape keeps shifting beneath your feet, but you never quite see the panorama. Before you know it, you're back near the base, disoriented, as if the journey never happened. But confident, you say you were on the top of the mountain.\n\nManual coding feels entirely different. You spot the mountain, you study its slopes, trace a route, pack your gear. You begin the climb. Each step is earned steadily and deliberately. You feel the strain, adjust your path, learn the terrain. And when you finally reach the summit, the view unfolds with meaning. You know exactly where you are, because you've crossed every meter to get there. The satisfaction isn't just in arriving, nor in saying you were there: it is in having truly climbed.",
+      "kids": [
+        {
+          "id": 47868360,
+          "by": "jdkoeck",
+          "time": 1776887278,
+          "parent": 47868329,
+          "text": "The thing is, with manual coding, you spot a view in the distance, you trek your way for a few hours, and you realize when you get there that the view isn’t as great as you thought it was.\n\nWith LLM-assisted coding, you skip the trek and you instantly know that’s not it.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867303,
+      "by": "slopinthebag",
+      "time": 1776882122,
+      "parent": 47866913,
+      "text": "I think the industry has leaned waaay too far into completely autonomous agents. Of course there are reasons why corporations would want to completely replace their engineers with fully autonomous coding agents, but for those of us who actually work developing software, why would we want less and less autonomy? Especially since it alienates us from our codebases, requiring more effort in the future to gain an understanding of what is happening.\n\nI think we should move to semi-autonomous steerable agents, with manual and powerful context management. Our tools should graduate from simple chat threads to something more akin to the way we approach our work naturally. And a big benefit of this is that we won't need expensive locked down SOTA models to do this, the open models are more than powerful enough for pennies on the dollar.",
+      "kids": [
+        {
+          "id": 47867402,
+          "by": "NitpickLawyer",
+          "time": 1776882486,
+          "parent": 47867303,
+          "text": "I'm hearing this more and more, we need new UX that is better suited for the LLM meta. But none that I've seen so far have really got it, yet.",
+          "kids": []
+        },
+        {
+          "id": 47867442,
+          "by": "grttww",
+          "time": 1776882699,
+          "parent": 47867303,
+          "text": "When you steer a car, there isn’t this degree of probability about the output.\n\nHow do you emulate that with llm’s? I suppose the objective is to get variance down to the point it’s barely noticeable. But not sure it’ll get to that place based on accumulating more data and re-training models.",
+          "kids": [
+            {
+              "id": 47869147,
+              "by": "slopinthebag",
+              "time": 1776891132,
+              "parent": 47867442,
+              "text": "Well, the point is by steering it you can get both more expected/reproducible output, and you can correct bad assumptions before they become solidified in your codebase.\n\nYou can get pretty close to reproducible output by narrowing the scope and using certain prompts/harnesses. As in, you get roughly the same output each time with identical prompts, assuming you're using a model which doesn't change every few hours to deal with load, and you aren't using a coding harness that changes how it works every update. It's not deterministic, but if you ask it for a scoped implementation you essentially get the same implementation every time, with some minor and usually irrelevant differences.\n\nSo you can imagine with a stable model and harness, with steering you can basically get what you ask it for each time. Tooling that exploits this fact can be much more akin to using an autocomplete, but instead of a line of code it's blocks of code, functions, etc.\n\nA harness that makes it easy to steer means you can basically write the same code you would have otherwise written, just faster. Which I think is a genuine win, not only from a productivity standpoint but also you maintain control over the codebase and you aren't alienated or disenfranchised from the output, and it's much easier to make corrections or write your own implementations where you feel it's necessary. It becomes more of an augmentation and less of a replacement.",
+              "kids": [
+                {
+                  "id": 47869948,
+                  "by": "grttww",
+                  "time": 1776895794,
+                  "parent": 47869147,
+                  "text": "You wrote all that and didn’t address the question lmao.\n\nThere’s diminishing returns and moreover this idea that people are holding it wrong / they need to figure out the complexity goes against all that has been done over the past 30 years : making things simpler.",
+                  "kids": [
+                    {
+                      "id": 47869980,
+                      "by": "slopinthebag",
+                      "time": 1776895988,
+                      "parent": 47869948,
+                      "text": "You asked me how one could minimise the non-deterministic output of LLM's and I responded, if that's not good enough of an answer feel free to ask a follow up.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47867383,
+      "by": "lo1tuma",
+      "time": 1776882409,
+      "parent": 47866913,
+      "text": "I’m not sure if I share the authors opinion. When I was hand-writing code I also followed the boy-scout rule and did smaller refactorings along the line.",
+      "kids": []
+    },
+    {
+      "id": 47871370,
+      "by": "Meterman",
+      "time": 1776907826,
+      "parent": 47866913,
+      "text": "I really felt this.  total pain point for me.",
+      "kids": []
+    },
+    {
+      "id": 47867413,
+      "by": "lopsotronic",
+      "time": 1776882540,
+      "parent": 47866913,
+      "text": "When asked to show their development-test path in the form of a design document or test document, I've also noticed variance between the document generated and what the chain-of-thought thingy shows during the process.\n\nThe version it puts down into documents is not the thing it was actually doing. It's a little anxiety-inducing. I go back to review the code with big microscopes.\n\n\"Reproducibility\" is still pretty important for those trapped in the basements of aerospace and defense companies. No one wants the Lying Machine to jump into the cockpit quite yet. Soon, though.\n\nWe have managed to convince the Overlords that some teensy non-agentic local models - sourced in good old America and running local - aren't going to All Your Base their Internets. So, baby steps.",
+      "kids": []
+    },
+    {
+      "id": 47867785,
+      "by": "tim-projects",
+      "time": 1776884357,
+      "parent": 47866913,
+      "text": "> The model fixes the bug but half the function has been rewritten.\n\nThe solution to this is to use quality gates that loop back and check the work.\n\nI'm currently building a tool with gates and a diff regression check. I haven't seen these problems for a while now.\n\nhttps://github.com/tim-projects/hammer",
+      "kids": []
+    },
+    {
+      "id": 47868319,
+      "by": "LetsGetTechnicl",
+      "time": 1776886978,
+      "parent": 47866913,
+      "text": "Well seeing as they don't KNOW anything this isn't surprising at all",
+      "kids": []
+    },
+    {
+      "id": 47868616,
+      "by": "spullara",
+      "time": 1776888457,
+      "parent": 47866913,
+      "text": "this is one of the best things about using claude over gpt. claude understands the bigger assignment and does all the work and sometimes more than necessary but for me it beats the alternative.",
+      "kids": []
+    },
+    {
+      "id": 47867999,
+      "by": "jollyllama",
+      "time": 1776885446,
+      "parent": 47866913,
+      "text": "It's called code churn. Generally, LLMs make code churn.",
+      "kids": []
+    },
+    {
+      "id": 47868824,
+      "by": "standardly",
+      "time": 1776889421,
+      "parent": 47866913,
+      "text": "I've had a bad experience using AI for front-end stuff, where I replace or deprecate a feature only to notice later all the artifacts it left behind, some which were never even used in the first place.\n\nI re-did an entire UI recently, and when one of the elements failed to render I noticed the old UI peeking out from underneath. It had tried just covering up old elements instead of adjusting or replacing them. Like telling your son to clean their room, so they push all the clothes under the bed and hope you don't notice LOL\n\nIt saves 2 hours of manual syntax wrangling but introduces 1 .5 hours of clean up and sanity checking. Still a net productivity increase, but not sure if its worth how lazy it seems to be making me (this is an easy error to correct, im sure, but meh Claude can fix it in 2 seconds so...)",
+      "kids": []
+    },
+    {
+      "id": 47867649,
+      "by": "graybeardhacker",
+      "time": 1776883713,
+      "parent": 47866913,
+      "text": "I use Claude Code every day and have for as long as it has been available.  I use git add -p to ensure I'm only adding what is needed.  I review all code changes and make sure I understand every change.  I prompt Claude to never change only whitespace.  I ask it to be sure to make the minimal changes to fix a bug.\n\nToo many people are treating the tools as a complete replacement for a developer.  When you are typing a text to someone and Google changes a word you misspelled to a completely different word and changes the whole meaning of the text message do you shrug and send it anyway?  If so, maybe LLMs aren't for you.",
+      "kids": [
+        {
+          "id": 47871056,
+          "by": "nunez",
+          "time": 1776904825,
+          "parent": 47867649,
+          "text": "i use claude in more or less the same way but it sure is tempting to just glaze over the 300+ line diffs it produces.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868915,
+      "by": "m463",
+      "time": 1776889874,
+      "parent": 47866913,
+      "text": "You know, this made me think of over-engineering.\n\n...and that led me to believe that AI might be very capable to develop over-engineered audio equipment.   Think of all the bells and whistles that could be added, that could be expressed in ridiculous ways with ridiculous price tags.",
+      "kids": []
+    },
+    {
+      "id": 47868070,
+      "by": "ricardorivaldo",
+      "time": 1776885757,
+      "parent": 47866913,
+      "text": "duplicated ?\nhttps://news.ycombinator.com/item?id=47866913",
+      "kids": []
+    },
+    {
+      "id": 47869653,
+      "by": "scotty79",
+      "time": 1776894165,
+      "parent": 47866913,
+      "text": "This seems like something that should be easy to prevent in pi harness. Just tell it to make an extension that before calling file edit tool asks the model to make sure that no lines unconnected with the current topic are going to be unnecessarily changed by this edit.",
+      "kids": []
+    },
+    {
+      "id": 47873053,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872147,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872594,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47871607,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872190,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47870632,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47867404,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47870715,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47870491,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47867761,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47868138,
+      "by": "tantalor",
+      "time": 1776886056,
+      "parent": 47866913,
+      "text": "> Code review is already a bottleneck\n\nCounterpoint: no it isn't\n\n> makes this job dramatically harder\n\nNo it doesn't",
+      "kids": [
+        {
+          "id": 47868359,
+          "by": "esafak",
+          "time": 1776887274,
+          "parent": 47868138,
+          "text": "How many LOC do you generate and read a day? Only your own code or others' too?",
+          "kids": []
+        }
+      ]
+    }
+  ]
+}

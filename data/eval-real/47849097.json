@@ -1,0 +1,657 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47849097,
+    "title": "Show HN: GoModel – an open-source AI gateway in Go",
+    "points": 196,
+    "descendants": 72,
+    "article_url": "https://github.com/ENTERPILOT/GOModel/",
+    "hn_url": "https://news.ycombinator.com/item?id=47849097",
+    "self_post": false
+  },
+  "story": {
+    "id": 47849097,
+    "title": "Show HN: GoModel – an open-source AI gateway in Go",
+    "url": "https://github.com/ENTERPILOT/GOModel/",
+    "by": "santiago-pl",
+    "score": 196,
+    "time": 1776780713,
+    "descendants": 72,
+    "text": "Hi, I’m Jakub, a solo founder based in Warsaw.\n\nI’ve been building GoModel since December with a couple of contributors. It's an open-source AI gateway that sits between your app and model providers like OpenAI, Anthropic or others.\n\nI built it for my startup to solve a few problems:\n\n  - track AI usage and cost per client or team\n  - switch models without changing app code\n  - debug request flows more easily\n  - reduce AI spendings with exact and semantic caching\n\nHow is it different?\n\n  - ~17MB docker image\n    - LiteLLM's image is more than 44x bigger (\"docker.litellm.ai/berriai/litellm:latest\" ~ 746 MB on amd64)\n  - request workflow is visible and easy to inspect    \n  - config is environment-variable-first by default\n\nI'm posting now partly because of the recent LiteLLM supply-chain attack. Their team handled it impressively well, but some people are looking at alternatives anyway, and GoModel is one.\n\nWebsite: https://gomodel.enterpilot.io\n\nAny feedback is appreciated."
+  },
+  "comments": [
+    {
+      "id": 47851918,
+      "by": "nzoschke",
+      "time": 1776793034,
+      "parent": 47849097,
+      "text": "Looks nice, thanks for open sourcing and sharing.\n\nI'm all in on Go and integrating AI up and down our systems for https://housecat.com/ and am currently familiar and happy with:\n\nhttps://github.com/boldsoftware/shelley -- full Go-based coding agent with LLM gateway.\n\nhttps://github.com/maragudk/gai -- provides Go interfaces around Anthropic / OpenAI / Google.\n\nAdding this to the list as well as bifrost to look into.\n\nAny other Go-based AI / LLM tools folks are happy with?\n\nI'll second the request to add support for harnesses with subscriptions, specifically Claude Code, into the mix.",
+      "kids": [
+        {
+          "id": 47872879,
+          "by": "markusw",
+          "time": 1776927294,
+          "parent": 47851918,
+          "text": "Hi, I'm the author of GAI. I'm glad that you are happy with it! I'm using it a lot myself, both for own and client projects, but I wasn't sure if anyone else was. :D\n\nI'm actually trying to build it out in a way so that gateways aren't necessarily necessary. Cost and token tracking happen through OpenTelemetry. Fallbacks and retries are handled through the new “robust” package, and I have other plans as well. You're always welcome to file issues in the repo for things you'd like to see but aren't there yet. :-)",
+          "kids": []
+        },
+        {
+          "id": 47853263,
+          "by": "ewhauser421",
+          "time": 1776799207,
+          "parent": 47851918,
+          "text": "If you're all in on Go and AI, you might want to take a look at: https://github.com/ewhauser/gbash\n\nIt's a just-bash like variant implemented in Go. Useful for giving a managed bash tool to your agents without a full sandboxing solution.",
+          "kids": []
+        },
+        {
+          "id": 47859261,
+          "by": "jy-tan",
+          "time": 1776834279,
+          "parent": 47851918,
+          "text": "I built Fence (https://github.com/Use-Tusk/fence) in Go, a lightweight process sandbox for CLI agents (or any command really) with filesystem and network restrictions. It's also available as a Go library if you wish to add sandboxing to Shelley.",
+          "kids": []
+        },
+        {
+          "id": 47852391,
+          "by": "santiago-pl",
+          "time": 1776795366,
+          "parent": 47851918,
+          "text": "I'll take a closer look at it over the next few days.\n\nHowever, it might be challenging, considering that Claude Code with a subscription no longer officially works with OpenClaw.",
+          "kids": [
+            {
+              "id": 47853860,
+              "by": "nzoschke",
+              "time": 1776802037,
+              "parent": 47852391,
+              "text": "Yeah I share the same uncertainty here. My understanding is personal and interactive use should be fine. I use Conductor all day every day and it wraps a subscription.\n\nPerhaps fully automated use is where the line is drawn.\n\nBut I also suspect individuals using it for light automated dispatching would be ok too.",
+              "kids": []
+            },
+            {
+              "id": 47852682,
+              "by": "arcanemachiner",
+              "time": 1776796700,
+              "parent": 47852391,
+              "text": "That... might have changed?\n\nhttps://news.ycombinator.com/item?id=47844269",
+              "kids": []
+            },
+            {
+              "id": 47854975,
+              "by": "lackoftactics",
+              "time": 1776808110,
+              "parent": 47852391,
+              "text": "It suppose to work again based on todays news",
+              "kids": [
+                {
+                  "id": 47856401,
+                  "by": "santiago-pl",
+                  "time": 1776814883,
+                  "parent": 47854975,
+                  "text": "That's great news! The AI model ecosystem is changing so fast.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47852951,
+          "by": "rolls-reus",
+          "time": 1776797838,
+          "parent": 47851918,
+          "text": "i use this for my personal projects. some features are gated behind a license but the basics like provider proxy, logs, metrics are covered in the free version. \nhttps://github.com/maximhq/bifrost",
+          "kids": []
+        },
+        {
+          "id": 47854555,
+          "by": "verdverm",
+          "time": 1776805874,
+          "parent": 47851918,
+          "text": "> Any other Go-based AI / LLM tools folks are happy with?\n\nI can throw my hat into the ring, built on ADK, CUE, and Dagger (all also in Go); CLI, TUI, and VSCode interfaces. It's my personal / custom stack, still need to write up docs. My favorite features are powered by Dagger, sandbox with time travel, forking, jump into shell at any turn, diff between any points.\n\nGood entrypoint folder: https://github.com/hofstadter-io/hof/tree/_next/lib/agent",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851816,
+      "by": "pizzafeelsright",
+      "time": 1776792499,
+      "parent": 47849097,
+      "text": "I have written and maintained AI proxies. They are not terribly complex except the inconsistent structure of input and output that changes on each model and provider release.  I figure that if there is a not a < 24 hour turn around for new model integration the project is not properly maintained.\n\nGovernance is the biggest concern at this point - with proper logging, and integration to 3rd party services that provide inspection and DLP type threat mitigation.",
+      "kids": [
+        {
+          "id": 47855920,
+          "by": "ijk",
+          "time": 1776812568,
+          "parent": 47851816,
+          "text": "Given the LiteLLM Supply Chain Incident, threat mitigation and governance are definitely major concerns.",
+          "kids": []
+        },
+        {
+          "id": 47864540,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851752,
+      "by": "crawdog",
+      "time": 1776792138,
+      "parent": 47849097,
+      "text": "I wrote a similar golang gateway, with the understanding that having solid API gateway features is important.\n\nhttps://sbproxy.dev - engine is fully open source.\n\nAnother reason golang is interesting for the gateway is having clear control of the supply chain at compile time. Tools like LiteLLM the supply chain attacks can have more impact at runtime, where the compiled binary helps.",
+      "kids": [
+        {
+          "id": 47852110,
+          "by": "lackoftactics",
+          "time": 1776794073,
+          "parent": 47851752,
+          "text": "Maybe worth showing on SHOW HN",
+          "kids": [
+            {
+              "id": 47852496,
+              "by": "crawdog",
+              "time": 1776795831,
+              "parent": 47852110,
+              "text": "Thanks I am finishing up some performance comparison work looking at rust vs golang and plan a deeper write up for that group. I hope to publish soon.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47853948,
+      "by": "hgo",
+      "time": 1776802457,
+      "parent": 47849097,
+      "text": "Hey, this looks super nice. I do like the 'compact' feel of this. Reminds me of Traefik. It seems very promising indeed!\n\nOne problem I have is that yes, LiteLLM key creation is easier than creating it directly at the providers and managing it there for team members and test environments, but if I had a way of generating keys via vault, it would be perfect and such a relief in many ways.\n\nI see what I need on your roadmap, but miss integration with service where I can inspect and debug completion traffic, and I don't see if I would be able to track usage from individual end-users through a header.\n\nThank you and godspeed!",
+      "kids": [
+        {
+          "id": 47854235,
+          "by": "santiago-pl",
+          "time": 1776803927,
+          "parent": 47853948,
+          "text": "\"... and I don't see if I would be able to track usage from individual end-users through a header\".\n\nCurrently we have a unified concept of User-Paths. Once you add a specific header OR assign User-Path to an API key, you can track the usage based on this. The User-Path might be youe end-user, internal user or some service. Examples:\n\n  /client1/app1\n  /agents/agent1\n  /team2/john\n  /team2/adam\n\nWould this work for you?\n\nhttps://gomodel.enterpilot.io/docs/features/user-path\n\nPS Thanks for the feedback on the Vault integration. Noted.",
+          "kids": [
+            {
+              "id": 47860740,
+              "by": "hgo",
+              "time": 1776846763,
+              "parent": 47854235,
+              "text": "Ah, seems like the right thing.\nTo be more clear on what I'm looking for is this: the system using the LLM gateway would present an arbitrary user id. Let's say the system has thousands of end-users (completely managed by that system and not configured in the LLM proxy). The admin is interested in blocking end-users from using more than a certain allowed quota.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47854725,
+      "by": "neilly",
+      "time": 1776806901,
+      "parent": 47849097,
+      "text": "Given this app seems to expose itself via REST calls, why would anyone care that it’s written in Go?   I guess it matters to potential contributors but the majority of interest would be from users.",
+      "kids": [
+        {
+          "id": 47856042,
+          "by": "santiago-pl",
+          "time": 1776813105,
+          "parent": 47854725,
+          "text": "It's like fuel costs in a supply chain. When you buy apples at the store, you don't think about oil prices. But if trucks ran on something cheaper, more efficient, or less taxed, the apples on the shelf would be cheaper too.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47862492,
+      "by": "nopointttt",
+      "time": 1776860103,
+      "parent": 47849097,
+      "text": "Nice work. How are you doing the cache key when the prompt has a timestamp or session id in it? Regex pass to strip volatile fields before hashing, or do you make the user declare what's stable upfront? I've tried both in my own stuff and neither ends up clean.",
+      "kids": [
+        {
+          "id": 47865685,
+          "by": "giorgi_pro",
+          "time": 1776874430,
+          "parent": 47862492,
+          "text": "Thank you. No config atm to declare which fields are \"stable\" for caching. I assume you mean cases where the user would provide a different session ID but still would prefer the key to match. Am I right?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851437,
+      "by": "mosselman",
+      "time": 1776790765,
+      "parent": 47849097,
+      "text": "Does this have a unified API? In playing around with some of these, including unified libraries to work with various providers, I've found you are, at some point, still forced to do provider-specific works for things such as setting temperatures, setting reasoning effort, setting tool choice modes, etc.\n\nWhat I'd like is for a proxy or library to provide a truly unified API where it will really let me integrate once and then never have to bother with provider quirks myself.\n\nAlso, are you also planning on doing an open-source rug pull like so many projects out there, including litellm?",
+      "kids": [
+        {
+          "id": 47851762,
+          "by": "santiago-pl",
+          "time": 1776792208,
+          "parent": 47851437,
+          "text": "1. Yes, we have OpenAI-compatible API and we develop GoModel with Postel’s law in mind: https://gomodel.enterpilot.io/docs/about/technical-philosoph... .\n\n2. Regarding being open-source and the license, I've described our approach here transparently: https://gomodel.enterpilot.io/docs/about/license",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47861263,
+      "by": "StingSS",
+      "time": 1776851514,
+      "parent": 47849097,
+      "text": "Really slick and lightweight! My biggest question is about the upstream API evolution. Keeping up with every provider's updates feels like a full-time job—how do you automate or manage the tracking of these constant protocol shifts?",
+      "kids": [
+        {
+          "id": 47861428,
+          "by": "santiago-pl",
+          "time": 1776852909,
+          "parent": 47861263,
+          "text": "I'm wroking on it full-time right now. It might be challenging, especially when it comes to interactions with video, audio, and image models. I'm just trying to stay on top of what's happening and add new things day by day.\n\nAn even bigger challenge might be integrating it tighter with the cloud platforms, Prometheus, OAuth, Datadog, vaults, and DLP software.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851488,
+      "by": "sowbug",
+      "time": 1776791029,
+      "parent": 47849097,
+      "text": "Are these kinds of libraries a temporary phenomenon? It strikes me as weird that providers haven't settled on a single API by now. Of course they aren't interested in making it easier for customers to switch away from them, but if a proprietary API was a critical part of your business plan, you probably weren't going to make it anyway.\n\n(I'm asking only about the compatibility layer; the other tracking features would be useful even if there were only one cloud LLM API.)",
+      "kids": [
+        {
+          "id": 47851955,
+          "by": "simonw",
+          "time": 1776793270,
+          "parent": 47851488,
+          "text": "I've been maintaining an abstraction layer over multiple providers for a couple of years now - https://llm.datasette.io/\n\nThe best effort we have to defining a standard is OpenAI harmony/responses - https://developers.openai.com/cookbook/articles/openai-harmo... - but it's not seen much pickup. The older OpenAI Chat Completions thing is much more of an ad-hoc standard - almost every provider ends up serving up a clone of that, albeit with frustrating differences because there's no formal spec to work against.\n\nThe key problem is that providers are still inventing new stuff, so committing to a standard doesn't work for them because it may not cover the next set of features.\n\n2025 was particularly turbulent because everyone was adding reasoning mechanisms to their APIs in subtly different shapes. Tool calls and response schemas (which are confusingly not always the same thing) have also had a lot of variance - some providers allow for multiple tool calls in the same response, for example.\n\nMy hunch is we'll need abstraction layers for quite a while longer, because the shape of these APIs is still too frothy to support a standard that everyone can get behind without restricting their options for future products too much.",
+          "kids": [
+            {
+              "id": 47858603,
+              "by": "jdub",
+              "time": 1776828807,
+              "parent": 47851955,
+              "text": "Calling it \"Harmony\" is a historical death knell. :-D",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47851700,
+          "by": "harikb",
+          "time": 1776791930,
+          "parent": 47851488,
+          "text": "The providers themselves can't keep this straight even within their own ecosystem. Plus everyone is running at a million miles/hour.\n\nFor example `Claude code` used to set 2 specific beta headers with some version numbers for their Max subscription to be supported.\n\nOauth tokens for Max plan is different from how their API keys looked. They kind of look similar, but has specific prefix that these tool pre-validate.\n\nIt is barely working at this point even within a single provider",
+          "kids": []
+        },
+        {
+          "id": 47853670,
+          "by": "jedisct1",
+          "time": 1776801108,
+          "parent": 47851488,
+          "text": "It’s a complete mess, and the hardest part of this kind of tool is maintenance.\n\nIt’s not just about incompatible APIs, but also about how messages are structured. Even getting reliable tool calling requires a significant amount of work and testing for each individual model.\n\nJust look at LiteLLM’s commit history and open issues/PRs. They’re still struggling with reliable multi-turn tool calling for Gemini, Kimi requires hardcoded rules (so K2.6 is currently unsupported because it’s not on the list), and so on.\n\nImplementing the basic, generic OpenAI/Anthropic protocols is trivial, and at that point it almost feels like building an AI gateway is done. But it isn’t — that’s just the beginning of a long journey of constantly dealing with bugs, changes, and the quirks of each provider and model.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851960,
+      "by": "glerk",
+      "time": 1776793279,
+      "parent": 47849097,
+      "text": "This is awesome work, thanks for sharing!\n\nHow do you plan on keeping up with upstream changes from the API providers? I have implemented something similar, and the biggest issue I have faced with go is that providers don’t usually have sdk’s (compared to javascript and python), and there is work involved in staying up to date at each release.",
+      "kids": [
+        {
+          "id": 47853709,
+          "by": "santiago-pl",
+          "time": 1776801333,
+          "parent": 47851960,
+          "text": "First, GoModel is designed to be flexible. If you add an extra field, it tries to pass it through in the appropriate place (Postel's law)\n\nTherefore there's a good chance that if they make a minor API-level change, GoModel will handle it without any code changes.\n\nAlso, changes to providers' API formats might be less and less frequent. Keeping up typically means adding a few lines of code per month. I'm usually aware of those changes because I use LLMs daily and follow the news in a few places.\n\nAs a fallback, GoModel includes a passthrough API that forwards your request to the provider in its original format. That might be useful when an AI provider changes their contract significantly and we haven't caught up yet.\n\nAlso, official SDKs aren't bug-free either. Skipping that extra layer and hitting the API directly might actually be beneficial for GoModel.",
+          "kids": []
+        },
+        {
+          "id": 47852311,
+          "by": "vorticalbox",
+          "time": 1776795070,
+          "parent": 47851960,
+          "text": "Most APIs provide some sort of documentation. If it’s swagger you can just update the application from that.",
+          "kids": []
+        },
+        {
+          "id": 47852075,
+          "by": "lackoftactics",
+          "time": 1776793891,
+          "parent": 47851960,
+          "text": "Almost impossible without backing from some VC like litellm",
+          "kids": [
+            {
+              "id": 47852598,
+              "by": "swyx",
+              "time": 1776796315,
+              "parent": 47852075,
+              "text": "ridiculous statement. most people dont need long tail.",
+              "kids": [
+                {
+                  "id": 47852648,
+                  "by": "lackoftactics",
+                  "time": 1776796560,
+                  "parent": 47852598,
+                  "text": "I might be wrong, but if you go after 200 integrations keeping them on is substantial work for solo founder",
+                  "kids": [
+                    {
+                      "id": 47852679,
+                      "by": "swyx",
+                      "time": 1776796692,
+                      "parent": 47852648,
+                      "text": "real people just need like 20 at most.",
+                      "kids": [
+                        {
+                          "id": 47852760,
+                          "by": "lackoftactics",
+                          "time": 1776797084,
+                          "parent": 47852679,
+                          "text": "if that's the case and doesn't need crazy number of integrations, I agree with you 100%",
+                          "kids": [
+                            {
+                              "id": 47853761,
+                              "by": "santiago-pl",
+                              "time": 1776801579,
+                              "parent": 47852760,
+                              "text": "Yes, the number of meaningful providers might be around 20-30.",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47850001,
+      "by": "pjmlp",
+      "time": 1776784517,
+      "parent": 47849097,
+      "text": "Expectable, given that LiteLLM seems to be implemented in Python.\n\nHowever kudos for the project, we need more alternatives in compiled languages.",
+      "kids": [
+        {
+          "id": 47854697,
+          "by": "smcleod",
+          "time": 1776806737,
+          "parent": 47850001,
+          "text": "LiteLLM proxy has to be about the worst codebase and performing Python code I've used in a long time. Incredibly poor performance, riddled with serious bugs and to be honest devs that don't seem to understand them.",
+          "kids": [
+            {
+              "id": 47856255,
+              "by": "santiago-pl",
+              "time": 1776814071,
+              "parent": 47854697,
+              "text": "TBH I decided to write GoModel because I needed something like this for my startup, enterpilot, and LiteLLM didn’t meet my needs.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47850302,
+          "by": "santiago-pl",
+          "time": 1776785655,
+          "parent": 47850001,
+          "text": "Agree and thank you! Please let us know if you'd like to give it a try and if you miss any feature in GoModel.",
+          "kids": []
+        },
+        {
+          "id": 47851217,
+          "by": "goodkiwi",
+          "time": 1776789716,
+          "parent": 47850001,
+          "text": "It’s also badly implemented - everything is a global import. Had to stop using it",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47849997,
+      "by": "Talderigi",
+      "time": 1776784507,
+      "parent": 47849097,
+      "text": "Curious how the semantic caching layer works.. are you embedding requests on the gateway side and doing a vector similarity lookup before proxying? And if so, how do you handle cache invalidation when the underlying model changes or gets updated?",
+      "kids": [
+        {
+          "id": 47850402,
+          "by": "giorgi_pro",
+          "time": 1776786202,
+          "parent": 47849997,
+          "text": "Hey, contributor here. That's right, GoModel embeds requests and does vector similarity lookup before proxying. Regarding the cache invalidation, there is no \"purging\" involved – the model is part of the namespace (params_hash includes the LLM model, path, guardrails hash, etc). TTL takes care of the cleanup later.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851312,
+      "by": "driese",
+      "time": 1776790148,
+      "parent": 47849097,
+      "text": "Nice one! Let's say I'm serving local models via vllm (because ollama comes with huge performance hits), how would I implement that in gomodel?",
+      "kids": [
+        {
+          "id": 47860930,
+          "by": "santiago-pl",
+          "time": 1776848292,
+          "parent": 47851312,
+          "text": "I've released a new version of GoModel (0.1.20) with explicit support for vllm. You can now use it even with a few vLLM instances. Like this:\n\n  docker run --rm -p 8080:8080 \\\n    -e VLLM_BASE_URL=http://host.docker.internal:18000/v1 \\\n    -e VLLM_BASEMENT_BASE_URL=http://host.docker.internal:18000/v1 \\\n    enterpilot/gomodel:latest",
+          "kids": []
+        },
+        {
+          "id": 47851471,
+          "by": "devmor",
+          "time": 1776790965,
+          "parent": 47851312,
+          "text": "This is way more interesting to me as well. I have projects that use small limited-purpose language models that run on local network servers and something like this project would be a lot simpler than manually configuring API clients for each model in each project.",
+          "kids": [
+            {
+              "id": 47851901,
+              "by": "santiago-pl",
+              "time": 1776792929,
+              "parent": 47851471,
+              "text": "Thanks for raising it! Since vLLM has an OpenAI-compatible API, this should work for now:\n\n  docker run --rm -p 8080:8080 \\\n    -e OPENAI_API_KEY=\"some-vllm-key-if-needed\" \\\n    -e OPENAI_BASE_URL=\"http://host.docker.internal:11434/v1\" \\\n    ...\n    enterpilot/gomodel\n\nI'll add a more convenient way to configure it in the coming days.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47850517,
+      "by": "tahosin",
+      "time": 1776786689,
+      "parent": 47849097,
+      "text": "This is really useful. I've been building an AI platform (HOCKS AI) where I route different tasks to different providers — free OpenRouter models for chat/code gen, Gemini for vision tasks. The biggest pain point has been exactly what you describe: switching models without changing app code.\n\nOne thing I'd love to see is built-in cost tracking per model/route. When you're mixing free and paid models, knowing exactly where your spend goes is critical. Do you have plans for that in the dashboard?",
+      "kids": [
+        {
+          "id": 47850671,
+          "by": "santiago-pl",
+          "time": 1776787325,
+          "parent": 47850517,
+          "text": "This comment looks like AI-generated.\n\nHowever IIUC what you're asking for - it's already in the dashboard! Check the Usage page.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47850697,
+      "by": "indigodaddy",
+      "time": 1776787400,
+      "parent": 47849097,
+      "text": "Any plans for AI provider subscription compatibility? Eg ChatGPT, GH Copilot etc ? (Ala opencode)",
+      "kids": [
+        {
+          "id": 47851048,
+          "by": "santiago-pl",
+          "time": 1776788931,
+          "parent": 47850697,
+          "text": "You are not the first person who has asked about it.\n\nIt looks like a useful feature to have. Therefore, I'll dig into this topic more broadly over the next few days and let you know here whether, and possibly when, we plan to add it.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47853600,
+      "by": "phoenixranger",
+      "time": 1776800740,
+      "parent": 47849097,
+      "text": "looks interesting, will defo give it a try. thanks for open-sourcing it!",
+      "kids": []
+    },
+    {
+      "id": 47861532,
+      "by": "Trenchcole",
+      "time": 1776853840,
+      "parent": 47849097,
+      "text": "Love the progress!! keey going",
+      "kids": []
+    },
+    {
+      "id": 47850860,
+      "by": "rvz",
+      "time": 1776788058,
+      "parent": 47849097,
+      "text": "I don't see any significant advantage over mature routers like Bifrost.\n\nAre there even any benchmarks?",
+      "kids": [
+        {
+          "id": 47861333,
+          "by": "santiago-pl",
+          "time": 1776852125,
+          "parent": 47850860,
+          "text": "My thoughts about this:\n\nBenchmarking AI gateways properly is harder than it looks. Feature sets differ meaningfully - exact vs semantic caching, cluster mode, guardrails, audit logging - and each carries its own latency cost. What actually matters for most users is end-to-end latency including provider overhead (200–2000ms), and in that frame Bifrost, LiteLLM, and GoModel are all perfectly fine.\n\nI ran some comparisons but I'm not happy with the methodology, and I'd rather not spread misleading information. Once I have time to do it properly I'll write it up and share a link here. Honestly, I'd also love to see benchmarks done by someone other than the AI gateway builders. :)\n\nWhere GoModel actually differs today:\n\n  - image size: 16.96 MB vs Bifrost's 69.84 MB. It matters for sidecar, edge, and cold-start scenarios.\n  - per-tenant keys, guardrails, and audit logs are all in the OSS repo - not gated.\n  - AI interaction visualization that makes debugging individual request/response flows much easier.",
+          "kids": []
+        },
+        {
+          "id": 47851987,
+          "by": "lackoftactics",
+          "time": 1776793406,
+          "parent": 47850860,
+          "text": "It’s a heavily vibe coded project with only proxy with terrible benchmarks design. Basically vibe coded benchmarks that lie through ignorance of mocked super fast endpoint without using full power of litellm in multiple processes.\n\nOther than that almost useless it’s faster when this will be io bound and not cpu bound.",
+          "kids": [
+            {
+              "id": 47852735,
+              "by": "eikenberry",
+              "time": 1776796922,
+              "parent": 47851987,
+              "text": "Which project are you talking about, GoModel or Bifrost?",
+              "kids": [
+                {
+                  "id": 47852938,
+                  "by": "lackoftactics",
+                  "time": 1776797804,
+                  "parent": 47852735,
+                  "text": "GoModel. I see some red flags in the docs/benchmarks, but I could be wrong in my judgement here.\n\nWhat I noticed: the website shows a diagram of the litellm SDK communicating with the gateway proxy of GoModel, poor design of benchmarks, the scope of the project in readme vs. depth.\n\nI don't have professional experience in GoLang, so will not comment on quality of code.\n\nThere are some genuinely good things about this project and the effort here, but with solid position of Bifrost sitting at a version above 1.0.0 and so many other initiatives in this space, it's a tough market.",
+                  "kids": [
+                    {
+                      "id": 47854064,
+                      "by": "santiago-pl",
+                      "time": 1776802955,
+                      "parent": 47852938,
+                      "text": "The LiteLLM SDK is intentionally on the website. You can \"talk\" to GoModel with it because both projects use an OpenAI-compatible API under the hood.\n\nYou can use it like this:\n\n  from litellm import completion\n  print(completion(\n      model=\"openai/gpt-4.1-nano\",\n      api_base=\"http://localhost:8080/v1\",\n      api_key=\"your-gomodel-key\",\n      messages=[{\"role\": \"user\", \"content\": \"hi\"}],\n  ).choices[0].message.content)",
+                      "kids": [
+                        {
+                          "id": 47854401,
+                          "by": "lackoftactics",
+                          "time": 1776804931,
+                          "parent": 47854064,
+                          "text": "Thank you",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47853211,
+      "by": "immanuwell",
+      "time": 1776799014,
+      "parent": 47849097,
+      "text": "it's nice that it supports different providers",
+      "kids": []
+    },
+    {
+      "id": 47849790,
+      "by": "anilgulecha",
+      "time": 1776783665,
+      "parent": 47849097,
+      "text": "how does this compare to bifrost - another golang router?",
+      "kids": [
+        {
+          "id": 47850199,
+          "by": "santiago-pl",
+          "time": 1776785306,
+          "parent": 47849790,
+          "text": "First of all, GoModel doesn't have a separate private repository behind a paywall/license.\n\nIt's more lightweight and simpler. The Bifrost docker image looks 4x larger, at least for now.\n\nIMO GoModel is more convenient for debugging and for seeing how your request flows through different layers of AI Gateways in the Audit Logs.",
+          "kids": [
+            {
+              "id": 47850279,
+              "by": "anilgulecha",
+              "time": 1776785600,
+              "parent": 47850199,
+              "text": "That would be valuable if there's a commitment to never have a non-opensource offering under GoModel? If so, you can document it in the repo.",
+              "kids": [
+                {
+                  "id": 47850341,
+                  "by": "santiago-pl",
+                  "time": 1776785844,
+                  "parent": 47850279,
+                  "text": "I would love to keep it open source forever, but I can't promise that for now. I've written a whole doc page about it if you're curious: https://gomodel.enterpilot.io/docs/about/license",
+                  "kids": [
+                    {
+                      "id": 47852594,
+                      "by": "antonvs",
+                      "time": 1776796303,
+                      "parent": 47850341,
+                      "text": "If your concern is someone selling GoModel as a service, you could add a license provision for that. Technically it'd no longer be open source, I think, but most people won't care.",
+                      "kids": [
+                        {
+                          "id": 47856179,
+                          "by": "santiago-pl",
+                          "time": 1776813733,
+                          "parent": 47852594,
+                          "text": "I'll consider it for sure.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872649,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47852763,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47851452,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}

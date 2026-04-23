@@ -1,0 +1,1381 @@
+{
+  "pair": {
+    "story_type": "ask_hn",
+    "hn_id": 47834213,
+    "title": "Ask HN: How to solve the cold start problem for a two-sided marketplace?",
+    "points": 144,
+    "descendants": 162,
+    "article_url": "https://news.ycombinator.com/item?id=47834213",
+    "hn_url": "https://news.ycombinator.com/item?id=47834213",
+    "self_post": true
+  },
+  "story": {
+    "id": 47834213,
+    "title": "Ask HN: How to solve the cold start problem for a two-sided marketplace?",
+    "url": null,
+    "by": "alegd",
+    "score": 144,
+    "time": 1776692557,
+    "descendants": 162,
+    "text": "I'm building a P2P crowdshipping marketplace, basically BlaBlaCar but for packages instead of passengers. Travelers going between cities/countries carry items for people who need to send stuff.\n\nAbout to launch the MVP and hitting the classic chicken-and-egg problem.\n\nTravelers won't sign up without packages to carry, senders won't post without travelers available. Every marketplace founder says \"focus on one side first\" but nobody gets specific about how they actually did it, especially when you can't fake supply like you can with a SaaS landing page.\n\nFor those who've built P2P platforms or two-sided marketplaces: what actually worked for your first 50-100 transactions? Did you manually match people? Subsidize one side? Constrain to one route/city?"
+  },
+  "comments": [
+    {
+      "id": 47834732,
+      "by": "brk",
+      "time": 1776694679,
+      "parent": 47834213,
+      "text": "Most common advice is that you have to be at least one of the sides somehow. Reddit famously did this with lots of sock puppet accounts to foster discussions and create pseudo activity.\n\nIn your case, I'd probably start by reaching out to businesses in mid-size metro markets, ones where bike couriers don't already exist, and offer to save them on shipping small packages. Build up a list of clientele and encourage them to contact you for jobs when they need to ship small ad-hoc stuff. That should give you an idea of demand. Then start posting on craigslist and facebook looking for delivery drivers, then start match-making. From there encourage the drivers you find to sign up on your platform for future work.",
+      "kids": [
+        {
+          "id": 47836822,
+          "by": "alegd",
+          "time": 1776703169,
+          "parent": 47834732,
+          "text": "this is really helpful, especially the \"build a list of clientele first\" part. I've been so focused on the product that I havent done enough of this groundwork. The craigslist/facebook angle for finding travelers is smart, it crossed my mind but wasnt sure",
+          "kids": []
+        },
+        {
+          "id": 47835287,
+          "by": "albelfio",
+          "time": 1776697054,
+          "parent": 47834732,
+          "text": "Yes, we called API - Actual Person Interface. One person on one side of the marketplace that does the heavy work to build the other side, kickstart the flywheel",
+          "kids": []
+        },
+        {
+          "id": 47837085,
+          "by": "mfalcon",
+          "time": 1776704185,
+          "parent": 47834732,
+          "text": "Agree, and for the delivery-riders side, you and some vlose people can start making the deliveries if possible.",
+          "kids": []
+        },
+        {
+          "id": 47835920,
+          "by": "nonethewiser",
+          "time": 1776699635,
+          "parent": 47834732,
+          "text": "I dont think there is really an alternative to juicing it. Frankly I would do both sides even and make the activity very visible.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47834402,
+      "by": "leros",
+      "time": 1776693267,
+      "parent": 47834213,
+      "text": "You need to cheat to kickstart one side\n\n1) Incentivize people on one side to join without the other side. For example Uber paid early drivers money just for signing up even though they had no riders.\n\n2) You provide one side of the marketplace to kickstart the other side. This would be like Uber hiring drivers in the beginning.\n\nThis is why starting a two sided marketplace often requires significant capital. They're very hard to start organically.\n\nAnother thing I'd suggest is to focus on a niche. Don't try to solve the global problem just yet. Maybe you know a lot of people want to transport books between London and Madrid. Just focus on that to get that market healthy, then add another product or location. This helps you focus your marketing. Also if you go global to start you might have 1000 users on both sides but no matches because everyone is too spread out.",
+      "kids": [
+        {
+          "id": 47834702,
+          "by": "mohsen1",
+          "time": 1776694552,
+          "parent": 47834402,
+          "text": "Uber also paid riders to ride. I was working for Garret Camp at SumbleUpon and we got free Uber Black back then. The number of available drivers even in SF was so low that it was not really useful, even free!",
+          "kids": []
+        },
+        {
+          "id": 47836235,
+          "by": "TheGRS",
+          "time": 1776700985,
+          "parent": 47834402,
+          "text": "IIRC Uber employees would jump into taxis and offer them money on the spot to drive for them.\n\nIts priming the pump, I agree there's probably no way around it. Once you get some adoption you can use that experience to go to other cities. Hit social networks often to generate interest organically.",
+          "kids": []
+        },
+        {
+          "id": 47834663,
+          "by": "garrickvanburen",
+          "time": 1776694392,
+          "parent": 47834402,
+          "text": "This. Stated another way, you need to start by either: fulfilling existing demand yourself....or being the demand yourself.",
+          "kids": [
+            {
+              "id": 47838242,
+              "by": "sharnett",
+              "time": 1776708348,
+              "parent": 47834663,
+              "text": "Interview with Lugg (YC S15) with some details on how they did it: https://www.ycombinator.com/blog/interview-with-lugg-founder...",
+              "kids": [
+                {
+                  "id": 47839633,
+                  "by": "alegd",
+                  "time": 1776714620,
+                  "parent": 47838242,
+                  "text": "Thanks for your reply! This will help me a lot.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47834508,
+          "by": "alegd",
+          "time": 1776693712,
+          "parent": 47834402,
+          "text": "yeah the \"cheat\" framing makes sense. I've been thinking about option 2, being the supply side myself at the start. Like personally coordinating the first few deliveries to prove it works before asking random travelers to sign up\n\noption 1 is trickier when bootstrapped though. How do you incentivize signups without burning money you dont have? Curious if you've seen that work without VC funding behind it",
+          "kids": [
+            {
+              "id": 47834558,
+              "by": "leros",
+              "time": 1776693910,
+              "parent": 47834508,
+              "text": "Without burning money you'll need to be creative. Either do it yourself or go sourcing the supply side. Can you go find a group of people you can use to transport things and basically sign up on the platform on their behalf and then hand stuff off to them? Maybe you know some travel group that exist and you could pay them to take packages. You're basically acting in an agency model in the beginning instead of being a true P2P marketplace. It's a common strategy though it does often lead to just becoming an agency because it's more successful than your organic marketplace. This would be like if you called an Uber and Uber calls up a private driving service to pick you up.",
+              "kids": []
+            },
+            {
+              "id": 47841445,
+              "by": "Eridrus",
+              "time": 1776721964,
+              "parent": 47834508,
+              "text": "The only real example I can think of being bootstrapped is Airbnb, and even that wasn't bootstrapped for long.\n\nUnless you have a good go to market strategy, you might want to try something easier.\n\nAt the risk of being overly critical, the cost of shipping packages is pretty low unless you're trying to do same day delivery, in which case Uber already lets you get your package delivered.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47842610,
+          "by": "muzani",
+          "time": 1776728319,
+          "parent": 47834402,
+          "text": "They used to refer to it as \"Do things that don't scale\" rather than cheating :)",
+          "kids": [
+            {
+              "id": 47844072,
+              "by": "leros",
+              "time": 1776741289,
+              "parent": 47842610,
+              "text": "I'd argue setting up a semi-fake version of one side of a marketplace is a little more in the cheating category. Plus it sounds more fun to me :)\n\nBut yeah same thing.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47844295,
+      "by": "jwitchel",
+      "time": 1776743198,
+      "parent": 47834213,
+      "text": "Oh this is one I can answer.  I was the co-founder of Prosper an early p2p lending company.  Your problem is a relatively easy one.\n\nGo find one or two companies with a lot of packages.  Focus on delivering packages whose delivery time is not critical (say 7 days) and whose registered value is low (say $500 or less). Focus on deliveries that are just outside of ubers practical range (say LA to SFO).\n\nFind a bunch of uber drivers who are already reliable.  Over pay them to make runs. If they screw it up have them drop the package off at a ups store and over night it as a catch all.\n\nDo 1,000 packages to get your logistics worked out.  Don't market or launch or promote until you have it nailed.\n\nThen find 10 more companies with lots of packages.  Your goal is to develop profitable routes (e.g. 5 packages per car) and customers who are delivering 1000s of packages a month.\n\nYour pmf is about reliably servicing one geographic region at a time like yelp and LinkedIn did.\n\nDo not try and roll out a national service day one.\n\nDo not focus on people shipping packages.  Not enough repeat business.\n\nDo not take high stakes runs day one.\n\nOne big advantage is your ability to do small heavy objects.  Ups and FedEx are very weight sensitive.",
+      "kids": []
+    },
+    {
+      "id": 47835930,
+      "by": "il-b",
+      "time": 1776699674,
+      "parent": 47834213,
+      "text": "Beware of drug and cash traffickers. Unlike ride sharing, where the end user, the passenger, is responsible for everything.",
+      "kids": [
+        {
+          "id": 47836496,
+          "by": "CodingJeebus",
+          "time": 1776702094,
+          "parent": 47835930,
+          "text": "Also sounds like something Ted Kaczynski would've been interested in using back in the day. It has all of the elements of a literal bomb delivery service: operates outside of the mail security apparatus, probably built on a shoestring budget so no background checks for the senders.",
+          "kids": [
+            {
+              "id": 47841097,
+              "by": "TZubiri",
+              "time": 1776720595,
+              "parent": 47836496,
+              "text": "The conclusion would probably be that the supply side would need to be trained and certified as courier operators.\n\nAre the legal liabilities way more serious than those that Uber faced? To be fair, Uber founder faced a lot of legal issues and stress.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47836282,
+          "by": "freeplay",
+          "time": 1776701220,
+          "parent": 47835930,
+          "text": "This was my first thought when I saw \"travelers going between countries.\"\n\nYou're going to have a problem getting carriers to sign up because they are assuming all of the risk. Unfortunately, \"oh you don't understand - I got paid $27 by CarrierPigeon™ to bring this unmarked, brick shaped package into the country\" just isn't going to fly with customs/feds.",
+          "kids": [
+            {
+              "id": 47841042,
+              "by": "TZubiri",
+              "time": 1776720335,
+              "parent": 47836282,
+              "text": "Sounds more like an opportunity, the fact that there's unique problems to be solved in a space mean precisely that there is a need for a specialized company instead of being gobbled up by features in rideshare apps.",
+              "kids": [
+                {
+                  "id": 47851174,
+                  "by": "freeplay",
+                  "time": 1776789537,
+                  "parent": 47841042,
+                  "text": "Some spaces just can't be \"disrupted.\"",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47836643,
+              "by": "dpark",
+              "time": 1776702633,
+              "parent": 47836282,
+              "text": "I missed the “different countries” bit. Hell no.\n\nOP, I hope you are on good terms with Trump, because you’re going to need that pardon.",
+              "kids": [
+                {
+                  "id": 47837101,
+                  "by": "Freak_NL",
+                  "time": 1776704219,
+                  "parent": 47836643,
+                  "text": "This whole idea is dead on arrival because of this.\n\nMost nations actively warn their citizens never to carry packages from someone you don't know, and never to carry packages you didn't pack (or saw opened) yourself even for people you do know. And still people agree to carry sealed packages for someone they had a few nice nights with on holiday before boarding the plane back home. That tends to end in a little room on the same airport with security/police grilling you before sending you on to the judicial system where the tough-on-drugs judge will sentence you to a couple of years of extra holiday. In a cell with rats.\n\nThere is no way to clear this legally and ethically.",
+                  "kids": [
+                    {
+                      "id": 47837463,
+                      "by": "dpark",
+                      "time": 1776705430,
+                      "parent": 47837101,
+                      "text": "Even across state lines is a big risk but carrying unknown packages into another country is astronomically stupid. You don’t get to play the “I didn’t realize” card, either, when you lie to a customs agent and claim you didn’t accept packages from anyone else.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47837558,
+                      "by": "bombcar",
+                      "time": 1776705684,
+                      "parent": 47837101,
+                      "text": "Even just going to the Apple Store when you're in NYC for someone and bringing back a brand new Mac can get customs officials interested.\n\nI'd be hesitant taking anything from anyone, even a child handing a letter to be postmarked in Florida.",
+                      "kids": [
+                        {
+                          "id": 47841452,
+                          "by": "rescbr",
+                          "time": 1776721993,
+                          "parent": 47837558,
+                          "text": "Yeah, but bringing back a brand new Mac that I personally bought at an Apple Store for a friend won’t ever land me in jail - worst case scenario is that the friend would have to pay me back for whatever import duties the customs officials levy on the computer.\n\nNow, carrying a random package from somebody on the Internet? There are more productive ways to get into jail than this!",
+                          "kids": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": 47841062,
+                      "by": "TZubiri",
+                      "time": 1776720440,
+                      "parent": 47837101,
+                      "text": "Isn't this fixed by:\n\nA: unpacking and inspecting the packages?\nB: The company assuming the risk and liability.\nC: The company collecting evidence through KYC and cooperating in the case of crime?\n\nProbably too much hassle to save some bucks when compared to a courier service, though.",
+                      "kids": [
+                        {
+                          "id": 47841281,
+                          "by": "dpark",
+                          "time": 1776721351,
+                          "parent": 47841062,
+                          "text": "A. Maybe. Are you going to ship with someone who is going to open your package and rifle through it, though? I would personally also not feel confident in my ability to check fully for hidden illicit material if I were the courier.\n\nB. No. Absent laws indemnifying the courier, a company saying “I’ll take the heat for those drugs you’re carrying” is not a meaningful act.\n\nC. No. This seems like more of B.\n\nThis is all surmountable if the laws allow it. I assume FedEx drivers don’t go to jail of a package unknowingly contains drugs. But I don’t know what needs to be in place for random Joe to be acting as a casual courier without taking on legal liability.",
+                          "kids": [
+                            {
+                              "id": 47850841,
+                              "by": "georgefrowny",
+                              "time": 1776787976,
+                              "parent": 47841281,
+                              "text": "Also if you can get away with it, all drug traffickers would soon have an online order for their package so if stopped they can just say they're an innocent courier.",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": 47842832,
+                      "by": "morkalork",
+                      "time": 1776729594,
+                      "parent": 47837101,
+                      "text": "Recently:\n\nhttps://www.ctvnews.ca/canada/article/exclusive-canadian-tee...\n\n>Jade’s Instagram account suggests she thought she had been hired for a legitimate job as an “international package shipper,” with a salary of $5,000 per trip.\n\nHer recruiter texted her: “We pay your flights, accommodation, food.”",
+                      "kids": []
+                    },
+                    {
+                      "id": 47839778,
+                      "by": "JackFr",
+                      "time": 1776715342,
+                      "parent": 47837101,
+                      "text": "And yet I know there used to be a business (when the Concorde was flying), where they would offer very cheap tickets on the Concorde from New York to London and back, the hitch being that you agreed to take no luggage, and your luggage allowance was taken up by the brokering company, who provided a rush courier service largely for legal/business documents and the like.\n\nI guess this company is slightly different, I think it could be made legal.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47837750,
+                  "by": "actionfromafar",
+                  "time": 1776706428,
+                  "parent": 47836643,
+                  "text": "And if you can afford that, you can afford to prime the pump, too.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47840324,
+          "by": "mike_d",
+          "time": 1776717968,
+          "parent": 47835930,
+          "text": "OP has already solved one side of the market without even realizing it.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47839791,
+      "by": "3D39739091",
+      "time": 1776715439,
+      "parent": 47834213,
+      "text": "Real talk, though, you should already have talked to enough people about solving this problem for them that you have a list of contacts who are  eager to sign up.\n\nSounds like you don't have that. I'm kinda going to guess that you fell into the trap of building something without validating the need for it first.\n\nBecause to be completely honest, no business would ever sign up for this, and no reasonable individuals will sign up to carry anonymous packages through customs. The people that would deal with this for whatever $25 you can pay them are exactly the people you should never trust to carry your customers' packages in the first place.",
+      "kids": [
+        {
+          "id": 47840183,
+          "by": "subhobroto",
+          "time": 1776717432,
+          "parent": 47839791,
+          "text": "I will start off by saying, yes, the OP is really light on location and painpoints to have a real concrete conversation. I wish there was more detail about the environment and the hypothesis being tested.\n\nThen I will say your first sentence is absolutely correct as well!\n\nI just start to dislike the rest not because you're wrong, but, because:\n\n> Because to be completely honest, no business would ever sign up for this, and no reasonable individuals will sign up to carry anonymous packages through customs. The people that would deal with this for whatever $25 you can pay them are exactly the people you should never trust to carry your customers' packages in the first place.\n\nYou don't know that! Where's the OP located? How is their culture? Is it high trust? Are they known to pull off shenanigans?\n\nIf your assumptions hold, you're absolutely correct, but as I wrote in another comment on this post - AirBnB grew exactly because the initial ecosystem was high trust because it was founded on gratitude. People like myself really appreciated that there was a place to sleep for 1/10th the price of a hotel and never wanted it to stop.\n\nIf the OP is in a country where the customs is corrupt, holds packages hostage unless you pay an arbitrary bribe, they could very well have a business where the ecosystem are a self selecting network of high trust individuals.\n\n> I'm kinda going to guess that you fell into the trap of building something without validating the need for it first.\n\nWhile this is likely, there's evidence that a lot of ultra successful companies started by the founders building something without validating the need for it at all, just like there's ample evidence of companies imploding because they did the same!\n\nWhile Quibi failed horribly, Justin Kan willed Justin.tv into existence.\n\nI don't want to beat a deadhorse about Dropbox, especially the infamous comment but I don't believe Drew did any market study about the feasibility of Dropbox - atleast the folklore is that he coded it up on a bus trip. He did follow that up with a simple 4-minute demo video showing the product kinda working but I argue that's not what you implied with \"building something without validating the need for it first\".\n\nI predict that in this age of GenAI, the surface area is going to explode: so many new products will get created and new billionaires be minted that \"building something without validating the need for it first\" will only be left for people who want to be extraordinarily frugal, cautious and meticulous.\n\nAs engineers we don't give enough credit to simple randomness.\n\nLuck and timing should not be underestimated. Sometimes that's the only differentiation.",
+          "kids": [
+            {
+              "id": 47844964,
+              "by": "alegd",
+              "time": 1776749877,
+              "parent": 47840183,
+              "text": "fair point on being light on details. I'm based in Spain, starting with domestic routes. The trust model is different here than cross-border, no customs involved for national shipments.\n\nThe luck and timing point is underrated. Half the reason I'm building this now is because the gig economy normalized \"strangers doing tasks for strangers\" in a way that wasnt culturally accepted 10 years ago. thanks for comment.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47836043,
+      "by": "tomaspiaggio12",
+      "time": 1776700115,
+      "parent": 47834213,
+      "text": "you should read the cold start problem (book). it talks a bunch about how uber, airbnb, zoom, github, dropbox solved the cold start problem in different ways. super interesting and well explained.\n\nin two words, two sided networks usually have a \"hard part\". in the case of uber, the drivers. in your case, i'd probably \"do things that don't scale\" like brian chesky did with airbnb, start with a super small location (probably where you live) and drive yourself / your cofounders / friends all the packages until people know the product works.\n\nusually, with cold start products, you have to solve it many times in many locations. you can't do it worldwide day one.",
+      "kids": [
+        {
+          "id": 47840547,
+          "by": "2arrs2ells",
+          "time": 1776718642,
+          "parent": 47836043,
+          "text": "+1 to the book, it's great",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47837819,
+      "by": "keiferski",
+      "time": 1776706666,
+      "parent": 47834213,
+      "text": "This is a really bad idea for reasons already mentioned in other comments. Personally, I travel a lot and there's zero chance I would ever take someone's random package.\n\nI think you should instead think of this as a B2B2C type business. As in, Business (You) helps Businesses (B) find people (C) that would help deliver freight packages. Even then, it's not really clear why UPS or DHL or whomever would trust a random person in their car vs. their sophisticated logistics networks. If there is some gap in their network, that gap is your sales opportunity. Maybe last minute things? Urgent packages? Etc.",
+      "kids": [
+        {
+          "id": 47839208,
+          "by": "zephen",
+          "time": 1776712681,
+          "parent": 47837819,
+          "text": "> This is a really bad idea for reasons already mentioned in other comments.\n\nAgreed, although that doesn't mean it won't be successful.\n\n> Personally, I travel a lot and there's zero chance I would ever take someone's random package.\n\nMe neither, but I'd never cart random strangers around, or let them into my house either when I wasn't there, so I'm not the best judge of these things.\n\nOne thing that I will predict is that, if this does, in fact, take off, it will only hasten the enshittification of airline travel.  You think you have a hard time trying to find a place to stuff your small carry-on now??!?  Just wait.  And checked baggage pricing will be through the stratosphere.",
+          "kids": []
+        },
+        {
+          "id": 47839241,
+          "by": "0xffff2",
+          "time": 1776712845,
+          "parent": 47837819,
+          "text": "> Even then, it's not really clear why UPS or DHL or whomever would trust a random person in their car vs. their sophisticated logistics networks.\n\nAmazon seems to have a sophisticated logistics network that is built at least 50% on random people in their car in Southern California. What I don't get is why someone with an existing logistics network of any kind would rely on a third party to integrate the random person rather than doing it in-house.",
+          "kids": [
+            {
+              "id": 47839436,
+              "by": "occamofsandwich",
+              "time": 1776713699,
+              "parent": 47839241,
+              "text": "Liability. I.e. when they get sued they can try to argue the contractor is an employee of the nothing firm and doesn't need an equivalent retirement plan to Bezos.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47834754,
+      "by": "edparry",
+      "time": 1776694749,
+      "parent": 47834213,
+      "text": "A recent episode of [David Senra's podcast with Tony Xu](https://www.davidsenra.com/episode/tony-xu), founder of DoorDash has some interesting points on this topic. Essentially there, they restricted the service to one locality, and he and his co-founders were the first drivers. Once demand was proven and slowly scaled, there was an incentive for other drivers to join, and with more drivers it opened up a wider geography.",
+      "kids": [
+        {
+          "id": 47834817,
+          "by": "martinald",
+          "time": 1776695002,
+          "parent": 47834754,
+          "text": "I suspect this is the best option. Focus on one city pair to start with, _you_ are the courier and find customers on that city pair. Then you can start figuring out how to attract people onto that city pair so you don't have to do it anymore (as there will be demand).",
+          "kids": []
+        },
+        {
+          "id": 47836867,
+          "by": "alegd",
+          "time": 1776703312,
+          "parent": 47834754,
+          "text": "this is exactly the kind of specific example I was looking for. Going to listen to that episode. The \"founders were the first drivers\" pattern keeps coming up in this thread, that might be the way after all.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869432,
+      "by": "crawlwright",
+      "time": 1776892805,
+      "parent": 47834213,
+      "text": "Constrain geography aggressively early. Pick one route, say like London to Paris and manually recruit both sides for just that corridor.\n\nOnce you have 10 successful transactions on one route you have proof, testimonials, and a template to expand.\nThe mistake most two-sided marketplaces make is launching everywhere and having nothing anywhere.\n\nBetter to be the only option on one route than an empty option everywhere.",
+      "kids": []
+    },
+    {
+      "id": 47838234,
+      "by": "andyjohnson0",
+      "time": 1776708306,
+      "parent": 47834213,
+      "text": "> Travelers going between cities/countries carry items for people who need to send stuff.\n\nCarrying othet people's parcels across national boundaries is a really, really bad idea for the person involved. Drugs, money, weapons, explosives, endangered species, etc.\n\nIf you plan to run a business that facilitates this then you are exposing yourself to potentially very severe legal liabilities.",
+      "kids": []
+    },
+    {
+      "id": 47868673,
+      "by": "preetigagarwal",
+      "time": 1776888786,
+      "parent": 47834213,
+      "text": "Cold start is the hardest problem in any marketplace. What worked for us was focusing on one side first — get the supply side locked in before worrying about demand. Also doing things manually at the start that don't scale. Personal outreach to every single early user, not mass emails. The product can be rough but people forgive that if you give them personal attention early on.",
+      "kids": []
+    },
+    {
+      "id": 47838942,
+      "by": "panos_news",
+      "time": 1776711401,
+      "parent": 47834213,
+      "text": "There was a startup years ago that tried this. They shut down because people were afraid to carry a stranger's package.",
+      "kids": [
+        {
+          "id": 47839709,
+          "by": "dotBen",
+          "time": 1776715001,
+          "parent": 47838942,
+          "text": "Airmule. (There may have been others).\n\nFrom my recollection the issues were that it is against the terms and conditions of many carriers to bring packages for other people.\n\nWhat was being shipped was also dubious - sure it wasn't drugs but it was often ASIC chips, strange hardware from China etc.\n\nI don't think I would want to take any packages in this way, but I certainly would be worried about export control stuff.\n\nThis is not a viable startup to be honest.",
+          "kids": []
+        },
+        {
+          "id": 47839234,
+          "by": "toyg",
+          "time": 1776712797,
+          "parent": 47838942,
+          "text": "Personally, I also would never trust a random stranger with carrying my stuff. Delivery companies have tracking systems and insurances.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47835812,
+      "by": "Unsponsoredio",
+      "time": 1776699187,
+      "parent": 47834213,
+      "text": "Man, I feel this. I'm literally grinding to get the first 30 active members for my own project right now and the chicken-and-egg phase is brutal.\n\nHonestly, just be the courier. Pick one route, find the senders manually, and drive the packages yourself.",
+      "kids": []
+    },
+    {
+      "id": 47834839,
+      "by": "gamerDude",
+      "time": 1776695104,
+      "parent": 47834213,
+      "text": "You need to be one side of the marketplace first. \nUber started by the founders being the drivers.\n\nThat means either being the traveler and carrying things for others. Or be the demand and start shipping things this way and get some other people to carry packages for you.",
+      "kids": []
+    },
+    {
+      "id": 47836305,
+      "by": "glerk",
+      "time": 1776701343,
+      "parent": 47834213,
+      "text": "There is probably no other way than to seed it. You can do this with outright bots or contractors from fiverr, but people who grew up with the internet are very good at spotting inorganic growth.\n\nI'd start with a slow rollout to friends, family, colleagues and even LinkedIn acquittances. You'd be surprised how many people are super eager to be the first to test your apps, even with a generic cold message like \"hey, remember me? I built this cool app, wanna try it out if you have a minutes? I'll send you money to cover the fees.\"",
+      "kids": []
+    },
+    {
+      "id": 47836993,
+      "by": "phasetransition",
+      "time": 1776703852,
+      "parent": 47834213,
+      "text": "Partner as overflow, or undesirable route coverage, for a specific niche market of couriers in your existing location.\n\nPractical examples from a US perspective, where the existing customer has a strong anchor for timely delivery:\n\n1. McMaster-Carr couriers tons of stuff to industrial and commercial facilities. Partner with one of their exist carriers.\n\n2. Local automotive repair shops need parts delivered.\n\n3. Durable medical equipment delivery.\n\n4. Overflow capacity on your local contract FedEx routes.\n\n5. Emergency runs for event or wedding planners.\n\n6. Fresh produce, greens, and fish for restaurants.\n\n7. Airport to hotel lost luggage courier.",
+      "kids": []
+    },
+    {
+      "id": 47839765,
+      "by": "andrewljohnson",
+      "time": 1776715258,
+      "parent": 47834213,
+      "text": "For my marketplace, I was friends with someone who could make it look like not a ghost town for the supply (an established game store with lots of trading cards in stock). Then, we struggled to get more sellers. Then, we found channels to get selllers, which were basically software systems we could build integrations with. The integrations de-risked the proposition for sellers enough to get more traction. Eventually, if you have growing volume, the supplyside just starts coming on its own mostly, and you focus on retaining sellers and growing buyers.\n\nFor your marketplace, you could bring the supply-side by Fedexing stuff when you don't have a carrier. You'll have to lose money on the initial shipment, until you can route the jobs to the supplyside. This assumes you think the typical use case for this isn't smuggling.\n\nThe amount of jobs may be low enough at first that you can be like \"You said Cairo to London, that will be $N.\" Then, if you can fill the job manually by finding someone somehow, then you add them to the platform and they do the job. If not, you send a prepaid mailing package with a Fedex label to the recipient and they ship it easily, and you subsidize it so it seems like a great deal to them.\n\nLimiting geography seems like a good approach too.",
+      "kids": []
+    },
+    {
+      "id": 47835367,
+      "by": "sim04ful",
+      "time": 1776697447,
+      "parent": 47834213,
+      "text": "For advice let me use my current product. https://fontofweb.com is essentially Pinterest for web design. It does semantic search against a database of UI screenshots and recordings.\n\nThe problem with products like this is that for search to be useful, you need, well... data. And when your data is crowdsourced, you need, well... a crowd. That was the chicken-and-egg situation I found myself in.\n\nSo the way I solved it was by painstakingly clipping and recording ~8500 websites myself.\n\nBut the great thing about that arduous process is that it forces you to put yourself in the shoes of your typical user. And really, the only way to make good products is to have a deep level of empathy for that user. In my case, that meant streamlining the data creation process itself, the act of pinning a screenshot or recording, because I had to do it over and over again. Making it easier for myself ended up making it better for everyone else too.\n\nOf course, all that data-seeding effort goes to waste if search engines and potential users cannot discover it. So you have to go all in on SEO, especially sitemaps, and on programmatic socials where possible. This is especially true for a product like mine.\n\nA lot of these marketplaces also have relatively homogenous data, which is actually useful, because it means you can present it through templates and publish pages at scale automatically.",
+      "kids": [
+        {
+          "id": 47837924,
+          "by": "alegd",
+          "time": 1776707029,
+          "parent": 47835367,
+          "text": "That’s cool. 8500 manually is insane. But I get it, you cant understand your users without doing the work yourself",
+          "kids": []
+        },
+        {
+          "id": 47837643,
+          "by": "logdahl",
+          "time": 1776705945,
+          "parent": 47835367,
+          "text": "Cool site, seems like a really useful tool!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47835289,
+      "by": "freediddy",
+      "time": 1776697059,
+      "parent": 47834213,
+      "text": "How is this different from Uship? I've used that service and it's pretty good and reasonably priced. They do exactly what you talk about which is allow people to ship things between cities for a pretty reasonable price. You can either specify a price or have shipper bid on it, along with flexibility as to when it gets shipped. People end up being small-time shippers and will buy vans and then just deliver in between cities for as many parcels as they can ship.",
+      "kids": []
+    },
+    {
+      "id": 47836962,
+      "by": "egalano",
+      "time": 1776703747,
+      "parent": 47834213,
+      "text": "I'm the cofounder of Infura.io and we were building a 2-sided marketplace of API providers for blockchain infra. We bootstrapped it by doing exactly what you said: focus on one-side first. We focused on the provider side but we had that luxury. We had demand on the customer side already with our existing SaaS product. What we wanted to do was evolve our product to serve our existing customer base with a marketplace instead of solely by our product team. This is because of the evolution in the blockchain space of people interacting with dozens of APIs instead of 8 years ago when it was just our main Ethereum API. Serving the existing customers with a marketplace of providers made a ton of sense and so that is the direction we took the product. Over 2 years we grew it to a network of over 40 providers serving several dozen blockchain APIs.\n\nFor your idea I’d start narrower. One route or type of sender/package. Pick a high volume popular route and see if you can bootstrap the 2 sides just on that route alone and then expand. Then manually match people for the first 50-100 transactions. It takes some manual work to get that flywheel going",
+      "kids": []
+    },
+    {
+      "id": 47847956,
+      "by": "Semon132",
+      "time": 1776775184,
+      "parent": 47834213,
+      "text": "founding team at Backpack(yc) here! we solved this by starting with demand.\n\nget real orders first, then solve fulfillment. if we had no traveler that matched the route/timing, one of us would literally take the flight.\n\nnot scalable, but early on that’s not really the problem.\n\none of the thing that matters in this model: traveler supply has a different clock than demand. people usually know their trips weeks ahead, so having them in the funnel helps. but I still wouldn’t wait for perfect supply coverage before testing whether senders are really there.\n\nin the early days, you’re not really a marketplace. you’re just making the service work by hand.\n\nhappy to chat if useful.",
+      "kids": [
+        {
+          "id": 47848527,
+          "by": "alegd",
+          "time": 1776778070,
+          "parent": 47847956,
+          "text": "this is incredibly helpful. The point about traveler supply having a different clock than demand is something I’ve thought about. Would love to chat, I tried sending you a message on LinkedIn but couldn’t. Please find my contact in my profile.",
+          "kids": [
+            {
+              "id": 47848688,
+              "by": "Semon132",
+              "time": 1776778849,
+              "parent": 47848527,
+              "text": "connected",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47839044,
+      "by": "subhobroto",
+      "time": 1776711921,
+      "parent": 47834213,
+      "text": "A lot of fantastic answers here: I second the \"YOU need to be one side of the marketplace first\" but two questions that I haven't seen appear yet are:\n\n- What draws YOU to build a P2P crowdshipping marketplace? Is it just a hypothesis you have or did you suffer an issue that you can't find any existing company offer?\n\n- Is there absolutely no existing company offering the product you need - why don't you call their sales team and ask them what it would take to build it for you?\n\nI've seen founders find a profitable business that they hated running themselves  (horrible founder-market fit) and I've seen founders learn why existing businesses weren't solving that problem (horrible unit economics).\n\nInstead if treating yourself as an engineer excited to build a software stack and show off their skills, consider treating yourself as an investor figuring out the TOP 3 things that could get in your way of getting a positive ROI on your investment.",
+      "kids": []
+    },
+    {
+      "id": 47834540,
+      "by": "hilariously",
+      "time": 1776693826,
+      "parent": 47834213,
+      "text": "My bigger question is how you would validate this isn't drugs because this seems like the perfect low effort way to send high value drugs.",
+      "kids": [
+        {
+          "id": 47835056,
+          "by": "pjc50",
+          "time": 1776695921,
+          "parent": 47834540,
+          "text": "Check-in explicitly asks you \"have you packed your bags yourself\", and then you have to either say \"no I have this random package from a stranger which might contain anything\" or lie to customs.\n\nTBH, I can't really think of a market for this that isn't contraband. The \"last mile\" looks really annoying as well.\n\nEdit: I think it's a legit marketing question for OP. Name three different kinds of item someone might want to use this service for.\n\nI'll even give you one: there's already a small cottage industry of reshipping companies from e.g. Japan, who will let you buy stuff from companies that won't themselves do international shipping. Ship to re-shipper, who then handles the international part.\n\nYou might be able to get a market started if your model starts with only items bought from legitimate retailers. Effectively a really long distance doordash.",
+          "kids": [
+            {
+              "id": 47839193,
+              "by": "devilbunny",
+              "time": 1776712607,
+              "parent": 47835056,
+              "text": "The only way in which this makes sense in international is something like courier flights. I don't know if this even really exists in the form it used to, but there used to be small-scale services that would buy regular airline tickets (in advance but transferable) and then resell the seat but not the luggage allowance for major city pairs like NY-London. A person who can fly on short notice with no baggage allowance gets a cheap ticket, and the customers get their essential items delivered more cheaply than last-second air freight.\n\nA key element is that the passenger was contracting out their baggage allowance and so didn't ever interact with the items - they never even saw it. So no liability.",
+              "kids": [
+                {
+                  "id": 47841526,
+                  "by": "pjc50",
+                  "time": 1776722315,
+                  "parent": 47839193,
+                  "text": "Surely that's dead now airlines are charging to have hold luggage at all.",
+                  "kids": [
+                    {
+                      "id": 47842065,
+                      "by": "devilbunny",
+                      "time": 1776725269,
+                      "parent": 47841526,
+                      "text": "I would agree, but I suppose there might be somewhere out there that still does this, which is why I said I wasn't sure it existed anymore instead of just saying \"30 years ago you could...\"",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47836050,
+              "by": "notahacker",
+              "time": 1776700155,
+              "parent": 47835056,
+              "text": "I think it probably works fine for national delivery couriers filling space in their van with additional extra bulky items; services to disintermediate them to move heavy goods for less cost than a dedicated courier already exist and some of them even wrap suitable insurance around it.\n\nInternationally if it's P2P rather than P2companythatdoesthecustomspaperwork it's pretty much pure smuggling-as-a-service, and yes, people who kindly help carry the stranger's Colombian souvenir on their passenger flight for a small fraction of the ticket cost will find themselves being jailed at the other end.",
+              "kids": []
+            },
+            {
+              "id": 47835154,
+              "by": "pavel_lishin",
+              "time": 1776696318,
+              "parent": 47835056,
+              "text": "I can easily imagine a market for this, because I was in the market for this until last week.\n\nI had a large, bulky, and fragile package I needed to send to Florida from New Jersey. The shipping corps were happy to do it for me for $500+, and no guarantee that it wouldn't arrive as a box of shattered glass.\n\nI ended up finding someone in town who happened to be driving there, and was kind enough to deliver it for me. They still offer no such guarantee, but they also were kind enough not to charge me for this!",
+              "kids": [
+                {
+                  "id": 47835206,
+                  "by": "pjc50",
+                  "time": 1776696478,
+                  "parent": 47835154,
+                  "text": "> They still offer no such guarantee, but they also were kind enough not to charge me for this!\n\nSure, but like open source, the dynamics are different when it's a favor without money changing hands. OP's market would want compensation, and then inevitably someone has to deal with the \"my package arrived as a pile of shattered glass\" claims.",
+                  "kids": []
+                },
+                {
+                  "id": 47835214,
+                  "by": "leros",
+                  "time": 1776696518,
+                  "parent": 47835154,
+                  "text": "It's a thing in second world countries too. There are small communities that don't get package delivery, so they ship packages to the capital city and then pay someone to drive packages to their community once a week or so. I've heard of people paying $50 a package in places with pretty low incomes.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47834945,
+          "by": "chucksmash",
+          "time": 1776695490,
+          "parent": 47834540,
+          "text": "> the perfect low effort way to send high value drugs\n\nThey've already created a FedEx and an Amazon for high value drugs. They're called FedEx[0] and Amazon[1].\n\n[0]: https://qz.com/1627572/drug-traffickers-favorite-way-to-move...\n\n[1]: https://www.nytimes.com/2026/03/21/world/deadly-drugs-paper....",
+          "kids": [
+            {
+              "id": 47835465,
+              "by": "sharkweek",
+              "time": 1776697821,
+              "parent": 47834945,
+              "text": "Relevant Mitch Hedberg (rest in peace) joke: “ I love my fed-ex guy cause he's a drug dealer and he doesn't even know it”",
+              "kids": []
+            },
+            {
+              "id": 47835415,
+              "by": "hilariously",
+              "time": 1776697631,
+              "parent": 47834945,
+              "text": "Fair, I should have said even cheaper as well.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47834596,
+          "by": "raw_anon_1111",
+          "time": 1776694074,
+          "parent": 47834540,
+          "text": "[flagged]",
+          "kids": [
+            {
+              "id": 47834825,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47834750,
+          "by": "alegd",
+          "time": 1776694732,
+          "parent": 47834540,
+          "text": "fair question. BlaBlaCar, Uber, Airbnb all got the same pushback: why would you get in a strangers car, sleep in a strangers house. Trust infrastructure solves it over time: ID verification, package limits, photo documentation, escrow paymnts.\n\nAnd people already do this informally all the time. Sending stuff \"with someone who's traveling\" is super common, it just happens with zero oversight right now. This adds structure and accountability to something that already exists",
+          "kids": [
+            {
+              "id": 47834912,
+              "by": "ahhhhnoooo",
+              "time": 1776695394,
+              "parent": 47834750,
+              "text": "I think you are being too glib. The trust model is really different for small packages. Housing small amounts of drugs in objects is way easier and more likely than wrecking someone's airbnb.\n\nAnd the consequences are higher for the driver. You can insure an airbnb or trip. Are you going to pay for someone's legal fees when they get popped for being a drug mule?",
+              "kids": [
+                {
+                  "id": 47836585,
+                  "by": "dpark",
+                  "time": 1776702415,
+                  "parent": 47834912,
+                  "text": "The bigger problem is that being a casual package courier is not worth the hassle.\n\nLet’s say someone doesn’t want to pay FedEx $70 to ship a box next-day from San Francisco to Portland, so OP arranges for you to do it and charges $35, takes $10 off the top and pays you $25.  Now you are supposed to drive to random person’s house to pick up the package, carry it across state lines, and drop it off at someone else’s house. You have to deal with potential flakes on both sides of this transaction and risk of carrying who knows what the whole time. For $25.\n\nWould you agree to do this job? And if not, would you trust your package with someone who would?",
+                  "kids": [
+                    {
+                      "id": 47839825,
+                      "by": "subhobroto",
+                      "time": 1776715606,
+                      "parent": 47836585,
+                      "text": "> Would you agree to do this job? And if not, would you trust your package with someone who would?\n\nYou're absolutely right BUT I do want to point out a situation where the answer is \"Yes\" because the model is entirely different.\n\nLast mile delivery is expensive because it does't enjoy the economies of scale.\n\nI'm increasingly seeing increasing number of random personal vehicles drop off my retail packages that were shipped via UPS/FedEx to a central hub. I don't understand why these retailers even do this - these items are like $1-$10 and part of a much larger order that arrive in a staggered fashion. I would imagine people pay more than the item in just gas so it's likely a customer satisfaction thing.\n\nI imagine either the retailer or UPS/FedEx indemnifies these people if and when things go wrong so these people have the backing of a multibillion dollar logistics company. Perhaps the OP could look into this portion of delivery? The OP is really light on location and painpoints to ave a real concrete conversation.",
+                      "kids": [
+                        {
+                          "id": 47841025,
+                          "by": "dpark",
+                          "time": 1776720244,
+                          "parent": 47839825,
+                          "text": "> I'm increasingly seeing increasing number of random personal vehicles drop off my retail packages that were shipped via UPS/FedEx to a central hub\n\nI have also seen this, but I’m pretty sure these people are essentially employed as delivery personnel, and their cars are acting as small delivery trucks. I’m not sure how the cost for this work out. Maybe FedEx/whoever is closing the gap when they can’t get everything onto real delivery trucks and this is more cost effective than buying more trucks and hiring more drivers?\n\nI think last mile is an interesting problem but OP seems to be intending to build full transit logistics infrastructure built on casual labor, which seems unlikely to pan out.",
+                          "kids": [
+                            {
+                              "id": 47841512,
+                              "by": "subhobroto",
+                              "time": 1776722241,
+                              "parent": 47841025,
+                              "text": "> I think last mile is an interesting problem but OP seems to be intending to build full transit logistics infrastructure built on casual labor, which seems unlikely to pan out.\n\nI think we are unloading a lot of expectations on the OP. Maybe this was just an  interesting thought experiment to them - \"how would I solve the cold start?\"\n\n> Maybe FedEx/whoever is closing the gap when they can’t get everything onto real delivery trucks and this is more cost effective than buying more trucks and hiring more drivers?\n\nAh fascinating! This could explain why I see this behavior across multiple retailers. My initial hypothesis of \"the retailer wants to see me happy\" is now supplemented by \"UPS/FedEx wants to see their retailer customer (not I) happy\".\n\nFree markets are fascinating and Thank You for offering this new perspective.",
+                              "kids": [
+                                {
+                                  "id": 47841692,
+                                  "by": "dpark",
+                                  "time": 1776723100,
+                                  "parent": 47841512,
+                                  "text": "> Maybe this was just an interesting thought experiment to them\n\nPossible, though OP says they are “About to launch the MVP”.\n\n> ”UPS/FedEx wants to see their retailer customer (not I) happy\"\n\nJust to be clear, that was my guess. I’ve done no research on this specific thing so maybe some other factor is in play with these packages delivered from private vehicles.",
+                                  "kids": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47835104,
+              "by": "pjc50",
+              "time": 1776696143,
+              "parent": 47834750,
+              "text": "I note that both Airbnb and Uber marketed as \"use part of something you're not otherwise using\", and almost immediately became professionalized. Full time drivers. People buying apartments to let out.\n\nMaybe they wouldn't have worked without that professionalization? Which is of course not possible if you're going the \"passing traveller\" model.",
+              "kids": [
+                {
+                  "id": 47836451,
+                  "by": "dpark",
+                  "time": 1776701906,
+                  "parent": 47835104,
+                  "text": "This is the key thing. None of this “trust a stranger” stuff actually works out. Uber isn’t actually a rideshare. It’s a professional driver. Airbnb isn’t a room in someone’s house. It’s an apartment rental. GrubHub isn’t someone who picks up your noodles when they pick up theirs. It’s their job.\n\nThe courier model could totally work the same way. You want someone to drive your package from San Francisco to New York? Someone will happily do that.  The trick is they will want to get paid. No one’s doing this stuff basically for free as a favor or to help OP’s company show a profit.",
+                  "kids": []
+                },
+                {
+                  "id": 47835330,
+                  "by": "ghaff",
+                  "time": 1776697240,
+                  "parent": 47835104,
+                  "text": "Maybe worked but at very small scale. The early Lyft with fist bumps and much more casual driver interactions worked at some level but was pretty small--and I actively avoided because of the vibe. You may borrow a tool from a neighbor but it's not a routine or neighborhood-wide thing for the most part.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47836307,
+              "by": "scarface_74",
+              "time": 1776701370,
+              "parent": 47834750,
+              "text": "This is completely different. While for Uber and AirBnb as the person delivering the service I have to worry about a private citizen either doing harm to my property (more statistically likely) or my person (much less likely), if I am pulled over by a cop carrying illegal goods I have to deal with the law enforcement.\n\nInsurance can take of property damage.\n\nMy personal threat model is:\n\n1.  Law enforcement with qualified immunity and a “monopoly on [legalized] violence”\n.\n\n.\n\n.\n\n99.  Everyone else",
+              "kids": []
+            },
+            {
+              "id": 47835178,
+              "by": "hluska",
+              "time": 1776696383,
+              "parent": 47834750,
+              "text": "Uber and Airbnb had budgets to subsidize the first mass of people. Heck, I’m less than nobody and got paid the first several times I used an Uber.",
+              "kids": []
+            },
+            {
+              "id": 47839683,
+              "by": "subhobroto",
+              "time": 1776714895,
+              "parent": 47834750,
+              "text": "Gratitude doesn't scale: plot the stock price of Airbnb vs. user growth over time to verify.\n\nYou might be assuming an iterated game, but it's likely your initial market will be mostly an One-Shot Prisoner's Dilemma. Proper modelling will allow you to mathematically calculate your blind spots and test what it would cost to address them.\n\n> Sending stuff \"with someone who's traveling\" is super common, it just happens with zero oversight right now\n\nI think you're letting the excitement of starting a new company cloud your judgement here. I worry you're not valuing the \"sphere of trust\" of that someone properly.\n\nIf you and I were friends and I wanted you to carry a brand new unopened iPhone to my family in India because you were visiting, I don't think you would even open it and inspect it. I certainly wouldn't risk our friendship over a phone and even if I could put you in such a position, you would likely anticipate it and refuse.\n\nThat cannot be said between two absolute strangers who are engaged in this single transaction, never to meet again.\n\n> Trust infrastructure solves it over time: ID verification, package limits, photo documentation, escrow paymnts\n\nNot really.\n\nAirbnb looses hundreds of millions of dollars a year, worldwide in theft, burglary, damage, murder and fraud. Airbnb does a fantastic job of scrubbing that information and making people sign NDAs as part of settlements.\n\nThe initial (2008 era) Airbnb market was full of people who appreciated they were getting an extremely affordable product and ensured the system would continue to function well.\n\nI was an early Airbnb user and back in 2009 I used to carry in some supplies when I checked in, make and have breakfast with the host (it used to be actual owners living in their homes back then), vacuum the room and make the bed I used to be in before I checked out.\n\nUnlike today, when some Airbnbs can exceed the cost of a hotel in that area after including all expenses, the price difference between a hotel and an Airbnb was absolutely insane (a week at an Airbnb would cost what a night at a hotel would in that area. Plus, the Airbnb came with free - often covered - parking, laundry, kitchen and full speed wifi).\n\nThese hosts would move heaven and earth for me. I knew I wouldn't need to worry about having a place with my previous hosts as long as I gave them adequate notice of my visit.\n\nSince 2024, I don't use Airbnb anymore - those hosts are gone because their localities have banned Airbnb. Most of them have sold their homes and moved because income from Airbnb allowed them to live in those homes in the first place.\n\nHotels now are actually cheaper, there's atleast a few people onsite that I can talk to if I need something (my last 2 Airbnbs were literally fully remote and managed by a professional company that really didn't want to communicate, even by chat, at all as if every message cost them a loss of $100 from the booking) and in some cases the Airbnb cleaning fee exceeded the cost of the room itself!\n\nTrust has turned from a Feature to an Expense at Airbnb and its new costs reflect that shift. Trust Infrastructure is now Airbnb's largest tax, a fundamental shift from being their greatest asset - the resulting horrible unit economics reflect the stock price performance.",
+              "kids": []
+            },
+            {
+              "id": 47836443,
+              "by": "duped",
+              "time": 1776701875,
+              "parent": 47834750,
+              "text": "Uber and AirBnB lied about their model as an end run around regulation.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47844312,
+      "by": "pibaker",
+      "time": 1776743421,
+      "parent": 47834213,
+      "text": "> Travelers going between cities/countries carry items for people who need to send stuff.\n\nBe thankful that you are having trouble recruiting users because a lack of users is what preventing your company's name being on the headline when someone gets executed in China or Singapore for carrying someone else’s drugs.\n\nAnd even if nothing illegal is in the package, your users will still likely run into troubles when the security agent asks if all items in the bag belongs to the traveler. If you answer honestly they will likely double and triple search everything, if you lie and say no you are automatically breaking the law for making a false statement to a federal agent.",
+      "kids": []
+    },
+    {
+      "id": 47834593,
+      "by": "coalstartprob",
+      "time": 1776694069,
+      "parent": 47834213,
+      "text": "read andrew chen's book Cold Start Problem.. tackles this on all possible angles.",
+      "kids": [
+        {
+          "id": 47835308,
+          "by": "bschne",
+          "time": 1776697121,
+          "parent": 47834593,
+          "text": "apparently there's a PDF (maybe of some draft) on his website -- https://andrewchen.com/wp-content/uploads/2022/01/ColdStartP...",
+          "kids": []
+        },
+        {
+          "id": 47839370,
+          "by": "alegd",
+          "time": 1776713441,
+          "parent": 47834593,
+          "text": "Never heard of this one, just looked it up. Going straight to the top of my reading list, thanks!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47835709,
+      "by": "austinbaggio",
+      "time": 1776698790,
+      "parent": 47834213,
+      "text": "Do it yourself, beg your friends, subsidize. You'll learn a lot by being the supply side yourself since you'll be talking to customers every single transaction. You'll also learn a lot about the actual unit economics, which I think are really hard for this problem in practice.",
+      "kids": []
+    },
+    {
+      "id": 47834780,
+      "by": "arjie",
+      "time": 1776694860,
+      "parent": 47834213,
+      "text": "Volunteered, perhaps uselessly, without experience making a P2P market (so skip if you only want experience from actual doers):\n\nSame as always, you need market-making: you do it or get someone else to do it. i.e. place resting orders that others will do. e.g. in your case, maybe there is a demand for one specific kind of item: let me say GPUs. Then you be customer number one of your thing, you buy GPUs in one place and have people move them to the other place in their checked bags or whatever. Alternatively, you make the other side of the market that is highly heterogeneous (say, Indian sweets) and you or your family fly between the two locations yourself. It might teach you about the time preference of your clientele etc.\n\nAnyway, it would seem that ultimately all markets need market-makers to bootstrap.",
+      "kids": []
+    },
+    {
+      "id": 47839735,
+      "by": "losvedir",
+      "time": 1776715148,
+      "parent": 47834213,
+      "text": "Co-founder of CoachUp, a two-sided marketplace between sports coaches and athletes, here.\n\nWe started in a single city (Boston), and just the coach side. The non-technical founder was himself a coach and had lots of friends who were coaches, so it was easy to get the first ~50 coaches across a handful of sports. From there we focused heavily on getting coaches to sign up with the pitch that it was free to them, gives them a nice profile / landing page they could put on their website or business cards or tell people about, and would eventually even start driving leads.\n\nI think the cost/benefit was there for the coaches: little cost (short application) and some minor benefit even without the athletes.",
+      "kids": [
+        {
+          "id": 47839875,
+          "by": "alegd",
+          "time": 1776715970,
+          "parent": 47839735,
+          "text": "this is exactly what I was hoping to hear, someone who actually did it. Starting with one side where the cost/benefit was obvious and letting the other side follow makes a lot of sense. How long before the athlete side started coming in organically?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47839383,
+      "by": "vishalontheline",
+      "time": 1776713501,
+      "parent": 47834213,
+      "text": "> Every marketplace founder says \"focus on one side\n\nUnless you already have demand lined up, I would solve the supply side of the problem first. People who either travel routinely or are planning to, or just a lot of people from a specific, large community in order to target your recruiting campaign.\n\nI would also spend a lot of time figuring out the user journey for both the supply and demand side. See if you can reduce the work someone on the supply side has to do to sign up. You might have to run this like a modeling agency in the beginning until there is sufficient demand to force suppliers to do more work.\n\nConstraining to one route (SFO -> Honolulu) is how DHL got started.",
+      "kids": []
+    },
+    {
+      "id": 47843912,
+      "by": "vivegi",
+      "time": 1776739470,
+      "parent": 47834213,
+      "text": "Platform Scale: How an emerging business model helps startups build large empires with minimum investment, _by Sangeet Paul Choudary_ (Sep 2015)\n\nhttps://www.amazon.com/Platform-Scale-emerging-business-inve...\n\nThis book has various examples of the double-sided marketplace and how they solved the exact _chicken and egg problems_ you are talking about.",
+      "kids": []
+    },
+    {
+      "id": 47841028,
+      "by": "TZubiri",
+      "time": 1776720252,
+      "parent": 47834213,
+      "text": "I think a common tactic is, getting funding (even if bootstrapped or F&F) and cover one side at a loss by wrapping the existing competition. For example by providing courier deliveries.\n\nAlso, get behind the wheel 24/7 and hop cities yourself, again at a loss, but that will help bootstrapping the actual business model instead of completely faking it.\n\nThat way the demand side can grow, and you split the supply side into synthetic and organic, synthetic is always 1-organic, but you are never left with imbalanced sides.",
+      "kids": []
+    },
+    {
+      "id": 47834751,
+      "by": "eschulz",
+      "time": 1776694737,
+      "parent": 47834213,
+      "text": "Simply put, start with a niche market concept that helps solve very specific problems that people may have (such as delivering pet medicine to old or handicap people who live in villages or the countryside), and then to actually get started make an offer to those providing the solutions (the drivers) that is too good for them to refuse.\n\nIn this case I think you'd basically have to pay the drivers to make deliveries for yourself, and then work to show the value of this service to those whom need this service and are in a position to take over paying for it.",
+      "kids": []
+    },
+    {
+      "id": 47841164,
+      "by": "harel",
+      "time": 1776720856,
+      "parent": 47834213,
+      "text": "I've not built one, nor have I got a better solution than those offered here, but I did use a service like that before to transfer the contents of a storage unit from Romania to London. It was called clicktrans.com, and they do something similar. You say what you want to move from where to where, and people effectively send you offers. They are all vetted by the company, which charges them like 70 euro for the chance to bid on my delivery.",
+      "kids": []
+    },
+    {
+      "id": 47834555,
+      "by": "mmastrac",
+      "time": 1776693889,
+      "parent": 47834213,
+      "text": "Marketplaces are famously difficult to start - even Uber just started with black car service in a handful of cities and expanded from that. Find a trusted network of mules as your supply-side and expect to lose some money as you bootstrap.\n\nYou should already know what your largest city-to-city routes might be at this point, so why not focus on economy of scale there? If you need to rent a cube van to make it happen, do that.",
+      "kids": [
+        {
+          "id": 47834703,
+          "by": "garrickvanburen",
+          "time": 1776694554,
+          "parent": 47834555,
+          "text": "it's a great reminder that Uber wasn't a 2-sided marketplace to begin with, just an on-demand black car service, and Travis drove early on. The marketplace model came later, copying Lyft, more as a low-cost expansion strategy than a business model.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47836306,
+      "by": "maccard",
+      "time": 1776701356,
+      "parent": 47834213,
+      "text": "The doordash story is very relevant here - they started with a menu and a Google voice number and did the orders and deliveries themselves.",
+      "kids": []
+    },
+    {
+      "id": 47838445,
+      "by": "nicolenfy07",
+      "time": 1776709199,
+      "parent": 47834213,
+      "text": "I think this is quite similar to Uber's mode. Their strategy is to fake one side first, their employees fake as the passenger side and attracts the driver. When the driver emerges, the passengers begin to emerge, and then the flywheel begins. So maybe you could fake the demand side, attracting supply side and then begin the flywheel.",
+      "kids": []
+    },
+    {
+      "id": 47835729,
+      "by": "recursive4",
+      "time": 1776698855,
+      "parent": 47834213,
+      "text": "My buyers and sellers were heterogenous, so I could not acquire one user and get both personas; I purchased supply which had publicly-measurable demand and resold it below cost (in line with my target CAC) to bring the demand on platform. Once I had aggregated enough demand and developed the demand-side marketing and trust, I brought in the suppliers directly.",
+      "kids": []
+    },
+    {
+      "id": 47839744,
+      "by": "tquinn",
+      "time": 1776715182,
+      "parent": 47834213,
+      "text": "I founded logotournament.com in 2007 when I didn't even know what a two-sided marketplace was.  I only learned many years later that this was considered hard[1].  Luckily, as a self-funded, solo-founder I had no idea it was hard, so I launched my side project anyways.  It's done roughly $25,000,000+ USD in sales since.\n\nAt the time I was a partner in an ecom firm (few guys and a small warehouse), and I needed a new logo every week or two, so I had the initial demand covered.  Acquiring customers is at least 3 orders of magnitude more difficult than acquiring designers.\n\nI launched a private vbulletin forum and invited about two dozen designers from a handful of forums.  I posted my first logo contest with a prize of $200 IIRC.  I offered $25 each to the first 4-5 people that submitted, to get the ball rolling and building some initial trust.  And just like that I had my first successful logo contest.  Over a few months I would host a contest 1-2 times a month, and would manually message each designer when there was a new one.\n\nIn parallel I started development of the actual site.  When it was time to launch, I manually imported the vbulletin logo contests, and kicked things off with a single contest that I was hosting.  That site still wasn't a living breathing thing yet, until I had an actual customer that wasn't me.  So I burned about $1800 on adwords over a month, and received 3 customers where I made maybe $100 in fees.  A rough start, but running nevertheless.  After that I was able to get Facebook ads working after lots of trial and error which led to the first 100 customers.\n\n[1] It's not that the actions were hard, it's that a successful result had a low probability.",
+      "kids": []
+    },
+    {
+      "id": 47838011,
+      "by": "gomox",
+      "time": 1776707393,
+      "parent": 47834213,
+      "text": "I wrote about this many years ago:\nhttps://gomox.medium.com/i-have-a-marketplace-business-idea-...\n\nAt the time I was actually doing this exact business idea and one of our founders worked at an airline.",
+      "kids": [
+        {
+          "id": 47838055,
+          "by": "Tryk",
+          "time": 1776707549,
+          "parent": 47838011,
+          "text": "I don't know that this blog contributes to the solution, with a TL:DR:\n\n\"[...] Identifying which side of the marketplace is more scarce and focusing on supplying that.\"",
+          "kids": [
+            {
+              "id": 47838235,
+              "by": "gomox",
+              "time": 1776708310,
+              "parent": 47838055,
+              "text": "You mean, other than describing 5 possible approaches to the \"bootstrapping a marketplace\" problem, including a specific solution that worked in the real world to get to 7 figures GMV for the exact marketplace the OP is describing?\n\n:D",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47837742,
+      "by": "fasouto",
+      "time": 1776706380,
+      "parent": 47834213,
+      "text": "I tried to do the same in 2015 (blablacar for packages, startup name was tomandgo) and we couldn't solve that problem, it is genuinely hard.\n\nI think in our case the main problem was incentives, we were suggesting low prices for the people sending packages but we forgot that the drivers need an incentive to drop it.\n\nBest of luck!",
+      "kids": [
+        {
+          "id": 47839849,
+          "by": "alegd",
+          "time": 1776715762,
+          "parent": 47837742,
+          "text": "really appreciate you sharing this. This insight is huge for me. Do you think it would have worked if you constrained to a single city first instead of going broad?",
+          "kids": [
+            {
+              "id": 47840823,
+              "by": "fasouto",
+              "time": 1776719509,
+              "parent": 47839849,
+              "text": "Honestly, I don't know. We did it for all our country (Spain) and we found the same problem as you.\nFeel free to reach out if you have any question, email in my profile",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47834729,
+      "by": "victorbjorklund",
+      "time": 1776694676,
+      "parent": 47834213,
+      "text": "Failed to build one but my advice would be to focus very narrow. In your case start with literally between two cities. Also, fake supply by either paying people to do the trip (in addition to the normal payment on the platform) or literally do it yourself once per week. Focus on supply. It will be way harder to get.",
+      "kids": []
+    },
+    {
+      "id": 47835362,
+      "by": "throwaway888666",
+      "time": 1776697414,
+      "parent": 47834213,
+      "text": "Every platform has this problem. Ycombinator even asked explicit to come up for ideas for this problem.\n\nThis being said, your idea is not new https://www.traveltechnation.com/companies/piggybee",
+      "kids": [
+        {
+          "id": 47836921,
+          "by": "alegd",
+          "time": 1776703558,
+          "parent": 47835362,
+          "text": "Yep I'm aware of PiggyBee, they actually shut down in 2022. Grabr is still around but international only, and focused on shopping. Part of why I think theres room here, especially for domestic/regional routes that the bigger players ignored. BTW I never said the idea was new.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47836437,
+      "by": "brianbreslin",
+      "time": 1776701836,
+      "parent": 47834213,
+      "text": "The side that is most patient (e.g. the one likely to make money) is the one to start with. Once you build up enough on that side you can start being useful to the other side. The key is going to be whether or not this business model makes sense on unit economics too.",
+      "kids": []
+    },
+    {
+      "id": 47834783,
+      "by": "jmyeet",
+      "time": 1776694869,
+      "parent": 47834213,
+      "text": "In this day and age, I would never carry something for someone this way. It's such a bad idea. You could land in prison. Even if you're taking books, the spines might contain fentanyl. And I have no idea how you get past that.\n\nThat being said, there is a long-established business for this kind of thing for companies, not individuals, that goes back decades. Here are two examples:\n\n1. 30+ years ago companies would give discounted tickets to people with the condition that they couldn't take any luggage. Why? Because the company would use their luggage allowance to send stuff. I believe it was mostly documents. Discounting an airfare by $500-1000 to send 50-80lb of documents was actually a good deal. I don't know how the logistics worked of baggage drop off and pick up but I believe it was relatively understood that the passenger wasn't responsible for the luggage. I assume the shippers had some kind of commercial relationship with the airline and handled all the customs declarations, import duties, etc;\n\n2. There are times when businesses need to get certain parts or materials in a very time-sensitive manner. For example, I knew someone who worked in oil and gas. An oil platform had shut down production and needed a replacement drill part or something, I forget, and it was over Christmas. They could've ordered it. It would get sent and then sit in a customs warehouse until it gets cleared. That could take days or even a week or more. Not having it was costing half a million dollars a day. So what did they do? They flew someone across the Atlantic to the US to get the parts, pay exorbitant extra baggage fees (it was large) and come back with it. Why? Because passenger baggage would immediately pass through customs at the airport. This would likely save 5-10 days.\n\nSo there are some obvious questions to be asked here like:\n\n- How do you make this safe and legal?\n\n- Why isn't this just being Fedexed? Fedex is your cap on fees too;\n\n- How does someone pick this up and drop it off?\n\n- What if they get charged customs fees? How is that recouped?\n\n- Who fills out customs forms?\n\n- What about transiting countries? You may run into issues where something is legal in the source and destination countries but you transit somewhere where it isn't.\n\nI don't know how you bootstrap this because you're going to be dealing with people who have way more experience than you at shiping thing sinternationally. More importantly, they'll have much more volume. That means they can send things via courier at rates you can't dream of getting. So how do you compete with that?\n\nEven in the example mentioned above, the company used an employee to go pick it up. It was an expensive part so an employee could be trusted more than some random could.",
+      "kids": [
+        {
+          "id": 47835258,
+          "by": "pjc50",
+          "time": 1776696639,
+          "parent": 47834783,
+          "text": "> They could've ordered it. It would get sent and then sit in a customs warehouse until it gets cleared. That could take days or even a week or more. Not having it was costing half a million dollars a day. So what did they do? They flew someone across the Atlantic to the US to get the parts, pay exorbitant extra baggage fees (it was large) and come back with it. Why? Because passenger baggage would immediately pass through customs at the airport. This would likely save 5-10 days.\n\nI knew a case like this where a coworker took a $50k networking switch in his hand luggage to Brazil. With the extra detail that the company it was on behalf of wanted him to lie to customs (because the import duty on electronics was something like 50%!)",
+          "kids": [
+            {
+              "id": 47835959,
+              "by": "franktankbank",
+              "time": 1776699780,
+              "parent": 47835258,
+              "text": "Christ some people.  I grew stinky weed in an apartment in college back when it was very illegal everywhere.  I could never imagine fucking around at the border of my own country let along another one.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47834896,
+      "by": "NickNaraghi",
+      "time": 1776695328,
+      "parent": 47834213,
+      "text": "As someone who has worked on multiple marketplace startups, I highly highly recommend this resource: https://www.nfx.com/post/network-effects-bible",
+      "kids": [
+        {
+          "id": 47839255,
+          "by": "alegd",
+          "time": 1776712911,
+          "parent": 47834896,
+          "text": "bookmarked, thanks. Had seen NFX referenced before but never dug into this specific resource. Again, thanks!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47844098,
+      "by": "dnnddidiej",
+      "time": 1776741504,
+      "parent": 47834213,
+      "text": "I would pick 2 cities and deliver yourselves. Or hire people to do it. Then promote to those 2 cities.\n\nDid I just copy how Uber did it? :) IIRC uber was basically a taxi company to begin with.",
+      "kids": []
+    },
+    {
+      "id": 47848811,
+      "by": "OutrageousTea",
+      "time": 1776779413,
+      "parent": 47834213,
+      "text": "Start with one busy route and manually connect travelers with senders. Once it works there, slowly expand to other routes.",
+      "kids": []
+    },
+    {
+      "id": 47836257,
+      "by": "jrvarela56",
+      "time": 1776701072,
+      "parent": 47834213,
+      "text": "A key term is ‘single player value’. One type of user needs to get benefits out of this marketplace as a tool so that you can use that engagement to solve the chicken and egg problem.",
+      "kids": []
+    },
+    {
+      "id": 47835510,
+      "by": "wouldbecouldbe",
+      "time": 1776697986,
+      "parent": 47834213,
+      "text": "I always thought of this idea in the city, there are lots of driving schools and perhaps taxi drivers that can drop packages off if the packages are not in a rush. That might be a start.",
+      "kids": []
+    },
+    {
+      "id": 47845714,
+      "by": "beAbU",
+      "time": 1776756972,
+      "parent": 47834213,
+      "text": "> Travelers going between countries carry items for people who need to send stuff.\n\nDrug mule as a service in 3... 2... 1...",
+      "kids": []
+    },
+    {
+      "id": 47836239,
+      "by": "burnte",
+      "time": 1776701003,
+      "parent": 47834213,
+      "text": "> basically BlaBlaCar but for packages instead of passengers\n\nRoadie. https://www.roadie.com/",
+      "kids": []
+    },
+    {
+      "id": 47834887,
+      "by": "ting0",
+      "time": 1776695297,
+      "parent": 47834213,
+      "text": "Don't waste your time. I've been down this road and unless you've got business connections or a LOT of marketing money, it is not worth attempting.",
+      "kids": []
+    },
+    {
+      "id": 47839092,
+      "by": "MagicMoonlight",
+      "time": 1776712139,
+      "parent": 47834213,
+      "text": "Nobody is going to fly internationally with a random person’s package in their bag. The only reason you’d use it is to ship bombs or drugs.",
+      "kids": []
+    },
+    {
+      "id": 47834714,
+      "by": "alvis",
+      "time": 1776694591,
+      "parent": 47834213,
+      "text": "yeah. I have the same pain. But for your case, don’t start as a marketplace. Start as a concierge service on one route, one parcel category, and one trust model. If you can’t force the first 20 successful matches manually, the market is still too under-specified. my 2cents",
+      "kids": []
+    },
+    {
+      "id": 47836555,
+      "by": "solumos",
+      "time": 1776702304,
+      "parent": 47834213,
+      "text": "\"Focus on one side first\" means get in your car and start fulfilling orders.",
+      "kids": [
+        {
+          "id": 47836690,
+          "by": "dpark",
+          "time": 1776702749,
+          "parent": 47836555,
+          "text": "“But that wouldn’t be profitable!”",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47837804,
+      "by": "MikeNotThePope",
+      "time": 1776706622,
+      "parent": 47834213,
+      "text": "I'd say it makes sense to build for one really heavily traveled route.",
+      "kids": []
+    },
+    {
+      "id": 47842266,
+      "by": "peterabbitcook",
+      "time": 1776726476,
+      "parent": 47834213,
+      "text": "If you decide to pivot based on the comments in this thread about this turning into UberDrugz, an underserved market adjacent to this space is LTL freight.\n\nFor an example of this look for items on eBay whose shipping method is “freight.” As a buyer (or sometimes seller, if your buyer is clueless) of one of those items, it is your responsibility to arrange an LTL freight carrier (flatbed or liftgate truck). Fastenal and Uber freight will accept 1 pallet, up to a certain weight limit; you may even be responsible to bring it to a freight hub yourself. Above that size you’re on your own calling trucking companies, and renting a forklift or crane when you actually find a trucker.\n\nIt’s a smaller market than small packages, but more revenue per transaction. And if you figure it out and get it up and running, eBay (e.g.) might allow buyers and sellers to automatically select your service as the shipping method instead of black box “freight.”\n\nSource = my personal experience 1. selling a metal building kit on eBay that the local zoning board would not let me erect. 2. Buying a large greenhouse kit online",
+      "kids": []
+    },
+    {
+      "id": 47835567,
+      "by": "deepsun",
+      "time": 1776698185,
+      "parent": 47834213,
+      "text": "Start with a small local market (one town). FB started from Harvard only.",
+      "kids": []
+    },
+    {
+      "id": 47836124,
+      "by": "pembrook",
+      "time": 1776700533,
+      "parent": 47834213,
+      "text": "Take a page out of the YC playbook.\n\nDitch this idea and instead build a Sales Enablement B2B Saas targeted at other YC companies, fuel the pyramid scheme by selling contracts back and forth between your other VC funded B2B Saas company friends and exit before the hype around you dies down.\n\nBootstrapping a two sided marketplace in 2026 is virtually impossible, especially one as esoteric and low value as what you’ve described.",
+      "kids": [
+        {
+          "id": 47837737,
+          "by": "random3",
+          "time": 1776706342,
+          "parent": 47836124,
+          "text": "(for everyone else) I know this sounds cynical, but it's just a \"flashlight\" at a lot of the reality that surrounds entire startup \"ecosystems\". Founders should be aware whether they want to choose the blue pill or the red pill.\n\nThe only point about bootstrapping is that there's no \"natural\" bootstrapping. You're either not bootstrapping because you \"own\" (one way or another) one of the sides, or you're faking it. Any other \"strategy\" is a pipe dream meant to get to the bootstrapping-not-bootstrapping graveyard.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47839715,
+      "by": "3D39739091",
+      "time": 1776715047,
+      "parent": 47834213,
+      "text": "Drug mule as a service",
+      "kids": []
+    },
+    {
+      "id": 47843813,
+      "by": "caffedelli",
+      "time": 1776738438,
+      "parent": 47834213,
+      "text": "Great discussion! As someone building in the specialty coffee space from Muzambinho, Brazil, I find these topics fascinating.",
+      "kids": []
+    },
+    {
+      "id": 47835915,
+      "by": "booleandilemma",
+      "time": 1776699622,
+      "parent": 47834213,
+      "text": "Free drinks for the ladies on Tuesdays.",
+      "kids": []
+    },
+    {
+      "id": 47836785,
+      "by": "julianozen",
+      "time": 1776703069,
+      "parent": 47834213,
+      "text": "I’ll add another piece of feedback.\n\nIt’s easier to narrow the domain of your market as specific as possible so as to maximize transactions and matching early on.\n\nFor instance, Uber launched in one city. This is so that all the growth efforts on both sides go to helping the markets meet. Twitch had to win with gamers before it could win in other categories. Pick a narrow domain for your business, perfect that user experience, then, as other have stated, prop up one side of the market yourself (probably the one least likely to churn forever) until the market can support itself organically.",
+      "kids": []
+    },
+    {
+      "id": 47838459,
+      "by": "brudgers",
+      "time": 1776709252,
+      "parent": 47834213,
+      "text": "Random remarks from the internet.\n\n- In most markets with money, shipping is a solved problem.\n\n- Businesses can only survive in markets with money.\n\n- The chicken and egg problem is one form of the general problem of markets: Trust.\n\n- Experience shipping is the only way to understand shipping.\n\n- This is an idea. If it is not impelling you to actually and physically ship, it is a bad idea.\n\n- For generalized shipping you are under-capitalized and no amount of VC funding will build a general shipping company.\n\n- The model has no way to ensure integrity.\n\nGood luck.",
+      "kids": []
+    },
+    {
+      "id": 47837770,
+      "by": "soulchild37",
+      "time": 1776706497,
+      "parent": 47834213,
+      "text": ">  Travelers going between cities/countries carry items for people who need to send stuff.\n\nWhat the hell, why would anyone perform such high risk activity",
+      "kids": []
+    },
+    {
+      "id": 47835887,
+      "by": "samiv",
+      "time": 1776699468,
+      "parent": 47834213,
+      "text": "Well it's easy you fabricate complete horseshit business case, fudge all the numbers, create a nifty slide deck and raise enough VC money to pay your early users in order to bootstrap your business.\n\nFake it until you make it baby!",
+      "kids": []
+    },
+    {
+      "id": 47850877,
+      "by": "jakobsreg",
+      "time": 1776788129,
+      "parent": 47834213,
+      "text": "ofcoure",
+      "kids": []
+    },
+    {
+      "id": 47835064,
+      "by": "sixdimensional",
+      "time": 1776695956,
+      "parent": 47834213,
+      "text": "A few thoughts from instant gut reaction:\n\n- you're on HN, so you have an opportunity to tell us the name of the thing - marketing\n\n- perhaps consider your marketing budget to be the area you need to invest in now, and indirectly how that budget can actually generate a little revenue and exercise the engine\n- e.g. do you have packages you can ship through your service to announce it to others?  Use your marketing budget to do it and collect your marketplace fees - marketing again.  Nothing says I believe in my product like using it for real (IMHO).\n\n- a bold and risky move (?) - most would say fake it till you make it - but I for one tire of this tactic.  How about approaching this with honesty and reward the first adopters?  \"We're brand new but you can be the first to help us prove out this model?\".\n\n- your marketplace is a network.  Search for an opening that has viral properties.  Try to tap into something that has a network effect, go to where your customer is and see how you can target/advertise strategically and respectfully - become a trusted partner to one or more communities (e.g. thinking out loud, eBay sellers maybe?).  This could include finding the right partner(s) who have a problem and are willing to give you a shot in an existing network.\n\nOn the last point - as an example of the viral thing - I worked on a real estate tool a while back.  We found a viral hook - there were for sure properties that needed to be processed and worked through the tool - we email invited the parties involved in the transaction to invite them to work on the property in the secure tool, and we gave them the ability to invite others working the same transaction to the tool, and we focused everything on polishing that workflow and experience.\n\nThis way, as soon as one person used the tool they could invite others to use it legitimately to work in the tool and that was the viral aspect.\n\nThis points to, replace real estate tool and house with \"package\" and invite... and can you achieve something viral that spreads itself... like, when someone ships with your tool, it emails the recipient with the link to your site for status tracking and a call to action to make them want to ship using your platform.\n\nThis to me is a lot of marketing and product strategy around incentivizing the network effect.\n\nDisclaimer: I never made millions of dollars off a marketplace.  But I did help stand up the real estate mechanism I mentioned and that business reliably brought in 5-10 grand a month with no marketing effort and just that one mechanism, and it also helped us find a few key network partners.  That's what drives my feedback.",
+      "kids": [
+        {
+          "id": 47837976,
+          "by": "alegd",
+          "time": 1776707257,
+          "parent": 47835064,
+          "text": "This is gold. The \"when someone ships with your tool it emails the recipient with the link\" is exactly the kind of built-in distribution I should be thinking about. The real estate tool example is a great parallel. Thanks for taking the time to write this out!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867203,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47835055,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47843115,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47846483,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47839805,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47836213,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47838516,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47843545,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47835201,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47835957,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47836438,
+      "by": "themanmaran",
+      "time": 1776701837,
+      "parent": 47834213,
+      "text": "As a personal nit, I really dislike the term \"two sided marketplace\"\n\nIt should just be \"marketplace\". The term implies the existence of a \"one sided marketplace\". But isn't that just a business? If I have a bunch of product on my shelves and I'm trying to sell it, I don't call that a one sided marketplace?",
+      "kids": [
+        {
+          "id": 47836589,
+          "by": "solumos",
+          "time": 1776702419,
+          "parent": 47836438,
+          "text": "There are three-sided marketplaces, like DoorDash, etc:\n\nRestaurant, courier, customer",
+          "kids": []
+        }
+      ]
+    }
+  ]
+}

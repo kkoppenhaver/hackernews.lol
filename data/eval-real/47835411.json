@@ -1,0 +1,709 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47835411,
+    "title": "Show HN: Mediator.ai – Using Nash bargaining and LLMs to systematize fairness",
+    "points": 157,
+    "descendants": 74,
+    "article_url": "https://mediator.ai/",
+    "hn_url": "https://news.ycombinator.com/item?id=47835411",
+    "self_post": false
+  },
+  "story": {
+    "id": 47835411,
+    "title": "Show HN: Mediator.ai – Using Nash bargaining and LLMs to systematize fairness",
+    "url": "https://mediator.ai/",
+    "by": "sanity",
+    "score": 157,
+    "time": 1776697624,
+    "descendants": 74,
+    "text": "Eight years ago, my then-fiancée and I decided to get a prenup, so we hired a local mediator. The meetings were useful, but I felt there was no systematic process to produce a final agreement. So I started to think about this problem, and after a bit of research, I discovered the Nash bargaining solution.\n\nYet if John Nash had solved negotiation in the 1950s, why did it seem like nobody was using it today? The issue was that Nash's solution required that each party to the negotiation provide a \"utility function\", which could take a set of deal terms and produce a utility number. But even experts have trouble producing such functions for non-trivial negotiations.\n\nA few years passed and LLMs appeared, and about a year ago I realized that while LLMs aren’t good at directly producing utility estimates, they are good at doing comparisons, and this can be used to estimate utilities of draft agreements.\n\nThis is the basis for Mediator.ai, which I soft-launched over the weekend. Be interviewed by an LLM to capture your preferences and then invite the other party or parties to do the same. These preferences are then used as the fitness function for a genetic algorithm to find an agreement all parties are likely to agree to.\n\nAn article with more technical detail: https://mediator.ai/blog/ai-negotiation-nash-bargaining/"
+  },
+  "comments": [
+    {
+      "id": 47852280,
+      "by": "Procrastes",
+      "time": 1776794975,
+      "parent": 47835411,
+      "text": "Mediator here. This comes from a fundamental misunderstanding of what mediation is for. Mediation is about helping the disputants find a solution they can live with, but mediators never decide what that is. Mediations have a large emotional, human component. Most mediations include a step of just giving parties a chance to be heard by another human being. Mediation outcomes don't look like court outcomes for a reason.\n\nAnd mediators do sometimes offer a mediator's proposal, but that's the exception, not the rule, and mediators do not decide what is fair. That's not mediation.\n\nReal examples:\n\n1. $50,000 contract dispute, really just wanted an apology, and dropped the dispute once they got it.\n\n2. Civil dispute over incomplete landscaping that had been paid for. Was actually about an explanation for a romantic break-up. Ended with paying to replace the flowers.\n\n3. So many disputes over which extended family members can have what access to kids, pets, and boats.\n\nThose are choices the disputants made for what was an acceptable outcome, not the mediator, which is the point of mediation.\n\nThis tool sounds like it might be closer to something for Arbitration? That's a very different environment.",
+      "kids": [
+        {
+          "id": 47852632,
+          "by": "sanity",
+          "time": 1776796508,
+          "parent": 47852280,
+          "text": "Appreciate the pushback, but I think this misreads the mechanism. Mediator.ai doesn't decide; it generates candidate agreements, scores them against both sides' stated preferences, and presents the best one. Either party can reject the proposed agreement. The parties still have to agree. That's facilitation, not arbitration.\n\nOn the hidden-interests point: the assistant actually tries to tease out unstated preferences. That's what the conversation with each party is for, and it uses several preference-elicitation strategies to get at what's underneath a stated position - but I'm sure there is plenty of opportunity for refinement here.",
+          "kids": []
+        },
+        {
+          "id": 47854516,
+          "by": "anonthrownaway",
+          "time": 1776805659,
+          "parent": 47852280,
+          "text": "/Agree\n\nAs a long time techie I understand the desire to approach mediation as a programmatic systems problem, but as a mediator, I'd recommend OP work as a volunteer mediator long enough to realize that mediation is ~90% soft skills.",
+          "kids": []
+        },
+        {
+          "id": 47853287,
+          "by": "andrei_says_",
+          "time": 1776799283,
+          "parent": 47852280,
+          "text": "Do you use principles of nonviolent communication in your work? Or another framework to establish nondefensive listening?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47845602,
+      "by": "aroido-bigcat",
+      "time": 1776756131,
+      "parent": 47835411,
+      "text": "Feels like the tricky part here isn’t computing a “fair” outcome, but defining what fairness even means in the first place.\n\nOnce you formalize preferences into something comparable, you’re already making a lot of assumptions about how people value outcomes.",
+      "kids": [
+        {
+          "id": 47848467,
+          "by": "sanity",
+          "time": 1776777775,
+          "parent": 47845602,
+          "text": "Thank you for the feedback. The goal of the Nash bargaining solution is to find the agreement that maximizes the likelihood that most parties will agree based on their stated preferences.",
+          "kids": [
+            {
+              "id": 47854265,
+              "by": "sanity",
+              "time": 1776804103,
+              "parent": 47848467,
+              "text": "most -> both",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47845917,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47846096,
+      "by": "lookACamel",
+      "time": 1776759931,
+      "parent": 47835411,
+      "text": "Great idea though I am skeptical it will be adopted in contentious situations without some sort of stick. In amorphous situations where there is just high trust but an aversion to talking things out I could see this kind of tool being used. But in contentious or low trust situations (strangers) I suspect most people do not want fairness, they want to be ahead. A fair agreement will, paradoxically, disappoint everyone since every party feels the lack of clear advantage.",
+      "kids": [
+        {
+          "id": 47850346,
+          "by": "sanity",
+          "time": 1776785875,
+          "parent": 47846096,
+          "text": "I think this is mostly right, but it depends a bit on how you frame \"fairness\".\n\nThe system isn’t trying to impose a notion of fairness from the outside. It’s trying to find agreements that both parties prefer over their BATNA (i.e. what they get if they walk away). If there’s a way for one side to come out clearly ahead given the other side’s preferences, it should find that. If not, it finds the best mutual improvement available.\n\nOn the \"no stick\" point, I agree this probably isn’t useful in fully adversarial situations where one side expects to win outright. Where I think it helps is when both sides suspect there’s a deal but can’t quite find it, or don’t want to go through a long negotiation process to get there.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47845835,
+      "by": "maxaw",
+      "time": 1776758004,
+      "parent": 47835411,
+      "text": "This is so cool. Even small disputes like roommate arrangements can feel very emotionally impactful at the time and it would be wonderful to have a tool for these moments",
+      "kids": [
+        {
+          "id": 47848311,
+          "by": "sanity",
+          "time": 1776777053,
+          "parent": 47845835,
+          "text": "Thank you!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47845722,
+      "by": "vintermann",
+      "time": 1776757036,
+      "parent": 47835411,
+      "text": "This doesn't seem to have any notion of power? Coming up with a fair agreement between people who have equal power over the thing they care equally about, isn't that hard.\n\nBut when one side is indifferent to something the other side cares deeply about, yet has veto power to spoil it, a Nash agreement isn't going to be \"fair\" in the usual sense of the word.",
+      "kids": [
+        {
+          "id": 47847398,
+          "by": "sgsjchs",
+          "time": 1776771478,
+          "parent": 47845722,
+          "text": "You have it backwards.\n\nThis formal game-theoretic notion of fairness acknowledges that power disparity exists and that having less power than your counterparty allows them to inflict greater disutility on you without you being able to inflict disutility on them in turn to discourage this.\n\nOn the other hand, fairness \"in the usual sense\", pretends power disparity doesn't exist and that, say, an armed robber is not allowed to take your stuff when you have nothing to defend yourself with. Which in reality only works as long there is a powerful third party (the state) that will inflict disutility on the robber for it.",
+          "kids": []
+        },
+        {
+          "id": 47845983,
+          "by": "maxaw",
+          "time": 1776759161,
+          "parent": 47845722,
+          "text": "In reality people never have equal power over anything (what would that look like, physically?) so something like nash bargaining is an attempt to get closer to a notion of fair given this inequality",
+          "kids": [
+            {
+              "id": 47846138,
+              "by": "vintermann",
+              "time": 1776760216,
+              "parent": 47845983,
+              "text": "I don't think the difficulty of equal power is a good excuse to pretend power doesn't exist.\n\nOne way we solve it in the real world is that the negotiators also have power - including, possibly, the power to force the party most OK with the status quo to come to the negotiating table, and reject exploitative proposals.\n\nThat isn't foolproof either, of course. But it beats rhetoric trying to convince the weaker party to submit.",
+              "kids": [
+                {
+                  "id": 47847480,
+                  "by": "maxaw",
+                  "time": 1776772184,
+                  "parent": 47846138,
+                  "text": "I didn’t say it doesn’t exist, rather that it’s already taken into account. I’m also not sure what you are proposing- if mediation is required, and someone has more power than someone else, why would they voluntarily engage with a mediator who will reduce that power? Or if they are forced to use this mediator (eg by the state) then this means they never had the power in the first place",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47845409,
+      "by": "dhruv3006",
+      "time": 1776754473,
+      "parent": 47835411,
+      "text": "John Nash's ideas are still relevant today - highlights how great he was - I liked how you used a genetic algorithm here!",
+      "kids": [
+        {
+          "id": 47848483,
+          "by": "sanity",
+          "time": 1776777865,
+          "parent": 47845409,
+          "text": "John Nash was indeed a great man, thank you!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47852031,
+      "by": "lookACamel",
+      "time": 1776793649,
+      "parent": 47835411,
+      "text": "I think the weakest part of the bakery example is the lack of specific numbers for the rent situation. Paying for someone's rent for over a year is a pretty large financial contribution and for two people not in a romantic relationship is should not be hard to do the accounting on. Like if you can fight over equity but you can't even calculate the rent you paid over the last year ... well it's no wonder you ran out of savings ...\n\nThis also points to a weakness in the product itself: it jumps to creating a solution without pushing for more info.",
+      "kids": [
+        {
+          "id": 47852791,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47844999,
+      "by": "ttul",
+      "time": 1776750158,
+      "parent": 47835411,
+      "text": "Fabulous idea. LLM-assisted mediation is brilliant because it has the potential to bring the benefits of mediation to the masses. The addressable market is all of humanity. Even if all you did was focus this app on co-parenting arguments, you could help millions of people every day.",
+      "kids": [
+        {
+          "id": 47848305,
+          "by": "sanity",
+          "time": 1776777037,
+          "parent": 47844999,
+          "text": "Thank you!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47844822,
+      "by": "zachvandorp",
+      "time": 1776748710,
+      "parent": 47835411,
+      "text": "Its an interesting idea. I've seen a few of these but not with ol' John's spin on it.\n\nDo you want the first link \"How it Works\" to really be just the # of front page? it makes it feel like it's broken if someone clicks it. Also your blog about Nash Bargaining is almost more of a \"How it Works\" page than the How it Works page is.\n\nI feel like your landing page very quickly told me what your website does which is great. If the Nash Bargaining is the \"wedge\" to separate you from the pack, I'd try explain how that differentiates this over the others as quickly as possible. I know that's easier said than done. Good luck!",
+      "kids": [
+        {
+          "id": 47848363,
+          "by": "sanity",
+          "time": 1776777260,
+          "parent": 47844822,
+          "text": "Thank you!\n\nYou're right about the \"How it works\" page - I will remove it.",
+          "kids": [
+            {
+              "id": 47850683,
+              "by": "sanity",
+              "time": 1776787371,
+              "parent": 47848363,
+              "text": "Actually I changed my mind, I'll just link from How it Works to the blog article for the moment.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47846042,
+      "by": "hawest",
+      "time": 1776759594,
+      "parent": 47835411,
+      "text": "Super interesting, thank you for sharing!\n\nI have published some research on using LLMs for mediation here: https://arxiv.org/abs/2307.16732 and https://arxiv.org/abs/2410.07053\n\nThese papers describe the LLMediator, a platform that uses LLMs to:\n\na) ensure a discussion maintains a positive tone by flagging and offering reformulated versions of messages that may derail the conversation\n\nb) suggest intervention messages that the mediator can use to intervene in the discussion and guide the parties toward a positive outcome.\n\nOverall, LLMs seem to be very good at these tasks, and even compared favourably to human-written interventions. Very excited about the potential of LLMs to lower the barrier to mediation, as it has a lot of potential to resolve disputes in a positive and collaborative manner.",
+      "kids": [
+        {
+          "id": 47850167,
+          "by": "sanity",
+          "time": 1776785203,
+          "parent": 47846042,
+          "text": "Thank you for sharing these.\n\nThis feels complementary to my approach. Your papers seem focused on tone, interventions, and guiding the conversation. My approach is more about trying to infer each party’s preferences and then search for agreements that both would accept.\n\nI think LLMs are strong at both layers, but they’re quite different problems. One is helping people communicate better, the other is trying to actually compute outcomes given what each side cares about.",
+          "kids": []
+        },
+        {
+          "id": 47847581,
+          "by": "harvey9",
+          "time": 1776772873,
+          "parent": 47846042,
+          "text": "Too many chatbots maintain a relentlessly 'positive tone' anyway, and sometimes a negative situation calls for honestly negative tones.",
+          "kids": [
+            {
+              "id": 47848859,
+              "by": "hawest",
+              "time": 1776779602,
+              "parent": 47847581,
+              "text": "Fully agree. In the LLMediator, the function is used to nudge people towards a more constructive tone by suggesting alternative formulations, but in the end the user is in control in what they want to say and how of course.",
+              "kids": []
+            },
+            {
+              "id": 47851979,
+              "by": "lookACamel",
+              "time": 1776793346,
+              "parent": 47847581,
+              "text": "> sometimes a negative situation calls for honestly negative tones.\n\nIt's not exactly hard for humans in dispute to conjure up negative tones.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47848556,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47849089,
+      "by": "sarreph",
+      "time": 1776780680,
+      "parent": 47835411,
+      "text": "The bakery example is interesting, because it's presented as \"both sides have been working on this thing and think they should get 50%\"... and then the _solution_ is \"A path back to 50% for Daniel\" -- who gets an objectively worse deal than his disputant.\n\nIt's definitely an interesting application of LLMs, the output text to me reads very GPT-ey, with the punctuated and concise phrasing.",
+      "kids": []
+    },
+    {
+      "id": 47845262,
+      "by": "mock-possum",
+      "time": 1776752651,
+      "parent": 47835411,
+      "text": "EDIT - in all fairness I find the blog entry much more persuasive: https://mediator.ai/blog/ai-negotiation-nash-bargaining/\n\nThat said, given the fictional example:\n\nHonestly I’m on Daniel’s side - they agreed on a 50/50 split, and they’ve both been working their asses off to make the business work. It’s an arrangement that clearly both of them have been actively participating in, not trying to push back against, for a year and a half.\n\nAnd the supposed insight this product offers is to… split the difference? Between Maya’s power play for 70/30, and Daniel’s insistence on the original 50/50? 60/40 is the brilliant proposal?\n\nHow could they stand to work together afterwards, knowing she thinks she deserves 70% of the profit, but was willing to ‘settle’ for 60%? Why would you want to keep working with someone who screwed you over that way? Their partnership is toast. All the mediation really does is… I don’t know, what? How is this good for Daniel? This ain’t any kind of reconciliation, surely.\n\nIs the argument that it’d be easier for her to get a new baker, than it is for him to get a new business manager?",
+      "kids": [
+        {
+          "id": 47845324,
+          "by": "AnthonyR",
+          "time": 1776753220,
+          "parent": 47845262,
+          "text": "Yeah I also don't quite understand the example on the homepage... they agreed to 50/50 and then she wanted 70/30 so now they settle on 60/40? Like this doesn't seem like a \"fair\" mediation it's kind of weird (obviously oversimplifying the situation a bit but nonetheless I'm not sure real world conflicts are this simple in practice)",
+          "kids": [
+            {
+              "id": 47849004,
+              "by": "sanity",
+              "time": 1776780287,
+              "parent": 47845324,
+              "text": "You raise a good point. The issue is presentation - leading with the 60/40 reads like midpoint arbitration, whereas the interesting part is Daniel's path back to 50/50, the management salary, the mutual waiver on the first 18 months (which is what settles his rent contribution), and the shotgun buy-sell.\n\nI've made some changes that should help with this.",
+              "kids": []
+            },
+            {
+              "id": 47845465,
+              "by": "alex43578",
+              "time": 1776754948,
+              "parent": 47845324,
+              "text": "They wanted 50/50, but from the vignette Daniel didn’t continue to do 50% of the work.",
+              "kids": [
+                {
+                  "id": 47845718,
+                  "by": "mock-possum",
+                  "time": 1776757021,
+                  "parent": 47845465,
+                  "text": "Sure, he just continued to take sole responsibility for the production of the product, quality and quantity, while also holding down an additional job, which paid the rent.\n\nThese characters have both been putting the work in.\n\nI’d be looking for a serpent at his partner’s ear, planting poisonous suggestions that she deserves more of the company they started equally. If this were real.",
+                  "kids": [
+                    {
+                      "id": 47846002,
+                      "by": "lookACamel",
+                      "time": 1776759277,
+                      "parent": 47845718,
+                      "text": "> While also holding down an additional job\n\nThat's the problem, the story is saying he stopped focusing full-time on the business in order to make his own ends meet. It looks like the main innovation of the mediator generated deal is that it attempts to reconcile by drafting a way back in to 50/50 if he recommits. The starting 60/40 split is not that important.",
+                      "kids": [
+                        {
+                          "id": 47846748,
+                          "by": "throwanem",
+                          "time": 1776765675,
+                          "parent": 47846002,
+                          "text": "Her ends, too. They share an apartment, in the story.\n\nThis is certainly an example of what I would expect from a product designed to optimize a prenup. You know, they say money ruins people, but sometimes you just have to acknowledge there was nothing really ever there decent to begin with.",
+                          "kids": [
+                            {
+                              "id": 47848666,
+                              "by": "lookACamel",
+                              "time": 1776778731,
+                              "parent": 47846748,
+                              "text": "Yeah after re-reading the scenario it is pretty weird. The AI doesn't have enough data. There should be concrete numbers for the rent. Why wouldn't Daniel tell the LLM exactly how much it was?",
+                              "kids": [
+                                {
+                                  "id": 47848762,
+                                  "by": "throwanem",
+                                  "time": 1776779195,
+                                  "parent": 47848666,
+                                  "text": "Well, I don't know, I'm sure. Totally unrelated, I hear a common piece of advice for the aspiring con artist is to avoid overcomplicating the legend.",
+                                  "kids": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": 47847943,
+                          "by": "gavinray",
+                          "time": 1776775096,
+                          "parent": 47846002,
+                          "text": "He paid her rent",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47854545,
+      "by": "storus",
+      "time": 1776805810,
+      "parent": 47835411,
+      "text": "The example on the webpage seriously disadvantages one side, preferring sweat equity and valuing the price of survival in the past rather low; I don't think I would use mediator.ai as anything but an exploratory framework and not a decision-making one.",
+      "kids": [
+        {
+          "id": 47856880,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47846865,
+      "by": "webrot",
+      "time": 1776766839,
+      "parent": 47835411,
+      "text": "I think this is very useful. I wonder if you have people that actually used in difficult situations? maybe family separations or challenging stuff like that, where I see a lot of potential but also resistance.\n\nThis said, I think the challenging part for the users is clearly setting the utility function. I agree LLMs can help there, but I have few concerns wrt that.",
+      "kids": [
+        {
+          "id": 47850214,
+          "by": "sanity",
+          "time": 1776785361,
+          "parent": 47846865,
+          "text": "Thank you! It's early days yet but I've had interest from people going through a divorce with child separation questions - however I wanted to ensure it worked well on less serious problems before I risk it on something so consequential.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47845101,
+      "by": "mfrye0",
+      "time": 1776751118,
+      "parent": 47835411,
+      "text": "I would love something like this to use with my HOA. About to start mediation and the estimate for the mediator alone is ~$20k.",
+      "kids": [
+        {
+          "id": 47845244,
+          "by": "wferrell",
+          "time": 1776752495,
+          "parent": 47845101,
+          "text": "You might try Decisionlayer.ai\n\nWe built a way to make contracts enforceable and resolve disputes without the high cost of litigation. Specifically, by adding our arbitration clause to your contracts or using our \"case by consent\" you can get AI driven court-enforceable arbitration decisions in 7 days for a $500 flat fee - no lawyers required. This compares to the $30k or $40k you would otherwise spend on a lawyer+ JAMS/AAA arbitration fees. For your HOA, I suspect the case by consent would be the best approach - two parties come to the website, both agree to use DecisionLayer to resolve the dispute and then present the issue and each side's argument.\n\nWe have free case simulator on our site. Check it out at https://www.decisionlayer.ai/simulate",
+          "kids": [
+            {
+              "id": 47846717,
+              "by": "arowthway",
+              "time": 1776765337,
+              "parent": 47845244,
+              "text": "I'd rather arbitrate by coin toss.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47848507,
+          "by": "sanity",
+          "time": 1776777948,
+          "parent": 47845101,
+          "text": "Thank you! You should definitely get a lawyer to review any agreement before signing if there is meaningful money at stake.",
+          "kids": [
+            {
+              "id": 47851133,
+              "by": "mfrye0",
+              "time": 1776789360,
+              "parent": 47848507,
+              "text": "Yes. Have a lawyer and there is indeed meaningful money at stake. I'm more wishing there was a simpler way to go about it though, as it's likely going to cost 6 figures when it's all said and done.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47847981,
+      "by": "parkerside",
+      "time": 1776775371,
+      "parent": 47835411,
+      "text": "I like the idea and signed up, but the first thing I see is a prompt to purchase credits. I don't have a use-case to try this now, so I won't be using the service again, however I couldn't find an account dashboard to delete my account or even sign out?",
+      "kids": [
+        {
+          "id": 47848291,
+          "by": "sanity",
+          "time": 1776776969,
+          "parent": 47847981,
+          "text": "Hey, thank you for the feedback, if you click on the profile icon in the top right there is a \"Sign Out\" option. We don't have a delete account option yet but I will prioritize it.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47845130,
+      "by": "danieldifficult",
+      "time": 1776751362,
+      "parent": 47835411,
+      "text": "Brilliant! Love seeing this space start to wake up.\n\nLast year I built https://andshake.app to prevent the need for conflict resolution… by getting things clear up front.\n\nI agree that AI has much to offer in low-stakes agreements to help people move forward in cooperation.",
+      "kids": [
+        {
+          "id": 47845816,
+          "by": "aspect0545",
+          "time": 1776757814,
+          "parent": 47845130,
+          "text": "Looks interesting. But where’s the privacy policy or at least information what happens with all the sensitive stuff you enter there. Because let’s be honest, a lot of the stuff that is awkward to talk about is somewhat private.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47849083,
+      "by": "dennismcwong",
+      "time": 1776780655,
+      "parent": 47835411,
+      "text": "Interesting idea for sure. I am just thinking, intuitively couldn't I 'game' the mediator by overstating my preference and requirements to achieve a more favorable outcome?",
+      "kids": [
+        {
+          "id": 47849414,
+          "by": "sanity",
+          "time": 1776782140,
+          "parent": 47849083,
+          "text": "Thank you. Yes, you could inflate your BATNA, but then you risk the other side rejecting the agreement when a mutually beneficial agreement was possible if you had been honest.\n\nThis kind of property in a negotiation system, where honesty is rewarded and dishonesty can backfire, is called “incentive compatibility.” I’m not claiming my approach is formally incentive compatible, but it is directionally so.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47854279,
+      "by": "NunoSempere",
+      "time": 1776804262,
+      "parent": 47835411,
+      "text": "Perhaps look into Shapley values as well?",
+      "kids": [
+        {
+          "id": 47855283,
+          "by": "sanity",
+          "time": 1776809554,
+          "parent": 47854279,
+          "text": "Interesting, yes. My understanding is Shapley is more about allocating a fixed surplus based on marginal contributions, whereas I’m trying to find the agreement itself given inferred preferences. But definitely related territory.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851601,
+      "by": "throwanem",
+      "time": 1776791566,
+      "parent": 47835411,
+      "text": "You built Freenet? What about that experience encouraged you to continue building things?",
+      "kids": [
+        {
+          "id": 47853641,
+          "by": "sanity",
+          "time": 1776800962,
+          "parent": 47851601,
+          "text": "Yes, Freenet is my project, in fact I've spent the last few years building a sequel to it[1].\n\nI've enjoyed building things for as long as I can remember, particularly if it solves a hard problem in an interesting way - and at least has the potential to make a difference to people.\n\n[1] https://freenet.org/about/faq/#what-is-the-projects-history",
+          "kids": [
+            {
+              "id": 47853815,
+              "by": "throwanem",
+              "time": 1776801821,
+              "parent": 47853641,
+              "text": "Wonderful! Thank you for taking the time to think, with intention, about why.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47845004,
+      "by": "mukundesh",
+      "time": 1776750178,
+      "parent": 47835411,
+      "text": "How about Iran/US conflict ? or Israel/Palestine conflict ?\n\nIs anyone working on this ? seems like a big win for AI if it can be done.",
+      "kids": [
+        {
+          "id": 47848587,
+          "by": "sanity",
+          "time": 1776778365,
+          "parent": 47845004,
+          "text": "Believe it or not I did a lot of testing with geopolitics early on but didn't want to put it on the website so people wouldn't think I'm a megalomaniac ;)\n\nI regenerated the Israel/Palestine agreement using my latest code although the input positions were as they were this time last year when hostages were still being held.\n\nInterested to hear what you think: https://gist.github.com/sanity/3851e33e085ed444525edcc7b7ba2...",
+          "kids": []
+        },
+        {
+          "id": 47847648,
+          "by": "harvey9",
+          "time": 1776773274,
+          "parent": 47845004,
+          "text": "Seems like a very different class of problem. Many more parties and variables than the 'roommate problem'.",
+          "kids": []
+        },
+        {
+          "id": 47845745,
+          "by": "watwut",
+          "time": 1776757226,
+          "parent": 47845004,
+          "text": "Pakistan is working on the Iran/US conflict.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47845446,
+      "by": "setnone",
+      "time": 1776754838,
+      "parent": 47835411,
+      "text": "definitely a great use of LLMs",
+      "kids": []
+    },
+    {
+      "id": 47846772,
+      "by": "Zababa",
+      "time": 1776765859,
+      "parent": 47835411,
+      "text": "Very interesting! For limitations, I'd add stated vs revealed preference. Currently the system assumes than what people say is what they actually prefer, but that's not always the case. If that is already addressed in your tool, I think it would be nice to mention it!",
+      "kids": [
+        {
+          "id": 47849148,
+          "by": "sanity",
+          "time": 1776780906,
+          "parent": 47846772,
+          "text": "Thank you. The purpose of having the LLM interview the user is to try to surface those unstated preferences by exploring aspects of the agreement that the user may not surface themselves.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47845771,
+      "by": "watwut",
+      "time": 1776757412,
+      "parent": 47835411,
+      "text": "Basically, the negotiating game is will break down to demanding absolute maximum and pretending you care a lot more then you care. The more demanding person gets more, less demanding person is taken for a ride.",
+      "kids": [
+        {
+          "id": 47845905,
+          "by": "eigenket",
+          "time": 1776758590,
+          "parent": 47845771,
+          "text": "I don't know anything about this specific LLM thing but if it correctly uses the Nash bargaining optimiser then that won't happen.\n\nThis thing you point out is exactly why Nash demanded invariance under affine transformations in his solution. Using completely arbitrary units if I rank everything as having importance 1 million, that's exactly the same as ranking everything as having importance 1, and also the same as ranking everything as having importance 0.\n\nThe solution is only sensitive to diffences in the unitity function, not the actual values of the function. If you want to weight something very strongly in the Nash version of the game you also have to weight other things correspondingly weakly.",
+          "kids": [
+            {
+              "id": 47848780,
+              "by": "sanity",
+              "time": 1776779267,
+              "parent": 47845905,
+              "text": "You are correct that Nash should address this because only the relative utilities matter, not absolute.\n\nThere is the potential for parties to get better deals by overstating their BATNAs, but then they risk the other party rejecting the agreement when a mutually beneficial agreement was possible - so it's not in their interests to mislead the system.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47845834,
+          "by": "DeathArrow",
+          "time": 1776757989,
+          "parent": 47845771,
+          "text": "Then the tool should be named Trump.ai, not Mediator.ai. :)",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47855546,
+      "by": "libertyit",
+      "time": 1776810900,
+      "parent": 47835411,
+      "text": "Brilliant idea. Congratulations, and good luck.",
+      "kids": []
+    },
+    {
+      "id": 47853946,
+      "by": "tokai",
+      "time": 1776802456,
+      "parent": 47835411,
+      "text": "Absolute peak delusional tech guy applying hard measures to a soft issue.",
+      "kids": []
+    },
+    {
+      "id": 47844770,
+      "by": "arjunthazhath",
+      "time": 1776748294,
+      "parent": 47835411,
+      "text": "I am unable to login",
+      "kids": [
+        {
+          "id": 47848325,
+          "by": "sanity",
+          "time": 1776777102,
+          "parent": 47844770,
+          "text": "Hi, what happens when you try?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47844373,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47863303,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47850572,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47847434,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47846909,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47848403,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47860735,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}

@@ -1,0 +1,1403 @@
+{
+  "pair": {
+    "story_type": "news",
+    "hn_id": 47866697,
+    "title": "We found a stable Firefox identifier linking all your private Tor identities",
+    "points": 639,
+    "descendants": 174,
+    "article_url": "https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/",
+    "hn_url": "https://news.ycombinator.com/item?id=47866697",
+    "self_post": false
+  },
+  "story": {
+    "id": 47866697,
+    "title": "We found a stable Firefox identifier linking all your private Tor identities",
+    "url": "https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/",
+    "by": "danpinto",
+    "score": 640,
+    "time": 1776879303,
+    "descendants": 174,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47867883,
+      "by": "lpapez",
+      "time": 1776884867,
+      "parent": 47866697,
+      "text": "Very cool research and wonderfully written.\n\nI was expecting an ad for their product somewhere towards the end, but it wasn't there!\n\nI do wonder though: why would this company report this vulnerability to Mozilla if their product is fingeprinting?\n\nIsn't it better for the business (albeit unethical) to keep the vulnerability private, to differentiate from the competitors? For example, I don't see many threat actors burning their zero days through responsible disclosure!",
+      "kids": [
+        {
+          "id": 47868156,
+          "by": "valve1",
+          "time": 1776886176,
+          "parent": 47867883,
+          "text": "We don't use vulnerabilities in our products.",
+          "kids": [
+            {
+              "id": 47868256,
+              "by": "mtlynch",
+              "time": 1776886662,
+              "parent": 47868156,
+              "text": "I don't understand what you mean. What separates this from other fingerprinting techniques your company monetizes?\n\nNo software wants to be fingerprinted. If it did, it would offer an API with a stable identifier. All fingerprinting is exploiting unintended behavior of the target software or hardware.",
+              "kids": [
+                {
+                  "id": 47868381,
+                  "by": "giancarlostoro",
+                  "time": 1776887375,
+                  "parent": 47868256,
+                  "text": "It makes sense to me, they're likely not trying to actually fingerprint Tor users. Those users will likely ignore ads, have JS disabled, etc. the real audience is people on the web using normal tooling.",
+                  "kids": [
+                    {
+                      "id": 47870392,
+                      "by": "Gigachad",
+                      "time": 1776898786,
+                      "parent": 47868381,
+                      "text": "They can just flag all Tor users as high risk. They don't strictly need to fingerprint them when it's generally fine for websites to just block signups for Tor users or require further identification via phone number or something.\n\nYou want fingerprinting to identify low risk users to skip the inconvenient security checks.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47868614,
+                      "by": "baobabKoodaa",
+                      "time": 1776888451,
+                      "parent": 47868381,
+                      "text": "Uhh okay, so they do exploit vulnerabilities, they just try to target victims who can be served ads? What a weird distinction.",
+                      "kids": [
+                        {
+                          "id": 47869562,
+                          "by": "zamadatix",
+                          "time": 1776893584,
+                          "parent": 47868614,
+                          "text": "Most users seem to not care about ad tech/tracking as much as technical users. Even further, most seem to want to enable more tracking to [protect the children or whatever the reason is] pretty regularly (at least in opinion polls about various legislation). ToR users are not at all like that + could be harmed in a very different way... so I think it's fair to frame them differently even if I'd personally say people should be wanting to treat both as similar offenses because neither should be seen as okay in my eyes.",
+                          "kids": [
+                            {
+                              "id": 47871062,
+                              "by": "godelski",
+                              "time": 1776904918,
+                              "parent": 47869562,
+                              "text": "> Most users seem to not care about ad tech/tracking\n\nI don't think this is true.\n\nMost people don't understand that they're being tracked. The ones that do generally don't understand to what extent.\n\nYou tend to get one of two responses: surprise or apathy. When people say \"what are you going to do?\" They don't mean \"I don't care\" they mean \"I feel powerless to do anything about it, so I'll convince myself to not care or think about it\". Honestly, the interpretation is fairly similar for when people say \"but my data isn't useful\" or \"so what, they sell me ads (I use an ad blocker)\". Those responses are mental defenses to reduce cognitive overload.\n\nIf you don't buy my belief then reframe the question to make things more apparent. Instead asking people how they feel about Google or Meta tracking them, ask how they feel about the government or some random person. \"Would you be okay if I hired a PI to follow you around all day? They'll record who you talk to, when, how long, where you go, what you do, what you say, when you sleep, and everything down to what you ate for breakfast.\"  The number of people that are going to be okay with that will plummet. As soon as you change it from \"Meta\" to \"some guy named Mark\". You'll still get nervous jokes of \"you're wasting money, I'm boring\" but you think they wouldn't get upset if you actually hired a PI to do that?\n\nThe problem is people don't actually understand what's being recorded and what can be done with that information. If they did they'd be outraged because we're well beyond what 1984 proposed. In 1984 the government wasn't always watching. The premise was more about a country wide Panopticon. The government could be watching at any time. We're well past that. Not only can the government and corporations do that but they can look up historical records and some data is always being recorded.\n\nSo the reason I don't buy the argument is because 1984 is so well known. If people didn't care, no one would know about that book. The problem is people still think we're headed towards 1984 and don't realize we're 20 years into that world",
+                              "kids": [
+                                {
+                                  "id": 47871465,
+                                  "by": "zamadatix",
+                                  "time": 1776908904,
+                                  "parent": 47871062,
+                                  "text": "> If you don't buy my belief then reframe the question to make things more apparent. Instead asking people how they feel about Google or Meta tracking them, ask how they feel about the government or some random person.\n\nThis is exactly what I was saying - if you look at the polls, people actually tend to support things like the UK's Online Safety Act. Explaining it more does not usually result in a change of that. The difference with a PI is you're asking about them individually instead of everyone - of course they trust themselves, they just want everyone surveilled for that same feeling of confidence.",
+                                  "kids": []
+                                },
+                                {
+                                  "id": 47871580,
+                                  "by": "idiotsecant",
+                                  "time": 1776910142,
+                                  "parent": 47871062,
+                                  "text": "This is a lot of text to say that people don't recognize digital tracking as a threat, even when it is explained to them. Which is basically exactly what parent post you replied to said.\n\nPeople don't care. This is demonstrably true.",
+                                  "kids": []
+                                }
+                              ]
+                            },
+                            {
+                              "id": 47870253,
+                              "by": "pmontra",
+                              "time": 1776897795,
+                              "parent": 47869562,
+                              "text": "In my experience those users express a mix of surprise and irritation when they get ads about something they did minutes or hours before, but they accept that's the way things are.\n\nI joke that I'm a no-app person, because I install very few apps and I use anti tracking tech on my phone that's even hard to explain or recommend to non technical friends. I use Firefox with uMatrix and uBlock Origin and Blockada. uMatrix is effective but breaks so many sites unless one invests time in playing with the matrix. Blockada breaks many important apps (banking) less one understands whitelisting.",
+                              "kids": []
+                            },
+                            {
+                              "id": 47872072,
+                              "by": "autoexec",
+                              "time": 1776916089,
+                              "parent": 47869562,
+                              "text": "> Most users seem to not care about ad tech/tracking as much as technical users.\n\nPart of the problem is the misconception that the data being collected is only being used to determine which ads to show them. Companies love to frame it that way because ultimately people don't actually care that much about which ads they get shown. The more people get educated on the real world/offline uses of the data they're handing over the more they'll start to care about the tracking being done.",
+                              "kids": []
+                            }
+                          ]
+                        },
+                        {
+                          "id": 47868760,
+                          "by": "exe34",
+                          "time": 1776889129,
+                          "parent": 47868614,
+                          "text": "Well presumably they want to make money.",
+                          "kids": []
+                        },
+                        {
+                          "id": 47869300,
+                          "by": "adastra22",
+                          "time": 1776892081,
+                          "parent": 47868614,
+                          "text": "Painting fingerprinting as vulnerability exploit is your own very biased and very out-of-norm framing.",
+                          "kids": [
+                            {
+                              "id": 47869807,
+                              "by": "SiempreViernes",
+                              "time": 1776895028,
+                              "parent": 47869300,
+                              "text": "Instead of trying convince-by-assertion, maybe you could try offering an actual objection to the argument raised up-thread?\n\nOn what basis do you claim that software developers, who did not establish a means of for third parties to get a stable identifier, nevertheless intended that fingerprinting techniques should work?",
+                              "kids": [
+                                {
+                                  "id": 47871472,
+                                  "by": "fc417fc802",
+                                  "time": 1776908998,
+                                  "parent": 47869807,
+                                  "text": "> Instead of trying convince-by-assertion\n\nTBF the idea that any and all fingerprinting falls under the umbrella of exploiting a vulnerability was also presented as an assertion. At least personally I think it's a rather absurd notion.\n\nCertainly you can exploit what I would consider a vulnerability to obtain information useful for fingerprinting. But you can also assemble readily available information and I don't think that doing so is an exploit though in most cases it probably qualifies as an unfortunate oversight on the part of the software developer.",
+                                  "kids": [
+                                    {
+                                      "id": 47872366,
+                                      "by": "SiempreViernes",
+                                      "time": 1776919998,
+                                      "parent": 47871472,
+                                      "text": "For the readers convenience I restated the argument also in my post, but if you look you can see it was also stated much earlier in the thread.",
+                                      "kids": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": 47870060,
+                                  "by": "strbean",
+                                  "time": 1776896409,
+                                  "parent": 47869807,
+                                  "text": "There's a pretty big difference between:\n\n1) wanting functionality that isn't provided and working around that\n\nand\n\n2) restoring such functionality in the face of countermeasures\n\nThe absence of functionality isn't a clear signal of intent, while countermeasures against said functionality is.\n\nAnd then there is the distinction between the intent of the software publisher and the intent of the user. There is a big ethical difference between \"Mozilla doesn't want advertisers tracking their users\" and \"those users don't want to be tracked\". If these guys want to draw the line at \"if there is a signal from the user that they want privacy, we won't track them\", I think that's reasonable.",
+                                  "kids": [
+                                    {
+                                      "id": 47870684,
+                                      "by": "maltelau",
+                                      "time": 1776901386,
+                                      "parent": 47870060,
+                                      "text": "The presence of the \"Do Not Track\" header was a pretty clear indicator of the intent of the user. Fingerprinting persisted exactly in the face of such countermeasures.",
+                                      "kids": []
+                                    },
+                                    {
+                                      "id": 47871486,
+                                      "by": "fc417fc802",
+                                      "time": 1776909110,
+                                      "parent": 47870060,
+                                      "text": "Even if the intent is clear I don't think the act of reading an available field qualifies as exploiting a vulnerability. IMO you need to actually work around a technical measure intended to stop you for it to qualify as an exploit.",
+                                      "kids": [
+                                        {
+                                          "id": 47871974,
+                                          "by": "NotPractical",
+                                          "time": 1776914672,
+                                          "parent": 47871486,
+                                          "text": "Here's the technical measures that are being worked around: https://blog.mozilla.org/en/firefox/fingerprinting-protectio...\n\n> IMO you need to actually work around a technical measure intended to stop you for it to qualify as an exploit.\n\nEven well-known vulnerabilities like SQL injection don't qualify under this definition?",
+                                          "kids": [
+                                            {
+                                              "id": 47872186,
+                                              "by": "fc417fc802",
+                                              "time": 1776917559,
+                                              "parent": 47871974,
+                                              "text": "Sure, my wording isn't perfect. I don't have a watertight definition ready to go. To my mind the spirit of the thing is that (for example) if a site has an http endpoint that accepts arbitrary sql queries and blindly runs them then sending your own custom query doesn't qualify as an exploit any more than scraping publicly accessible pages does. Whereas if you have to cleverly craft an sql query in a way that exploits string escapes in order to work around the restrictions that the backend has in place then that's technically an exploit (although it's an incredibly minor one against a piece of software whose developer has put on a display of utter incompetence).\n\nThe point isn't my precise wording but the underlying concept that making use of freely provided information isn't exploiting anything even if both the user and the developer are unhappy about the end result. Security boundaries are not defined post hoc by regret.",
+                                              "kids": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": 47869473,
+                              "by": "foltik",
+                              "time": 1776893091,
+                              "parent": 47869300,
+                              "text": "How would you frame it?",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": 47868555,
+                  "by": "sodality2",
+                  "time": 1776888253,
+                  "parent": 47868256,
+                  "text": "Side channels that enable intended behavior, versus a flat-out bug like the above, though the line can often be muddied by perspective.\n\nAn example that comes to mind that I've seen is an anonymous app that allows for blocking users; you can programmatically block users, query all posts, and diff the sets to identify stable identities. However, the ability to block users is desired by the app developers; they just may not have intended this behavior, but there's no immediate solution to this. This is different than 'user_id' simply being returned in the API for no reason, which is a vulnerability. Then there's maybe a case of the user_id being returned in the API for some reason that MIGHT be important too, but that could be implemented another way more sensibly; this leans more towards vulnerability.\n\nUltimately most fingerprinting technologies use features that are intended behavior; Canvas/font rendering is useful for some web features (and the web target means you have to support a LOT of use cases), IP address/cookies/useragent obviously are useful, etc (though there's some case to be made about Google's pushing for these features as an advertising company!).",
+                  "kids": [
+                    {
+                      "id": 47871875,
+                      "by": "tomrittervg",
+                      "time": 1776913503,
+                      "parent": 47868555,
+                      "text": "> Ultimately most fingerprinting technologies use features that are intended behavior\n\nStrong disagree.\n\n> IP address/cookies/useragent obviously are useful\n\nCookies are an intended tracking behavior. IP Address, as a routing address, is debatable.\n\n> Canvas/font rendering is useful for some web features\n\nThese two are actually wonderful examples of taking web features and using them as a _side channel_ in an unintended way to derive information that can be used to track people.  A better argument would be things like Language and Timezone which you could argue \"The browser clearly makes these available and intends to provide this information without restriction.\"  Using side channels to determine what fonts a user has installed... well there's an API for doing just that[0] and we (Firefox) haven't implemented it for a reason.\n\nn.b. I am Firefox's tech lead on anti-fingerprinting so I'm kind of biased =)\n\n[0] https://developer.mozilla.org/en-US/docs/Web/API/Local_Font_...",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47869526,
+                  "by": "OneDeuxTriSeiGo",
+                  "time": 1776893374,
+                  "parent": 47868256,
+                  "text": "A vulnerability is distinct from unintended behavior.\n\nUnintended identification is less than ideal but frankly is just the nature of doing business and any number of niceties are lost by aggressively avoiding fingerprinting.\n\nIn software intentionally optimized to avoid any fingerprinting however it is a vulnerability.\n\nThe distinction being that fingerprinting in general is a less than ideal side effect that gives you a minor loss in privacy but in something like Tor Browser that fingerprinting can be life or death for a whistleblower, etc. It's the distinction between an annoyance and an execution.",
+                  "kids": [
+                    {
+                      "id": 47872105,
+                      "by": "autoexec",
+                      "time": 1776916496,
+                      "parent": 47869526,
+                      "text": "> fingerprinting in general is a less than ideal side effect that gives you a minor loss in privacy\n\nIn what way is collecting a record of a person's browsing history a \"minor loss\" of privacy. For many people, tracking everywhere they go online would easily expose the most sensitive personal information they have.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47869074,
+                  "by": "subscribed",
+                  "time": 1776890697,
+                  "parent": 47868256,
+                  "text": "Iffy vs grossly unethical.",
+                  "kids": [
+                    {
+                      "id": 47871151,
+                      "by": "rockskon",
+                      "time": 1776905772,
+                      "parent": 47869074,
+                      "text": "Someone discovering and making this public it doesn't mean others haven't independently discovered it.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47871319,
+                  "by": "prophesi",
+                  "time": 1776907290,
+                  "parent": 47868256,
+                  "text": "I think HN needs a refresher on responsible disclosure, and that even vulnerability scanners engage in this practice for obvious reasons in that it benefits both parties. One party gains exposure, and the other gets exposure and their bug squashed without the bug wrecking havoc while they try to squash it.",
+                  "kids": []
+                },
+                {
+                  "id": 47871985,
+                  "by": "nurettin",
+                  "time": 1776914853,
+                  "parent": 47868256,
+                  "text": "Logically, they are doing correlation via publically available information - maybe better than others can - and an identifier would hurt their business since competition can use it as well.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868797,
+              "by": "NoahZuniga",
+              "time": 1776889331,
+              "parent": 47868156,
+              "text": "The real reason is that fingerprint.com's selling point is tracking over longer periods (months, their website claims), and this doesn't help them with that.",
+              "kids": []
+            },
+            {
+              "id": 47872657,
+              "by": "kqp",
+              "time": 1776924054,
+              "parent": 47868156,
+              "text": "I’m going to go out on a limb and guess that you define “vulnerability” as something like “thing that will be fixed soon”. After all, Joe Random not liking a behavior doesn’t make it a vuln, there needs to be a litmus test. Am I close?",
+              "kids": []
+            },
+            {
+              "id": 47870746,
+              "by": "stackghost",
+              "time": 1776901947,
+              "parent": 47868156,
+              "text": "All fingerprinting is a vulnerability, unless the client opts-in.",
+              "kids": [
+                {
+                  "id": 47871395,
+                  "by": "lmz",
+                  "time": 1776908060,
+                  "parent": 47870746,
+                  "text": "The opt in checkbox is labeled \"Enable Javascript\"",
+                  "kids": [
+                    {
+                      "id": 47871473,
+                      "by": "ranger_danger",
+                      "time": 1776909004,
+                      "parent": 47871395,
+                      "text": "https://fingerprint.com/blog/disabling-javascript-wont-stop-...\n\nhttps://github.com/jonasstrehle/supercookie",
+                      "kids": [
+                        {
+                          "id": 47872144,
+                          "by": "autoexec",
+                          "time": 1776916945,
+                          "parent": 47871473,
+                          "text": "When I go to https://noscriptfingerprint.com/ all I see is a blank page. My browser is pretty locked down in other ways which probably helps, but I'm still taking that as a good sign.",
+                          "kids": [
+                            {
+                              "id": 47872342,
+                              "by": "ranger_danger",
+                              "time": 1776919652,
+                              "parent": 47872144,
+                              "text": "The site seems to have been taken offline, but the code is here: https://github.com/fingerprintjs/blog-nojs-fingerprint-demo/",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47868223,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47867989,
+          "by": "hrimfaxi",
+          "time": 1776885371,
+          "parent": 47867883,
+          "text": "They probably are not relying on it and disclosure means others can't either.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872223,
+      "by": "Cider9986",
+      "time": 1776918143,
+      "parent": 47866697,
+      "text": "Being fingerprinted across Tor is different from being deanonymized—it basically just \"psuedonomizes\" you. You now have an identifier. It is a significant threat, but it is not hard to \"psuedonomize\" someone based on stylometry and some of the people with the highest threat model—operating an illegal site, will be pseudonymous anyway.\n\nDon't get your opsec advice from HN. Check whonix, qubes, grapheneos, kicksecure forums/wikis. Nihilist opsec, Privacyguides.",
+      "kids": [
+        {
+          "id": 47872830,
+          "by": "grumbelbart2",
+          "time": 1776926695,
+          "parent": 47872223,
+          "text": "This fingerprint persists over private and non-private Firefox sessions until you restart Firefox. State actors might be able to connect your Google-login in FF window 1 with your tor session in FF private window 2.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869592,
+      "by": "yencabulator",
+      "time": 1776893808,
+      "parent": 47866697,
+      "text": "> the identifier can also persist [...] as long as the Firefox process remains running\n\nMake sure to exit Tor Browser at the end of a session. Make sure not to mix two uses in one session.",
+      "kids": [
+        {
+          "id": 47872599,
+          "by": "SeriousM",
+          "time": 1776923291,
+          "parent": 47869592,
+          "text": "Or shut down and boot tails again. You need privacy? Take your time.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872165,
+      "by": "bfivyvysj",
+      "time": 1776917245,
+      "parent": 47866697,
+      "text": "I learned enough about security years ago that there's basically zero chance you're secure and almost 100% chance someone is watch everything you do online.\n\nWhether they care is entirely separate.",
+      "kids": []
+    },
+    {
+      "id": 47869322,
+      "by": "firefax",
+      "time": 1776892188,
+      "parent": 47866697,
+      "text": "The OP's link is timing out over Tor for me, but the Wayback[1] version loaded without issue.\n\nAlso, does anyone know of any researchers in the academic world focusing on this issue? We are aware that EFF has a project that used to be named after a pedophile on this subject, but we are more looking for professors at universities or pure research labs ala MSR or PARC than activists working for NGOs, however pure their praxis :-)\n\nAs privacy geeks, we have become fascinated with the topic -- it seems that while we can achieve security through extensions like noscript or ublock origin or firefox containers (our personal \"holy trinity\"), anonymity slips through our fingers due to fingerprinting issues. (Especially if we lump stylometry in the big bucket of \"fingerprinting\".)\n\n[1] https://web.archive.org/web/20260422190706/https://fingerpri...",
+      "kids": [
+        {
+          "id": 47871931,
+          "by": "spelledwrong",
+          "time": 1776914129,
+          "parent": 47869322,
+          "text": ">We are aware that EFF has a project that used to be named after a pedophile on this subject\n\nYou bring this up like it's a well known incident, but my googling can find no evidence of it? The only reason not say the name of the project would be if it's common knowledge, but it's not?\n\nChatGPT research reckons you're making it up, and I'd be curious if you have evidence to the contrary?",
+          "kids": []
+        },
+        {
+          "id": 47871889,
+          "by": "tomrittervg",
+          "time": 1776913646,
+          "parent": 47869322,
+          "text": "Mozilla is working on it.  (I know you said 'Academic', but we publish papers sometimes too.)",
+          "kids": []
+        },
+        {
+          "id": 47870341,
+          "by": "Cynddl",
+          "time": 1776898420,
+          "parent": 47869322,
+          "text": "yes, there’s an active area of research on web fingerprint, both attacks and defences. Look at conferences like PETS for instance",
+          "kids": []
+        },
+        {
+          "id": 47871615,
+          "by": "dirasieb",
+          "time": 1776910537,
+          "parent": 47869322,
+          "text": "what are you referring to with that EFF app part?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868065,
+      "by": "bawolff",
+      "time": 1776885720,
+      "parent": 47866697,
+      "text": "From the sounds of this it sounds like it doesn't persist past browser restart? I think that would significantly reduce the usefulness to attackers.",
+      "kids": [
+        {
+          "id": 47868979,
+          "by": "piccirello",
+          "time": 1776890158,
+          "parent": 47868065,
+          "text": "This excerpt from the article describes the risk well.\n\n> In Firefox Private Browsing mode, the identifier can also persist after all private windows are closed, as long as the Firefox process remains running. In Tor Browser, the stable identifier persists even through the \"New Identity\" feature, which is designed to be a full reset that clears cookies and browser history and uses new Tor circuits.",
+          "kids": [
+            {
+              "id": 47871518,
+              "by": "fc417fc802",
+              "time": 1776909547,
+              "parent": 47868979,
+              "text": "I wonder why \"New Identity\" wasn't implemented as a fork-and-exec with a newly created profile?",
+              "kids": [
+                {
+                  "id": 47872967,
+                  "by": "vscode-rest",
+                  "time": 1776928270,
+                  "parent": 47871518,
+                  "text": "Follow the money.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47868758,
+          "by": "warkdarrior",
+          "time": 1776889113,
+          "parent": 47868065,
+          "text": "This is where you use id bridging.\n\n1. Website fingerprints the browser, stores a cookie with an ID and a fingerprint.\n\n2. During the next session, it fingerprints again and compares with the cookie. If fingerprint changed, notify server about old and new fingerprint.",
+          "kids": []
+        },
+        {
+          "id": 47868681,
+          "by": "mmooss",
+          "time": 1776888812,
+          "parent": 47868065,
+          "text": "Many users leave their browsers open for months.",
+          "kids": [
+            {
+              "id": 47869722,
+              "by": "allthetime",
+              "time": 1776894584,
+              "parent": 47868681,
+              "text": "Privacy and security conscious Tor users don’t.",
+              "kids": []
+            },
+            {
+              "id": 47872152,
+              "by": "autoexec",
+              "time": 1776917026,
+              "parent": 47868681,
+              "text": "Open enough tabs and you'd be lucky to keep firefox running for more than a couple weeks.",
+              "kids": [
+                {
+                  "id": 47873006,
+                  "by": "wongogue",
+                  "time": 1776928798,
+                  "parent": 47872152,
+                  "text": "I have 488 tabs in the session with more than 50 loaded. The running session has 72 processes.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47868104,
+          "by": "shevy-java",
+          "time": 1776885901,
+          "parent": 47868065,
+          "text": "Would it though? I guess state agencies already know all nodes or may know all nodes. When you have a ton of meta-information all cross-linked, they can probably identify people quite accurately; may not even need 100% accuracy at all times and could do with less. I was thinking about that when they used information from any surrounding area or even sniffing through walls (I think? I don't quite recall the article but wasn't there an article like that in the last 3-5 years? The idea is to amass as much information as possible, even if it may not primarily have to do with solely the target user alone; e. g. I would call it \"identify via proxy information\").",
+          "kids": [
+            {
+              "id": 47872963,
+              "by": "akimbostrawman",
+              "time": 1776928258,
+              "parent": 47868104,
+              "text": "All Tor nodes are publicly known. Just knowing them doesn't help tracking at all because of onion routing, they would need access to all nodes.\n\nhttps://metrics.torproject.org/rs.html",
+              "kids": []
+            },
+            {
+              "id": 47869163,
+              "by": "Barbing",
+              "time": 1776891240,
+              "parent": 47868104,
+              "text": "> I guess state agencies already know all nodes or may know all nodes.\n\nAssume the same.\n\n>The idea is to amass as much information as possible\n\nReminded, from 2012: https://www.wired.com/2012/03/ff-nsadatacenter/",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47868820,
+      "by": "SirMaster",
+      "time": 1776889404,
+      "parent": 47866697,
+      "text": "I question why websites can even access all this info without asking or notifying the user.\n\nWhy don't browsers make it like phones where the server (app) has to be granted permission to access stuff?",
+      "kids": [
+        {
+          "id": 47870386,
+          "by": "michaelt",
+          "time": 1776898733,
+          "parent": 47868820,
+          "text": "Browser fingerprinting is an unintended side-effect of things it's sorta-kinda reasonable for browsers to provide.\n\nA user agent that says the browser's version? Reasonable enough.\n\nBeing able to ask for fonts, if the system has them? Difficult to have font support without that.\n\nGetting the user's timezone, language and keyboard layout? Reasonable.\n\nThe size of the screen, and the size of the browser window? Difficult to lay things out without that.\n\nOf course a video or audio player needs to know which video formats your browser supports - how else to provide the right video?\n\nObviously javascript can get the time, and it's trivial to figure out the system's clock error by comparing that to the time on a server.\n\nBefore you know it, almost every browser is uniquely identifiable.",
+          "kids": [
+            {
+              "id": 47871603,
+              "by": "fc417fc802",
+              "time": 1776910426,
+              "parent": 47870386,
+              "text": "Most of the things you've listed here don't actually seem all that reasonable to me.\n\nUser agents as a concept are rather poorly thought out across the board and not all that useful but persist because that's just how technical cruft is.\n\nFonts should be provided by the website; if not provided the choice should take the form of a spec sent by the website including line height, sarifs or not, monospace or not, etc. There's little to no excuse for the current font situation IMO beyond poor design decisions that became heavily entrenched.\n\nTimezone and other obviously private metadata should never be shared without the user explicitly granting permission on a case by case basis. The status quo here is completely inexcusable as is the continued failure to fix the problem.\n\nSize of the physical screen should never be exposed under any circumstances. The current size of the browser window is reasonable on its face but now that fingerprinting is understood to be an issue should always be heavily letterboxed unless the user consents to sharing the exact value.\n\nVideo formats should be provided by the website as a list of offerings and the browser should respond with a choice; the user could optionally intervene. There's no reason to expose the full capabilities to a remote service.\n\nQuerying the current time should be gated behind an explicit permission. There's almost never a need for it. However from a fingerprinting perspective you also have to worry about correlating the rate of clock skew across clients. That can be solved by gating access to high resolution time counters behind an explicit permission as (once again) the vast majority of services have no legitimate use for such functionality.",
+              "kids": []
+            },
+            {
+              "id": 47872274,
+              "by": "bblb",
+              "time": 1776918856,
+              "parent": 47870386,
+              "text": "These are all relics from the innocent 90's Internet. We had our global village and everything was fine. A couple of bad actors spamming blue pills here and there and that was it.\n\nNow we have actual criminal organizations and other real bad actors.\n\nI'm sure we can come up with something better than advertise our whole local computing platform on every HTTP request.",
+              "kids": []
+            },
+            {
+              "id": 47870547,
+              "by": "sandworm101",
+              "time": 1776900347,
+              "parent": 47870386,
+              "text": "The tor project seeks this bypass this by keeping such things standardized across users, even down to reported screen size. And there is nothing stopping the browser from fibbing as most settings dong matter all that much (ie UK v Canadian v American English).",
+              "kids": [
+                {
+                  "id": 47872189,
+                  "by": "autoexec",
+                  "time": 1776917595,
+                  "parent": 47870547,
+                  "text": "This is a bad idea though, because any newly discovered means to get even a single data point results in being able to ID every tor user. I'd be better to have every tor browser always generate a random fingerprint so that even if the unexpected happens people will never get anything but random results.",
+                  "kids": [
+                    {
+                      "id": 47872254,
+                      "by": "rendx",
+                      "time": 1776918621,
+                      "parent": 47872189,
+                      "text": "> to have every tor browser always generate a random fingerprint\n\nBrowsers do not \"generate\" fingerprints. They expose data that can be used to fingerprint users. You cannot \"randomize\" this; even if you were to return random values for, say, user screen size, with various visual side effects, it would just be another signal to fingerprint: \"Oh, your browser is returning random values? Must be a Tor browser user\".",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47870642,
+              "by": "BeetleB",
+              "time": 1776901075,
+              "parent": 47870386,
+              "text": "I fantasize having a browser that I can use only for viewing content.\n\nNo applications. No mail. No need for cookies.\n\nI can use a \"regular\" browser for more enhanced stuff. But for simple content consumption, we can just have a \"dumb\" browser that can't do much.\n\n> A user agent that says the browser's version? Reasonable enough.\n\nNo user agent. I'm guessing it will need it for JavaScript or HTML features, and dynamically update if using an old browser, but let's just not supply a user agent and let it be the reader's burden to have a reasonably decent browser.\n\n> Being able to ask for fonts, if the system has them? Difficult to have font support without that.\n\nWhat's the fallback if the system doesn't have them?\n\n> Getting the user's timezone, language and keyboard layout? Reasonable.\n\nKeyboard layout is irrelevant for viewing content. For timezone and language: Yeah, I can see the use cases, but these are in a small minority. Let there be a popup when requested, and the user can specify the timezone/language as requested.\n\n> The size of the screen, and the size of the browser window? Difficult to lay things out without that.\n\nLet's let this new browser return only from a (small) discrete set of sizes. It will pick the size closest to the actual browser window size and send that.\n\n> Of course a video or audio player needs to know which video formats your browser supports - how else to provide the right video?\n\nSame answer as user agent. Either let the user pick from a selection of video formats, or just hard code a reasonable one and put the onus on the user to have a browser that supports it.\n\n> Obviously javascript can get the time, and it's trivial to figure out the system's clock error by comparing that to the time on a server.\n\nThis hypothetical browser could just not send the time :-) For 99% of content consumption, this function is not needed.\n\nWhat I'm describing should be part of \"Private mode\". Or browsers should have an \"Ultra-private\" mode that is the above. If it's too complex/risky maintaining it all in one codebase ... fine. Just have a separate browser.\n\nRight now, if I built such a browser, I'm sure a lot of sites meant for content would break. But in my fantasy world, using \"Ultra-private\" would be the default, and people who make sites will target them first.\n\nI think much of the complexity in making a web browser is all the \"other\" stuff. Being able to run apps, cookie/privacy management, etc.",
+              "kids": [
+                {
+                  "id": 47871050,
+                  "by": "0x62",
+                  "time": 1776904744,
+                  "parent": 47870642,
+                  "text": "Unfortunately you've now made an incredibly niche browser, and the lack of those metrics is a good fingerprint by itself. How browsers render SVGs can be used for fingerprinting (even the underlying OS affects this, and I assume you'll want to see those), combine with ISP from IP address, and unless theres hundreds users in every city you're now pretty easily trackable.",
+                  "kids": [
+                    {
+                      "id": 47872204,
+                      "by": "autoexec",
+                      "time": 1776917859,
+                      "parent": 47871050,
+                      "text": "There's no problem with having a unique fingerprint. The problem is having a consistent one. Randomize the fingerprint every time and you're fine. The IP address problem applies to everyone, including anyone using tor browser. The only solution to that is not using your own IP address (VPN/proxy). If I were going to make a secure privacy focused browser it either wouldn't allow things like rendering SVGs (which have introduced vulnerabilities beyond tracking) and wouldn't allow much (if any) JS and only a sane subset of CSS.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47871692,
+                      "by": "BeetleB",
+                      "time": 1776911519,
+                      "parent": 47871050,
+                      "text": "> Unfortunately you've now made an incredibly niche browser, and the lack of those metrics is a good fingerprint by itself.\n\nIf 100 people are using that browser, how will they know which one is me?\n\n> How browsers render SVGs can be used for fingerprinting (even the underlying OS affects this, and I assume you'll want to see those)\n\nCan you provide details on this? And how will they know which OS I'm using (through SVG rendering...)? The UserAgent definitely should not send the OS.\n\n> combine with ISP from IP address\n\nThat's already provided whether I use Private mode or not, correct? I can always use a VPN.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47871759,
+                  "by": "BeetleB",
+                  "time": 1776912181,
+                  "parent": 47870642,
+                  "text": "I can't edit, but I forgot to add:\n\nNo support for forms. The browser is meant for content consumption. Not for interaction/creation.\n\nOne could argue that any JS capabilities to do network requests (including dynamically rendering content) would be disallowed.\n\nYes, I know, this is going pre-Web 2.0.\n\nYes, of course, most current sites won't work in that model. But I'll also say: Most current content sites don't need these capabilities. They have them because they know the browser supports them.\n\nAgain - a fantasy. I know only a few people will use it. I know that won't be enough to change web behavior. It would be nice, though, if sites carried a badge to indicate they conform to all of the above.",
+                  "kids": []
+                },
+                {
+                  "id": 47871341,
+                  "by": "bryan_w",
+                  "time": 1776907545,
+                  "parent": 47870642,
+                  "text": "Just use Tor browser? You can turn the tor part off if you need the speed.\n\nWhat you want exists, have at it",
+                  "kids": [
+                    {
+                      "id": 47871750,
+                      "by": "BeetleB",
+                      "time": 1776912109,
+                      "parent": 47871341,
+                      "text": "As the submission shows, Tor browser isn't enough. My hypothetical browser would never have an IndexedDB API. Why should it?\n\n\"Web applications use it for offline support, caching, session state, and other local storage needs\"\n\nThis use case is completely orthogonal to what my browser is meant to do. My browser would not have a concept of local storage.\n\nThe premise of starting with a modern browser and stripping away features to get privacy is flawed - it's always vulnerable to these types of things. I'm going the opposite route: Only add features if they cannot be exploited for monitoring.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47871091,
+                  "by": "93po",
+                  "time": 1776905214,
+                  "parent": 47870642,
+                  "text": "i've had the same thought for 20 years and unfortunately it's less likely than ever to happen now, given how many sites require javascript and have cloudflare pages before even loading a site (I get several a day).\n\nthankfully i think traditional web surfing is probably going to die out in the next 10 years, and progressively decline a lot much sooner than that as people start to interact with AI rather than browsers (or any software for that matter).\n\nmy feed of hackernews is going to be my AI agent giving it to me in plain text very soon, and soon after that i will probably never visit the internet again because it will be impossible to know what's real and fake\n\nas a millennial it will be interesting to experience the full cycle of being born when nothing was online, to everything being online, to then again being entirely offline by the time i'm older",
+                  "kids": [
+                    {
+                      "id": 47871643,
+                      "by": "fc417fc802",
+                      "time": 1776910831,
+                      "parent": 47871091,
+                      "text": "> my feed of hackernews is going to be my AI agent giving it to me in plain text very soon\n\nWait for the advent of local agents running on local models (for privacy) followed by techniques to fingerprint agents, followed by techniques to infer query parameters based on agent behavior. I wish I was joking but it seems all too plausible.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47871030,
+              "by": "francoi8",
+              "time": 1776904521,
+              "parent": 47870386,
+              "text": "All of these could have a set of standard non identifiable answers (eg. firefox reports the same 20 fonts, couple video formats, one among a few standard window sizes etc.) and for anything more extensive/precise, it would require the user's authorization and the user should have the option of feeding fake info (eg. fake timezone)",
+              "kids": [
+                {
+                  "id": 47871167,
+                  "by": "snailmailman",
+                  "time": 1776905930,
+                  "parent": 47871030,
+                  "text": "Firefox's \"Resist fingerprinting\" does this. It sets timezone to UTC, standardizes the fonts, standardizes a whole bunch of other fingerprinting data, etc. It also has a \"letterboxing\" option to round screensize down to the nearest 100px and stuff too. Tor uses all of those settings by default, though they are also in standard firefox in about:config.\n\nWhen i use Resist Fingerprinting my main issue is the timezone being set to UTC. most of the other stuff it does never causes issues. I guess sometimes sites need to read the canvas, but theres a permission box that allows that when needed. I wish there was a similar permission box for timezone.\n\nThe only other drawback to the \"resist fingerprinting\" option is you will encounter cloudflares' captcha checkbox everywhere and all of the time :(",
+                  "kids": []
+                },
+                {
+                  "id": 47872170,
+                  "by": "autoexec",
+                  "time": 1776917327,
+                  "parent": 47871030,
+                  "text": "Ideally you'd have browsers randomizing what they send instead of reporting the same info every time. That way even a deviation from the \"norm\" can't be assumed to ID someone.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47869083,
+          "by": "t-3",
+          "time": 1776890737,
+          "parent": 47868820,
+          "text": "The most popular browser is made by an ad company. They also provide the majority of funding for their biggest competitor. Why would you expect anything different?",
+          "kids": [
+            {
+              "id": 47869841,
+              "by": "john_strinlai",
+              "time": 1776895190,
+              "parent": 47869083,
+              "text": "most people would expect something different from tor, surely.",
+              "kids": [
+                {
+                  "id": 47870454,
+                  "by": "briansmith",
+                  "time": 1776899441,
+                  "parent": 47869841,
+                  "text": "The purpose of a system is what it does.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47869276,
+          "by": "subscribed",
+          "time": 1776891957,
+          "parent": 47868820,
+          "text": "Hah. It's still better than apps.\n\nApps have access to inconceivable amounts of identifiers and device characteristics, even on the well protected systems without Google Play services.",
+          "kids": []
+        },
+        {
+          "id": 47869135,
+          "by": "Barbing",
+          "time": 1776891059,
+          "parent": 47868820,
+          "text": ">Why don't browsers make it like phones where the server (app) has to be granted permission to access stuff?\n\nLike Android phones perhaps? Unfortunate Apple gives very little granular control.",
+          "kids": [
+            {
+              "id": 47869727,
+              "by": "Joe_Cool",
+              "time": 1776894605,
+              "parent": 47869135,
+              "text": "Most stock android phones don't either. You usually get to control precise location, notifications, some background activity, SMS, Calls, Mic, Camera, SD Card, etc.\n\nBut most ROMs don't allow controls for WiFi, Cell data, Phone ID, Phone number, User ID, local storage, etc...",
+              "kids": [
+                {
+                  "id": 47870247,
+                  "by": "kelvinjps10",
+                  "time": 1776897719,
+                  "parent": 47869727,
+                  "text": "all these permission you have to accept?",
+                  "kids": [
+                    {
+                      "id": 47871038,
+                      "by": "chneu",
+                      "time": 1776904636,
+                      "parent": 47870247,
+                      "text": "Yes. A few apps have been caught doing nefarious stuff using advertising sdks, like meta, but on android most apps are well sandboxed and can only access what you approve.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47869638,
+          "by": "troupo",
+          "time": 1776894068,
+          "parent": 47868820,
+          "text": "It's a fine line between making the web usable, fingerprinting, and peppering the user with dozens or hundreds of permissions.\n\nAnd since browsers rival OSes for complexity (they are basically OSes in their own right already), any part of the system can be inadvertently exposed and exploited.",
+          "kids": []
+        },
+        {
+          "id": 47871663,
+          "by": "snowwrestler",
+          "time": 1776911063,
+          "parent": 47868820,
+          "text": "And yet this sort of endless (fingerprintable) browser feature list is what people cite when they claim that mobile Safari is somehow way behind Chrome, and how it’s a  travesty that Chrome can’t natively implement all these (again, highly fingerprintable) features on the iPhone.",
+          "kids": []
+        },
+        {
+          "id": 47869141,
+          "by": "kingstnap",
+          "time": 1776891100,
+          "parent": 47868820,
+          "text": "I mean Google ain't paying for Chromium development just for the fun of it...",
+          "kids": []
+        },
+        {
+          "id": 47869672,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867941,
+      "by": "sva_",
+      "time": 1776885150,
+      "parent": 47866697,
+      "text": "Does Tor Browser still allow JavaScript by default? Because if you block execution of JavaScript, you won't be affected from what I understand.",
+      "kids": [
+        {
+          "id": 47871095,
+          "by": "angry_octet",
+          "time": 1776905230,
+          "parent": 47867941,
+          "text": "Because TBB has javascript on by default, turning it off increases your signature. It would be better if TBB defaulted to js off, with a front panel button to turn it on.\n\nJS also dramatically improves security. TBB is stuck in a 90s mindset about privacy, as if Firefox exploits were not dime a dozen. Especially with AI making FF exploits more available, we can expect many tor sites to be actively attacking their visitors.",
+          "kids": [
+            {
+              "id": 47871365,
+              "by": "ux266478",
+              "time": 1776907807,
+              "parent": 47871095,
+              "text": "> turning it off increases your signature.\n\nTor endpoints are pretty easy to identify, there are plenty of handy databases for that, using it to begin with increases your uniqueness. If noscript was set to strictly disallow javascript by default, that decreases the degree to which it increases your signature relative to the baseline of using tor.\n\nThen we have to account for the simple fact that many, many fingerprinting techniques rely on javascript, so taking them out of the picture reduces the unique identity that can be gleaned.\n\nAre we absolutely, positively sure that the tradeoff is worth it? Without a strict repeatable measurement, I think I'm highly skeptical about whether or not a default of \"allow\" is a net boon to hiding your identity. I remember the rationale about the switch mostly being directed towards \"most of the web is broken otherwise and that's bad.\"",
+              "kids": [
+                {
+                  "id": 47871756,
+                  "by": "angry_octet",
+                  "time": 1776912150,
+                  "parent": 47871365,
+                  "text": "Every server knows that you're using tor, we're only talking about whether they can match your traffic to you repeatably, and particularly across sessions, which then enables traffic analysis that can lead to complete deanonymisation.\n\nIf TBB changed to js off by default that signal would be less evident, and also, fingerprinting would be harder.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47867971,
+          "by": "ranger_danger",
+          "time": 1776885290,
+          "parent": 47867941,
+          "text": "Disabling JavaScript actually greatly increases your fingerprint as not many users turn it off, so that instantly puts you in a much smaller bucket that you need to be unique in. Yes, not having JS means it limits your options for gathering other details, but it also requires much less effort to be unique now without JS.\n\nTor Browser also doesn't spoof navigator.platform at all for some reason, so sites can still see when you use Linux, even if the User-Agent is spoofing Windows.",
+          "kids": [
+            {
+              "id": 47868416,
+              "by": "Springtime",
+              "time": 1776887540,
+              "parent": 47867971,
+              "text": "> Disabling JavaScript actually greatly increases your fingerprint as not many users turn it off, so that instantly puts you in a much smaller bucket that you need to be unique in.\n\nI've heard a handful of people say this but are there examples of what I would imagine would have to be server-side fingerprinting and the granularity? Since most fingerprinting I'm aware of is client-side, running via JS. While I expect server-side checks to be limited to things like which resources haven't be loaded by a particular user and anything else normally available via server logs either way, which could limit the pool but I wonder how effective in terms of tracking uniqueness across sites.",
+              "kids": [
+                {
+                  "id": 47870543,
+                  "by": "ranger_danger",
+                  "time": 1776900296,
+                  "parent": 47868416,
+                  "text": "In addition to server-side bits like IP address, request headers and TLS/TCP fingerprints, there are some client-side things you can do such as with media queries, either via CSS styles or elements that support them directly like <picture>. You can get things like the installed fonts, screen size/type or platform/browser-specific identifiers.\n\nhttps://fingerprint.com/blog/disabling-javascript-wont-stop-...\n\nThere is also a method of fingerprinting using the favicon: https://github.com/jonasstrehle/supercookie",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868395,
+              "by": "throwawayqqq11",
+              "time": 1776887414,
+              "parent": 47867971,
+              "text": "I have my problems with that argument. Yes, less identifying bits means a smaller bucket but for the trackers, it also means more uncertainty, doesnt it? So when just a few others without JS join your bucket eg. via a VPN, profiling should become harder.",
+              "kids": []
+            },
+            {
+              "id": 47868950,
+              "by": "hypeatei",
+              "time": 1776890012,
+              "parent": 47867971,
+              "text": "> increases your fingerprint as not many users turn it off\n\nWe're talking about users of the Tor browser, and I'd be very surprised if this was the case (that a majority keep JS turned on)\n\nBasically every Tor guide (heh) tells you to turn it off because it's a huge vector for all types of attacks. Most onion sites have captcha systems that work without JS too which would indicate that they expect a majority to have it disabled.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47868940,
+      "by": "codedokode",
+      "time": 1776889953,
+      "parent": 47866697,
+      "text": "Honestly it seems that most of Web Standards are used mostly for fingerprinting - I think a small number of websites uses IndexedDB (who even needs it) for actually storing data rather than fingerprinting.\n\nThat's why expansion of web standards is wrong. Browser should provide minimal APIs for interacting with device and features like IndexedDB can be implemented as WebAssembly library, leaking no valuable data.\n\nFor example, if canvas provided only access to picture buffer, and no drawing routines calling into platform-specific libraries, it would become useless for fingerprinting.",
+      "kids": [
+        {
+          "id": 47869113,
+          "by": "Dwedit",
+          "time": 1776890899,
+          "parent": 47868940,
+          "text": "You can use a browser extension like \"Local Storage Editor\" to see the contents of the Local Storage of a website.  So far, I've seen it used for caching long-life images (like on gmail), or used as another way to do logins instead of cookies.",
+          "kids": [
+            {
+              "id": 47869654,
+              "by": "troupo",
+              "time": 1776894169,
+              "parent": 47869113,
+              "text": "> You can use a browser extension like \"Local Storage Editor\" to see the contents of the Local Storage of a website.\n\nOr just open dev tools",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871668,
+          "by": "fc417fc802",
+          "time": 1776911149,
+          "parent": 47868940,
+          "text": "I'm with you up to the bit about canvas. The problem there is that if you want hardware acceleration then either you can't permit services to read back what was rendered (why do they need to do that again?) or else you're inevitably going to leak lots of very subtle platform specific details. Personally I think reading back the content of a canvas should be gated behind a permission dialog.",
+          "kids": []
+        },
+        {
+          "id": 47870711,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47870624,
+      "by": "farfatched",
+      "time": 1776900980,
+      "parent": 47866697,
+      "text": "> Because the behavior is process-scoped rather than origin-scoped\n\nHmm, I'm a little confused, since in 2021 Mozilla released experimental one-process-per-site:\n\n> This fundamental redesign of Firefox’s Security architecture extends current security mechanisms by creating operating system process-level boundaries for all sites loaded in Firefox for Desktop\n\nhttps://blog.mozilla.org/security/2021/05/18/introducing-sit...\n\nPerhaps that is not fully released?\n\nOr perhaps it is, but IndexedDB happens to live outside of that isolation?",
+      "kids": [
+        {
+          "id": 47870650,
+          "by": "farfatched",
+          "time": 1776901117,
+          "parent": 47870624,
+          "text": "https://news.ycombinator.com/item?id=47868736 helps me understand that there's a sliver of behaviour that happens to be global, and this thus allows fingerprinting.\n\nIf so, cool!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872227,
+      "by": "Cider9986",
+      "time": 1776918184,
+      "parent": 47866697,
+      "text": "https://archive.ph/BbVZo — for those that would rather be fingerprinted by Google than fingerprint-com",
+      "kids": []
+    },
+    {
+      "id": 47868499,
+      "by": "Meneth",
+      "time": 1776888004,
+      "parent": 47866697,
+      "text": "I'm confused.\n\nThe IndexedDB UUID is \"shared across all origins\", so why not use the contents of the database to identify browers, rather than the ordering?",
+      "kids": [
+        {
+          "id": 47868736,
+          "by": "nneonneo",
+          "time": 1776889012,
+          "parent": 47868499,
+          "text": "There's an instructive example on the page. Suppose a page creates the databases `a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p`, then queries their order. They might get, for example `g,c,p,a,l,f,n,d,j,b,o,h,e,m,i,k`, based on the global mapping of database names to UUIDs.\n\nThe key vulnerability here is that, for the lifetime of that Firefox process, any website that makes that set of databases is going to see the exact same output ordering, no matter what the contents of those databases are. That makes this a fingerprint: it's a stable, high-entropy identifier that persists across time, even if the contents of those databases are not preserved. It is shared even across origins (where the contents would not be), and preserved after website data is deleted -- all a website has to do to re-acquire the fingerprint is recreate the databases with the same names and observe their ordering.",
+          "kids": [
+            {
+              "id": 47869766,
+              "by": "Joe_Cool",
+              "time": 1776894816,
+              "parent": 47868736,
+              "text": "As I understood not ANY website can see it. But the same website can see it regardless if you reset your identity in Tor Browser.\n\nSo it persists between anonymous sessions.\nSo you could connect User A that logged out and reset the identity to User B who believed was using a fresh anonymous session and logged in afterwards.",
+              "kids": [
+                {
+                  "id": 47870585,
+                  "by": "stratos123",
+                  "time": 1776900662,
+                  "parent": 47869766,
+                  "text": "No, it does allow identification across different websites (the article says \"both cross-origin and same-origin tracking\"). Both websites just need to create some databases with the same names. Since the databases are origin-scoped, these aren't the same databases, so you can't just write some data into one and read it on another website. But it turns out that if two websites use the same names for all these databases, the order the list of databases is returned in is random-per-user but the same regardless of website.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47868556,
+          "by": "lxgr",
+          "time": 1776888254,
+          "parent": 47868499,
+          "text": "The content is obviously scoped to an origin, or IndexedDB would be a trivial evercookie.",
+          "kids": []
+        },
+        {
+          "id": 47868904,
+          "by": "AgentME",
+          "time": 1776889828,
+          "parent": 47868499,
+          "text": "It's the mapping of UUIDs to databases that is shared across origins in the browser. Only the subset of databases associated with an origin are exposed to that origin.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868211,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47871865,
+      "by": "VladVladikoff",
+      "time": 1776913405,
+      "parent": 47866697,
+      "text": "What are these databases not scoped to origin of creation like cookies?",
+      "kids": [
+        {
+          "id": 47871900,
+          "by": "AgentME",
+          "time": 1776913814,
+          "parent": 47871865,
+          "text": "They are. The leak is that if a webpage you visit creates several databases with certain names, the order is random but stays the same within the same browser session.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867878,
+      "by": "crazysim",
+      "time": 1776884844,
+      "parent": 47866697,
+      "text": "I would imagine most users of Tor are using Tor Browser. I am reading there was a responsible disclosure to Mozilla but is it me or did that section leave out when the Tor Project planned to respond or release a fixed Tor Browser? Do they like keep very close or is there a large lag?",
+      "kids": [
+        {
+          "id": 47867991,
+          "by": "flotzam",
+          "time": 1776885411,
+          "parent": 47867878,
+          "text": "Tor Browser is always quick to rebase on the latest Firefox ESR. They released an update the next day:\n\nhttps://blog.torproject.org/new-release-tor-browser-15010/",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47871590,
+      "by": "heavyset_go",
+      "time": 1776910247,
+      "parent": 47866697,
+      "text": "There are others that Cloudflare and friends use for fingerprinting.",
+      "kids": []
+    },
+    {
+      "id": 47870030,
+      "by": "wolvoleo",
+      "time": 1776896298,
+      "parent": 47866697,
+      "text": "Tails (without persistent storage) will mitigate this though. I'm not too concerned.",
+      "kids": [
+        {
+          "id": 47870511,
+          "by": "wlonkly",
+          "time": 1776899968,
+          "parent": 47870030,
+          "text": "I'm not sure it will. The problem in Tor here is that the ordering persists beyond \"New Identity\". It does not persist between browser restarts.",
+          "kids": [
+            {
+              "id": 47871555,
+              "by": "wolvoleo",
+              "time": 1776909908,
+              "parent": 47870511,
+              "text": "But that's the key thing about tails. You start it fresh every time from a clean usb stick or iso image.\n\nIt's more than a browser restart, it's a complete system wipe every time.\n\nTails is made on the premise that exactly this kind of trick will occur. Sometimes even persisting between browser restart. For that reason even the persistent storage is very limited. But that's optional and cautioned against for maximum anonymity.\n\nWhat would be worrying with tails would be if there was some way for some hardware identifier to be exposed. Like a serial number or MAC address. But this kind of thing is exactly what it's made to protect against.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47871098,
+      "by": "ranger_danger",
+      "time": 1776905251,
+      "parent": 47866697,
+      "text": "You can also fingerprint browsers profile-wide across sessions without any JS, CSS or even HTML, using the favicon: https://github.com/jonasstrehle/supercookie",
+      "kids": [
+        {
+          "id": 47871318,
+          "by": "snailmailman",
+          "time": 1776907275,
+          "parent": 47871098,
+          "text": "I think most browsers have patched this out?\ni didnt do super concrete tests, but at least on my machine their demo is failing to fingerprint me across private browsing/incognito sessions as they claim. Tested in firefox and edge.",
+          "kids": [
+            {
+              "id": 47871689,
+              "by": "ranger_danger",
+              "time": 1776911492,
+              "parent": 47871318,
+              "text": "Not sure about Chromium-based browsers, but the author of this paper on the technique:\n\nhttps://www.ndss-symposium.org/wp-content/uploads/ndss2021_1...\n\nSays that Firefox has a bug that prevents favicons from being loaded from cache, which inadvertently protects against this technique. They filed a bug report on it in 2020 but nothing has happened with it yet: https://bugzilla.mozilla.org/show_bug.cgi?id=1618257",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872031,
+          "by": "zzo38computer",
+          "time": 1776915580,
+          "parent": 47871098,
+          "text": "Some users disable favicons; I am one of them (although that is main because I do not use them, rather than due to that).",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868527,
+      "by": "anthk",
+      "time": 1776888144,
+      "parent": 47866697,
+      "text": "The best for Tor would just be Links2/Links+ with the socks4a proxy set to 127.0.0.1:9050, enforcing all connection thru a proxy in the settings (mark the checkbox) and disabling cookies altogether.",
+      "kids": [
+        {
+          "id": 47871181,
+          "by": "angry_octet",
+          "time": 1776906074,
+          "parent": 47868527,
+          "text": "The best is probably tor in a VM, chromium in a separate VM, javascript disabled, on a private virtual network, with a egress firewall (not just guest VM firewalls, but enable those too) that only allows traffic from a specific origin port on the tor machine. You would also want the VM to spoof the processor features and unique IDs. System time drift/offset remains a vector which is hard to deal with.\n\nDump the rendered window pixels out to a simple viewer. Mouse movement is still a pain to deal with, but I would default to spoofing it as moving between clicks, with some image parsing logic to identify menu traversal.\n\nThen it should reboot the browser process regularly.\n\nI've been waiting for someone to make a packaged 'VPC in a box' incorporating networking and linked VMs.",
+          "kids": [
+            {
+              "id": 47872839,
+              "by": "anthk",
+              "time": 1776926804,
+              "parent": 47871181,
+              "text": "Links can force to pass all connections to a proxy, so a FW might be redundant. Forget almost mouse, Links can be render the page either to plain X11 or a terminal.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871688,
+          "by": "fc417fc802",
+          "time": 1776911475,
+          "parent": 47868527,
+          "text": "> enforcing all connection thru a proxy in the settings (mark the checkbox)\n\nJust use a network namespace individual pieces of software are way too easy to misconfigure.",
+          "kids": [
+            {
+              "id": 47872880,
+              "by": "anthk",
+              "time": 1776927307,
+              "parent": 47871688,
+              "text": "Links litteraly put your a graphical (X11) or terminal based checkbox to enable that to enforce everything through the proxy with the settings menu. Not too easy. If you are going to use Tor you shouldn't be just using Tor Browser by default neither if it enables some JS options. Firefox' base is too huge to configure so nothing ever leaks. There are too many components. A/V, WebGL, telemetry, WASM, WebRTC...",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47868864,
+          "by": "sixothree",
+          "time": 1776889639,
+          "parent": 47868527,
+          "text": "Would whonix fit that bill?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867903,
+      "by": "fsflover",
+      "time": 1776884935,
+      "parent": 47866697,
+      "text": "It seems Qubes OS and Qubes-Whonix are not affected.",
+      "kids": [
+        {
+          "id": 47870481,
+          "by": "handedness",
+          "time": 1776899693,
+          "parent": 47867903,
+          "text": "> It seems Qubes OS and Qubes-Whonix are not affected.\n\nThis is dangerously incomplete and bad advice.\n\nQubes OS does not work the way you seem to think it does.\n\nCreating a new identity in the Tor Browser inside a disposable VM does not automatically stop that VM and start a new disposable VM. That initial disposable VM launches the new identity from the existing process and therefore remains vulnerable, the same as any bare metal computer running Tor Browser would.\n\nVirtualization is not magic.\n\nA Qubes OS user needs to spin up a new disposable Whonix VM to sidestep this attack. Creating a new identity alone is ineffective in this threat model.\n\nIf you care about these projects as much as you say you do, please stop giving harmful advice. You do it in various places on the Internet and in every thread which gives you half a chance to do so, and these projects would be better off if you either took any of the extensive well-reasoned correction many people offer you, or opted to stop making such claims. The former would be ideal, the latter still vastly preferable to the existing state of affairs.",
+          "kids": []
+        },
+        {
+          "id": 47868133,
+          "by": "hrimfaxi",
+          "time": 1776886017,
+          "parent": 47867903,
+          "text": "How so? If you kept a disposable VM open and just created new identities in tor browser, how does Qubes mitigate the threat here?",
+          "kids": [
+            {
+              "id": 47870459,
+              "by": "handedness",
+              "time": 1776899472,
+              "parent": 47868133,
+              "text": "I believe you are correct, and that this poses a significant risk for people who don't properly understand the underlying concepts.\n\nA Qubes OS user needs to start a new disposable Whonix workstation VM to sidestep this attack, NOT create a new identity in the same disposable VM's browser, which is exactly what this attack targets.",
+              "kids": []
+            },
+            {
+              "id": 47868152,
+              "by": "fsflover",
+              "time": 1776886149,
+              "parent": 47868133,
+              "text": "On Qubes, you do not create a new identity in the same VM. This would go against the Qubes approach to security/privacy. Using separate VMs for independent tasks is the whole point of using Qubes.",
+              "kids": [
+                {
+                  "id": 47870446,
+                  "by": "handedness",
+                  "time": 1776899343,
+                  "parent": 47868152,
+                  "text": "> On Qubes, you do not create a new identity in the same VM. This would go against the Qubes approach to security/privacy. Using separate VMs for independent tasks is the whole point of using Qubes.\n\nThis is technically incorrect information and could get people in trouble if followed literally.\n\nOn Qubes OS, if a user creates a new identity inside a Whonix workstation disposable VM via the browser's new identity functionality, the new identity spawns within the same disposable VM. I just tested this on Qubes OS 4.3.\n\nThat, I assume would expose one to OP's vulnerability, as its still running in the same VM. I would be glad to learn that I'm incorrect in my unverified assumption.\n\nEven Qubes OS users still need to be mindful to launch new disposable VM when keeping identities separate to sidestep this attack.",
+                  "kids": [
+                    {
+                      "id": 47873069,
+                      "by": "fsflover",
+                      "time": 1776929447,
+                      "parent": 47870446,
+                      "text": "You are right, and I am saying exactly the same thing. You seem to misunderstand that Qubes saves you whenever you use it as designed by its security approach. To benefit from Qubes security, you have to use virtualization to compartmentalize your tasks. Only virtualization is a guarantee of security. Everything running in the same domain is assumed to be not isolated, and a compromise would affect everything in it. Even root access has no password by default in VMs. So what you're saying is obvious to any Qubes user. This is why I didn't mention it. (But I should have indeed.)",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47868427,
+          "by": "2ndorderthought",
+          "time": 1776887629,
+          "parent": 47867903,
+          "text": "In the last ten years has qubes moved on to support more hardware? Every 4 years I would try to use it only to find it didn't support any of my hardware.",
+          "kids": [
+            {
+              "id": 47869200,
+              "by": "handedness",
+              "time": 1776891497,
+              "parent": 47868427,
+              "text": "Qubes OS hardware support, while still far from perfect, is vastly better than it was ten years ago.\n\nJoanna Rutkowska's understandable preference for older kernels had its advantages, but the current team is much more likely to ship somewhat newer kernels and I've been surprised by what hardware 4.3 has worked well on.\n\nBeyond that, I'm currently running a kernel from late Feb/early Mar (6.19.5).\n\nDriver support can still be an issue, and a Wi-Fi card that doesn't play nice with Linux in general is doing to be no different on Qubes OS.",
+              "kids": []
+            },
+            {
+              "id": 47868543,
+              "by": "Aachen",
+              "time": 1776888227,
+              "parent": 47868427,
+              "text": "We buy off the shelf laptops, not sure anyone ever checked that it can run Qubes specifically before trying to install it (I'm sure of at least one person: myself). Doesn't just about any x64 machine with hardware where drivers are available in standard kernels also work with Qubes? What have you bought that's not supported?",
+              "kids": [
+                {
+                  "id": 47868573,
+                  "by": "fsflover",
+                  "time": 1776888314,
+                  "parent": 47868543,
+                  "text": "Actually, it should work indeed, unless it lacks some Linux drivers or VT-d.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868920,
+              "by": "hrimfaxi",
+              "time": 1776889879,
+              "parent": 47868427,
+              "text": "No problems on framework laptop that I've run into at least.",
+              "kids": []
+            },
+            {
+              "id": 47868607,
+              "by": "orbital-decay",
+              "time": 1776888424,
+              "parent": 47868427,
+              "text": "Most hardware (especially GPUs) is hard to virtualize in a secure manner, which is the entire point of Qubes. People who use it typically buy compatible hardware.",
+              "kids": [
+                {
+                  "id": 47868682,
+                  "by": "fsflover",
+                  "time": 1776888815,
+                  "parent": 47868607,
+                  "text": "I would expect that most Qubes users (including myself) do not virtualize GPUs and use the CPU to render graphics outside of dom0.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868550,
+              "by": "fsflover",
+              "time": 1776888232,
+              "parent": 47868427,
+              "text": "Tested hardware can be found here https://qubes-os.org/hcl. New hardware is being constantly added. If you plan to switch to Qubes, consider buying something from that list or, better, certified, or community-recommended hardware linked there.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47867976,
+          "by": "ranger_danger",
+          "time": 1776885327,
+          "parent": 47867903,
+          "text": "Source?",
+          "kids": [
+            {
+              "id": 47868200,
+              "by": "fsflover",
+              "time": 1776886412,
+              "parent": 47867976,
+              "text": "Different VMs result in different identifiers.",
+              "kids": [
+                {
+                  "id": 47870464,
+                  "by": "handedness",
+                  "time": 1776899518,
+                  "parent": 47868200,
+                  "text": "Creating a new identity in the browser in a disposable VM does not start a new disposable VM.",
+                  "kids": [
+                    {
+                      "id": 47873074,
+                      "by": "fsflover",
+                      "time": 1776929481,
+                      "parent": 47870464,
+                      "text": "I never said that.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47868529,
+      "by": "LoganDark",
+      "time": 1776888147,
+      "parent": 47866697,
+      "text": "> For developers, this is a useful reminder that privacy bugs do not always come from direct access to identifying data. Sometimes they come from deterministic exposure of internal implementation details.\n\n> For security and product stakeholders, the key point is simple: even an API that appears harmless can become a cross-site tracking vector if it leaks stable process-level state.\n\nThis reads almost LLM-ish. The article on the whole does not appear so, but parts of it do.",
+      "kids": []
+    },
+    {
+      "id": 47868075,
+      "by": "shevy-java",
+      "time": 1776885778,
+      "parent": 47866697,
+      "text": "Well that sucks. I guess in the long run we need a new engine and different approach. Someone should call the OpenBSD guys to come up with working ideas here.",
+      "kids": [
+        {
+          "id": 47868405,
+          "by": "giancarlostoro",
+          "time": 1776887478,
+          "parent": 47868075,
+          "text": "> Mozilla has quickly released the fix in Firefox 150 and ESR 140.10.0, and the patch is tracked in Mozilla Bug 2024220.\n\nDid you even read the article at all? Ah my children did bad in school, time to replace them with new children and a different spouse. This is what you're suggesting essentially. A browser is not just something you simply make out of thin air. There's decades of nuance to browser engines, and I'm only thinking of the HTML nuances, not the CSS or JS nuances.",
+          "kids": [
+            {
+              "id": 47868549,
+              "by": "anthk",
+              "time": 1776888230,
+              "parent": 47868405,
+              "text": "Given the dangers of JS and WASM they could just fork Netsurf and enhance the CSS3 support. If you are a journalist, running Tor with JS and tons of modern web tech enable makes you a bright white spot in a sea of darkness.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47868589,
+          "by": "fsflover",
+          "time": 1776888367,
+          "parent": 47868075,
+          "text": "Here you go: https://qubes-os.org.",
+          "kids": [
+            {
+              "id": 47869217,
+              "by": "Barbing",
+              "time": 1776891578,
+              "parent": 47868589,
+              "text": ">Why Qubes OS?\n\n>Physical isolation is a given safeguard that the digital world lacks\n\n…\n\n>In our digital lives, the situation is quite different: All of our activities typically happen on a single device. This causes us to worry about whether it’s safe to click on a link or install an app, since being hacked imperils our entire digital existence.\n\n>Qubes eliminates this concern by allowing us to divide a device into many compartments, much as we divide a physical building into many rooms. …\n\nSold\n\nhttps://doc.qubes-os.org/en/latest/introduction/intro.html",
+              "kids": [
+                {
+                  "id": 47870399,
+                  "by": "handedness",
+                  "time": 1776898839,
+                  "parent": 47869217,
+                  "text": "Qubes OS is a great solution for this threat model. By my (admittedly cursory) understanding of this attack, one would have to chain the attack to escalate to dom0 to get around it.\n\nHaving said that, fsflover exhibits a poor grasp of how this stuff works and all should be aware that even in Qubes OS, one would need to spawn new disposable VMs for each identity; relying on the Tor Browser's new identity creation within the same disposable VM would be little different from running Tor Browser on a traditional OS.",
+                  "kids": [
+                    {
+                      "id": 47872978,
+                      "by": "fsflover",
+                      "time": 1776928388,
+                      "parent": 47870399,
+                      "text": "> one would need to spawn new disposable VMs for each identity\n\nThis is by design how everyone should always be using Qubes OS for any task, according to its documentation and approach to security.\n\n> relying on the Tor Browser's new identity creation within the same disposable VM would be little different from running Tor Browser on a traditional OS\n\nYes, if you use a single VM on Qubes OS for everything, then all security you get is from the OS running in this VM. This is not how you use Qubes, https://doc.qubes-os.org/en/r4.3/introduction/faq.html#how-d...\n\nI run Qubes as a daily driver according to the docs and my workflow was not vulnerable to the discussed attack.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47870608,
+              "by": "handedness",
+              "time": 1776900878,
+              "parent": 47868589,
+              "text": "You should note that improperly using Qubes OS, creating a New Identity inside of Tor Browser, even in a disposable Whonix workstation VM, would leave one vulnerable to this.\n\nA user would have to manually start a new disposable VM for each identity.",
+              "kids": [
+                {
+                  "id": 47873021,
+                  "by": "fsflover",
+                  "time": 1776929021,
+                  "parent": 47870608,
+                  "text": "https://www.whonix.org/wiki/Multiple_Whonix-Workstation#Mult...",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

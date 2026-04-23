@@ -1,0 +1,1658 @@
+{
+  "pair": {
+    "story_type": "tell_hn",
+    "hn_id": 47857461,
+    "title": "Tell HN: I'm sick of AI everything",
+    "points": 327,
+    "descendants": 184,
+    "article_url": "https://news.ycombinator.com/item?id=47857461",
+    "hn_url": "https://news.ycombinator.com/item?id=47857461",
+    "self_post": true
+  },
+  "story": {
+    "id": 47857461,
+    "title": "Tell HN: I'm sick of AI everything",
+    "url": null,
+    "by": "jonthepirate",
+    "score": 327,
+    "time": 1776820770,
+    "descendants": 184,
+    "text": "A while back, I stopped using Facebook because I just couldn't take it anymore. Just totally sick of it. I'm honestly getting there with AI. At this point, I would prefer to have anything AI related just be blocked at the browser level."
+  },
+  "comments": [
+    {
+      "id": 47858172,
+      "by": "corvus-cornix",
+      "time": 1776825636,
+      "parent": 47857461,
+      "text": "I'm looking at engineering job specs at the moment and it's very wearisome that every company seems to have pivoted from highlighting the unique value they provide to customers to putting AI front and centre in their employer branding. My eyes immediately glaze over at what may have been the result of \"Claude, take this HR/marketing/whatever copy and inject some AI\".\n\nI've adopted the tools because they're useful, but businesses need to chill. AI seems to amplify existing bottlenecks within organisations, so we should probably tread carefully when it comes to pushing the tech. Fix the organisational problems first and hedge our bets.\n\nI wonder if anyone reading this was around during the dot-com bubble because maybe it felt the same...",
+      "kids": [
+        {
+          "id": 47871372,
+          "by": "acdha",
+          "time": 1776907849,
+          "parent": 47858172,
+          "text": "I was around then. This feels similar from the perspective of stock prices just going up for absolutely absurd reasons—Allbirds would have fit right in—but AI in some ways seems even worse because much of what was being hawked in the dotcom era was at least something that real people would want to buy: usually poorly executed and unsustainably priced but e.g. Kozmo.com wasn't wrong that a ton of people would love to order stuff and have it brought to your home or office. I had some business meetings with pets.com and they were unbelievably bloated—think a room full of people openly admitting that they were just killing time waiting for the IPO so they could cash out their options—but tons of people buy pet food, toys, and medicine online today.\n\nIn contrast, a lot of companies are just wedging AI into things where ordinary people don't want or benefit from it anywhere near the level needed to actually pay for it, especially with unreliability being an unsolved problem—the amount you'd pay for something to, say, summarize boring business documents goes down considerably when you have to closely read the original looking for errors and omissions and scrutinize any response to make sure it's not critically flawed.\n\nThere's also a weird difference in enthusiasm based on the societal impacts: the web let you do things you couldn't do before, but a lot of AI tools and services are really oriented at your boss’ boss’ boss’ boss’ boss saying they can layoff half of your department and still get more work out of the survivors. There's some cool stuff, yes, but unlike the mood during the dotcom era we now have a prominent tone of dread about deprofessionalization and larger concerns about how businesses will even work if a significant chunk of customers are pushed out of stable employment.",
+          "kids": []
+        },
+        {
+          "id": 47871297,
+          "by": "jlaternman",
+          "time": 1776907008,
+          "parent": 47858172,
+          "text": "I was also around then, and actually it did feel exactly the same now that you say. Sense of sailing towards an unknown destination that seemed very exciting, but was clear we didn't quite get what it was yet and were working out the destination mid-flight.",
+          "kids": []
+        },
+        {
+          "id": 47858331,
+          "by": "drob518",
+          "time": 1776826787,
+          "parent": 47858172,
+          "text": "Yes, I was around then. It felt exactly the same. That’s how you know it’s a bubble. Because everyone starts acting stupid and conjuring up all these ridiculous explanations for why it makes sense when it plainly doesn’t. In 1999, everything was about the Internet, even when it didn’t make sense. Every company was saying that to be left out of the “Internet revolution” was a fast path to bankruptcy. It’s the same with AI today. Yes, the Internet was important and some companies did get displaced, but most didn’t. So too for AI.",
+          "kids": []
+        },
+        {
+          "id": 47858384,
+          "by": "bink-lynch",
+          "time": 1776827070,
+          "parent": 47858172,
+          "text": "I was around during the dot-com bubble. When it popped it popped pretty quickly. It wasn't a slow leak. Everything needed to be a dot-com and everything was centered around being a dot-com no matter what the business actually did. Money was pouring and almost anything dot-com was getting funding.\n\nI moved to a dot-com right at the tail end of it. We built a pretty decent startup from scratch within the first two months and debuted at one of the largest trade shows in the world. We had our own private label factoring credit card and we did credit card transactions over the internet and with handheld cellular devices. It was built to scale, colocated, and we were getting customers. When the floor dropped out it was done in less than two months. dot-com was a very negative thing for a while after that.",
+          "kids": [
+            {
+              "id": 47858782,
+              "by": "skyberrys",
+              "time": 1776830221,
+              "parent": 47858384,
+              "text": "I was a teenager around the dot-com and to this day I feel an idealized sense of longing for participation in the exciting times of the dot-coms. You guys got to enjoy the blazing innovation of the new internet, so full of endless possibilities. Tough luck on your bubble popping moment though.",
+              "kids": [
+                {
+                  "id": 47860244,
+                  "by": "MattPalmer1086",
+                  "time": 1776842741,
+                  "parent": 47858782,
+                  "text": "Well, it was exciting I guess.  I even knew someone who worked for pets.com!\n\nOn the other hand, I worked for a startup selling product information management software to large retailers, and was about as non dot-com as you could get. When the bubble burst, all the funding disappeared for all tech companies, not just the dot-com ones, so we were also all out of a job.  Which was not fun.",
+                  "kids": [
+                    {
+                      "id": 47860902,
+                      "deleted": true,
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47858922,
+                  "by": "mech422",
+                  "time": 1776831256,
+                  "parent": 47858782,
+                  "text": "The sad part wasn't the bubble bursting...\n\nIt was watching all the potential being squandered and the internet basically being relegated to click farming and selling people crap they don't need.\n\nAll the really cool stuff seems to have died with the bubble...",
+                  "kids": [
+                    {
+                      "id": 47861496,
+                      "by": "wallst07",
+                      "time": 1776853485,
+                      "parent": 47858922,
+                      "text": "I think the sad part was the people entering the IT workforce for only money. Don't get me wrong, I understand why and not gatekeeping. But it was the first time I know that people with computer skills were highly in demand, so anyone who had turned on a computer was able to get a job even if they knew nothing of how a computer actually worked, or networking.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47859780,
+                      "by": "CSSer",
+                      "time": 1776839009,
+                      "parent": 47858922,
+                      "text": "You're still around :)",
+                      "kids": [
+                        {
+                          "id": 47859964,
+                          "by": "ruicraveiro",
+                          "time": 1776840677,
+                          "parent": 47859780,
+                          "text": "If only the Internet were much more frequently as nice as your reply. :-)",
+                          "kids": []
+                        },
+                        {
+                          "id": 47865949,
+                          "by": "IndySun",
+                          "time": 1776875806,
+                          "parent": 47859780,
+                          "text": ">You're still around :)\n\nYou sound like my doctor! : )",
+                          "kids": []
+                        },
+                        {
+                          "id": 47860292,
+                          "by": "mech422",
+                          "time": 1776843208,
+                          "parent": 47859780,
+                          "text": "LOL - True Dat !! Thanks!",
+                          "kids": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": 47868034,
+                      "by": "skyberrys",
+                      "time": 1776885605,
+                      "parent": 47858922,
+                      "text": "Ah man, you are too right there. Now cool stuff requires wading through trash to find it.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47859908,
+              "by": "danaris",
+              "time": 1776840253,
+              "parent": 47858384,
+              "text": "It's definitely looking like we've passed the peak of the S-curve here.\n\nBut there is one difference between now and the dot-bomb that could make the shape of what's next different (note, only \"could\"; it might very well be very similar): with the massively increased financialization of everything, the link between reality and stocks/private equity investment has become much more tenuous. Speculative investors, as a group, know to some extent that they can keep the bubble going just by continuing to buy.\n\nFor a time.\n\nBut eventually they will have exhausted all they can squeeze from the \"greater fools\", and someone's risk analysis department will say \"if we don't sell it all now, we'll be stuck holding the bag.\" And that will start a cascade. Because the other big difference between 2000 and today is the degree of automation in trading....",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47865335,
+          "by": "pojzon",
+          "time": 1776872919,
+          "parent": 47858172,
+          "text": "Fixing organisational issues is hard and expensive.\n\nSlapping AI on everything is easy in comparison. And mentioning AI to investors makes them drop pants.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858624,
+      "by": "ofjcihen",
+      "time": 1776829084,
+      "parent": 47857461,
+      "text": "For me it’s just become…incredibly boring.\n\nThere’s something uninspiring about a machine thats supposed to “do the hard things for you” so to speak. I like using my mind and understanding things deeply.\n\nSure you could say that “managing the AI” can be deeply understood in a way but it’s just not exciting.",
+      "kids": [
+        {
+          "id": 47858794,
+          "by": "journeyman3538",
+          "time": 1776830279,
+          "parent": 47858624,
+          "text": "That’s more of a personal problem isn’t it. You can now work on things that are more valuable. Your old work and interests can be taken up as an art instead: to be enjoyed instead of existing for its function.",
+          "kids": [
+            {
+              "id": 47858895,
+              "by": "absynth",
+              "time": 1776831088,
+              "parent": 47858794,
+              "text": "New role unlocked: starving artist!\n\nYour parents could afford a house, have kids etc etc at a far younger age but now you are single with no kids and choosing food or rent or power. You spin the wheel! Lucky! You get to eat.\n\nProgress!",
+              "kids": []
+            },
+            {
+              "id": 47858846,
+              "by": "ofjcihen",
+              "time": 1776830703,
+              "parent": 47858794,
+              "text": "I think in a certain way your reply has underlined exactly why this AI frenzy has made things so uninteresting. Just maybe not the way you intended.",
+              "kids": [
+                {
+                  "id": 47858879,
+                  "by": "throwanem",
+                  "time": 1776830923,
+                  "parent": 47858846,
+                  "text": "Oh, he knows what he said. That's why he made a sockpuppet account to say it.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868793,
+              "by": "guzfip",
+              "time": 1776889318,
+              "parent": 47858794,
+              "text": "> You can now work on things that are more valuable\n\nSo can any other idiot. And we only need so many of them.",
+              "kids": []
+            },
+            {
+              "id": 47858838,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47860168,
+          "by": "theshrike79",
+          "time": 1776842222,
+          "parent": 47858624,
+          "text": "That's just silly. AI is really bad at the hard things. What it's really good at is automating the tedium away.\n\nLike I had a connector made for service X. Needed one for Y and Z, all use the same basic authentication scheme, but slight differences on where they want the bits set at.\n\nThat used to be a week-long project easily with me going through the docs for each service, maybe copy-pasting something from service X and modifying the bits by hand.\n\nNow I can just go \"look at projects/service-x-api, now do that but for Service Y in projects/service-y-api\" to an agent, tab away and come back to a 90-100% working thing. It went through the API documentation by itself, looked up some blog posts on the undocumented crap they added in January that broke the official flow and made it work.\n\nMeanwhile I could do something with actual impact, helped other people learn stuff and wrote internal guidelines.",
+          "kids": [
+            {
+              "id": 47863519,
+              "by": "vrighter",
+              "time": 1776865385,
+              "parent": 47860168,
+              "text": "I have never had it automate any tedium for me. Because if I didn't write it, I need to scrutinize all of it, but without the benefit of a prebuilt mental model. Reading through tons of similar looking code (because it's supposed to automate boilerplate) looking for subtle mistakes is mind numbingly boring. It's like looking at a wall full of periods in font size 8, and trying to find the one comma.",
+              "kids": [
+                {
+                  "id": 47872563,
+                  "by": "theshrike79",
+                  "time": 1776922694,
+                  "parent": 47863519,
+                  "text": "_Writing_ tons of similar looking code is equally error prone.\n\nOnly a complete psycho doesn't copy-paste code when doing something thats 90% repetitive.\n\nIronically our AI PR review has caught a bunch of those during unrelated commits :D",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47858869,
+          "by": "paul7986",
+          "time": 1776830877,
+          "parent": 47858624,
+          "text": "\"But just need to know how to prompt AI properly to..,\"\n\n- Write a new top 40 song no talent required\n\n- Write a business email, a school paper, etc & no talent required\n\n- Design a logo, a website, an app, a billboard, etc and no talent required.\n\nAI is the best thing to happen to humanity as it mimics & steals humanity for a few pie holes and us the majority does nothing to stop it!",
+          "kids": [
+            {
+              "id": 47859291,
+              "by": "basch",
+              "time": 1776834481,
+              "parent": 47858869,
+              "text": "The Top 40 songs were already soulless.\n\nNow that anyone can generate a halfway decent pop song at the snap of the finger leads to one of three outcomes.  We all just listen to our own interactive stations and have no shared culture, pressure is put on industry to differentiate with a higher quality product, the technology is democratizing and unlocks a new generation of creatives who are able to work with it creating an amplified output.",
+              "kids": [
+                {
+                  "id": 47859380,
+                  "by": "defrost",
+                  "time": 1776835291,
+                  "parent": 47859291,
+                  "text": "#4 Some continue merrily onwards with weekly / regular jam sessions with friends and passers through, catering to all skill levels and largely ignoring top 40 and AI trends.",
+                  "kids": []
+                },
+                {
+                  "id": 47865397,
+                  "by": "tim333",
+                  "time": 1776873108,
+                  "parent": 47859291,
+                  "text": "Not all of them. It's hard to get chart hits with AI. I've got a friend who tries but the AI songs are all kind of mediocre.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47862590,
+              "by": "greenrd",
+              "time": 1776860773,
+              "parent": 47858869,
+              "text": "I don't understand your comment. It's poorly-punctuated, and its hard to figure out what your position is. What's a \"pie hole\" as a metaphor for a person? Is that what you meant?",
+              "kids": [
+                {
+                  "id": 47867193,
+                  "by": "paul7986",
+                  "time": 1776881597,
+                  "parent": 47862590,
+                  "text": "My tone is a sarcastic depressive one attempting to convey the ridiculousness of the vaccuum we are in.  A vaccuum that a few pie holes (nicer word then a-hole) have created and are benefitting greatly from while it causes many to millions lots of stress/anxiety/pain.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47858900,
+          "by": "cortesoft",
+          "time": 1776831113,
+          "parent": 47858624,
+          "text": "I am curious where you draw your line. We have all sorts of “machines that do the hard things for you”, do you shun them all? Cars, washing machines, lawnmowers, etc…\n\nI know that AI has some different characteristics than those technologies, but my point is that I don’t think your issue is that does the hard things for you… there has to be something else going on.",
+          "kids": [
+            {
+              "id": 47859061,
+              "by": "ofjcihen",
+              "time": 1776832604,
+              "parent": 47858900,
+              "text": "I don’t know that washing machines have replaced understanding things on a deep level but if they have for you I’m very curious to hear how.",
+              "kids": [
+                {
+                  "id": 47859293,
+                  "by": "whattheheckheck",
+                  "time": 1776834486,
+                  "parent": 47859061,
+                  "text": "The zen of doing your chores by hand",
+                  "kids": [
+                    {
+                      "id": 47860184,
+                      "by": "theshrike79",
+                      "time": 1776842316,
+                      "parent": 47859293,
+                      "text": "There's a specific set of people who get a Zen feeling from doing things the long way.\n\nI'm not one of those, my brain doesn't give me any more dopamine whether I spent a long time doing a thing or took a shortcut. I don't even get dopamine from completing the task, I just get a list of more things that need to be done.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47860243,
+                      "by": "customguy",
+                      "time": 1776842731,
+                      "parent": 47859293,
+                      "text": "Thinking about the world and oneself isn't a repetitive chore in the way washing your clothes is.\n\n\"I doubt, therefore I think, I think, therefore I am\" -- if I no longer think, what's left? Biomass? Why us then.. why not goo, or just more parking space?",
+                      "kids": [
+                        {
+                          "id": 47863625,
+                          "by": "whattheheckheck",
+                          "time": 1776865844,
+                          "parent": 47860243,
+                          "text": "Energy and awareness. Were more empty than whole and the cells that do make up an invididual are not 100% human. And all of it the periodic table of elements",
+                          "kids": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": 47864526,
+                      "by": "nunez",
+                      "time": 1776869688,
+                      "parent": 47859293,
+                      "text": "fwiw i still wash my clothes by hand when I travel! it's a very useful skill!",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47858927,
+              "by": "tacostakohashi",
+              "time": 1776831320,
+              "parent": 47858900,
+              "text": "Another example of a machine that does the hard things for you that springs to mind is... a computer.",
+              "kids": []
+            },
+            {
+              "id": 47859687,
+              "by": "fatbird",
+              "time": 1776838112,
+              "parent": 47858900,
+              "text": "Are you this patronizing and condescending in the rest of your life?",
+              "kids": [
+                {
+                  "id": 47864788,
+                  "by": "cortesoft",
+                  "time": 1776870844,
+                  "parent": 47859687,
+                  "text": "I am sorry if I came off that way, that was not my intent.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47859375,
+          "by": "koonsolo",
+          "time": 1776835258,
+          "parent": 47858624,
+          "text": "Are you suggesting AI can understand things deeply?\n\nLLM's are fast at applying information, but thinking deeply, they do not.\n\nI love LLM's, because now I can focus more on the creative and thinking deep aspect, and leave most of the typing and stack overflow browsing to the LLM.",
+          "kids": []
+        },
+        {
+          "id": 47858890,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47859288,
+          "by": "whattheheckheck",
+          "time": 1776834458,
+          "parent": 47858624,
+          "text": "What's your claim to fame for life's work of using your mind?",
+          "kids": [
+            {
+              "id": 47863737,
+              "by": "ofjcihen",
+              "time": 1776866300,
+              "parent": 47859288,
+              "text": "Being the first in my family to rise out of poverty through self education.\n\nTo be fair your response seems somewhat revealing of your own situation.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47858887,
+          "by": "ffsm8",
+          "time": 1776831051,
+          "parent": 47858624,
+          "text": "I find comments like yours very strange.\n\n> do the hard things for you\n\nThe only people advocating for that are the same kind of people which were pitching the cloud as a solution for your hosting needs.\n\nIme the sweet spot for development with LLMs is to figure out what you need to do and then do that through AI. Yes, it'll still make some decisions there, but did you really get satisfaction from the decisions of eg what to call a class before? At last I didn't.\n\nYou can of course try to offload everything to the LLM and not tell it what to do, but only specify what it should enable (spec driven), but at that point youre gambling wherever the output will work and the project becomes unmaintainable - which may be fine too in certain scenarios, that's just pretty rare in a business context",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858930,
+      "by": "phyzix5761",
+      "time": 1776831328,
+      "parent": 47857461,
+      "text": "Controversial take:\n\nI would rather spend 2 hours working on a problem, fully thinking through all the approaches and design considerations, than have an LLM write some code and be done in 30 minutes.\n\nThat's just a lot more fun for me.\n\nI still use LLMs for faster, focused, searches that cater the results to my specific needs; but I'd still rather build stuff with my own hands.",
+      "kids": []
+    },
+    {
+      "id": 47858180,
+      "by": "thelastgallon",
+      "time": 1776825716,
+      "parent": 47857461,
+      "text": "Yes, a lot of posts on HN are also about AI. Used to have more variety.",
+      "kids": [
+        {
+          "id": 47858284,
+          "by": "otterley",
+          "time": 1776826452,
+          "parent": 47858180,
+          "text": "There is a bright side, though: At least we’ve stopped talking about crypto.",
+          "kids": [
+            {
+              "id": 47861350,
+              "by": "keanebean86",
+              "time": 1776852302,
+              "parent": 47858284,
+              "text": "There was also 15 \"why I replaced tredge.Js with slametic.js\" posts a day.",
+              "kids": []
+            },
+            {
+              "id": 47858402,
+              "by": "drob518",
+              "time": 1776827203,
+              "parent": 47858284,
+              "text": "When the AI bubble pops, we’re all going back to talking crypto.",
+              "kids": [
+                {
+                  "id": 47858443,
+                  "by": "jbxntuehineoh",
+                  "time": 1776827589,
+                  "parent": 47858402,
+                  "text": "very exciting time in crypto with NIST finally standardizing a bunch of pq stuff! (that's what we're going to be talking about, right???)",
+                  "kids": [
+                    {
+                      "id": 47858458,
+                      "by": "drob518",
+                      "time": 1776827687,
+                      "parent": 47858443,
+                      "text": "Naw, in another five minutes it’ll be something different. But it will be about crypto.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47863417,
+                  "deleted": true,
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47858223,
+          "by": "chromacity",
+          "time": 1776826002,
+          "parent": 47858180,
+          "text": "What's especially frustrating is that the posts about AI are also disproportionately written by AI. I can sort of understand that people who are very enthusiastic about LLMs also use them for blogging. But the most bizarre part is that a lot of anti-AI opinion pieces are LLM-generated too. Either cynical click-sploitation or extreme hypocrisy.",
+          "kids": [
+            {
+              "id": 47858450,
+              "by": "jbxntuehineoh",
+              "time": 1776827648,
+              "parent": 47858223,
+              "text": "https://en.wikipedia.org/wiki/The_Society_of_the_Spectacle",
+              "kids": []
+            },
+            {
+              "id": 47858778,
+              "by": "archagon",
+              "time": 1776830206,
+              "parent": 47858223,
+              "text": "At this point it's easiest to just ignore and/or flag everything with an .ai domain.",
+              "kids": []
+            },
+            {
+              "id": 47858978,
+              "by": "olalonde",
+              "time": 1776831856,
+              "parent": 47858223,
+              "text": "They're now paying and training people to produce more AI doom slop, so it's only going to get worse: https://www.plzdontkillus.com/",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47861277,
+          "by": "shantnutiwari",
+          "time": 1776851661,
+          "parent": 47858180,
+          "text": "Reddit's /r/programming banned all AI related posts temporarily. And I must admit, it made the place more interesting.\n\nMaybe have AI Tuesdays, where you only post AI crap every Tuesday?",
+          "kids": []
+        },
+        {
+          "id": 47859197,
+          "by": "ghexplore",
+          "time": 1776833826,
+          "parent": 47858180,
+          "text": "For me the biggest loss was the explore tabs on github, particularly the trending repositories. You used to be able to go there and find a trendy project or two.\n\nNowadays, either it is something with an outstanding presentation like copyparty, or it's all just AI and AI serving schlock.",
+          "kids": []
+        },
+        {
+          "id": 47859152,
+          "by": "postalcoder",
+          "time": 1776833354,
+          "parent": 47858180,
+          "text": "It doesn't have to be that way. Filter it out! https://hcker.news/?ai=exclude",
+          "kids": [
+            {
+              "id": 47860810,
+              "by": "classified",
+              "time": 1776847361,
+              "parent": 47859152,
+              "text": "It's shocking how few articles remain after draining the AI cesspit.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47860461,
+          "by": "thefz",
+          "time": 1776844468,
+          "parent": 47858180,
+          "text": "I filtered out most of the buzzwords in my RSS reader and HN has gone back to being semi-enjoyable.",
+          "kids": [
+            {
+              "id": 47860778,
+              "by": "classified",
+              "time": 1776847125,
+              "parent": 47860461,
+              "text": "Please share your prompt.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47858191,
+      "by": "merryocha",
+      "time": 1776825775,
+      "parent": 47857461,
+      "text": "I noticed recently that there are new \"AI Widget\" and \"Chat Widget\" EasyList filters in the uBlock Origin Annoyances filter lists. I'm not sure when they were added but they weren't checked by default for me. They definitely help clear some of the clutter.",
+      "kids": [
+        {
+          "id": 47858768,
+          "by": "themafia",
+          "time": 1776830156,
+          "parent": 47858191,
+          "text": "Install Chrome update.  Network usage goes off the charts.  Close Chrome it goes away.  Check task manager.  No processes claim the downloads.  Use firefox to search around for why.\n\nApparently \"on-device AI models\" are a thing.  And are downloaded separately after the install of Chrome.\n\nDeeply frustrating on a mobile connection.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858600,
+      "by": "maplethorpe",
+      "time": 1776828789,
+      "parent": 47857461,
+      "text": "AI has helped me rediscover my love of coding. It helps me write my emails for me, puts together my shopping list, and gives me advice on how to structure my day. AI tells me what to do. I don't have to fear my choices anymore, because AI makes the choices for me.",
+      "kids": [
+        {
+          "id": 47858612,
+          "by": "kibibu",
+          "time": 1776828938,
+          "parent": 47858600,
+          "text": "Sam and Dario were in the closet making AIs and I saw one of the AIs and the AI looked at me.",
+          "kids": [
+            {
+              "id": 47858743,
+              "by": "derwiki",
+              "time": 1776830015,
+              "parent": 47858612,
+              "text": "The AI looked at you?!",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47858750,
+          "by": "derwiki",
+          "time": 1776830071,
+          "parent": 47858600,
+          "text": "When Claude had an outage I forgot how to walk up stairs and couldn’t look it up so I waited for someone to come and get me",
+          "kids": []
+        },
+        {
+          "id": 47858623,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47858652,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858656,
+      "by": "aarjaneiro",
+      "time": 1776829332,
+      "parent": 47857461,
+      "text": "Step 1: remove reference to blockchain\n\nStep 2: insert reference to AI",
+      "kids": [
+        {
+          "id": 47858933,
+          "by": "cortesoft",
+          "time": 1776831352,
+          "parent": 47858656,
+          "text": "I do find it somewhat interesting that crypto mining firms are perfectly placed to pivot to AI. Both ventures involve building out large clusters of machines to use GPUs to convert electricity into money.",
+          "kids": [
+            {
+              "id": 47859025,
+              "by": "jaredklewis",
+              "time": 1776832228,
+              "parent": 47858933,
+              "text": "I would have thought the bulk of the crypto mining was done using ASICs.\n\nStill a lot of overlap with running a datacenter of ASICs and a datacenter of GPUs, but both are significant capital investments.",
+              "kids": []
+            },
+            {
+              "id": 47860059,
+              "by": "krackers",
+              "time": 1776841320,
+              "parent": 47858933,
+              "text": "There's the joke theory that satoshi nakomoto was someone sent back in time to accelerate us towards the singularity",
+              "kids": []
+            },
+            {
+              "id": 47863536,
+              "by": "vrighter",
+              "time": 1776865436,
+              "parent": 47858933,
+              "text": "crypto mining firms have specialized asics for mining. They are incapable of doing anything else.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47858752,
+          "by": "themafia",
+          "time": 1776830087,
+          "parent": 47858656,
+          "text": "Invested half a yard too much in a recent popular technology?  No problem,  just pivot,  then spam Hacker News.",
+          "kids": []
+        },
+        {
+          "id": 47859636,
+          "by": "sph",
+          "time": 1776837634,
+          "parent": 47858656,
+          "text": "Dude, blockchain was never this bad. There is no way to escape it.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858314,
+      "by": "samlinnfer",
+      "time": 1776826648,
+      "parent": 47857461,
+      "text": "You’re absolutely right!",
+      "kids": []
+    },
+    {
+      "id": 47858423,
+      "by": "keithnz",
+      "time": 1776827405,
+      "parent": 47857461,
+      "text": "I think this is just social media content right?   Just don't consume it?\n\nPersonally I find AI great and where I can , everything is AI enhanced\n\n- Coding / Software dev (obvious one)\n\n- Health ... been super useful as I recently had a thyroidectomy, it's given me a lot of information the drs didn't and also spotted a mistake my dr made in post surgery symptoms.  I maintain my own set of .md files documenting all medical things now.\n\n- Shopping.   Super useful though still has a way to go, but relative to google I tend to use the AI results more often.\n\n- Random problems...  Insanely useful!\n\n- Fact Checking, pretty good for the most. But you have to fact check your fact checking.\n\n- Market Research, surprisingly good\n\n- Philosophy, really good and useful\n\nSo basically anything.",
+      "kids": [
+        {
+          "id": 47863572,
+          "by": "amoe_",
+          "time": 1776865591,
+          "parent": 47858423,
+          "text": "> - Philosophy, really good and useful\n\nI have had the opposite experience, philosophy questions tending to show the various chatbots at their most irrational and confabulatory.",
+          "kids": []
+        },
+        {
+          "id": 47858815,
+          "by": "geraneum",
+          "time": 1776830438,
+          "parent": 47858423,
+          "text": "I’m curious, could you demonstrate the difference between “Insanely useful!” and “really good and useful”?",
+          "kids": [
+            {
+              "id": 47858965,
+              "by": "keithnz",
+              "time": 1776831687,
+              "parent": 47858815,
+              "text": "not really, it is my subjective view on how \"enabling\" it is based on previous experience of not having AI.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47861043,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858776,
+      "by": "nitwit005",
+      "time": 1776830199,
+      "parent": 47857461,
+      "text": "It does feel like a marketing failure. If everyone makes the same claim, it's not differentiating.\n\nI remember being frustrated at every company claiming to be \"innovative\" in a past job search.",
+      "kids": []
+    },
+    {
+      "id": 47857914,
+      "by": "bambax",
+      "time": 1776823790,
+      "parent": 47857461,
+      "text": "One problem is that when people delegate tasks to AI, they don't themselves learn anything from doing the task -- not just in the general sense of personal improvement, but in the very concrete sense of \"what is it that was produced\".\n\nBefore AI, when someone showed you a presentation or an Excel sheet, even if it was complete horseshit that they had made up, they knew what was in it: they knew more about it than you, by definition.\n\nNow, not so much; people output things they know nothing about, and when they show it to you they are discovering it just as you are.\n\nThis is novel, and discomforting.",
+      "kids": [
+        {
+          "id": 47858030,
+          "by": "fchicken",
+          "time": 1776824621,
+          "parent": 47857914,
+          "text": "I have a tech support buddy who, while good, allows himself more arrogance than his skills deserve.  I asked him what CRC errors, and he said to ask AI, kindly providing me its output:\n\n> CRC (Cyclic Redundancy Check) errors on Wi-Fi indicate that data frames were corrupted during transmission, often caused by high electromagnetic interference (EMI), physical layer issues, or faulty hardware. They cause packet loss, slow speeds, and intermittent connectivity. Common solutions include replacing cables, reducing interference, updating drivers, and adjusting radio power\n\nThis is all well and good except: read the prompt carefully.  It never actually says what CRC errors are.  This is the average AI user: literally work on, build, and fix things without the slightest clue about what it is you're actually working on.\n\nHe makes >6 figures lol",
+          "kids": []
+        },
+        {
+          "id": 47870147,
+          "by": "andrei_says_",
+          "time": 1776896964,
+          "parent": 47857914,
+          "text": "The equivalent of a student copying their homework.\n\nSchools are not publishing houses for homework assignments. Struggling with the homework is the process training the student.\n\nWas",
+          "kids": []
+        },
+        {
+          "id": 47858691,
+          "by": "4b11b4",
+          "time": 1776829551,
+          "parent": 47857914,
+          "text": "Yes, the \"desirable difficulties\" are gone in many areas\n\nHonestly, quite a tragedy for many. Myself, I have to be constantly fighting against this to slow myself down",
+          "kids": []
+        },
+        {
+          "id": 47859640,
+          "by": "gitaarik",
+          "time": 1776837656,
+          "parent": 47857914,
+          "text": "But you also spend less time on those tasks, allowing you to do more of those tasks. And if you still spend the same amount of time, and use AI as am assistant, and do review the AI's work, then you can actually learn from it faster.\n\nBut I understand that many people don't do that and just finish their task with AI and then don't do anything anymore.",
+          "kids": []
+        },
+        {
+          "id": 47858027,
+          "by": "epgui",
+          "time": 1776824589,
+          "parent": 47857914,
+          "text": "This drives me absolutely nuts.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858315,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47869703,
+      "by": "deferredgrant",
+      "time": 1776894461,
+      "parent": 47857461,
+      "text": "I don't think people are sick of AI as much as they're sick of AI being shoved into places where nobody asked for it. The useful stuff is real, but the marketing layer is getting unbearable.",
+      "kids": []
+    },
+    {
+      "id": 47858390,
+      "by": "segmondy",
+      "time": 1776827108,
+      "parent": 47857461,
+      "text": "You can use AI, tell AI to read the page first and if it's AI anything to block it.   Vibecode an extension.",
+      "kids": []
+    },
+    {
+      "id": 47859389,
+      "by": "e38383",
+      "time": 1776835353,
+      "parent": 47857461,
+      "text": "Start at the OS level, you have maybe another 6-12 month left to find something built without AI.\n\nSo, basically: just bear with us a little bit longer and then drop all computer usage (this will include every tech which blinks).",
+      "kids": []
+    },
+    {
+      "id": 47859592,
+      "by": "sph",
+      "time": 1776837200,
+      "parent": 47857461,
+      "text": "Tangential: I’m sick of being addicted to this site. The lowering of the signal-to-noise ratio has made the addiction worse, as I still hope to find a nugget of quality posts among a sea of AI discussion, which is not even technical, just comparing what LLM 1 vs 2 said. Any post by Anthropic & co. (twice a week) gets hundreds of points, goes to the top of the frontpage, and the rest of the week are articles testing/benchmarking/complaining about it. During lulls, we have a slew of opinion blogs where everyone and their dog tell a story about how they used AI to do a thing.\n\nAt this point I am certain even the most pro AI people on this site would like a bit more variety. The saddest part is that I’ve had to turn to Reddit to get a bit more colour to my media diet.",
+      "kids": [
+        {
+          "id": 47862562,
+          "by": "spzb",
+          "time": 1776860553,
+          "parent": 47859592,
+          "text": "You forget the \"Show HN: Here's some crap I cobbled together with an LLM\" x a million a day",
+          "kids": [
+            {
+              "id": 47866816,
+              "by": "bigwheels",
+              "time": 1776879819,
+              "parent": 47862562,
+              "text": "Yeah, Show HN is kinda wrekt.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47860577,
+      "by": "morgengold",
+      "time": 1776845329,
+      "parent": 47857461,
+      "text": "Bombardement of social media with AI blob could very well lead to a complete abadonment from these platforms.",
+      "kids": []
+    },
+    {
+      "id": 47862364,
+      "by": "sys_64738",
+      "time": 1776859301,
+      "parent": 47857461,
+      "text": "I'm sure there's some AI to help you out. The skunkworks AI projects at companies are what people should really be worried about. The current AI stuff is just rudimentary to test the waters.",
+      "kids": []
+    },
+    {
+      "id": 47868714,
+      "by": "preetigagarwal",
+      "time": 1776888900,
+      "parent": 47857461,
+      "text": "The AI fatigue is real. The problem is most AI products are just wrappers that add a chat interface to existing tools and call it AI. The ones that actually stick are the ones where AI is doing something that was genuinely impossible or impractical before — not just faster or cheaper. That bar is higher than most builders think.",
+      "kids": []
+    },
+    {
+      "id": 47858154,
+      "by": "slappywhite",
+      "time": 1776825484,
+      "parent": 47857461,
+      "text": "I block YouTube channels if I see they use AI slop as their thumbnail image and certainly if they use AI voices once the video starts playing. (This is only feasible because I already select from a highly curated subset of YouTube that generally doesn't use AI.)",
+      "kids": []
+    },
+    {
+      "id": 47858211,
+      "by": "Sibexico",
+      "time": 1776825940,
+      "parent": 47857461,
+      "text": "I'm working with AI since early 00's and it was a lot of fan of this with very little community of an artificial neural networks developers. Now AI is widely available and used by people with discussable level of intelligence to generate tons of slop, so all the internet looks like a big trash bin.",
+      "kids": [
+        {
+          "id": 47858259,
+          "by": "alex1138",
+          "time": 1776826271,
+          "parent": 47858211,
+          "text": "It's especially irritating if OpenAI is built off fraud which it could be. It means the whole bubble/genuine current hot thing got off to a bad start",
+          "kids": []
+        },
+        {
+          "id": 47860216,
+          "by": "theshrike79",
+          "time": 1776842561,
+          "parent": 47858211,
+          "text": "It's the whole iceberg thing.\n\nThere's a LOT going for \"AI\" and language models in general, but the general population only sees the tip where people post obvious AI slop \"art\" and screenshot ChatGPT answers on actual questions.",
+          "kids": [
+            {
+              "id": 47860564,
+              "by": "Sibexico",
+              "time": 1776845241,
+              "parent": 47860216,
+              "text": "In this case I'm talking about the internet content only. For sure, I'm worrying way more about aircrafts autopilot system written in Rust by AI. Or about something like a life support systems in the hospital... The end of our civilization will come not from the side where we waiting it for...",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47861570,
+      "by": "dingaling",
+      "time": 1776854130,
+      "parent": 47857461,
+      "text": "My workplace has now blocked Kagi Search because it offers an AI assistant ( only approved AI providers are accessible).\n\nAI is ruining everything.",
+      "kids": [
+        {
+          "id": 47863354,
+          "by": "fallbackboy",
+          "time": 1776864618,
+          "parent": 47861570,
+          "text": "That seems really unfair because every other search engine also as \"AI\" integration. Kagi's is tasteful and only used when you seek it out.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47857927,
+      "by": "thomasjudge",
+      "time": 1776823861,
+      "parent": 47857461,
+      "text": "well this is overdue",
+      "kids": [
+        {
+          "id": 47858016,
+          "by": "gnabgib",
+          "time": 1776824518,
+          "parent": 47857927,
+          "text": "Oft posted?\n\nMost Americans are using AI but are sick and tired of hearing about it (2 points, 12 days ago) https://news.ycombinator.com/item?id=47717956\n\nI am definitely missing the pre-AI writing era (322 points, 23 days ago, 240 comments) https://news.ycombinator.com/item?id=47571279\n\nI am leaving the AI party after one drink (121 points, 25 days ago, 130 comments) https://news.ycombinator.com/item?id=47545030\n\nIs anybody else bored of talking about AI? (746 points, 28 days ago, 527 comments) https://news.ycombinator.com/item?id=47508745\n\nI'm Sick of This AI Shit [video] (48 points, 2 months ago, 22 comments) https://news.ycombinator.com/item?id=47086392\n\nAsk HN: AI Depression (56 points, 2 months ago, 28 comments) https://news.ycombinator.com/item?id=47001833\n\nI am just sooo sick of AI prediction content, let's kill it already (74 points, 5 months ago, 71 comments) https://news.ycombinator.com/item?id=45982542\n\n'Attention is all you need' coauthor says he's 'sick' of transformers (432 points, 6 months ago, 224 comments) https://news.ycombinator.com/item?id=45690840\n\nAsk HN: Is anyone else sick of AI splattered code (89 points, 7 months ago, 84 comments) https://news.ycombinator.com/item?id=45278819",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858285,
+      "by": "drob518",
+      "time": 1776826462,
+      "parent": 47857461,
+      "text": "Right behind you.",
+      "kids": []
+    },
+    {
+      "id": 47858766,
+      "by": "Perenti",
+      "time": 1776830149,
+      "parent": 47857461,
+      "text": "I just wish it did what it said on the tin.  Seriously, separating the hype from the reality is so time consuming.",
+      "kids": []
+    },
+    {
+      "id": 47858091,
+      "by": "an0malous",
+      "time": 1776825085,
+      "parent": 47857461,
+      "text": "I think we’ll look back on this period as The Great Enshittification where everyone ran out of ideas but capitalism demands growth so everything just got worse. The mass manufacturing of mediocre AI content might be the force that ends the digital era and maybe we’ll all just go outside again.",
+      "kids": [
+        {
+          "id": 47858163,
+          "by": "georgehotz",
+          "time": 1776825540,
+          "parent": 47858091,
+          "text": "Here's hoping. It's not that there's no new ideas, it's that they don't deliver VC sized returns. The only thing that delivers the returns investors are looking for are Ponzi schemes.",
+          "kids": [
+            {
+              "id": 47863782,
+              "by": "gessha",
+              "time": 1776866420,
+              "parent": 47858163,
+              "text": "Nothing can beat Ponzi schemes because it's all promises and the returns only trickle up to the top, they are not evenly distributed.\n\nThere are ideas that can deliver VC-sized returns but they depend on a system state different from ours - scaled up energy system, housing market, education system, manufacturing capacity, research capacity, etc etc. Until we unscrew the current status quo, we(USA) will continue limping through these innovations without the capacity to fully utilize them.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47858148,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47859660,
+          "by": "sph",
+          "time": 1776837819,
+          "parent": 47858091,
+          "text": "You think there is a way out for the Internet after the invention of the digital bullshit machine?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47859643,
+      "by": "rainmaking",
+      "time": 1776837692,
+      "parent": 47857461,
+      "text": "You're absolutely right!",
+      "kids": []
+    },
+    {
+      "id": 47858034,
+      "by": "himata4113",
+      "time": 1776824671,
+      "parent": 47857461,
+      "text": "I think this is a problem unique to facebook / meta. I mean the camera roll has a dedicated \"ai images\" at the top instead of... your active camera like every other app.\n\nThis all started with zucks obsession with virtual avatars and you can really see this in VR.",
+      "kids": []
+    },
+    {
+      "id": 47859888,
+      "by": "bryan_w",
+      "time": 1776840105,
+      "parent": 47857461,
+      "text": "Sounds like you need a cyberdeck",
+      "kids": []
+    },
+    {
+      "id": 47858564,
+      "by": "wqtz",
+      "time": 1776828414,
+      "parent": 47857461,
+      "text": "If you can afford it hire a virtual assistant and have them filter things for you and curate stuff. If you are suffering through things to find glimpses of enjoyment it is best you outsource your suffering to someone dedicated. Seriously, I had a $5 dollar an hour assistant who did all sorts random stuff for me. This even included curating things to read, talking to professional acquaintances on behalf of me using a script. It will cost you around 200-300 dollar a month but with the right person you can skip the BS.",
+      "kids": []
+    },
+    {
+      "id": 47860352,
+      "by": "rakshitpandit",
+      "time": 1776843728,
+      "parent": 47857461,
+      "text": "AI for productivity is something I advocate for! But I hate the AI content spreading all over social media. Many times I see a man or a woman on IG and unlike early Gen AI days where you could tell in a flash if this is real or AI. But now it's very very difficult to tell and I hate that. I'm not sure why social media is not putting a stop to it.",
+      "kids": []
+    },
+    {
+      "id": 47864204,
+      "by": "butz",
+      "time": 1776868285,
+      "parent": 47857461,
+      "text": "Whole this \"GenAI\" nonsense just made me appreciate handrafted code more. I really like diving deep into documentation to figure out how things work and actually understand why something does not. YMMW.",
+      "kids": []
+    },
+    {
+      "id": 47857971,
+      "by": "unethical_ban",
+      "time": 1776824192,
+      "parent": 47857461,
+      "text": "I took compliance training today and the \"actors\" and voices were AI.\n\nAfter watching the GPT images release video, it reenforced my skepticism that society will adapt. Then I thought about AI analysis of people's movements in public and realized that governments already capture everything, and now will be able to use infinite AI surveillance agents to watch all things all the time.\n\nAny disobedience or crime (but really only against the government and gentry) can be instantly investigated by asking AI to analyze the behavior of all people and vehicles in the days prior to and after the incident. That's if they can't identify you immediately at the time of the crime.\n\nWhen the time comes that civilian disorder is required to change the behavior of government, it will be impossible.\n\nAI is the destruction of individual freedom. It is the destruction of citizens' ability to rebel against power.\n\nWe would be far better off without it.",
+      "kids": [
+        {
+          "id": 47858214,
+          "by": "Cider9986",
+          "time": 1776825950,
+          "parent": 47857971,
+          "text": "This has been happening in China since 2018[1]. North Korea is able to oppress its citizens just fine without AI. I don't think recent advances are going to revolutionize government oppression.\n\n[1] https://inv.thepixora.com/watch?v=CLo3e1Pak-Y\n\nyoutube version: https://youtube.com/watch?v=CLo3e1Pak-Y",
+          "kids": [
+            {
+              "id": 47863847,
+              "by": "unethical_ban",
+              "time": 1776866715,
+              "parent": 47858214,
+              "text": "People got to Oregon in the 1800s on wagons, I don't think cars will revolutionize personal travel.\n\nHaving infinite, instantaneous, amoral agents of the state analyzing video for patterns - some of which humans can't immediately notice - will revolutionize government oppression.\n\nAnd just because NK can already do oppression with a heavy hand doesn't mean western countries won't up their game with more subtlety.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47865759,
+      "by": "JimmaDaRustla",
+      "time": 1776874827,
+      "parent": 47857461,
+      "text": "K",
+      "kids": []
+    },
+    {
+      "id": 47862448,
+      "by": "Jamesbeam",
+      "time": 1776859834,
+      "parent": 47857461,
+      "text": "I would be miserable too if my job had to do with anything Internet.\n\nIt has gone from this cool inter-human knowledge hub and space for creation to a place where everyone tries to sell you something and make the sales pitch unskippable. It’s miserable.\n\nIt started getting weird when the full home invasion of Internet-connected nonsense started. I have eyes, I can see there is no milk in the fridge, I don’t need a push notification or glowing circle that says, “May I have your attention, please? Here are five Bezos offers for milk.”\n\nI put up a wall of cheap 3D-printed waterproof enclosures near the local train station with the one in the middle having a handwritten letter from me and a bunch of blank sheets behind it, that asks people to write down knowledge that they think is useful for the rest of the community.\n\nOnly rules, no AI-generated content or printouts from websites. If it’s not handwritten or has ads, everyone passing by is allowed to remove and destroy it.\n\nEverything else stays for exactly one week, then it gets removed to make space for something new.\n\nIf every enclosure is full, I put a few more up and watch and remove those who stay empty at the end of the week.\n\nWent through 600 sheets of paper so far but people also started putting little hand-drawn artworks and their own colourful paper sheets in by themselves so the cost is more than manageable, as I just walk into the local town hall and take a bunch of paper from their copy stations from time to time.\n\nEvery week I go there to remove the letters from people and collect them in folders to make space for new ones. From live advice to cooking recipes with local ingredients, art, poetry, it’s pretty cool to see how many people are getting off the Internet and rather spending time doing this for their local community.\n\nOften when the news are bad and I feel stressed and the next catastrophe is looming I go there with some coffee and watch people look at everything and talk about the stuff put up.\n\nSoon I am running out of wall and will have to look for an extra space.\n\nI simply do not longer believe in sharing valuable knowledge over the Internet as it gets hammered by AI crawlers and then integrated into models and no longer giving credit to the people who created it. So why bother.\n\nMy prediction is, that the more (generative) AI is used on the internet, the smaller the world will become.\n\nMost of you will have a miserable life if your livelihood belongs to slaving away for companies relying on being present on the internet, and local knowledge hubs, which are reserved for human knowledge and creativity only, will be the places you meet real people and enjoy sharing knowledge and culture again.\n\nI think AI having the potential to kill the current iteration of the Internet will probably be the best thing it is capable of doing for humanity.\n\nAdapting is what we humans are best at, and I think most humans will adapt away from an internet mostly free of human-first created knowledge and culture. With a bit of luck I’ll live long enough to see if I am right.",
+      "kids": [
+        {
+          "id": 47871765,
+          "by": "gigatree",
+          "time": 1776912240,
+          "parent": 47862448,
+          "text": "That is really really cool\n\nAnd I think you’re right that AI will give a lot of people the push they’ve needed to get back to real life, even if at the same time it pulls a majority of people further into the matrix",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47859160,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47860451,
+      "by": "thefz",
+      "time": 1776844419,
+      "parent": 47857461,
+      "text": "Aside some use cases in which the application of machine learning excels - say speech to text, some audio applications, some image editing applications and summarizing a text, I fail to see the utility of other applications like LLMs.\n Half of the times they hallucinate and 100% of the times I must double check their output so why not searching by myself in the first place...",
+      "kids": []
+    },
+    {
+      "id": 47858203,
+      "by": "keyle",
+      "time": 1776825874,
+      "parent": 47857461,
+      "text": "Hear, hear, friend, you might have missed web 2.0. Oh web 2.0. The designers like myself were so sick of this nonsense.\n\nAI is the same, but amplified and affecting a lot more people.\n\nSo I just recall Web 2.0 era and know that this too, shall pass.",
+      "kids": []
+    },
+    {
+      "id": 47858270,
+      "by": "spatley",
+      "time": 1776826352,
+      "parent": 47857461,
+      "text": "AI slop everywhere on social is terrible; I grant you that.\n\nBut AI tool in the hands of professionals that care about what they produce is becoming revolutionary. We are doing things we would never have done. Projects I never would have even started I am doing with new enthusiasm. I and the people I work with are using agents to learn new topics so fast. AI makes mistakes all the time, I found myself getting gaslit last week that refreshing my auth token would update my permissions (authentication and authorization are not the same thing)\n\nIf you are just looking at the output in images and garbage posts. Yes it is an abomination that must be stopped. But I cannot imagine a world without it now. And for the better.",
+      "kids": [
+        {
+          "id": 47858647,
+          "by": "maplethorpe",
+          "time": 1776829229,
+          "parent": 47858270,
+          "text": "> I and the people I work with are using agents to learn new topics so fast.\n\nI'm a person who loves learning but I don't really understand this claim. My brain quickly reaches a saturation point when learning new topics. I need to leave and come back multiple times until I begin to understand, but this seems to me to be a normal part of the process. It's the struggle that forms the connections in my brain.\n\nBeing spoon-fed information isn't the same as learning, to me. Are you also using AI to test you on your new knowledge? Does it administer these tests periodically? Or are you just reviewing notes and saying to yourself \"I know this now\"?\n\nHow are you ensuring you've learned anything at all?",
+          "kids": [
+            {
+              "id": 47858767,
+              "by": "abroadwin",
+              "time": 1776830155,
+              "parent": 47858647,
+              "text": "Reminds me of the book \"Make It Stick: The Science of Successful Learning\" and its comparison of spaced repetition and cramming.\n\nCramming often feels more satisfying, more like you're learning, but actually leads to worse retention. Spaced repetition that includes the struggle of recalling something just at the edge of being forgotten, on the other hand, feels worse but leads to much higher retention.",
+              "kids": []
+            },
+            {
+              "id": 47858814,
+              "by": "bayareapsycho",
+              "time": 1776830436,
+              "parent": 47858647,
+              "text": "> Being spoon-fed information isn't the same as learning, to me\n\nIt's like it distills it for you. I feel like you're thinking of an example like trying to learning operating systems by reading wikipedia articles (i.e. it gives you a high level summary but nothing more).\n\nThe way I see it, code says a lot, but it takes time to scroll through it and cmd+click back and forth. But if you just ask the AI \"where's x thing happening around this file\" it will just point you right to it. So I feel like less cognitive energy is spent dealing with the syntactic quirks of code and more is spent on the essential algorithmic task.\n\nI don't really like using it to summarize natural language written by one author or group, like a paper for example, that just feels like laziness to me.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47859355,
+      "by": "grebc",
+      "time": 1776835049,
+      "parent": 47857461,
+      "text": "Amen.",
+      "kids": []
+    },
+    {
+      "id": 47857623,
+      "by": "PaulHoule",
+      "time": 1776821922,
+      "parent": 47857461,
+      "text": "I was sick about this before y'all because I was involved in three efforts to try to commercialize foundation models before the technology was ready.\n\nMost of all I am sick of people being sick of it!",
+      "kids": [
+        {
+          "id": 47857747,
+          "by": "marciob",
+          "time": 1776822696,
+          "parent": 47857623,
+          "text": "if you were already sick, why were you even working with it at all?",
+          "kids": [
+            {
+              "id": 47857836,
+              "by": "socketcluster",
+              "time": 1776823276,
+              "parent": 47857747,
+              "text": "Sounds like they got sick of if after working on it so much. It's really frustrating and tiring when you get everything essentially right but it doesn't work out because of slightly off timing or for some absurdly complex set of reasons that you can never pin down. That's the recipe for burnout.",
+              "kids": [
+                {
+                  "id": 47858377,
+                  "by": "PaulHoule",
+                  "time": 1776827036,
+                  "parent": 47857836,
+                  "text": "(1) Tried to bring back the old symbolic AI in 2010s on my own account but people kept knocking down my door because they needed help with one or another neural net.  I got an autoencoder in front of customers as part of a highly successful product.\n\n(2) Worked for a startup trying to teach RNNs to read clinical notes;  people typecast me as the idealist but I would have preferred the cynical business plan of a product for medical offices to \"rebill\" insurance to maximize revenue,  like the value is clear and nobody dies if it screws up.\n\n(3) Worked at another startup that was training CNNs to read all sorts of documents and datasets you see in corporate environments.  That summer I had a methodology I called \"predictive evaluation\" and a sheaf full of notes that proved that variations of the system we had wasn't really going to work (but they did get it to work enough for one at least one customer) and there was that meeting when we talked about BERT and I said \"that seems to avoid all my objections\" but the team was through with developing new models and my methodology would have underestimated what BERT could do because it didn't give credit for getting the right answer by the wrong method!  Turned out transformers also fixed problems those RNNs had too!",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47857817,
+              "by": "stellalo",
+              "time": 1776823186,
+              "parent": 47857747,
+              "text": "probably: worked on it, then got sick of it",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47858093,
+      "by": "SilentM68",
+      "time": 1776825090,
+      "parent": 47857461,
+      "text": "I get your frustration.\n\nI do not dislike AI. It has potential to change and improve the human condition. With that being said, it has its downsides with workforce displacement being at the top of the list, for me at least. Unemployment, however, has been prevalent in the US for many decades, mostly due to political maneuvering of previous politicians. AI has just made things a bit more difficult for the workforce, especially the recent generations who were already dealing with unemployment due to unmarketable degrees from colleges. I am not ashamed to say that, though I've been in tech for years, I am one of those statistics, unfortunately.\n\nTo fix this, AI companies should refocus their goals to account for the displacement of human roles as they continue to improve AIs. They should start doing that sooner rather than later.\n\nThe reality is that AI already does things better than some humans ever could. From what some individuals have been telling me, in education, for example, AI is already disrupting the classrooms. Teachers are feeling the AI-burn in the already declining education sector.\n\nThough, I see a decline in human creativity and influence due to AI, I myself have used it to learn certain OS-related concepts or tweaks that would have normally taken me months to figure out had I focused solely on google searches, reddit threads and similar.\n\nIf I could do more, I would but I am limited by the lack of better, powerful hardware with the price being what they are.",
+      "kids": [
+        {
+          "id": 47859340,
+          "by": "noio",
+          "time": 1776834930,
+          "parent": 47858093,
+          "text": "> To fix this, AI companies should refocus their goals to account for the displacement of human roles as they continue to improve AIs. They should start doing that sooner rather than later.\n\nIt's a good thing then, that corporations have such a good reputation for never externalizing the costs their products inflict on society & the planet.",
+          "kids": [
+            {
+              "id": 47867553,
+              "by": "SilentM68",
+              "time": 1776883230,
+              "parent": 47859340,
+              "text": "Ahh, I agree with you there as long as Communism and authoritarianism is not what you are suggesting.\n\nPerhaps an overhaul of Section 230 of the Communications Decency Act of 1996, Corporate Personhood, Limited Liability, Business Judgment Rule, and any other Antitrust Protections, that harm citizens without destroying the fabric of society is in order.\n\nPlease note that while the, above, protections are substantial, corporations are still subject to various regulations, lawsuits, and legal challenges. However, they represent a significant legal advantage compared to individuals.\n\nFYI: \nI personally am poor as mud and use local LLMs and Ollama to do most AI-related endeavors due to the same reasons you mentioned, including the above research so do not misinterpret my comments.",
+              "kids": [
+                {
+                  "id": 47868993,
+                  "by": "guzfip",
+                  "time": 1776890248,
+                  "parent": 47867553,
+                  "text": "> Perhaps an overhaul of Section 230 of the Communications Decency Act of 1996, Corporate Personhood, Limited Liability, Business Judgment Rule, and any other Antitrust Protections, that harm citizens without destroying the fabric of society is in order.\n\nI’d say the likelihood of that is about as likely as the Communists dream of revolution.\n\nThere are two societies. The one you exist in, and the one that the people crafting this kind of legislation. It’s harmful to your society, but beneficial to theirs.",
+                  "kids": [
+                    {
+                      "id": 47870141,
+                      "deleted": true,
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47860965,
+      "by": "mdrzn",
+      "time": 1776848626,
+      "parent": 47857461,
+      "text": "I keep reading these posts as \"I'm sick of Electricity everything\".\n\nThe parallel is the same. It's a revolutionary technology, and it's being used everywhere because it's NEW. Fast forward 10 years, it'll be everywhere and nobody will complain about \"aw shucks, this appliance uses electricity! I miss the good old days of manually cranking it\"",
+      "kids": []
+    },
+    {
+      "id": 47858232,
+      "by": "dbg31415",
+      "time": 1776826069,
+      "parent": 47857461,
+      "text": "Nothing makes me hit that close button faster than those fake voices everywhere now. That overly polished narrator on every other TikTok, half the YouTube videos read by the same auto-tuned robot (that apparently people over 60 can't tell is a robot). And don't get me started on streamers with like a confidence voice filter. Fuck all that noise.\n\nAnd it's only going to get worse. Is this what getting old feels like? Hating everything the rest of society is racing to embrace? I keep waiting for the backlash, for people to get sick of the plastic sheen on everything, but they conveyor belt just keeps moving. Maybe I'm just turning into my parents griping about all the weird music videos on MTV? =P",
+      "kids": [
+        {
+          "id": 47858829,
+          "by": "coffeefirst",
+          "time": 1776830545,
+          "parent": 47858232,
+          "text": "The voice is a real problem. I’m looking to do some basic home improvement stuff. 2 years ago I could YouTube how to do almost anything and find real people with plausible credentials demonstrating it. Today, first you need to dig through everything that isn’t real.",
+          "kids": []
+        },
+        {
+          "id": 47859281,
+          "by": "nbaksalyar",
+          "time": 1776834396,
+          "parent": 47858232,
+          "text": "> Is this what getting old feels like? Hating everything the rest of society is racing to embrace?\n\nI don’t think so. Some societies are racing to embrace mass surveillance and abuse of civil rights. Pointing this out and complaining about it is not “hate” and not reserved for old people only. :)",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47857993,
+      "by": "kumarvvr",
+      "time": 1776824375,
+      "parent": 47857461,
+      "text": "I think after the initial euphoria dies down, and the models reach a capability plateau, the use cases will start to come to fore.\n\nI am an experienced developer, and, if I know what I am doing, then AI tools are an average junior programmer that I can beckon.\n\nI have also dabbled in music creation with AI, first generating the lyrics, and then the music with vocals. Is it good. Nope. Is it average, some might say so. Is it a great use of my time, sure. Like a paid video game.",
+      "kids": []
+    },
+    {
+      "id": 47858491,
+      "by": "noeltock",
+      "time": 1776827964,
+      "parent": 47857461,
+      "text": "2001: I'm Sick of Internet Everything",
+      "kids": [
+        {
+          "id": 47858711,
+          "by": "journeyman3538",
+          "time": 1776829706,
+          "parent": 47858491,
+          "text": "Exactly. This inability to accept progress is going to lead some people to ruin. Open mindedness would do a lot of good for them. Try to develop a taste for the technology: learn to ignore irrational fear of something that’s just a tool.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858197,
+      "by": "alex1138",
+      "time": 1776825813,
+      "parent": 47857461,
+      "text": "Facebook especially is bad because I don't think Zuck cares. His entire personal history is shady. People have been missing posts for YEARS, well beyond the last few years when it got really bad\n\nOh and messages https://news.ycombinator.com/item?id=6090712",
+      "kids": []
+    },
+    {
+      "id": 47857758,
+      "by": "dartharva",
+      "time": 1776822787,
+      "parent": 47857461,
+      "text": "Unfortunate that it took so long for you to realize social networks are just a river of outrage and slop, because it has literally always been so for a decade before AI even became a thing - it's just that now AI has made the cheapness immediately visible.\n\nEnjoy your newfound freedom and live a real life.",
+      "kids": [
+        {
+          "id": 47858595,
+          "by": "antiterra",
+          "time": 1776828756,
+          "parent": 47857758,
+          "text": "No. Something genuine has been lost.\n\nI used to be able to curate my feed and pay attention to people I knew. I could see the photo projects my friends were working on, hear about life updates from past acquaintances, or reach out if someone was having a rough time.\n\nNow, all cohorts, from recent coworkers to childhood friends I made before the first web browser, routinely spew paragraphs of LLM slop to shill a career coaching podcast. It’s Invasion of the Body Snatchers.\n\nSocial networks are only a small part of it. It’s email, mailing lists, billboards, sheets of paper stapled to utility poles, newspaper articles, dentist office phone lines, jigsaw puzzles, home furnishings, homework assigned to grade schoolers, birthday cards and on and on.",
+          "kids": []
+        },
+        {
+          "id": 47857878,
+          "by": "sumanep",
+          "time": 1776823584,
+          "parent": 47857758,
+          "text": "There is no real life anymore because even if you realize how fucked up things are, people around you will keep swiming in that river of outrage and slop life became. World is so fucked up",
+          "kids": []
+        },
+        {
+          "id": 47857788,
+          "by": "zacyungblut",
+          "time": 1776823009,
+          "parent": 47857758,
+          "text": "Wise words",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47860255,
+      "by": "Markoff",
+      "time": 1776842822,
+      "parent": 47857461,
+      "text": "tell me about it, my client started recently sending me AI generated QA reports, I guess I don't need to mention in 98% reported issues they are false positive just wasting my time\n\nand it's similar with trying to watch Youtube on TV (Smarttube), too much AI slop though try to be picky when choosing suspicious videos",
+      "kids": []
+    },
+    {
+      "id": 47862228,
+      "by": "binary132",
+      "time": 1776858472,
+      "parent": 47857461,
+      "text": "And yet you’re posting on HN.  Curious.",
+      "kids": []
+    },
+    {
+      "id": 47862499,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47857939,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47857932,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47857510,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47863372,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47858042,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47857522,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47858651,
+      "by": "esjeon",
+      "time": 1776829245,
+      "parent": 47857461,
+      "text": "I have solution: let AI filter out unwanted AI contents! Subscription starts at $5/mo. /s",
+      "kids": []
+    },
+    {
+      "id": 47858381,
+      "by": "ghstinda",
+      "time": 1776827059,
+      "parent": 47857461,
+      "text": "I like ai. It's great. You can make your own apps. Hack anything basically. Print money. It's easy to block ai posts on browser level using ai of course. Oh...",
+      "kids": []
+    },
+    {
+      "id": 47857767,
+      "by": "socketcluster",
+      "time": 1776822840,
+      "parent": 47857461,
+      "text": "I don't mind AI. What I don't like is the complete saturation of communication channels with the same mainstream ideas and products over and over. This started long before AI slop.",
+      "kids": []
+    },
+    {
+      "id": 47857792,
+      "by": "simonw",
+      "time": 1776823054,
+      "parent": 47857461,
+      "text": "What's \"AI\"?\n\n(I'm going to guess you mean generative AI such as image/video/text generation used to create slop on Facebook, but I really wish posts like this would clarify.)",
+      "kids": [
+        {
+          "id": 47857893,
+          "by": "ofjcihen",
+          "time": 1776823698,
+          "parent": 47857792,
+          "text": "Not trying to be snarky but it’s pretty obviously the one that’s been dominating the news/LinkedIn/This site/meetings in tech jobs yeah?",
+          "kids": []
+        },
+        {
+          "id": 47857828,
+          "by": "ibudiallo",
+          "time": 1776823246,
+          "parent": 47857792,
+          "text": "I think this post is vague enough for each one of us to think about the part we are sick of and relate. I'm sick of generative for sure.. but then again [0]:\n\n> Everyone seems to have their own personal definition of acceptable AI use. If you Vibecode an entire app, it's because you are lazy and unskilled. But use AI for code review and writing tests? You are smart and efficient.\n\n> You could use AI to remove photo backgrounds or clean up artifacts, that's just good editing. But generating an image for your blog post? You are stealing from hardworking artists. You are a fraud! You probably use AI as a writing assistant like a monster. But using it to generate documentation from your code is indispensable.\n\n[0]: https://idiallo.com/blog/ai-is-ok-just-not-yours",
+          "kids": []
+        },
+        {
+          "id": 47857983,
+          "by": "add-sub-mul-div",
+          "time": 1776824306,
+          "parent": 47857792,
+          "text": "Use the ample context clues or have AI explain it to you, but either way we don't need useless comments like these.",
+          "kids": [
+            {
+              "id": 47858686,
+              "by": "journeyman3538",
+              "time": 1776829515,
+              "parent": 47857983,
+              "text": "This response is uncalled for, you’re making things unnecessarily hostile.",
+              "kids": []
+            },
+            {
+              "id": 47858179,
+              "by": "simonw",
+              "time": 1776825715,
+              "parent": 47857983,
+              "text": "I literally guessed from the context clues in the (parentheses in my post).",
+              "kids": [
+                {
+                  "id": 47858626,
+                  "by": "hackable_sand",
+                  "time": 1776829098,
+                  "parent": 47858179,
+                  "text": "Then why did you ask the question?",
+                  "kids": [
+                    {
+                      "id": 47858745,
+                      "by": "simonw",
+                      "time": 1776830026,
+                      "parent": 47858626,
+                      "text": "Because \"I really wish posts like this would clarify\".\n\nI was making a point that saying \"I hate AI\" is intellectually lazy. The discourse here can be a whole lot better if people put more effort into clarity.\n\nI want Hacker News to be a better place for technically sophisticated conversations than most of Reddit.",
+                      "kids": [
+                        {
+                          "id": 47859059,
+                          "by": "hackable_sand",
+                          "time": 1776832592,
+                          "parent": 47858745,
+                          "text": "But you know exactly which form of AI is exhausting everyone through mediocre application. You know exactly which form of AI requires constant propaganda and astroturfing to get a thimble of adoption.\n\nFugazi as fuck",
+                          "kids": [
+                            {
+                              "id": 47871505,
+                              "by": "emp17344",
+                              "time": 1776909358,
+                              "parent": 47859059,
+                              "text": "I’ve never heard this guy say anything negative about an AI product. Makes it impossible to trust him.",
+                              "kids": []
+                            },
+                            {
+                              "id": 47859466,
+                              "by": "simonw",
+                              "time": 1776835944,
+                              "parent": 47859059,
+                              "text": "I think generative AI for slop posts and images on Facebook is a different issue from generative AI for coding agents, even when they share the same underlying models.\n\nOr generative AI that was used to find 272 vulnerabilities that were fixed in Firefox 150 this week:  https://blog.mozilla.org/en/privacy-security/ai-security-zer...",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47858053,
+      "by": "OutOfHere",
+      "time": 1776824802,
+      "parent": 47857461,
+      "text": "There is no future for AI doomers. Bye bye dodos.",
+      "kids": [
+        {
+          "id": 47858102,
+          "by": "trollbridge",
+          "time": 1776825123,
+          "parent": 47858053,
+          "text": "Far from “dooming”, AI currently has a major public image problem - it’s got a lower approval rating than the current President. Most people’s perception of AI is the lousy customer service chatbot, a phone tree that doesn’t work when they call customer service, and AI generated spam, scammy images, and so forth.\n\nCouple with that the frequent press about “AI is going to replace your job” and the public image problem is pretty bad.",
+          "kids": [
+            {
+              "id": 47858673,
+              "by": "journeyman3538",
+              "time": 1776829408,
+              "parent": 47858102,
+              "text": "Public image isn’t reality. Just because people can’t be bothered to learn about the productivity boost that AI provides for businesses: doesn’t mean that there aren’t any. Honestly this constant outrage and FUD is getting ridiculous. Don’t use it if you don’t like it. Some of us actually want to be more efficient.",
+              "kids": []
+            },
+            {
+              "id": 47858196,
+              "by": "OutOfHere",
+              "time": 1776825805,
+              "parent": 47858102,
+              "text": "Bot implementation quality is up to the engineer. It is not an inherent limitation of the LLM. Granted, management always comes in the way of a good deliverable. I ask people to vote with their wallet if the experience is lacking.\n\nAI replacing jobs is a good thing. I don't know why people want to keep doing stupid jobs that even a machine can do. As for their income, they should vote for politicians that give them benefits rather than take them away.\n\nI am sure there were people for a few decades that complained that horses were no longer in demand, but these people are now extinct, and the AI doomers will be too.",
+              "kids": [
+                {
+                  "id": 47858739,
+                  "by": "journeyman3538",
+                  "time": 1776829982,
+                  "parent": 47858196,
+                  "text": "Yep, if you’re work can be automated so easily then you need to understand such work wasn’t as worthwhile as you thought.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47858139,
+          "by": "adipose",
+          "time": 1776825367,
+          "parent": 47858053,
+          "text": "Do you want there to be?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47857852,
+      "by": "wewewedxfgdf",
+      "time": 1776823384,
+      "parent": 47857461,
+      "text": "I love AI and LLMs.\n\nI love all computer technology except printers.\n\nGimme more - looking forward to further leaps forward in AL and LLMs - the party has just started.",
+      "kids": [
+        {
+          "id": 47857882,
+          "by": "bayesnet",
+          "time": 1776823611,
+          "parent": 47857852,
+          "text": "What’s wrong with printers? Imagine designing a laser that bounces off of mirror spinning at 20k+ rpm while coordinating with a paper feeder. Sounds pretty cool to me",
+          "kids": [
+            {
+              "id": 47858087,
+              "by": "saulpw",
+              "time": 1776825034,
+              "parent": 47857882,
+              "text": "I love printers, I hate ink cartridges",
+              "kids": [
+                {
+                  "id": 47858249,
+                  "by": "rationalist",
+                  "time": 1776826215,
+                  "parent": 47858087,
+                  "text": "I love printers and ink, I hate the people that make the experience worse in hopes of making more money.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47857930,
+          "by": "mey",
+          "time": 1776823874,
+          "parent": 47857852,
+          "text": "I honestly want to follow you around for a day.  I am reserved with how I engage with technology.  It needs to be making my life better, not extracting value from me.  Tech for tech alone is no longer exciting to me as it once was.",
+          "kids": []
+        },
+        {
+          "id": 47858361,
+          "by": "O1111OOO",
+          "time": 1776826955,
+          "parent": 47857852,
+          "text": "> I love all computer technology except printers.\n\nAm I the only one that wants to print on dot-matrix printers again? Maybe find a copy of The Print Shop (Broderbund). It could just be nostalgia kicking in.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858634,
+      "by": "dbgrman",
+      "time": 1776829141,
+      "parent": 47857461,
+      "text": "Why though? It is the technology of today's times. 70s had microprocessors, 80s had languages and tools, 90s was about the internet, 00s was about e-commerce and then web2.0 and later iPhone, mobile/local/social, 15s-20s was gig and creator economy, blockchain, metaverse... and now its AI. If you are sick of reading about AI, what would you rather read/talk about?",
+      "kids": [
+        {
+          "id": 47858716,
+          "by": "dilDDoS",
+          "time": 1776829751,
+          "parent": 47858634,
+          "text": "Maybe I’m naive since most of that was before I was born, but a lot of the past topics you mentioned seem more interesting because the people talking about them (I assume) had interesting knowledge and opinions to share about them. AI is an extremely boring topic because the people most excited about it are “idea people” rather than people with interesting knowledge and expertise. And idea people are pretty draining to listen to for years on end.\n\nEven the top post on HN about ChatGPT’s image generation is full of a bunch of comments just saying “wow this is epic”, “I can make so many mangas with this”, etc. Or a post about a new model where people are saying bland stuff like “this doesn’t write Typescript as well as Nut43-2.1-Max”. Compare those to a post about language design, for instance, and you’d see a lot more interesting discussion and opinions.\n\nJust my opinion though. It seems like the more interesting topics in AI are related to its divisiveness, and even that is getting super old after years of it going on.",
+          "kids": [
+            {
+              "id": 47866230,
+              "by": "dbgrman",
+              "time": 1776877140,
+              "parent": 47858716,
+              "text": "I agree with that sentiment. Most discourse around AI is shallow. There are people who do have a rather profound world view on this and sometimes it surfaces on hackernews. Karpathy for instance is very pragmatic but also philosophical at times.\n\nWhat we see today is stuff of sci-fi. The amazing and deep stuff Asimov and many others wrote about.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47858264,
+      "by": "100ms",
+      "time": 1776826306,
+      "parent": 47857461,
+      "text": "Unironically the best method to implement that browser feature you're looking for is probably also AI. Which tells a meta-story, AI isn't a new feature it's also a new medium. It can be used to turn cave speak into works of literature just as easily as it can turn voluminous spew into one liners (Ed Zitron just popped into mind for some reason). You can't ignore it once it exists, but it sounds like the problem you have genuinely can be solved by it, and I expect over the next decade we'll see a lot more of exactly that.\n\nHere's to reading HN projected through the lens of manga comic strips sometime after we solve the GPU shortage..",
+      "kids": []
+    },
+    {
+      "id": 47858251,
+      "by": "Aperocky",
+      "time": 1776826227,
+      "parent": 47857461,
+      "text": "There's incredible opportunity in the stuff that is missing, which is a wonderful thing.\n\nThe linear function do not work any more - we'll all deal with AI on some level, handwritten programs would be like assembly programs, there will be some, but not many.\n\nBut everyone is currently focused on the second derivative - using AI to further AI stuff - that's a valid goal but not in of itself, AI is just a tool, a tool that gets better is still a tool. It still needs to build something other than itself.\n\nFirst derivative is where the money is. Let me grab this tool and do something useful/fun with it. Thanks for the fierce competition to build me the best tool in the mean time.\n\nLike adding erosion to this hydrology simulator that I felt too complex a few years ago: https://aperocky.com/hydrosim",
+      "kids": []
+    }
+  ]
+}

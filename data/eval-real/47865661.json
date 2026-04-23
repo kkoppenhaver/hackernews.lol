@@ -1,0 +1,597 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47865661,
+    "title": "Technical, cognitive, and intent debt",
+    "points": 254,
+    "descendants": 64,
+    "article_url": "https://martinfowler.com/fragments/2026-04-02.html",
+    "hn_url": "https://news.ycombinator.com/item?id=47865661",
+    "self_post": false
+  },
+  "story": {
+    "id": 47865661,
+    "title": "Technical, cognitive, and intent debt",
+    "url": "https://martinfowler.com/fragments/2026-04-02.html",
+    "by": "theorchid",
+    "score": 254,
+    "time": 1776874283,
+    "descendants": 64,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47866852,
+      "by": "hibikir",
+      "time": 1776879985,
+      "parent": 47865661,
+      "text": "LLMs don't lack the virtue of laziness: it has it if you want it to, by just having a base prompt that matches intent. I've had good success convincing claude backed agents to aim for minimal code changes, make deduplication passes, and basically every other reasonable \"instinct\" of a very senior dev. It's not knowledge that the models haven't integrated, but one that many don't have on their forefront with default settings. I bet we've all seen the models that over-edit everything, and act like the crazy mid-level dev that fiddles with the entire codebase without caring one bit about anyone else's changes, or any risk of knowledge loss due to overfiddling.\n\nAnd on Jess' comments on validating docs vs generating them... It's a traditional locking problem, with traditional solutions. And it's not as if the agent cannot read git, and realize when one thing is done first, in anticipation of the other by convention.\n\nI'm quite senior: In fact, I have been a teammate of a couple of people mention in this article. I suspect that they'd not question my engineering standards. And yet I've no seen any of that kind of debt in my LLM workflows: if anything, by most traditional forms of evaluating software quality, the projects I work on are better than what they were 5, 10 years ago, using the same metrics as back then. And it's not magic or anything, but making sure there are agents running sharing those quality priorities. But I am getting work done, instead of spending time looking for attention in conferences.",
+      "kids": [
+        {
+          "id": 47867613,
+          "by": "marktani",
+          "time": 1776883528,
+          "parent": 47866852,
+          "text": "I agree with your sentiment here. However:\n\n> if anything, by most traditional forms of evaluating software quality, the projects I work on are better than what they were 5, 10 years ago, using the same metrics as back then.\n\nIn this side sentence you're introducing so much vagueness. Can you share insights to get some validation on your claim? What metrics are you using and how is your code from 10, 5, 0 years performing?\n\nI feel throwing in a vague claim like that unnecessarily dilutes your message and distracts from the point. But, if you do have more to share I'd be curious to learn more.",
+          "kids": [
+            {
+              "id": 47870925,
+              "by": "__mharrison__",
+              "time": 1776903543,
+              "parent": 47867613,
+              "text": "My anecdotes for using LLMs to modernize legacy (20-year-old systems):\n\n- 40x speed improvement\n\n- Painless env setup\n\n- 20 Second deploy\n\n- 90+% test coverage\n\n- Ability to quickly refactor\n\n- Documentation\n\n(The original system that I wrote with one other programmer 20 years ago took 1.5+ years to write. Modern rewrite: 2 days)",
+              "kids": [
+                {
+                  "id": 47872141,
+                  "by": "kranner",
+                  "time": 1776916893,
+                  "parent": 47870925,
+                  "text": "Presumably the 1.5 years for the first version involved work other than coding that the LLM rewrite didn’t entail?",
+                  "kids": [
+                    {
+                      "id": 47872160,
+                      "by": "appplication",
+                      "time": 1776917200,
+                      "parent": 47872141,
+                      "text": "Not the poster you replied to but I’m sure it did. But still manual rewrite under the same constraints would be much less feasible.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47872340,
+                      "by": "__mharrison__",
+                      "time": 1776919644,
+                      "parent": 47872141,
+                      "text": "Yep, coders do more than just code.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47868061,
+              "by": "awesome_dude",
+              "time": 1776885699,
+              "parent": 47867613,
+              "text": "The anecdote the GP is providing there rings true for me too - although I'm not sure if I am going offer better detail.\n\nI'm a proponent of architectural styles like MVC, SOLID, hexagonal architecture, etc, and in pre-LLM workflows, \"human laziness\" often led to technical debt: a developer might lazily leak domain logic into a controller or skip writing an interface just to save time.\n\nThe code I get the LLM to emit is a lot more compliant with those BUT there is a caveat that the LLMs do have a habit of \"forgetting\" the specific concerns of the given file/package/etc, and I frequently have to remind it.\n\nThe \"metric\" improvement isn't that the LLM is a better architect than a senior dev; it's that it reduces the cost of doing things the right way. The delta between \"quick and dirty\" and \"cleanly architected\" has shrunk to near zero, so the \"clean\" version becomes the path of least resistance.\n\nI'm seeing less \"temporary\" kludges because the LLM almost blindly follows my requests",
+              "kids": [
+                {
+                  "id": 47869970,
+                  "by": "stickfigure",
+                  "time": 1776895932,
+                  "parent": 47868061,
+                  "text": "I don't think I'd like your code. But apparently there's enough implied YAGNI in my CLAUDE.md to prevent the unnecessary interfaces and layers of separation that you apparently like. So I guess there is a flavor for everyone.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47867376,
+          "by": "dc_giant",
+          "time": 1776882395,
+          "parent": 47866852,
+          "text": "Mind sharing the instructions you give Claude to go for minimal code changes etc?",
+          "kids": [
+            {
+              "id": 47870115,
+              "by": "gherkinnn",
+              "time": 1776896768,
+              "parent": 47867376,
+              "text": "I regularly prompt and re-prompt the clanker with esoteric terms like \"subtractive changes\", \"create by removing\" and more common phrases like \"make the change easy, then make the easy change\", \"yagni\", and \"vertical slices\", and \"WET code is desirable\".\n\nIt mostly works. CC's plan mode creates a plan by cleaning up first, then defining narrow, integrated steps. Mentioning \"subtractive\" and \"yagni\" appears to be a reliable enough way for an LLM to choose a minimal path.\n\nTo my mind these instructions remain incantations and I feel like an alchemist of old.",
+              "kids": [
+                {
+                  "id": 47870316,
+                  "by": "physicles",
+                  "time": 1776898220,
+                  "parent": 47870115,
+                  "text": "Was just listening to the Lenny’s Podcast interview with Simon Willison, who mentioned another such incantation: red/green TDD. The model knows what this means and it just does it, with a nice bump in code quality apparently.\n\nI’m trying out another, what I call the principle of path independence. It’s the idea that the code should reflect only the current requirements, and not the order in which functionality was added — in other words, if you should decide to rebuild the system again from scratch tomorrow, the code should look broadly similar to its current state. It sort of works even though this isn’t a real thing that’s in its training data.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47868083,
+              "by": "awesome_dude",
+              "time": 1776885797,
+              "parent": 47867376,
+              "text": "I often say to Claude \"you're doing X when I want Y, how can I get you to follow the Y path without fail\" and Claude will respond with \"Edit my claude.md to include the following\" which I then ask Claude to do.",
+              "kids": [
+                {
+                  "id": 47870772,
+                  "by": "sally_glance",
+                  "time": 1776902177,
+                  "parent": 47868083,
+                  "text": "Not sure this is a great idea. The model only internalized what it was trained on and writing prompts/context for itself isn't part of that. I try to keep my context as clean as possible, mostly today's models seem smart/aligned enough to be steered by a couple of keywords.",
+                  "kids": []
+                },
+                {
+                  "id": 47869100,
+                  "by": "mettamage",
+                  "time": 1776890821,
+                  "parent": 47868083,
+                  "text": "Ah yea I do that too. I often have reflection sessions with Claude where I ask it \"how can I make sure you do behavior X so we get outcome Y?\"\n\nIt works relatively well but not always.",
+                  "kids": [
+                    {
+                      "id": 47869265,
+                      "deleted": true,
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47870745,
+          "by": "whattheheckheck",
+          "time": 1776901927,
+          "parent": 47866852,
+          "text": "You should go get attention at conferences. You could write a book called\n\nPractical LLM Coding",
+          "kids": [
+            {
+              "id": 47871954,
+              "by": "cmdoptesc",
+              "time": 1776914399,
+              "parent": 47870745,
+              "text": "Do you think O'Reilly would still put an animal on the cover?",
+              "kids": [
+                {
+                  "id": 47871978,
+                  "by": "defrost",
+                  "time": 1776914774,
+                  "parent": 47871954,
+                  "text": "Sure, K9 - https://cms.doctorwho.tv/sites/default/files/2022-02/2et2o00...",
+                  "kids": []
+                },
+                {
+                  "id": 47871992,
+                  "by": "lubujackson",
+                  "time": 1776914942,
+                  "parent": 47871954,
+                  "text": "A mockingbird?",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47873033,
+      "by": "aldielshala",
+      "time": 1776929115,
+      "parent": 47865661,
+      "text": "Intent debt is a useful framing. A few comments explaining \"why\" instead of \"what\" would have saved hours of guessing.",
+      "kids": []
+    },
+    {
+      "id": 47866462,
+      "by": "kvisner",
+      "time": 1776878349,
+      "parent": 47865661,
+      "text": "I see what Martin is saying here, but you could make that argument for moving up the abstraction layers at any point.  Assembly to Python creates a lot of Intent & Cognitive debt by his definition, because you didn't think through how to manipulate the bits on the hardware, you just allowed the interpereter to do it.\n\nMy counter is that technical intent, in the way he is describing it, only exists because we needed to translate human intent into machine language.  You can still think deeply about problems without needed to formulate them as domain driven abstractions in code.  You could mind map it, or journal about it, or put post-it notes all over the wall.  Creating object oriented abstractions isn't magic.",
+      "kids": [
+        {
+          "id": 47866779,
+          "by": "layer8",
+          "time": 1776879663,
+          "parent": 47866462,
+          "text": "Translating your intent into a formal language is a tool of thought in itself. It’s by that process that you uncover the ambiguities, the aspects and details you didn’t consider, maybe even that the approach as a whole has to be reconsidered. While writing in natural language can also be a tool of thought, there is an essential element in aligning one’s thought process with a formal language that doesn’t allow for any vagueness or ambiguity.\n\nIt’s similar to how doing math in natural language without math notation is cumbersome and error-prone.",
+          "kids": [
+            {
+              "id": 47867186,
+              "by": "ah1508",
+              "time": 1776881572,
+              "parent": 47866779,
+              "text": "Agree: house architects have their language (architectural plans) to translate people needs in non ambiguous informations that will be useful for those who build the house. Musician uses musical notes, physician uses schemas to represent molecules, etc... And programmers use programming languages, when we write a line of code we don't hope that the compiler will understand what we write.  Musical notes are a kind of abstraction: higher level than audio frequency but lower level than natural language. Same for programming language. Getting rid of all the formal languages take us back 2000 years ago.\n\nUsing a formal language also help to enter in a kind of flow. And then details you did not think about before using the formal language may appear. Everything cannot be prompted, just like Alex Honnold prepared his climbing of El Capitan very carefully but it's only when he was on the rock that he took the real decisions. Same for Lindbergh when he crossed the Atlantic. The map is not the territory.",
+              "kids": []
+            },
+            {
+              "id": 47867445,
+              "by": "kvisner",
+              "time": 1776882707,
+              "parent": 47866779,
+              "text": "I agree, but that formal language doesn't need to be executable code.",
+              "kids": [
+                {
+                  "id": 47867682,
+                  "by": "ah1508",
+                  "time": 1776883898,
+                  "parent": 47867445,
+                  "text": "So you need to find something better. In an article \"How NASA writes 'perfect' software (1996) (fastcompany.com)\" (comments on HN), the author explains that adding GPS support required 1500 pages of spec, and to avoid ambiguity the spec used pseudo code to describe expected features and behaviors.\n\nIf you invent a formal language that is easy to read and easy to write, it may look like Python... Then someone will probably write an interpreter.\n\nWe have many languages, senior people who know how to use them, who enjoy coding and who don't have a \"lack of productivity\" problem. I don't feel the need to throw away everything we have to embrace what is supposed to be \"the future\". And since we need good devs to read and LLM generated code how to remain a good dev if we don't write code anymore ? What's the point of being up to date in language x if we don't write code ? Remaining good at something without doing it is a mystery to me.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47866677,
+          "by": "didericis",
+          "time": 1776879209,
+          "parent": 47866462,
+          "text": "> you didn't think through how to manipulate the bits on the hardware, you just allowed the interpreter to do it\n\nIf you are thinking through deterministic code, you are thinking through the manipulation of bits in hardware. You are just doing it in a language which is easier for humans to understand.\n\nThere is a direct mapping of intent.",
+          "kids": [
+            {
+              "id": 47873057,
+              "by": "lmm",
+              "time": 1776929369,
+              "parent": 47866677,
+              "text": "> If you are thinking through deterministic code, you are thinking through the manipulation of bits in hardware.\n\nNo I'm not. If I want the machine to evaluate 2+2, I don't know or care what bits in hardware it uses to do that (as long as it doesn't run out of memory), I just want the result to come back as 4.",
+              "kids": []
+            },
+            {
+              "id": 47870167,
+              "by": "raincole",
+              "time": 1776897138,
+              "parent": 47866677,
+              "text": "Most programmers who write reasonably deterministic code don't even know how many bits it allocates.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872235,
+          "by": "ricardo_lien",
+          "time": 1776918334,
+          "parent": 47866462,
+          "text": "> you didn't think through how to manipulate the bits on the hardware, you just allowed the interpreter to do it\n\nThe interpreter is deterministic but LLMs aren't.",
+          "kids": []
+        },
+        {
+          "id": 47869780,
+          "by": "archagon",
+          "time": 1776894880,
+          "parent": 47866462,
+          "text": "AI is not an abstraction layer.",
+          "kids": []
+        },
+        {
+          "id": 47867099,
+          "by": "jdw64",
+          "time": 1776881118,
+          "parent": 47866462,
+          "text": "I like the word intent, but Martin Fowler’s essay made me think more carefully about it. When Thomas Kuhn talked about paradigm shifts, “paradigm” ended up carrying more than twenty different meanings. In the same way, I think intent has recently become one of the most polluted and overused words in programming. My own toy language project uses the word intent, so I am not really in a position to criticize others too harshly.\n\nReading the Hacker News comments, I kept thinking that programming is fundamentally about building mental models, and that the market, in the end, buys my mental model.\n\nIf we start from human intent, the chain might look something like this:\n\nhuman intent\n-> problem model\n-> abstraction\n-> language expression\n-> compilation\n-> change in hadrware\n\nBut abstraction and language expression are themselves subdivided into many layers. How much of those layers a programmer can afford not to know has a direct effect on that programmer’s position in the market. People often think of abstraction as something clean, but in reality it is incomplete and contextual. In theory it is always clean; in practice it is always breaking down.\n\nDepending on which layer you live in, even when using the same programming language, the form of expression can become radically different. From that point of view, people casually bundle everything together and call it “abstraction” or “intent,” but in reality there is a gap between intent and abstraction, and another gap between abstraction and language expression. Those subtle friction points are not fully reducible.\n\nSeen from that perspective, even if you write a very clear specification, there will always be something that does not reduce neatly. And perhaps the real difference between LLMs and humans lies in how they deal with that residue.\n\nMartin frames the issue in a way that suggests LLM abstractions are bad, but I do not fully agree. As someone from a third-world country in Asia, I have seen a great deal of bad abstraction written in my own language and environment. In that sense, I often feel that LLM-generated code is actually much better than the average abstractions produced by my Asian peers. At the same time, when I look at really good programming from strong Western engineers, I find myself asking again what a good abstraction actually is.\n\nThe essay talks about TDD and other methodologies, but personally I think TDD can become one of the worst methodologies when the abstraction itself is broken. If the abstraction is wrong, do the tests really mean anything? I have seen plenty of cases where people kept chasing green tests while gradually destroying the architecture. I have seen this especially in systems involving databases.\n\nThe biggest problem with methodology is that it always tends to become dogma, as if it were something that must be obeyed. SOLID principles, for example, do not always need to be followed, but in some organizations they become almost religious doctrine. In UI component design, enforcing LSP too rigidly can actually damage the diversity and flexibility of the UI. In the end, perhaps what we call intent is really the ability to remain flexible in context and search for the best possible solution within that context.\n\nFrom that angle, intent begins to look a lot like the reward-function-based learning of LLMs.",
+          "kids": [
+            {
+              "id": 47867225,
+              "by": "layer8",
+              "time": 1776881720,
+              "parent": 47867099,
+              "text": "You are right in that the code (or the formal model) alone isn’t sufficient, in that it doesn’t specify the context, requirements, design goals and design constraints. The formal and the informal level complement each other. But that’s also why it’s necessary to think at both levels when developing software. Withdrawing to just the informal level and letting LLMs handle the mapping to the formal level autonomously doesn’t work.\n\nThat being said, even model-based design (MBD) has largely been a failure, despite it being about mapping formal models to (formal-language) program code.",
+              "kids": []
+            },
+            {
+              "id": 47869799,
+              "by": "bluGill",
+              "time": 1776894971,
+              "parent": 47867099,
+              "text": "architecture is about the choices you will regret in this future if you get wrong today. You will regret not having testable code so tdd isn't bad - but that is not the whole storyand there are many things you will regret that tdd won't help with.\n\nthere is the famious bowling game tdd example where their result doesn't have a frame object and they argue they proved you don't need one. That is wrong though, the example took just a couple hours - there is nothing so bad in a a two hour program you will regret. If you were doing a real bowling system with pin setters, support for 50 lanes and a bunch of other things that I who don't work in that area don't even know about - you will find places to regret things.",
+              "kids": [
+                {
+                  "id": 47872555,
+                  "by": "jdw64",
+                  "time": 1776922513,
+                  "parent": 47869799,
+                  "text": "I don't deny that TDD is generally useful. I like it as well.\n\nWhat I meant is that, like any powerful tool, there are situations where it shouldn't be used.\n\nThanks for the thoughtful comment.",
+                  "kids": []
+                },
+                {
+                  "id": 47872361,
+                  "by": "skydhash",
+                  "time": 1776919934,
+                  "parent": 47869799,
+                  "text": "in Tidy Code, Kent Beck explains that the main tradeoff os what we can get now vs what will be able to do later. A hacky decision can keep the company afloat, but can reduce the velocity to a snail pace in the future.\n\nIt’s easier to keep the balance by keeping everything simple and maintaining a good hygiene in your codebase.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47866888,
+          "by": "achierius",
+          "time": 1776880190,
+          "parent": 47866462,
+          "text": "> Assembly to Python creates a lot of Intent & Cognitive debt by his definition, because you didn't think through how to manipulate the bits on the hardware, you just allowed the interpereter to do it\n\nI agree! You often see this realized when projects slowly migrate to using more and more ctypes code to try and back out of that pit.\n\nIn a previous job, a project was spun up using Python because it was easier and the performance requirements weren't understood at that time. A year or two later it had become a bottleneck for tapeout, and when it was rewritten most of the abstract architecture was thrown out with it, since it was all Pythonic in a way that required a different approach in C++",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47870810,
+      "by": "meander_water",
+      "time": 1776902551,
+      "parent": 47865661,
+      "text": "Unfortunately large parts of the paper that he linked to from the Wharton school is entirely AI generated, and yet to be peer reviewed.\n\nI realize that most researchers use  AI to assist with writing, but when the topic of your paper is \"cognitive surrender\", I struggle to take any content in there seriously.",
+      "kids": [
+        {
+          "id": 47871696,
+          "by": "zeafoamrun",
+          "time": 1776911548,
+          "parent": 47870810,
+          "text": "Good thing I didn't read it but used an LLM to summarize it for me!",
+          "kids": [
+            {
+              "id": 47871849,
+              "by": "jeremyjh",
+              "time": 1776913322,
+              "parent": 47871696,
+              "text": "I didn't even read a summary, I just used an LLM to write inane comments on hacker news for me.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871070,
+          "by": "ai_slop_hater",
+          "time": 1776905021,
+          "parent": 47870810,
+          "text": "> I realize that most researchers use AI to assist with writing\n\nThis is disgusting",
+          "kids": [
+            {
+              "id": 47871204,
+              "by": "stingraycharles",
+              "time": 1776906250,
+              "parent": 47871070,
+              "text": "Unfortunately this is the new reality, it’s everywhere.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47867764,
+      "by": "ryanisnan",
+      "time": 1776884278,
+      "parent": 47865661,
+      "text": "I think Martin isn't wrong here, but I've first hand seen AI produce \"lazy\" code, where the answer was actually more code.\n\nA concrete example, I had a set of python models that defined a database schema for a given set of logical concepts.\n\nI added a new logical concept to the system, very analogous to the existing logical set. Claude decided that it should just re-use the existing model set, which worked in theory, but caused the consumers to have to do all sorts of gymnastics to do type inference at runtime. It \"worked\", but it was definitely the wrong layer of abstraction.",
+      "kids": [
+        {
+          "id": 47868166,
+          "by": "michaelrpeskin",
+          "time": 1776886214,
+          "parent": 47867764,
+          "text": "Is more code really bad?  For humans, yes we want thing abstracted, but sometimes it may make more sense to actually repeat yourself.  If a machine is writing and maintaining the code, do we need that extra layer now?\n\nIn the olden days we used Duff's devices and manually unrolled loops with duplicated code that we wrote ourselves.\n\nNow, the compiler is \"smart\" enough to understand your intent and actually generates repeated assembly code that is duplicated.  You don't care that it's duplicated because the compiler is doing it for you.\n\nI've had some projects recently where I was using an LLM where I needed a few snippets of non-trivial computational geometry.  In the old days, I'd have to go search for a library and get permission from compliance to import the library and then I'd have to convert my domain representations of stuff into the formats that library needed.  All of that would have been cheaper than me writing the code myself, but it was non-trivial.\n\nNow the LLM can write for me only the stuff I need (no extra big library to import) and it will use the data in the format I stored it in (no needing to translate data structures).  The canon says the \"right\" way to do it would be to have a geometry library to prevent repeated code, but here I have a self contained function that \"just works\".",
+          "kids": [
+            {
+              "id": 47869864,
+              "by": "jazzypants",
+              "time": 1776895288,
+              "parent": 47868166,
+              "text": "This kind of thinking only works as long as the machine can actually fix its own errors.\n\nI've had several bugs that required manual intervention (yes, even with $YOUR_FAVORITE_MODEL -- I've tried them all at this point). After the first few sessions of deleting countless lines of pointless cruft, I quickly learned the benefits of preemptively trimming down the code by hand.",
+              "kids": []
+            },
+            {
+              "id": 47870279,
+              "by": "yw3410",
+              "time": 1776897972,
+              "parent": 47868166,
+              "text": "But someone needs to review and maintain the computational geometry code; or edit it to use a novel algorithm/optimize it.\n\nAnd even if they didn't every line of extra code without sufficient abstraction adds cognitive overload.",
+              "kids": []
+            },
+            {
+              "id": 47868610,
+              "by": "zingar",
+              "time": 1776888431,
+              "parent": 47868166,
+              "text": "We have confidence in the extra code a compiler generates because it’s deterministic. We don’t have that in LLMs, neither those that wrote nor read the code.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870637,
+      "by": "konovalov-nk",
+      "time": 1776901038,
+      "parent": 47865661,
+      "text": "This is my current visualization of the problem: https://excalidraw.com/#json=y1fSSx2z8-0nFs7CDnqhp,d9Di8JdGU...\n\nI think the \"cognitive bottlenecks\" in software engineering live between artifacts, where code is simply one of them.\n\noutcome → requirements → spec → acceptance criteria → executable proof → review\n\nI'm making experimental tooling that automates the boring parts around those transitions, while keeping humans focused on validating that intent survived each step.",
+      "kids": [
+        {
+          "id": 47871490,
+          "by": "Grp1",
+          "time": 1776909161,
+          "parent": 47870637,
+          "text": "I like the \"between artifacts\" framing. One layer I'd add is proxies/metrics. In a lot of analytics-heavy systems, the real loss isn't spec -> code, it's question -> proxy. Once the proxy gets baked into acceptance criteria, dashboards, or evals, people optimize that and gradually forget it was only a proxy.",
+          "kids": [
+            {
+              "id": 47871707,
+              "by": "konovalov-nk",
+              "time": 1776911593,
+              "parent": 47871490,
+              "text": "You're absolutely right! (c)\n\nI'm kidding. But yes, I explicitly didn't model it yet. The bigger vision is there's a reason for Spec to exist, right?\n\nAnd that would be Outcome.\n\n> \"We observed that users share 100+ characters long links too often and they are frustrated when it doesn't work / crop / browser address bar limitations\"\n\nSo the outcome is: \"Users no longer have to worry about long URLs\". And then you have idea, a spec: \"what if we let them create and use short URLs for sharing?\" -> URL shortener app.\n\nAnd yes, this ERD is easily expandable. I'd rather not add more fields but keep the \"core\" schema short and nice.\n\nThings like outcome, observations, analytics, they can be simply extra tables linking to Spec, ACs, etc. Jira tickets, Datadog dashboards, Tableau analytics, whatever makes sense to teams. And it doesn't require you to setup a postgres instance. MVP would run on sqlite3.\n\nI also seen a lot of effort trying to link different systems together specifically for simpler context access for agents. \"RAG enterprise intelligent search\" it is.\n\nWhat's concerning to me is that even Sourcegraph haven't thought about what I'm thinking since 2015: linking specs to code directly, via SCIP. I should be able to press a button \"find specs\", in addition to \"find references\" and \"find implementations\". And I strongly believe they are sitting on a gold mine right now.\n\nFrom my experience, it all comes down to code, and so code was the first-class artifact for a long time. Up until I realized that code is only a lossy representation of the spec artifacts. And if nobody ever records spec as an artifact...\n\nWhat I'm saying is that the pain is real, I've been here for a long enough time. And I should be able to at least use something like this even if the industry doesn't want to.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871280,
+          "by": "chrisweekly",
+          "time": 1776906839,
+          "parent": 47870637,
+          "text": "cool dataviz but it's editable! trying to pan and zoom and scoll on my phone led to moving elements around on the canvas",
+          "kids": [
+            {
+              "id": 47871558,
+              "by": "konovalov-nk",
+              "time": 1776909939,
+              "parent": 47871280,
+              "text": "My bad. Well, it's Excalidraw, and you can download png / svg from it.\n\nHere's image you can open on the phone https://pbs.twimg.com/media/HGjHvSsWIAAkhHL?format=jpg&name=...\n\nI also did a post explaining reasoning behind this diagram: https://x.com/br11k_dev/status/2047105958451507268\n\nBut I'll make a proper post on HN once I have all ingredients ready!\n\n- Minimal CLI tooling\n\n- Jupyter Lab you can go through step by step, on example greenfield project (URL shortener app)\n\n- Blog post on what I've been doing for last 2 months",
+              "kids": []
+            },
+            {
+              "id": 47872363,
+              "by": "therealdrag0",
+              "time": 1776919949,
+              "parent": 47871280,
+              "text": "Activate the “Hand” tool to avoid that.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47869579,
+      "by": "backprop1989",
+      "time": 1776893731,
+      "parent": 47865661,
+      "text": "> The problem is that LLMs inherently lack the virtue of laziness.\n\nI assure you, they do not.",
+      "kids": [
+        {
+          "id": 47870263,
+          "by": "xdennis",
+          "time": 1776897851,
+          "parent": 47869579,
+          "text": "I completely agree. This is one of the most annoying things about LLMs. I always see them fixing linter errors by adding ignore comments, typing many things as \"Any\", duplicating test fixtures instead of extracting them, sometimes deleting tests they don't like, etc.\n\nMy most recent Claude Code fix consisted of one line: calling `third_party_lib._connect()`. It reaches into the internals of an external library. The fix worked, but it is improper to depend on the specific implementation. The correct fix was about 20 lines.\n\n(Tangentially, this is why I think LLMs are more useful for senior developers because junior developers tend to not have a sense for what's good quality and accept whatever works.)",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47866935,
+      "by": "brodouevencode",
+      "time": 1776880376,
+      "parent": 47865661,
+      "text": "> ...to develop the powerful abstractions that then allow us to do much more, much more easily. Of course, the implicit wink here is that it takes a lot of work to be lazy\n\nThis lines up with YAGNI, but most people believe the opposite, often using YAGNI to justify NOT building the necessary abstractions.",
+      "kids": [
+        {
+          "id": 47867051,
+          "by": "coldtea",
+          "time": 1776880898,
+          "parent": 47866935,
+          "text": "The counter-argument is that people build abstractions they deem necessary but aren't, and then they're married to that premature architecture quite often. That's what YAGNI is there to advise against.\n\nI don't think what Fowler says here is in favor of saddling the early versions of your system with abstractions before you actually seen its use in practice, and its needs over time as requirements and conditions change.\n\nFrom this \"Laziness drives us to make the system as simple as possible (but no simpler!) — to develop the powerful abstractions that then allow us to do much more, much more easily.\" it's clear that when he talks of abstractions he means of very basic, and as simple as possible, building blocks. Like having core, orthogonal, principles in the system.\n\nNot the kind of piling of software and pattern design abstractions e.g. the Java land in the past used to build.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47866719,
+      "by": "PaulHoule",
+      "time": 1776879412,
+      "parent": 47865661,
+      "text": "Hits the spot for me.  I am always pushing back on AI to simplify and improve concision.",
+      "kids": [
+        {
+          "id": 47871255,
+          "by": "curio_Pol_curio",
+          "time": 1776906646,
+          "parent": 47866719,
+          "text": "How does it --if it does-- relate to your idea of \"affordability porn\" :)\n\nThat line (between your other values?) was uproarious; I apologise for not u*voting it, partially because I couldn't vocalise my peculiar fetish att (+ \"gnarliness-pornstar\" doesn't sound nearly as enticing as \"AI-affordability-pornstar\" X)",
+          "kids": []
+        },
+        {
+          "id": 47866981,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47870909,
+      "by": "__mharrison__",
+      "time": 1776903363,
+      "parent": 47865661,
+      "text": "Where's the other half of the article? What an abrupt ending...",
+      "kids": [
+        {
+          "id": 47871720,
+          "by": "crabmusket",
+          "time": 1776911725,
+          "parent": 47870909,
+          "text": "This isn't one article, it's a \"fragments\" post with five separate small thoughts. They happen to all be about LLMs so I can see why it would read as a single article, but it's not.",
+          "kids": [
+            {
+              "id": 47872423,
+              "by": "oaiey",
+              "time": 1776920926,
+              "parent": 47871720,
+              "text": "There is a paper linked which is describing the whole thing!",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870581,
+      "by": "kippinsula",
+      "time": 1776900624,
+      "parent": 47865661,
+      "text": "the framing as \"debt\" is fair but in our case the bigger pain isn't lazy code, it's overzealous code. claude will happily refactor three unrelated files because it spotted a \"pattern\". we've ended up with a CLAUDE.md that's basically a list of \"do not touch unless asked\". probably says more about us than the model but yeah.",
+      "kids": []
+    },
+    {
+      "id": 47870806,
+      "by": "takihito",
+      "time": 1776902511,
+      "parent": 47865661,
+      "text": "I heard that LLMs imitate humans. Let's add laziness, impatience, and arrogance—the virtues of programmers—to AGENTS.md and improve it.",
+      "kids": []
+    },
+    {
+      "id": 47871602,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47870490,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47870707,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47868778,
+      "by": "mfiguiere",
+      "time": 1776889269,
+      "parent": 47865661,
+      "text": "Wrong link. Technical, Cognitive and Intent Debt was discussed here: https://martinfowler.com/fragments/2026-04-02.html",
+      "kids": [
+        {
+          "id": 47869997,
+          "by": "tomhow",
+          "time": 1776896090,
+          "parent": 47868778,
+          "text": "Thanks! we updated the link.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47871343,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}

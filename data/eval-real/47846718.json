@@ -1,0 +1,65 @@
+{
+  "pair": {
+    "story_type": "research",
+    "hn_id": 47846718,
+    "title": "A True Life Hack: What Physical 'Life Force' Turns Biology's Wheels?",
+    "points": 51,
+    "descendants": 5,
+    "article_url": "https://www.quantamagazine.org/what-physical-life-force-turns-biologys-wheels-20260420/",
+    "hn_url": "https://news.ycombinator.com/item?id=47846718",
+    "self_post": false
+  },
+  "story": {
+    "id": 47846718,
+    "title": "A True Life Hack: What Physical 'Life Force' Turns Biology's Wheels?",
+    "url": "https://www.quantamagazine.org/what-physical-life-force-turns-biologys-wheels-20260420/",
+    "by": "Prof_Sigmund",
+    "score": 51,
+    "time": 1776765349,
+    "descendants": 5,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47872462,
+      "by": "Almured",
+      "time": 1776921437,
+      "parent": 47846718,
+      "text": "What I find fascinating is the extreme efficiency of what is effectively an electric motor, reaching nearly 100% efficiency. At human scale we struggle with heat dissipation and friction",
+      "kids": [
+        {
+          "id": 47873013,
+          "by": "ssivark",
+          "time": 1776928917,
+          "parent": 47872462,
+          "text": "But at the same time the motor is extremely finicky/fragile in the source of energy (negentropy) it will accept, while natural life is extremely hardy and adaptable.\n\nI wonder how much of machine-like \"efficiency\" is actually \"overfitting\" at the cost of robustness.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872734,
+      "by": "pazimzadeh",
+      "time": 1776925299,
+      "parent": 47846718,
+      "text": "at the scale that it operates, the flagella is more a drill than a propeller\n\nthere's a good richard feynam video about how things feel when they're that small https://www.youtube.com/watch?v=4eRCygdW--c",
+      "kids": []
+    },
+    {
+      "id": 47872782,
+      "by": "abhikul0",
+      "time": 1776925944,
+      "parent": 47846718,
+      "text": "Relevant Smarter Every Day video: https://www.youtube.com/watch?v=VPSm9gJkPxU",
+      "kids": []
+    },
+    {
+      "id": 47872779,
+      "by": "zimpenfish",
+      "time": 1776925904,
+      "parent": 47846718,
+      "text": "For some context, a billion years at a 20 minute breeding cycle is 26.3 trillion generations.",
+      "kids": []
+    }
+  ]
+}

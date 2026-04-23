@@ -1,0 +1,124 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47871817,
+    "title": "Borrow-checking without type-checking",
+    "points": 50,
+    "descendants": 10,
+    "article_url": "https://www.scattered-thoughts.net/writing/borrow-checking-without-type-checking/",
+    "hn_url": "https://news.ycombinator.com/item?id=47871817",
+    "self_post": false
+  },
+  "story": {
+    "id": 47871817,
+    "title": "Borrow-checking without type-checking",
+    "url": "https://www.scattered-thoughts.net/writing/borrow-checking-without-type-checking/",
+    "by": "jamii",
+    "score": 50,
+    "time": 1776912917,
+    "descendants": 11,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47872489,
+      "by": "Panzerschrek",
+      "time": 1776921684,
+      "parent": 47871817,
+      "text": "In my programming language I have some sort of \"borrowing\" too (although it's named differently). But my language has no dynamic typing, only static typing is used and thus all checks are compile-time and have no runtime cost. Why bothering with dynamic typing and paying runtime costs for it?",
+      "kids": [
+        {
+          "id": 47872498,
+          "by": "jamii",
+          "time": 1776921781,
+          "parent": 47872489,
+          "text": "> The goal is that most of your code can have the assurances of static typing, but you can still opt in to dynamically-typed glue code to handle repls, live code reloading, runtime code generation, malleable software etc.",
+          "kids": []
+        },
+        {
+          "id": 47872643,
+          "by": "Pay08",
+          "time": 1776923874,
+          "parent": 47872489,
+          "text": "Dynamic typing is neat, I actually prefer it to static typing. Most people who think they have a problem with dynamic typing actually have a problem with weak typing.",
+          "kids": [
+            {
+              "id": 47872653,
+              "by": "choeger",
+              "time": 1776924011,
+              "parent": 47872643,
+              "text": "Dynamic typing is no typing.\n\nThe point of types is to prove the absence of errors. Dynamic typing just has these errors well-structured and early, but they're still errors.",
+              "kids": [
+                {
+                  "id": 47872927,
+                  "by": "Pay08",
+                  "time": 1776927907,
+                  "parent": 47872653,
+                  "text": "Errors that you can recover from. I simply appreciate the added flexibility. Have you ever tried making a container of arbitrary types in C++?",
+                  "kids": [
+                    {
+                      "id": 47873030,
+                      "by": "lmm",
+                      "time": 1776929081,
+                      "parent": 47872927,
+                      "text": "If C++ was the only static type system I'd experienced, I would also think it was a bad idea. Have you ever used an ML-family language?",
+                      "kids": [
+                        {
+                          "id": 47873099,
+                          "by": "Pay08",
+                          "time": 1776929678,
+                          "parent": 47873030,
+                          "text": "Nope. Closest thing I have used was probably Haskell.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47872656,
+              "by": "teaearlgraycold",
+              "time": 1776924054,
+              "parent": 47872643,
+              "text": "Yes to dynamic typing. Yes to static analysis.",
+              "kids": [
+                {
+                  "id": 47872919,
+                  "by": "Pay08",
+                  "time": 1776927836,
+                  "parent": 47872656,
+                  "text": "What?",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47872658,
+              "by": "antonvs",
+              "time": 1776924062,
+              "parent": 47872643,
+              "text": "Technically, in a type theory context, there’s no such thing as “dynamic typing”. Types are a static, syntactic property of programs.\n\nThe correct term for languages that don’t have syntactic types is “untyped”.\n\n> Most people who think they have a problem with dynamic typing actually have a problem with weak typing.\n\nAll people who say things like this have never studied computer science.",
+              "kids": [
+                {
+                  "id": 47872889,
+                  "by": "_flux",
+                  "time": 1776927435,
+                  "parent": 47872658,
+                  "text": "The term unityped is used as well, and at typing level this also makes sense: you have one type called object, you put that object alongside the value object (\"tag\"), and then at runtime all operations on that object check if its type object provides the operation the code is trying to apply on it (or maybe each value object directly knows the operations it supports). I think I prefer this term.\n\n\"syntactic type\" is a weird term to me, though. Is that in common use?",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47873064,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}

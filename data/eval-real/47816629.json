@@ -1,0 +1,491 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47816629,
+    "title": "Show HN: MDV – a Markdown superset for docs, dashboards, and slides with data",
+    "points": 151,
+    "descendants": 53,
+    "article_url": "https://github.com/drasimwagan/mdv",
+    "hn_url": "https://news.ycombinator.com/item?id=47816629",
+    "self_post": false
+  },
+  "story": {
+    "id": 47816629,
+    "title": "Show HN: MDV – a Markdown superset for docs, dashboards, and slides with data",
+    "url": "https://github.com/drasimwagan/mdv",
+    "by": "drasim",
+    "score": 151,
+    "time": 1776525879,
+    "descendants": 53,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47817390,
+      "by": "kevinkoning",
+      "time": 1776531336,
+      "parent": 47816629,
+      "text": "Markdown is a beautiful demonstration that document structure syntax can/should be simple. What most people do in Word is better done by just adjusting the document rendering/style, not the document structure...\n\nI love the idea of extending markdown to include more visual elements, but if you're not careful you just reinvent HTML.\n\nHere's my personal take on extending table syntax for charts. Easy to write, and if a renderer/parser understands the syntax you get a beautiful chart, and if it doesn't you get a table with slightly weird headings:\n\n  | Month::x | Revenue::y1 | Cost::y2 |\n  | -------- | ----------: | -------: |\n  | Jan      | $82,000     | $51,000 |\n  | Feb      | $91,000     | $56,000 |\n  | Mar      | $95,000     | $58,000 |",
+      "kids": [
+        {
+          "id": 47818357,
+          "by": "rao-v",
+          "time": 1776537782,
+          "parent": 47817390,
+          "text": "Tables are the one thing in markdown where I’d prefer to emphasize edit ergonomics over good looking unrendered text. Making a quick manual change like adding column to a markdown table is just unfun. I’ve always thought a json like format that a linter can organize would be better.\n\nWhich is all to say I really like the table proposal here - adding an optional linter to make the data look tabular in unrendered markdown will make it even better",
+          "kids": [
+            {
+              "id": 47822149,
+              "deleted": true,
+              "kids": []
+            },
+            {
+              "id": 47818962,
+              "by": "freedomben",
+              "time": 1776541889,
+              "parent": 47818357,
+              "text": "> Making a quick manual change like adding column to a markdown table is just unfun.\n\nThis is one of those moments where I realize that the vim life spoils me.  It's so easy to do this in vim that I don't even think about.  I probably use it a dozen times per day such as commenting out code.\n\nCtrl + v, select where you want the character, then hit I (shift + i), type your thing, hit escape, and Bob's your uncle.",
+              "kids": [
+                {
+                  "id": 47819177,
+                  "by": "jez",
+                  "time": 1776543390,
+                  "parent": 47818962,
+                  "text": "Even in Vim, the editing experience falls over when making markdown tables that have non-trivial content in their cells (multiple paragraphs, a code block, etc.). I recently learned that reStructuredText supports something called \"list tables\":\n\nhttps://docutils.sourceforge.io/docs/ref/rst/directives.html...\n\nWhere a table is specified as a depth-2 list and then post processed into a table. Lists support the full range of block elements already: you can have multiple paragraphs, code blocks, more lists, etc. inside a list item.\n\nThis syntax inspired the author of Markdoc[1] (who came from an rST background) to support tables using `<hr>`-separated lists[2] instead of nested lists (to provide more visual separation between rows).\n\nI have found various implementations of list table filters for Pandoc markdown[3][4], but have never gotten around to using any of them (and I've tossed around ideas of implementing my own).\n\n[1] https://markdoc.dev\n\n[2] https://markdoc.dev/docs/tags#table\n\n[3] https://github.com/pandoc-ext/list-table\n\n[4] https://github.com/bpj/pandoc-list-table",
+                  "kids": [
+                    {
+                      "id": 47819472,
+                      "by": "toastal",
+                      "time": 1776545877,
+                      "parent": 47819177,
+                      "text": "reStructuredText & AsciiDoc are so, so much better than Markdown since they have rich feature sets to actually build documentation, blogging, & so on. It’s a massive shame everyone would prefer _yet another Markdown fork_ like the OP.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47819106,
+                  "by": "nine_k",
+                  "time": 1776542801,
+                  "parent": 47818962,
+                  "text": "Same in Emacs, and, I suppose, in any editor with enough self-respect to support vertical blocks.",
+                  "kids": []
+                },
+                {
+                  "id": 47821202,
+                  "by": "thunderbong",
+                  "time": 1776563954,
+                  "parent": 47818962,
+                  "text": "That's basically any editor with multi-cursor capability.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47819259,
+              "by": "cush",
+              "time": 1776544038,
+              "parent": 47818357,
+              "text": "Any editor plugin makes it easy though",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47822381,
+          "by": "franga2000",
+          "time": 1776582691,
+          "parent": 47817390,
+          "text": "Not to defend Word et. al. too much, they have plenty of problems, but keeping the structure simple and applying a style over it is a completely supported way of doing things.\n\nI have documents with essentialy zero direct styling, just paragraph styles (for headings, bullets, code blocks, quotes) and character styles (links, inline code). The UI isn't super well optimized for that, but once you get used to it, it's so much nicer than Markdown or LaTeX for multi-page print work.",
+          "kids": []
+        },
+        {
+          "id": 47817517,
+          "by": "esafak",
+          "time": 1776531943,
+          "parent": 47817390,
+          "text": "What's the : in the divider?",
+          "kids": [
+            {
+              "id": 47817759,
+              "by": "microflash",
+              "time": 1776533578,
+              "parent": 47817517,
+              "text": "That's header alignment marker. If it's on right, the header cell is aligned to right.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47818002,
+      "by": "nzoschke",
+      "time": 1776535231,
+      "parent": 47816629,
+      "text": "Looks cool.\n\nI continue to love Markdown and always push it a bit further than Commonmark, with frontmatter, schemas, code fence metadata too.\n\nI've been enjoying https://djot.net/ as a superset of Markdown that is feels very well designed and extensible too.\n\nYou may look into its syntax and tooling for prior art or some extra lift.\n\nI'm trying to get a djot extension in Zed for syntax highlighting if anyone minds adding a  to help signal some community interest.\n\nhttps://github.com/zed-industries/extensions/pull/5206",
+      "kids": []
+    },
+    {
+      "id": 47817913,
+      "by": "amcaskill",
+      "time": 1776534638,
+      "parent": 47816629,
+      "text": "I work on a dashboarding / BI solution that is also built around markdown and clickhouse. www.evidence.dev\n\nWe moved to stripe's Markdoc variant for the component syntax last year and have been really happy with it. Models are good at writing it, people are good at reviewing it.\n\nHere's an area chart that would issue a SQL query for weekly revenue totals:\n\n```\n{% area_chart \n   data=\"my_table\"\n   x=\"date\"\n   y=\"sum(revenue)\" \n   date_grain=\"week\"\n/%}\n```",
+      "kids": [
+        {
+          "id": 47819493,
+          "by": "tnolet",
+          "time": 1776546084,
+          "parent": 47817913,
+          "text": "This is XML without the < and >",
+          "kids": [
+            {
+              "id": 47819817,
+              "by": "Diti",
+              "time": 1776549021,
+              "parent": 47819493,
+              "text": "Yeah, why not go directly the route of custom HTML elements in Markdown anyway, since HTML inside Markdown is valid?",
+              "kids": [
+                {
+                  "id": 47820979,
+                  "by": "mbreese",
+                  "time": 1776560975,
+                  "parent": 47819817,
+                  "text": "My guess is parsability. It’s easier to look for sentinel ``` blocks as opposed to building an HTML processor. An XML processor would have been easier, but people like Markdown. So, here we are.\n\nAt least, that would’ve my rationale.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47819540,
+      "by": "FailMore",
+      "time": 1776546553,
+      "parent": 47816629,
+      "text": "This is cool. Can you tell me more about the :: blocks thing. I didn’t know that was a Markdown element.\n\nThis problem has risen to the top of many people’s minds at this moment (including mine!). My Show HN for a similar cli + web based solution (https://sdocs.dev) is on the /show page now (https://news.ycombinator.com/item?id=47777633).\n\nI also went with Front Matter for styling and added an interactive styling mode you can do on the web to test it out immediately. There are some examples on my homepage which demonstrate it in action.\n\nSDocs is cli -> instantly rendered on web\n\nDespite being in the browser, the content of SDocs rendered Markdown files remain local to you. SDoc urls contain your markdown document's content in compressed base64 in the url fragment (the bit after the `#`):\nhttps://sdocs.dev/#md=GzcFAMT...(this is the contents of your document)...\nThe url fragment is never sent to the server (see https://developer.mozilla.org/en-US/docs/Web/URI/Reference/F...: \"The fragment is not sent to the server when the URI is requested; it is processed by the client\").\n\nThe sdocs.dev webapp is purely a client side decoding and rendering engine for the content stored in the url fragment.\n\nThis also means you can share your .md files privately by sharing the url.\n\nAlso, I’m sorry I high jacked your post to some degree with this comment. \nIt’s just a little too relevant for me not to leave a comment!",
+      "kids": [
+        {
+          "id": 47821567,
+          "by": "meagher",
+          "time": 1776569180,
+          "parent": 47819540,
+          "text": "> Can you tell me more about the :: blocks thing. I didn’t know that was a Markdown element.\n\nThey are Markdown directives",
+          "kids": [
+            {
+              "id": 47822860,
+              "by": "FailMore",
+              "time": 1776589021,
+              "parent": 47821567,
+              "text": "Tyvm",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47824439,
+      "by": "ricardobeat",
+      "time": 1776607818,
+      "parent": 47816629,
+      "text": "I'm starting to wonder if someone is selling 'open source CV booster' packages to executives looking to jump ship. This is obviously vibe-coded with Claude, has a broken link to `/superpowers` which indicates no human has read the README before publishing.\n\nThe profile seems to be a real person, CEO/CTO level of a small/medium company, but with zero history of OSS contributions, publishing anything or social media presence. It's the third project of this kind to show up in HN this week.",
+      "kids": [
+        {
+          "id": 47825220,
+          "by": "drasim",
+          "time": 1776614119,
+          "parent": 47824439,
+          "text": "Broken /superpowers link was a real miss — I removed that directory because it had private context and didn't audit the README for references. Fixed now. CLAUDE.md is public in the repo if you want to see how it was built. Not trying to sell anyone anything; it's an experiment I put out to see if it's useful.",
+          "kids": [
+            {
+              "id": 47825923,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47817918,
+      "by": "remywang",
+      "time": 1776534683,
+      "parent": 47816629,
+      "text": "All of these are supported in pandoc markdown:\n\n> .mdv is strict CommonMark plus four additions:\n\n> YAML front-matter for title, theme, named styles, and dataset references.\n\n> Fenced blocks for data/visuals: ```chart type=bar x=region y=sales.\n\n> ::: containers for styled regions and layout: ::: callout / ::: columns.\n\n> ::: toc for an auto-generated table of contents.",
+      "kids": [
+        {
+          "id": 47823647,
+          "by": "jonmoore",
+          "time": 1776599541,
+          "parent": 47817918,
+          "text": "Indeed.  This is just a vibe-coded addition to an already overcrowded space, with no indication of any intent to consult others or support it for real use.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47818907,
+      "by": "sieste",
+      "time": 1776541435,
+      "parent": 47816629,
+      "text": "I was expecting to find a link to a github pages site where I can see the rendered examples, but only found a link to the html sources in examples/out. Am I missing something?",
+      "kids": [
+        {
+          "id": 47819354,
+          "by": "bthallplz",
+          "time": 1776544837,
+          "parent": 47818907,
+          "text": "I was curious to see them, too, so I uploaded the HTML examples here: https://tacticaltypos-tools.pgs.sh/mdv/examples/out/",
+          "kids": [
+            {
+              "id": 47819683,
+              "by": "trueno",
+              "time": 1776547853,
+              "parent": 47819354,
+              "text": "jesus thank you, im so wary of any project that isn't going to do this bare minimum. static pages on gh are literally free it feels absurd to post this project to HN without doing that.",
+              "kids": [
+                {
+                  "id": 47826229,
+                  "by": "drasim",
+                  "time": 1776621699,
+                  "parent": 47819683,
+                  "text": "Adding it to todo list.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47819961,
+          "by": "FailMore",
+          "time": 1776550315,
+          "parent": 47818907,
+          "text": "I feel your pain. My project is https://sdocs.dev, the homepage is actually the rendering of a markdown file (sdoc.md), so you can see how SDocs renders immediately. There are some links on the homepage to other Markdown files with some elaborate styles and charts",
+          "kids": []
+        },
+        {
+          "id": 47819061,
+          "by": "garyfirestorm",
+          "time": 1776542497,
+          "parent": 47818907,
+          "text": "nope this is becoming a theme. many showhn posts that are about visualizations do not have any renderings of said visualizations. especially in github readme.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47820851,
+      "by": "chelm",
+      "time": 1776559526,
+      "parent": 47816629,
+      "text": "Funny to see this approach trending! I published this a month ago.\n\nhttps://wire.wise-relations.com/guides/components/\n\nmy takeaway:\n\n- add lint or errors, otherwise your formatting will break, e.g. LLMs and humans will add text too long or too short and your design system will not be able to handle this.\n\n- it's great for low token input\n\n- validate the layout of the user vs. the components used.\n\n- seen here before: https://myst-parser.readthedocs.io/en/latest/syntax/optional...",
+      "kids": [
+        {
+          "id": 47821018,
+          "by": "drasim",
+          "time": 1776561430,
+          "parent": 47820851,
+          "text": "You have gone the full latex route. very interesting project. my purpose was simple, to keep mdv extremely simple nothing complex. I do not want full html/latex replication and for surely no inline code...",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47822681,
+      "by": "ivan_gammel",
+      "time": 1776586905,
+      "parent": 47816629,
+      "text": "The only reason to use markdown is that you can read it and write it in a text editor unaware of syntax and rendering semantics. When this purpose is lost and your UX or reading or writing a document starts depending on renderer and your knowledge of how it works, the result becomes just another rich document format, where editor abstraction is a must. And then why all this is even needed? ODF does the job well.",
+      "kids": []
+    },
+    {
+      "id": 47839525,
+      "by": "aitchnyu",
+      "time": 1776714141,
+      "parent": 47816629,
+      "text": "With modern editors `<h2>foo<h2>` is one keystroke more than `## foo`. Might as well tap into the React ecosystem (I love Vue BTW) and get module-organization and DRY, live preview, syntax highlighting, autocomplete, linting, AI expertise etc.\n\nThere are tools to edit PPTs and movies with React.\n\nhttps://wyozi.github.io/react-pptx/\nhttps://www.remotion.dev/",
+      "kids": []
+    },
+    {
+      "id": 47817724,
+      "by": "phyzix5761",
+      "time": 1776533363,
+      "parent": 47816629,
+      "text": "Nice project. But at what point does Markdown just become Emacs Org-Mode? At least with Emacs you can write Lisp to make your document do anything you want.",
+      "kids": [
+        {
+          "id": 47818237,
+          "by": "arikrahman",
+          "time": 1776536862,
+          "parent": 47817724,
+          "text": "I'm struggling to figure out why I wouldn't just use Emacs Org or even Typst for this use case.",
+          "kids": [
+            {
+              "id": 47819743,
+              "by": "maleldil",
+              "time": 1776548361,
+              "parent": 47818237,
+              "text": "Typst is amazing, but if you want HTML output, it's not quite there yet.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47817878,
+          "by": "AlecSchueler",
+          "time": 1776534365,
+          "parent": 47817724,
+          "text": "Deepening on who your users are you might also say \"at least with markdown they write Lisp and make their documents do whatever they like.\"",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47818153,
+      "by": "ifh-hn",
+      "time": 1776536254,
+      "parent": 47816629,
+      "text": "I'm using quarto for this sort of thing.",
+      "kids": []
+    },
+    {
+      "id": 47823345,
+      "by": "vishal_ch",
+      "time": 1776596001,
+      "parent": 47816629,
+      "text": "The table syntax extension in the top comment is interesting — it solves the readability problem without breaking unrendered markdown. The ::y1 approach degrades gracefully.\nOne thing I keep running into with these markdown supersets: the rendering gap. You write locally, push somewhere, and suddenly the :::columns block is just raw text. Marp handles this well because the VSCode plugin closes that loop immediately.\nCurious how MDV handles the renderer portability problem — is the spec open enough that editors could pick it up, or does it depend on the MDV CLI being in the chain?",
+      "kids": [
+        {
+          "id": 47833100,
+          "by": "drasim",
+          "time": 1776686760,
+          "parent": 47823345,
+          "text": "It is supposed to be compatible with markdown. Also a vscode plugin is available in marketplace.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47819506,
+      "by": "pixelmonkey",
+      "time": 1776546227,
+      "parent": 47816629,
+      "text": "This seems cool. For going from Markdown to slides I’ve often used Marp:  https://marp.app/ — It doesn’t require much specialized syntax, it mostly does the right thing to turn plain Markdown sections into slides. Simple self-hostable HTML output and PDF export options. Already has a VSCode preview plugin, too. I noticed that Claude Code is able to generate Marp slides for you if you ask it, as well.\n\nBest for slides that are just bullet points, full-slide images, and code. Especially code. Less good if you have a lot of images or need to do your own styles or layout.",
+      "kids": []
+    },
+    {
+      "id": 47822088,
+      "by": "realrocker",
+      "time": 1776577637,
+      "parent": 47816629,
+      "text": "Good ideas. I am working on something similar but with a tiered complexity to fallback to html for complex use cases : https://github.com/livetemplate/tinkerdown,  https://github.com/livetemplate/tinkerdown/blob/main/docs/gu...",
+      "kids": []
+    },
+    {
+      "id": 47818192,
+      "by": "woodydesign",
+      "time": 1776536503,
+      "parent": 47816629,
+      "text": "Very cool.\n\nI’m a product designer, and I could totally see this fitting into my workflow for design briefs, strategy, review, and crit docs. Markdown is too simple, and Figma is too visual. This feels like a great middle ground.",
+      "kids": []
+    },
+    {
+      "id": 47820499,
+      "by": "dhruv3006",
+      "time": 1776555682,
+      "parent": 47816629,
+      "text": "I like how markdown has now become a trend - would be interesting to see how this tool matures !\n\nPS : Even I built an API tool on markdown - https://voiden.md.",
+      "kids": []
+    },
+    {
+      "id": 47821879,
+      "by": "0xbadcafebee",
+      "time": 1776574133,
+      "parent": 47816629,
+      "text": "Always find it funny that software developers are stuck in the 1980's when it comes to making documents. Meanwhile normal people use programs to point and click with the new-fangled technology called \"a mouse\", and create richer documents that convey more information easier, and they do it faster. I guess when you get paid to write in code, it only makes sense to write more code.",
+      "kids": [
+        {
+          "id": 47823678,
+          "by": "phrotoma",
+          "time": 1776599877,
+          "parent": 47821879,
+          "text": "Don't let me deprive you of a laugh, god knows we could all use one. But software developers are stuck on the benefits of source control and the workflows it provides. I'll take a pull request and a code review over \"normal people\" emailing each other attachments called \"Q3 Presentation v7.final.final2.reallyfinalthistime.ppt\" any day.",
+          "kids": []
+        },
+        {
+          "id": 47823716,
+          "by": "simonkagedal",
+          "time": 1776600469,
+          "parent": 47821879,
+          "text": "I like it when the two paradigms can be combined. Where you (or a non-developer) can set up a dashboard by point-and-click, but in the end there’s a source file that can be downloaded, revision controlled, deployed to different environments.\n\nAnd in the best of worlds, that file format is simple enough to be understood in code reviews and scenarios where you want to generate them programmatically, not a huge incomprehensible json or xml.\n\nI find this to be only even more important in 2026 where you could then also let a code agent generate the dashboard (any agent, any dashboarding software – no need for bespoke agent embeddings in the dashboard UI).\n\nThe mouse clickers can click their mouses and those of us (humans and machines) who prefers working with text files can do that. A good file format should take both into account.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47819579,
+      "by": "gkfasdfasdf",
+      "time": 1776546830,
+      "parent": 47816629,
+      "text": "Looks wonderful, is there a skill or prompt that can teach agents how to use this format?",
+      "kids": [
+        {
+          "id": 47819598,
+          "by": "FailMore",
+          "time": 1776547029,
+          "parent": 47819579,
+          "text": "Maybe not a direct answer to your question, but https://sdocs.dev has a cli built for agents. ‘sdoc —help’ and ‘sdoc schema’ and ‘sdoc charts’ teach your agent how to use it. You can try it with ‘npm i -g sdocs-dev’",
+          "kids": [
+            {
+              "id": 47820632,
+              "by": "gkfasdfasdf",
+              "time": 1776556994,
+              "parent": 47819598,
+              "text": "Putting the markdown in the URL, that is very clever!",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47822358,
+      "by": "daylab",
+      "time": 1776582419,
+      "parent": 47816629,
+      "text": "there's so many of these now lol. what made you go with this over just extending mdx? also how do you handle escape when the expression body has * or # in it",
+      "kids": []
+    },
+    {
+      "id": 47822243,
+      "by": "zbyforgotp",
+      "time": 1776580557,
+      "parent": 47816629,
+      "text": "Frontmatter should now be in the markdown standard.",
+      "kids": []
+    },
+    {
+      "id": 47831503,
+      "by": "RoxiHaidi",
+      "time": 1776672108,
+      "parent": 47816629,
+      "text": "wow, I didn't know that, and I;m using markdown daily. thx!",
+      "kids": []
+    },
+    {
+      "id": 47819224,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47819496,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}

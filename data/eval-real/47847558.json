@@ -1,0 +1,970 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47847558,
+    "title": "Show HN: VidStudio, a browser based video editor that doesn't upload your files",
+    "points": 294,
+    "descendants": 105,
+    "article_url": "https://vidstudio.app/video-editor",
+    "hn_url": "https://news.ycombinator.com/item?id=47847558",
+    "self_post": false
+  },
+  "story": {
+    "id": 47847558,
+    "title": "Show HN: VidStudio, a browser based video editor that doesn't upload your files",
+    "url": "https://vidstudio.app/video-editor",
+    "by": "kolx",
+    "score": 294,
+    "time": 1776772696,
+    "descendants": 105,
+    "text": "Hi HN,\nI built VidStudio, a privacy focused video editor that runs in the browser. I tried to keep it as frictionless as possible, so there are no accounts and no uploads. Everything is persisted on your\nmachine.\n\nSome of the features: multi-track timeline, frame accurate seek, MP4 export, audio, video, image, and text tracks, and a WebGL backed canvas where available. It also works on mobile.\n\nUnder the hood, WebCodecs handles frame decode for timeline playback and scrubbing, which is what makes seeking responsive since decode runs on the hardware decoder when the browser supports it.\nFFmpeg compiled to WebAssembly handles final encode, format conversion, and anything WebCodecs does not cover. Rendering goes through Pixi.js on a WebGL canvas, with a software fallback when WebGL is\nnot available. Projects live in IndexedDB and the heavy work runs in Web Workers so the UI stays responsive during exports.\n\nHappy to answer technical questions about the tradeoffs involved in keeping the whole pipeline client-side. Any feedback welcome.\n\nLink: https://vidstudio.app/video-editor"
+  },
+  "comments": [
+    {
+      "id": 47847898,
+      "by": "elpocko",
+      "time": 1776774823,
+      "parent": 47847558,
+      "text": "> FFmpeg compiled to WebAssembly handles final encode\n\nFFmpeg's license is the LGPL 2.1. VidStudio looks like closed source software, I couldn't see any indication that it's free software. You're distributing this software to run in the client's browser. I'm not a lawyer but I think you're in breach of the terms of the LGPL.\n\nhttps://www.ffmpeg.org/legal.html",
+      "kids": [
+        {
+          "id": 47848164,
+          "by": "prhn",
+          "time": 1776776413,
+          "parent": 47847898,
+          "text": "Closed source is fine, but there are a few other things that are required of LGPL, some of which are\n\n- Provide links to the source of the version of ffmpeg you used in your code\n\n- User should be able to replace the ffmpeg libs with his own compatible builds if you're using dynamically linked libs. For statically linked libs, you need to provide the tools to re-link against a compatible build.\n\nI went through an LGPL review recently so some of this is fresh in my memory, but please correct me if I'm wrong.",
+          "kids": [
+            {
+              "id": 47848632,
+              "by": "xixixao",
+              "time": 1776778603,
+              "parent": 47848164,
+              "text": "Dynamically and statically linked libs is hilarious in the context of webassembly running in the browser.",
+              "kids": [
+                {
+                  "id": 47849466,
+                  "by": "circuit10",
+                  "time": 1776782418,
+                  "parent": 47848632,
+                  "text": "You can have multiple WASM modules communicating with each other (though you would probably need extra interop code?), or statically link them into a single module, the concepts work mostly the same",
+                  "kids": [
+                    {
+                      "id": 47852012,
+                      "by": "giancarlostoro",
+                      "time": 1776793550,
+                      "parent": 47849466,
+                      "text": "With a browser plugin I'm sure you could swap out a WASM module on the fly, if said plugin doesn't exist, maybe it should. Would make debugging in a prod URL simpler if you can just load a page with a testing WASM file.",
+                      "kids": [
+                        {
+                          "id": 47859113,
+                          "by": "jaakl",
+                          "time": 1776832958,
+                          "parent": 47852012,
+                          "text": "Is there a browser plugin enabling to swap out any parts of a website/app with own ones? With prompt/vibe-based input, so any user can customize websites in any imaginable way. Maybe it should.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47848802,
+              "by": "mghackerlady",
+              "time": 1776779370,
+              "parent": 47848164,
+              "text": "I knew about the soft copyleft (the source code requirements) but didn't know there was the requirement to have libs be replaceable. Now I want to know how useful that would be in reverse engineering closed systems (particularly nintendos, since I've always had an interest in the homebrew scene there)",
+              "kids": [
+                {
+                  "id": 47849190,
+                  "by": "noduerme",
+                  "time": 1776781099,
+                  "parent": 47848802,
+                  "text": "iirc, the video player application VLC used to come without any mpeg support, and you had to go through a process to download ffmpeg separately ...not sure how easy it made it to replace individual libs, but I'm also not sure the license requires you to make it easy.",
+                  "kids": [
+                    {
+                      "id": 47851187,
+                      "by": "maxloh",
+                      "time": 1776789587,
+                      "parent": 47849190,
+                      "text": "VLC is GPL licensed and open source. Maybe that's enough since you could compile it yourself anyway?",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47851462,
+              "by": "giancarlostoro",
+              "time": 1776790900,
+              "parent": 47848164,
+              "text": "I think you're right, also an interesting aside: LGPL software is even trickier on the iOS app store, where its out of your control to \"let the user link\" the software. I guess in that case the only real way is to somehow give them access to the linkable files or allow them to pull in your copy of an LGPL library, but for them to run it on their device, good luck...\n\nI'm slowly leaning towards eventually just adopting MPL which is kind of weaker than LGPL but more friendly for iOS, course I mostly just default to MIT license these days. I prefer to let my users use my software however they want without fear that if they someday overhaul my code and build something that works for them, that they would lose it.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47848317,
+          "by": "kolx",
+          "time": 1776777078,
+          "parent": 47847898,
+          "text": "Thank you for pointing this out, to be completely honest, I did not consider licensing because the website started as a collection of tools I built to run locally and get into video/audio codecs then I realised it is already a decent collection of tools that other people might want to use too.\nBut I will be making the needed changes to comply fully tonight. \nAt least I comply with this: \n`Do not misspell FFmpeg (two capitals F and lowercase \"mpeg\")` \nI realised I have some more reading to do regarding GPL vs LGPL because of the wasm project.",
+          "kids": [
+            {
+              "id": 47848955,
+              "by": "jmaw",
+              "time": 1776780085,
+              "parent": 47848317,
+              "text": "You should look into how other companies and tools that use FFMPEG handle this situation.\n\nI wonder if you can keep your application itself closed source, but make an open-source adapter that handles the interaction with FFMPEG.\n\nI'm not super familiar with open source licensing, and IANAL, so make sure to do your own research :)\n\nAs an example, I believe Audacity required me to install ffmpeg manually myself, and add it to my path. This is slightly different since Audacity itself is also open source. But could be helpful to reference.",
+              "kids": [
+                {
+                  "id": 47849296,
+                  "by": "noduerme",
+                  "time": 1776781503,
+                  "parent": 47848955,
+                  "text": "Yes, Audacity definitely requires that. It can't open or save mp3s unless you separately install ffmpeg.",
+                  "kids": []
+                },
+                {
+                  "id": 47849231,
+                  "by": "kolx",
+                  "time": 1776781210,
+                  "parent": 47848955,
+                  "text": "Thank you, I guess I won't be fixing any bugs tonight but at least I will figure out how to comply.\nI appreciate the help for real!",
+                  "kids": []
+                },
+                {
+                  "id": 47859425,
+                  "by": "alfg",
+                  "time": 1776835635,
+                  "parent": 47848955,
+                  "text": "This is how I handle it with my latest project, https://video-commander.com.\n\nPrompting the user to install, or auto-installing FFmpeg separately, rather than bundling the binary. The problem is FFmpeg can be configured in so many ways and the general install binaries are usually LGPL compatible.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47848370,
+              "by": "freedomben",
+              "time": 1776777297,
+              "parent": 47848317,
+              "text": "Any reason not to just open source it?  Personally I'd love to hack on it :-)   IANAL, but IMHO AGPL would be a good fit here as it complies with LGPL and also ensures nobody besides you (the copyright holder) can stand it up for profit without contributing back).",
+              "kids": [
+                {
+                  "id": 47848639,
+                  "by": "kolx",
+                  "time": 1776778631,
+                  "parent": 47848370,
+                  "text": "I never maintained an open source project and not sure how to even do it properly. \nI am also not sure how much effort would I have to put to an open source project. I imagine I would need to collaborate with a pretty much anyone who has an interest in the area. Again not that I mind just not sure how much time I have to spare. Right now this is a really slow process and tbh I have to rely on manual testing at least for the editor.",
+                  "kids": [
+                    {
+                      "id": 47848814,
+                      "by": "Mashimo",
+                      "time": 1776779430,
+                      "parent": 47848639,
+                      "text": "Nah, besides sharing the code you don't have to do anything.\n\nMost people would want you to upload the code to github, then they can star and clone it with ease. But you don't have to have an issue tracker, and you certainly don't have to read any of the issues or pull request. You can ignore or disable that.\n\nI think even just having a up to date .zip with all the code would be technically enough.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47855729,
+                      "by": "circuit10",
+                      "time": 1776811744,
+                      "parent": 47848639,
+                      "text": "You can just the post the code somewhere, it doesn’t have to be good and you don’t have to do anything else with it\n\nApart from ensuring there’s not anything confidential in the code like API keys (which you shouldn’t have anyway, unless it’s just in comments) it won’t take any extra work unless you want to put effort into that side of things",
+                      "kids": []
+                    },
+                    {
+                      "id": 47850429,
+                      "by": "qingcharles",
+                      "time": 1776786306,
+                      "parent": 47848639,
+                      "text": "You don't have to collaborate with anyone. Just stick the code up on GitHub and if people file issues or PRs, then you can engage or not as you please. There are plenty of projects that are open source but don't accept any public modifications.\n\nYou might just find you end up with some folks who genuinely want to help out, though.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47848435,
+                  "by": "netdevphoenix",
+                  "time": 1776777653,
+                  "parent": 47848370,
+                  "text": "> Any reason not to just open source it?\n\nMmmm...potential commercialisation? Always find it curious that people expect to get source code for free in ways that they don't do for other work (ask George Martin to release his drafts and notes).",
+                  "kids": [
+                    {
+                      "id": 47848555,
+                      "by": "mbesto",
+                      "time": 1776778182,
+                      "parent": 47848435,
+                      "text": "The parent commenter is making that comment because this is precisely the nature of why the GPL license exists. Most of the processing of this application is FFMPEG, so why should someone who has done zero development on that library commercialize it?",
+                      "kids": [
+                        {
+                          "id": 47849196,
+                          "by": "afavour",
+                          "time": 1776781112,
+                          "parent": 47848555,
+                          "text": "Most of the processing of the application is FFMPEG yes, but there's a whole lot of application outside of the processing. Video editors UIs that don't make you want to tear your hair out are a valuable commodity and I think OP has the right to commercialize that if they want to. They just need to use FFMPEG in the right way as they do it.",
+                          "kids": [
+                            {
+                              "id": 47851152,
+                              "by": "mbesto",
+                              "time": 1776789451,
+                              "parent": 47849196,
+                              "text": "This application doesn't work without FFMPEG. I'm not arguing that the wrapper isn't valuable, I'm saying there is a significant chunk of it that is required for us to work is an open source library.",
+                              "kids": [
+                                {
+                                  "id": 47854859,
+                                  "by": "soperj",
+                                  "time": 1776807563,
+                                  "parent": 47851152,
+                                  "text": "that's the same thing with the mach kernel and OSX, but you don't see anyone clamoring for one of the richest companies on earth to open source their OS.",
+                                  "kids": []
+                                }
+                              ]
+                            },
+                            {
+                              "id": 47851635,
+                              "by": "jpc0",
+                              "time": 1776791684,
+                              "parent": 47849196,
+                              "text": "From what I understand about this application ffmpeg of only used for export? That is very little of the processing of true, they mentioned the webcodec is used extensively and likely the only real requirement on ffmpeg is muxing into mp4 which to be entirely honest isn't much processing.",
+                              "kids": []
+                            }
+                          ]
+                        },
+                        {
+                          "id": 47854302,
+                          "by": "socalgal2",
+                          "time": 1776804403,
+                          "parent": 47848555,
+                          "text": "FFmpeg doesn't disallow commercialization. Or to put it another way, the authors of FFmpeg specifically allowed commercialization. As long as you follow the LGPL you're free to commercialize your app that uses FFmeg",
+                          "kids": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": 47849691,
+                      "by": "sroussey",
+                      "time": 1776783310,
+                      "parent": 47848435,
+                      "text": "Or the other likely version: prevent commercialization. No source means that someone can’t make a fork, put on a new domain, run ads and charge money for his work.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47848836,
+                      "by": "mghackerlady",
+                      "time": 1776779511,
+                      "parent": 47848435,
+                      "text": "The problem is you can commercialise free software if you're creative about it. RMS made a decent amount of money working on emacs, redhat and SUSE exist, google has managed to commercialise chromium",
+                      "kids": [
+                        {
+                          "id": 47849685,
+                          "by": "freedomben",
+                          "time": 1776783273,
+                          "parent": 47848836,
+                          "text": "> The problem is you can commercialise free software if you're creative about it.\n\nDid you mean to say that it is a problem?  From the rest of your comment, and in the context of GP's comment, it sounds like commercializing is NOT a problem.",
+                          "kids": [
+                            {
+                              "id": 47850143,
+                              "by": "mghackerlady",
+                              "time": 1776785112,
+                              "parent": 47849685,
+                              "text": "prev said that they might not be willing to release the source code so they can commercialise it",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": 47848523,
+                      "by": "freedomben",
+                      "time": 1776778047,
+                      "parent": 47848435,
+                      "text": "> Mmmm...potential commercialisation?\n\nHence why I asked the question...  And not everybody does everything for commercial reasons, so it would be dumb to assume that and therefore not ask the question.\n\n> Always find it curious that people expect to get source code for free in ways that they don't do for other work (ask George Martin to release his drafts and notes).\n\nWhere in my question did you get that I expect to get source code for free in ways that I don't for other work?\n\nBut regardless, you do know that open source is a common thing right?  People open source things all the time, especially on HN.\n\nAlso OP already says they don't do any uploading of your videos to the cloud, so this thing already runs local-only.  It's not like there is a shortage of video editors around (including ... open source ... video editors)",
+                      "kids": []
+                    },
+                    {
+                      "id": 47848828,
+                      "deleted": true,
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47851533,
+              "by": "zenmac",
+              "time": 1776791236,
+              "parent": 47848317,
+              "text": "Wonder this guy is doing it?  Or is it also not open sourced?\n\nhttps://news.ycombinator.com/item?id=42207002",
+              "kids": [
+                {
+                  "id": 47852189,
+                  "by": "pdyc",
+                  "time": 1776794479,
+                  "parent": 47851533,
+                  "text": "that guy is not including ffmpeg and is not encoding in browser. What he is doing is generating a ffmpeg command that you can run on your cli/scripts etc.\n\nPS: i am that guy :-)",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47848184,
+          "by": "CodesInChaos",
+          "time": 1776776486,
+          "parent": 47847898,
+          "text": "It should be possible to comply with LGPL without publishing the source code of the whole application. Either by running the application and ffmpeg in different isolates (wasm processes), or by offering a way to merge (link) the wasm code of the closed-source application with a user compiled FFmpeg wasm build.\n\nDifferent isolates might even be enough to satisfy GPL, similar to how you can invoke FFmpeg as a command line tool from a closed application. Though that feels like legally shaky ground.",
+          "kids": [
+            {
+              "id": 47848818,
+              "by": "kolx",
+              "time": 1776779445,
+              "parent": 47848184,
+              "text": "Thanks for sharing. Will look into it",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47847993,
+          "by": "senko",
+          "time": 1776775460,
+          "parent": 47847898,
+          "text": "LGPL permits that.\n\nHowever, some popular codecs use GPL, which, if enabled, would require to distribute the rest of the code under it as well.",
+          "kids": [
+            {
+              "id": 47848172,
+              "by": "elpocko",
+              "time": 1776776436,
+              "parent": 47847993,
+              "text": "LGPL permits you to distribute binaries, but you can't distribute the software as an opaque binary blob with no reasonable way to modify it. What even is the equivalent of a shared library that a user can replace when software runs in the browser?\n\nAnyway, OP doesn't do most of the things FFmpeg lists under their \"License Compliance Checklist\".",
+              "kids": [
+                {
+                  "id": 47848833,
+                  "by": "senko",
+                  "time": 1776779504,
+                  "parent": 47848172,
+                  "text": "Not disagreeing with you, but cases like these really highlight how (L)GPL can nudge vendors into doing more closed solutions with greater lock-in.\n\nFor example, we're complaining about a licensing issue for an app that can run locally (in your browser, no uploads needed). The licensing issues can easily be side-stepped by the the developer if they chose instead to do all the media manipulation in the backend.\n\nIn the end, for the user this means they have to upload & trust a random service with their data, potentially can't get raw data out, and other negative side-effects of lock in.",
+                  "kids": []
+                },
+                {
+                  "id": 47848476,
+                  "by": "trinix912",
+                  "time": 1776777831,
+                  "parent": 47848172,
+                  "text": "> Anyway, OP doesn't do most of the things FFmpeg lists under their \"License Compliance Checklist\".\n\nLegitimately asking, which points and how are they expected to handle it for this type of app (assuming they want to keep it closed source)? As far as I understand it they just need to credit the libraries?",
+                  "kids": [
+                    {
+                      "id": 47848595,
+                      "by": "elpocko",
+                      "time": 1776778400,
+                      "parent": 47848476,
+                      "text": "The important thing is there has to be a clear separation between the proprietary parts and the LGPL parts of the app, and they have to provide a way to replace the LGPL parts. I have no idea how this is usually handled in the case of browser-based apps.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47848660,
+                      "by": "actionfromafar",
+                      "time": 1776778699,
+                      "parent": 47848476,
+                      "text": "User must be able to replace the LGPL library with their own version of the library.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47848004,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47848760,
+          "by": "sreekanth850",
+          "time": 1776779187,
+          "parent": 47847898,
+          "text": "LGPL allow you to use the library in closed source.",
+          "kids": [
+            {
+              "id": 47849881,
+              "by": "whateveracct",
+              "time": 1776783997,
+              "parent": 47848760,
+              "text": "Yes but you must distribute in a way where it's trivial to link in another version of the library. So a single wasm blob is a violation.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47848422,
+      "by": "DoctorOW",
+      "time": 1776777568,
+      "parent": 47847558,
+      "text": "Let me just say the performance is absolutely incredible, and the persistence is so transparent. I actually was given access to an in-browser video editor that chokes pretty quickly so I'm impressed. The tracks didn't seem to work well for me. I'm on Firefox on Windows and couldn't drag and drop tracks to change the order, there doesn't seem to be any layer transformation tools (position, rotation, scale) that I could find to counteract it not handling footage of different aspect ratios (I.E. portrait and landscape).",
+      "kids": [
+        {
+          "id": 47848766,
+          "by": "kolx",
+          "time": 1776779207,
+          "parent": 47848422,
+          "text": "Thank you for the encouragement. \nRegarding the track manipulation I have not fully cracked it yet so you can't move clips between tracks yet and track reordering didn't cross my mind but will look into it. \nRegarding transforms once you manage to get a clip in the track you should be able to click on it and then get on the right hand side of the program monitor you should see a transforms panel with a limited selection of options, at least what I could sort of understand how to program together with LLMs ofc ahahaha.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47858576,
+      "by": "ArielTM",
+      "time": 1776828587,
+      "parent": 47847558,
+      "text": "The hvc1 and 10-bit failures a few comments up aren't a FFmpeg-wasm fallback thing, they're a WebCodecs browser-gap. Firefox's HEVC path is partial and 10-bit paths are worse. Chrome mostly works and Firefox fails on the exact files iPhones and modern Androids record by default.\n\nA \"your browser can't decode this codec, try Chrome\" nudge would probably spare people the bounce, especially on test imports from their phone.",
+      "kids": [
+        {
+          "id": 47862003,
+          "by": "kolx",
+          "time": 1776857018,
+          "parent": 47858576,
+          "text": "Good idea. Once I am through the licensing ordeal I have a giant stack of errors to tackle which should increase usability.",
+          "kids": [
+            {
+              "id": 47870573,
+              "by": "ArielTM",
+              "time": 1776900540,
+              "parent": 47862003,
+              "text": "Thanks!",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47848101,
+      "by": "xnx",
+      "time": 1776775994,
+      "parent": 47847558,
+      "text": "How does it compare to https://omniclip.app/,  https://tooscut.app, or https://clipjs.mohy.dev/ ?",
+      "kids": [
+        {
+          "id": 47848444,
+          "by": "b1temy",
+          "time": 1776777681,
+          "parent": 47848101,
+          "text": "Also wondering how it compares to https://pikimov.com , another browser-based video editor I've seen making the rounds.",
+          "kids": [
+            {
+              "id": 47848734,
+              "by": "bensyverson",
+              "time": 1776779085,
+              "parent": 47848444,
+              "text": "Browser-based video editing is quickly becoming as commoditized as browser-based image editing",
+              "kids": [
+                {
+                  "id": 47849722,
+                  "by": "vunderba",
+                  "time": 1776783441,
+                  "parent": 47848734,
+                  "text": "And 100% clientside browser-based PDF tools. I've seen at least 20-30 of them just on Show HN posts since vibe coding became popular.",
+                  "kids": []
+                },
+                {
+                  "id": 47850406,
+                  "by": "abdusco",
+                  "time": 1776786222,
+                  "parent": 47848734,
+                  "text": "We need a VdeoPea after PhotoPea and VectorPea",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47849062,
+          "by": "kolx",
+          "time": 1776780558,
+          "parent": 47848101,
+          "text": "Tbh I don't know, will check them out. \nI did not know they existed, thank you for sharing them!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47848571,
+      "by": "kevmo314",
+      "time": 1776778259,
+      "parent": 47847558,
+      "text": "Wild that apps used to be completely local, no accounts, no uploads, and we're back to that as a value prop.",
+      "kids": [
+        {
+          "id": 47854496,
+          "by": "hiccuphippo",
+          "time": 1776805543,
+          "parent": 47848571,
+          "text": "But this time sandboxed and you have some mod capabilities if you know how to use greasemonkey scripts.\n\nAnd all the text in the app is selectable and copypastable.",
+          "kids": []
+        },
+        {
+          "id": 47848799,
+          "by": "kolx",
+          "time": 1776779353,
+          "parent": 47848571,
+          "text": "Agreed but I guess at the same time those who spend money to develop software need to find ways to monetise I just wish they were not so predatory.\nEverything is a subscription now siphoning money out of users on a monthly basis.",
+          "kids": [
+            {
+              "id": 47851963,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47849116,
+          "by": "pjmlp",
+          "time": 1776780759,
+          "parent": 47848571,
+          "text": "Except the part of them actually being native to the OS they are running on.",
+          "kids": [
+            {
+              "id": 47849333,
+              "by": "RajT88",
+              "time": 1776781709,
+              "parent": 47849116,
+              "text": "A recommendation I make where I can:  OpenShot.  FOSS, cross-platform, no accounts and very capable and easy to use.",
+              "kids": [
+                {
+                  "id": 47849941,
+                  "by": "pjmlp",
+                  "time": 1776784270,
+                  "parent": 47849333,
+                  "text": "Thanks, added to my list.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47852186,
+      "by": "meerab",
+      "time": 1776794476,
+      "parent": 47847558,
+      "text": "Congrats on shipping this!\n\nI went down the same path for videotobe.com, fully client-side with ffmpeg.wasm, and it fell over on longer videos. The memory ceiling and encode times pushed me to a cloud processing pipeline.\n\nYou've managed to solve both, the WebCodecs plus Pixi plus ffmpeg.wasm split looks like the right decomposition in hindsight.I processed 3+ hrs of media using VidStudio and it held up. Nicely done!",
+      "kids": [
+        {
+          "id": 47862103,
+          "by": "kolx",
+          "time": 1776857669,
+          "parent": 47852186,
+          "text": "Wow this is really cool thanks a lot for sharing I was a bit demotivated from all the errors I have on sentry ahahha. \nI did give ffmpeg wasm my best shot, even trying worker fs to deal with the memory problems but yeah a lot of effort for marginal gains imo. \nVideo codecs are really impressive but they are raw in the sense that I underestimated how much ffmpeg carries by giving you a decode, transform encode pipeline.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47849240,
+      "by": "Unsponsoredio",
+      "time": 1776781240,
+      "parent": 47847558,
+      "text": "Wild that privacy became a feature and not the default. Building in this space too and the no uploads needed angle is surprisingly hard to communicate to users who've been trained to expect everything to live in the cloud.",
+      "kids": [
+        {
+          "id": 47854356,
+          "by": "socalgal2",
+          "time": 1776804711,
+          "parent": 47849240,
+          "text": "I think the majority of users want their data in the cloud. Edit on desktop, send link to work to client, client looks at it on their phone. No need to export. Change something, client sees it immediately.\n\nEven if it's not business. Sister shares video she edited of party. Mom points something out, sister makes edit.\n\nI'm not saying there's no use to local only solutions. I'm only saying that I suspect for most users, the benefits of in the cloud are something they want.",
+          "kids": []
+        },
+        {
+          "id": 47849473,
+          "by": "utopiah",
+          "time": 1776782438,
+          "parent": 47849240,
+          "text": "Yes and yet perfectly logical when the most successful business models are about selling private data.",
+          "kids": []
+        },
+        {
+          "id": 47861107,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47853668,
+      "by": "dsalaj",
+      "time": 1776801078,
+      "parent": 47847558,
+      "text": "I am really attracted to the idea of local running in-browser tools, since the website is then used only as a distribution medium which is super easy to use. And I really need such a tool, I was eager to test it. \nHowever on both my first and second try it failed. I tried to import a video clip recorded on a Pixel phone. In Firefox it failed with a following message:\n\n\"Your browser does not support the codec \"hvc1.2.4.L156\". Try a different video.\"\n\nOk, fair, probably need to use Chrome for this type of tool. Tried it in Chrome:\n\n\"Audio decode failed: your browser cannot decode the audio in \"..._webm.bin\". Try re-encoding the file with AAC audio.\"\n\nSad. Hope you manage to work this out. Let me know if you have a newsletter or something where I can get notified if this gets fixed.",
+      "kids": [
+        {
+          "id": 47862255,
+          "by": "kolx",
+          "time": 1776858640,
+          "parent": 47853668,
+          "text": "Hey this is on my todo list and will make it a point to get back to you here once it is fixed. \nThe main issue is that codec support is patchy most muxer software that I found has gaps in codec support and I had no clue but the codec names for audio and video seem to be named differently based on platform and browser even for some cases. \nWill be looking again at this topic asap and will get back to you here!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47855634,
+      "by": "Vachyas",
+      "time": 1776811356,
+      "parent": 47847558,
+      "text": "I really like all the compress-to-X links at the bottom and the convert from X to Y tools. Especially the Discord one with presets for different target file sizes based on Discord's subscription tiers.\n\nI've been using server-based (online, upload required) tools for this sort of stuff, but am now going to be using this.\n\nPretty cool find considering I have no need for a full-fledged video editor right now, and was just checking this out for fun.",
+      "kids": []
+    },
+    {
+      "id": 47859407,
+      "by": "alfg",
+      "time": 1776835487,
+      "parent": 47847558,
+      "text": "Looks good. Good work on shipping! I love seeing video applications utilizing Web Assembly. However, it usually falls short in when it comes to longer video in the browser's sandboxed environment.\n\nHow is the performance? Curious if you've tried using the FFmpeg libraries directly (libav), rather than compiling all of FFMpeg to WASM?\n\nI always end up using running FFmpeg directly since it's faster and more reliable, but I still have some hope for a full functioning browser-based implementation someday.\n\nI also made https://ffmpeg-commander.com a while back to generate commands for FFmpeg.",
+      "kids": [
+        {
+          "id": 47862059,
+          "by": "kolx",
+          "time": 1776857347,
+          "parent": 47859407,
+          "text": "Yeah you are right about the wasm issues with video apps. \nThe editor itself relies fully on web codecs and the rest of the tools are halfway migrated from ffmpeg wasm anyways.\nI did not look into any other alternatives for ffmpeg thinking that wasm will give me the next best thing to the cli tool and ofc since the browser is the main delivery mechanism the I was limited in my options. \nI have seen your project and it is really cool!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47861200,
+      "by": "nopointttt",
+      "time": 1776850790,
+      "parent": 47847558,
+      "text": "Glad you're holding the \"nothing leaves your machine\" line. A lot of tools in adjacent categories added cloud sync early, the local audience didn't come back. If you can keep v1 and v2 fully client side you'll find the people who care. ffmpeg-on-wasm will hit a memory ceiling on longer videos, but most people opening a browser video editor are doing short clips anyway.",
+      "kids": [
+        {
+          "id": 47861976,
+          "by": "kolx",
+          "time": 1776856834,
+          "parent": 47861200,
+          "text": "Thanks for encouragement. You are right ffmpeg-wasm doesn't really cut it for long videos but I have pivoted to web/audio codecs now, and there I can work based on streams at least for video. So once I harden the tools a bit more memory limits should be large enough to do some good editing.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47848158,
+      "by": "spuzvabob",
+      "time": 1776776381,
+      "parent": 47847558,
+      "text": "I've built a similar video editor and have been considering pure client side implementation vs transcoding into a known format beforehand, went with transcoding for wider format support and easier video playback implementation.\n\nI'm interested in how you handle demuxing different container formats any which ones are supported?\n\nI get \"Audio decode failed: your browser cannot decode the audio in \"41b1aee9-ac65-43f6-b020-e8fed77c3c72_webm.bin\". Try re-encoding the file with AAC audio.\" for a WEBM with no audio.\n\nh264/aac MP4 works, is that demuxed with mp4box.js?\nI noticed seeking (clicking or scrubbing on timeline) initializes a new VideoDecoder and destroys the previous one for every new frame, leading to abysmal performance as you lose decoder state and a lot of decoding work has to be repeated. Plus the decoder reinitialization time. \nIs that because the demuxing logic doesn't give precise access to encoded frames? iirc mp4box.js didn't support that last time I checked.",
+      "kids": []
+    },
+    {
+      "id": 47866166,
+      "by": "paolatauru",
+      "time": 1776876842,
+      "parent": 47847558,
+      "text": "webcodecs for timeline scrubbing is the right call. curious how you handle frame caching though - webcodecs decoder buffers are memory mapped and the browser can evict them when under pressure. did you implement your own lru cache on top or are you just letting the decoder handle it. also interested in how mobile holds up on memory constrained devices - iphones especially tend to kill pages that use too much webcodecs memory in the background",
+      "kids": []
+    },
+    {
+      "id": 47850616,
+      "by": "woodydesign",
+      "time": 1776787116,
+      "parent": 47847558,
+      "text": "I love no accounts and no cloud a lot!\n\nWondering if it support subtitle and transcript? It would be helpful for non-native speaker use case.\n\nAlso, can you talk more about the use case difference between VidStudio vs. Finalcut/Imovie/Premiere? I am quite interested. Thanks",
+      "kids": [
+        {
+          "id": 47852284,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47862290,
+          "by": "kolx",
+          "time": 1776858917,
+          "parent": 47850616,
+          "text": "It is on my to do list to add automatic subtitles. \nThe 3 editors you mentioned are backed by cloud juggernauts that either asked already or will ask for a perpetual licence to any content you process with them because they can and they also offer cloud options.\nI do have to say that they are probably more mature and feature rich than VidStudio at this point in time ahhaha",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47861448,
+      "by": "roxana_haidiner",
+      "time": 1776853115,
+      "parent": 47847558,
+      "text": "I tried multiple times to upload a 1920x1080 video and export it as 1080 x 1920 for tik tok...but I couldn't do this, the last one was blocked at 75%, and it was an 30 seconds of 5 mb video.....\n\nI really need this website if everything works well!",
+      "kids": [
+        {
+          "id": 47861955,
+          "by": "kolx",
+          "time": 1776856662,
+          "parent": 47861448,
+          "text": "Will take a look asap. Can you also try this maybe https://vidstudio.app/resize",
+          "kids": [
+            {
+              "id": 47867819,
+              "by": "roxana_haidiner",
+              "time": 1776884526,
+              "parent": 47861955,
+              "text": "Yes, I'm gonna try this tmr...be right back with feedback!",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47864140,
+      "by": "zane__chen",
+      "time": 1776867989,
+      "parent": 47847558,
+      "text": "Finally see a local first web based video editor. Cool thing!",
+      "kids": []
+    },
+    {
+      "id": 47848944,
+      "by": "kreco",
+      "time": 1776780026,
+      "parent": 47847558,
+      "text": "Sorry for the significantly unrelated comment:\n\nDoes anyone know if there is any limitation to create a \"https-local://\" or something like that, which guarantee that things are only downloaded, and never uploaded?",
+      "kids": [
+        {
+          "id": 47851448,
+          "by": "senkora",
+          "time": 1776790792,
+          "parent": 47848944,
+          "text": "I don’t know, but I’ve thought for a while that a browser version of “pledge” to permanently restrict uploads from a webpage after it is called would be a great idea.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851736,
+      "by": "mankins",
+      "time": 1776792071,
+      "parent": 47847558,
+      "text": "I recently did something similar but as a Mac app.\n\nIt sounds like a similar stack, but distributed as an app. FFmpeg (LGPL compilation).\n\nI haven't tried Pixi.js, looks interesting. I guess it was good for this.\n\nHave you looked at remotion? I found them good for somethings, but ended up using Safari for rendering (instead of remotion's chrome-based rendering) because app packaging was easier that way.\n\nhttps://www.loremlabs.com/cliproom if you're interested in comparing",
+      "kids": [
+        {
+          "id": 47864363,
+          "by": "kolx",
+          "time": 1776868930,
+          "parent": 47851736,
+          "text": "Cool project will check it out. \nI have not checked Remotion but will certainly take a look.",
+          "kids": []
+        },
+        {
+          "id": 47852240,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47851379,
+      "by": "giancarlostoro",
+      "time": 1776790512,
+      "parent": 47847558,
+      "text": "I worked on something similar for a relative who wanted to know if I could build something like this for them using Claude, and sure enough you can, I wound up having to ditch ffmpeg wasm edition because of a lot of slowness, and when with ffmepg on the backend. Curious how this performs vs ffmpeg on the backend. I'm genuinely surprised there's not 100% browser native solution to this.",
+      "kids": []
+    },
+    {
+      "id": 47862426,
+      "by": "mehmetkeremmtl",
+      "time": 1776859680,
+      "parent": 47847558,
+      "text": "Running FFmpeg via WebAssembly and rendering with Pixi.js sounds heavy for mobile browsers, which are notoriously aggressive with memory limits. How are you handling OOM crashes or storage quota limits in IndexedDB when users import large 4K video files on mobile?",
+      "kids": []
+    },
+    {
+      "id": 47863404,
+      "by": "pacovook",
+      "time": 1776864885,
+      "parent": 47847558,
+      "text": "This is great, thank you!",
+      "kids": []
+    },
+    {
+      "id": 47848943,
+      "by": "jamiehugo30",
+      "time": 1776780017,
+      "parent": 47847558,
+      "text": "Curious how you're handling the MP4 export entirely client-side — are you using FFmpeg compiled to WebAssembly, or something custom built around the WebCodecs API?",
+      "kids": [
+        {
+          "id": 47849022,
+          "by": "kolx",
+          "time": 1776780337,
+          "parent": 47848943,
+          "text": "So FFmpeg is part of the website in general but it is not used in the editor itself. \nI did built on top of the Video Codec APIs and ofc a muxer library like mp4box.js",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47848212,
+      "by": "prhn",
+      "time": 1776776589,
+      "parent": 47847558,
+      "text": "You probably already know this, but I could not import 10-bit video on Windows which I think would be fairly common among the target audience.\n\nffmpeg supports decoding 10-bit video.",
+      "kids": [
+        {
+          "id": 47848386,
+          "by": "kolx",
+          "time": 1776777379,
+          "parent": 47848212,
+          "text": "Thank you for flagging this, indeed you are right. I do have a long list of problems to go through. The editor mostly relies on the browser Audio/Video codecs which I learned after trying FFmpeg out. They have wide support but also a bunch of limitations. Actively working on it, thank you for the feedback. It is the first time I take such a deep dive to all of these.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47852596,
+      "by": "j1elo",
+      "time": 1776796309,
+      "parent": 47847558,
+      "text": "What is the performance difference between native FFmpeg and WebAssembly-translated FFmpeg running in a web browser?",
+      "kids": [
+        {
+          "id": 47862374,
+          "by": "kolx",
+          "time": 1776859376,
+          "parent": 47852596,
+          "text": "Wasm ffmpeg is much slower for sure and multithreading for wasm ffmpeg is buggy you need to control threads per pipeline step to get it working.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47852071,
+      "by": "comicink",
+      "time": 1776793859,
+      "parent": 47847558,
+      "text": "This is so cool - will try it out. Pure browser based video editing is ambitious. Are you using Remotion ?",
+      "kids": [
+        {
+          "id": 47852208,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47862392,
+          "by": "kolx",
+          "time": 1776859504,
+          "parent": 47852071,
+          "text": "I have not checked out Remotion but will do thanks for pointing it out!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47854950,
+      "by": "billconan",
+      "time": 1776807993,
+      "parent": 47847558,
+      "text": "LGPL issues aside, will a project like this need to pay the h264 patent fee?",
+      "kids": []
+    },
+    {
+      "id": 47848252,
+      "by": "Sergey777",
+      "time": 1776776784,
+      "parent": 47847558,
+      "text": "Interesting approach—privacy-friendly editing without uploads is compelling. Curious how you handle performance and large files purely in-browser, and what trade-offs there are vs server-based editors.",
+      "kids": [
+        {
+          "id": 47848438,
+          "by": "bjord",
+          "time": 1776777661,
+          "parent": 47848252,
+          "text": "get this twitter-style LLM reply guy spam off of HN",
+          "kids": [
+            {
+              "id": 47859585,
+              "by": "Sergey777",
+              "time": 1776837116,
+              "parent": 47848438,
+              "text": "Remove yourself from this site.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47851637,
+      "by": "shardullavekar",
+      "time": 1776791697,
+      "parent": 47847558,
+      "text": "looks great. any plans of abstracting these functions with an LLM integration?",
+      "kids": [
+        {
+          "id": 47852293,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47856123,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47859093,
+      "by": "0x142857",
+      "time": 1776832841,
+      "parent": 47847558,
+      "text": "nice",
+      "kids": []
+    },
+    {
+      "id": 47850813,
+      "by": "SilentM68",
+      "time": 1776787850,
+      "parent": 47847558,
+      "text": "Price?",
+      "kids": [
+        {
+          "id": 47862384,
+          "by": "kolx",
+          "time": 1776859428,
+          "parent": 47850813,
+          "text": "Free!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47850304,
+      "by": "lern_too_spel",
+      "time": 1776785659,
+      "parent": 47847558,
+      "text": "I've seen dozens of these posted to HN. Surprisingly, there is a lack of browser based video editors for media libraries, which means I have to load the video over the network using WebDAV or Samba, edit it locally, and then upload it back. It's a niche use case, but the people who manage their own photos and video storage are generally tech savvy, so it's surprising that no such tools exist.",
+      "kids": []
+    },
+    {
+      "id": 47852065,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47860726,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}

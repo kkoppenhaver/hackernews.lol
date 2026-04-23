@@ -1,0 +1,1085 @@
+{
+  "pair": {
+    "story_type": "news",
+    "hn_id": 47864785,
+    "title": "Ping-pong robot beats top-level human players",
+    "points": 112,
+    "descendants": 122,
+    "article_url": "https://www.reuters.com/sports/ping-pong-robot-ace-makes-history-by-beating-top-level-human-players-2026-04-22/",
+    "hn_url": "https://news.ycombinator.com/item?id=47864785",
+    "self_post": false
+  },
+  "story": {
+    "id": 47864785,
+    "title": "Ping-pong robot beats top-level human players",
+    "url": "https://www.reuters.com/sports/ping-pong-robot-ace-makes-history-by-beating-top-level-human-players-2026-04-22/",
+    "by": "wslh",
+    "score": 112,
+    "time": 1776870828,
+    "descendants": 122,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47869528,
+      "by": "phtrivier",
+      "time": 1776893403,
+      "parent": 47864785,
+      "text": "My biggest fear at the moment is robot armies and police forces.\n\nCase in point : we're all expecting China needs to invade Taiwan soon, or they will run out of soldiers because of the one child policies of the 70s/80s.\n\nMeanwhile, Ukraine is holding up against a \"modern\" army with quickly assembled drones.\n\nSo it all seems a bit like \"they'll never put tanks through the Ardennes\", sort of ?\n\nWhere and when will the first invasion of a country by a purely remote controlled, AI assisted army take place ?\n\nWill robot battalions embed civilians to act as human shields ? Will the AI learn to mistreat the locals to maintain fear, or will they see it as a needless distraction and rush to the center of powers ?\n\nIf war is mostly played out from a disrance, will years of playing RTS give South Korea an edge ?",
+      "kids": [
+        {
+          "id": 47872625,
+          "by": "cik",
+          "time": 1776923648,
+          "parent": 47869528,
+          "text": "> If war is mostly played out from a disrance\n\nI left a company because they pivoted to exactly this. There are so many companies in this space today, testing what they call \"physical AI autonomy\" today, and we have to recognize that this is our today.\n\nThere are entire marketplace options for buying the pretrained, supported, private models, or the datasets if you have your own goals. If you're interested purely in ditzing around with GPS denied, or communications lost, you can do that today.\n\nI watched a demo video, in March where a company was sharing their remote instructed (note, not controlled) multiple format (spider, dog) robot swarm. The company claimed to be 35km away from where the drones dropped off the payloads, and the mission was engaged. Lightweight explosives were used to toss off a car.\n\nThis is our present.",
+          "kids": [
+            {
+              "id": 47872917,
+              "by": "TheScaryOne",
+              "time": 1776927825,
+              "parent": 47872625,
+              "text": "I can't wait for the Faro Plague and the robot dinosaurs.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869979,
+          "by": "kibwen",
+          "time": 1776895986,
+          "parent": 47869528,
+          "text": "Marching humanoid terminator robots will never be as cheap as a drone. Autonomous suicide drone swarms are what should terrify you.",
+          "kids": [
+            {
+              "id": 47870388,
+              "by": "throw4847285",
+              "time": 1776898773,
+              "parent": 47869979,
+              "text": "You say that now, but once we perfect AMBAC technology and accidentally release large numbers of Minovsky particles, we will need humanoid combat vehicles to fight our battles!",
+              "kids": []
+            },
+            {
+              "id": 47872052,
+              "by": "fragmede",
+              "time": 1776915763,
+              "parent": 47869979,
+              "text": "Which of those is opening doors?",
+              "kids": [
+                {
+                  "id": 47872576,
+                  "by": "4gotunameagain",
+                  "time": 1776922902,
+                  "parent": 47872052,
+                  "text": "Two drones. One to blast the door open, the next goes through.\n\nStill more cost effective than a humanoid robot, even in the presence of hundreds of doors.",
+                  "kids": [
+                    {
+                      "id": 47872841,
+                      "by": "fragmede",
+                      "time": 1776926807,
+                      "parent": 47872576,
+                      "text": "That breaks the building. If you want to destroy the whole thing, conventional weapons has that covered. Drones can't get through nets and doors. Though, have you considered packs of robot dogs with machine guns and one arm/hand? Cheaper than a fully bipedal humanoid robot.",
+                      "kids": [
+                        {
+                          "id": 47872890,
+                          "by": "fc417fc802",
+                          "time": 1776927470,
+                          "parent": 47872841,
+                          "text": "> have you considered packs of robot dogs with machine guns\n\nI don't have it to hand but already a few years ago a defense contractor had attached quite a heavy rifle on some sort of articulable mount to the top of something that looked exactly like Boston Dynamic's Spot. I'm not sure how much ammo it was capable of carrying or what it's range was but it's definitely a concerning development. I think I might become an enthusiastic custom anti-materiel rifle collector in the near future.",
+                          "kids": []
+                        },
+                        {
+                          "id": 47872936,
+                          "by": "vasco",
+                          "time": 1776927977,
+                          "parent": 47872841,
+                          "text": "One thing exists and is known to work and be cheap. The other it's you musing about what will be possible. So they need to be judged differently. No land robot can move through a war environment in any effective way at the moment and also \"open doors\" etc. They are too slow. Not drones.",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47870165,
+              "by": "trhway",
+              "time": 1776897108,
+              "parent": 47869979,
+              "text": "Autonomous suicide drone swarms are easily countered by autonomous interceptor swarms.\n\n>Marching humanoid terminator robots\n\nground bots, not necessarily marching, do have their value. They can have bulletproof armor, while still be relatively lightweight and small and fast. They can easily carry even 20-25mm autocannon - very destructive weapon, sometimes can even succeed against a real tank.\n\nAnd imagine when a swarm of drones lifts a ground bot, brings and drops it right into the needed point and protects it from the enemy drones while the ground bot just destructs the things around. Synergy between different weapons system has always been the super-weapon.",
+              "kids": [
+                {
+                  "id": 47871600,
+                  "by": "DennisP",
+                  "time": 1776910411,
+                  "parent": 47870165,
+                  "text": "They can also sit in one spot guarding a position without using much battery. Ukraine recently took territory from Russian forces using ground bots, the first time it's been done without using soldiers on the ground. Now they're starting to scale the bots up to mass production.",
+                  "kids": [
+                    {
+                      "id": 47871848,
+                      "by": "trhway",
+                      "time": 1776913308,
+                      "parent": 47871600,
+                      "text": "the issue is remote control. Ground position means a lot of obstacles in addition to the widespread jamming. One can try to control the bot from the fiber-optic controlled drone hanging over, yet such complication has its own drawbacks. That means that ground bots are in real need of making them autonomous.",
+                      "kids": [
+                        {
+                          "id": 47872214,
+                          "by": "Gud",
+                          "time": 1776918040,
+                          "parent": 47871848,
+                          "text": "They don’t need to be remotely controlled anymore! Autonomous!",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47871389,
+              "by": "SecretDreams",
+              "time": 1776908004,
+              "parent": 47869979,
+              "text": "> Marching humanoid terminator robots will never be as cheap as a drone. Autonomous suicide drone swarms are what should terrify you.\n\nIf money or economics were relevant in these decisions, most wars would probably not play out in the first place. Tesla probably wouldn't be worth 1.2T. And we certainly wouldn't see AI buildouts happening at their current rates.\n\nEconomics and costs only matter for normal humans, small countries, and efforts that might actually help humanity. They're not seemingly considerations in nefarious applications.",
+              "kids": [
+                {
+                  "id": 47871582,
+                  "by": "DennisP",
+                  "time": 1776910160,
+                  "parent": 47871389,
+                  "text": "It matters quite a bit. If your drone costs $1000, you can build a thousand times more of them than if a drone costs $1M. As the saying goes, quantity has a quality all its own.\n\nThis is a lesson the US has yet to learn, and its military drones are really expensive. Ukraine learned it by necessity, and now it's building millions of drones annually.",
+                  "kids": [
+                    {
+                      "id": 47872706,
+                      "by": "andyjohnson0",
+                      "time": 1776924827,
+                      "parent": 47871582,
+                      "text": "I think what your parent commenter means is that, if the application is warlike or nefarious, them the money will be found. If, on the other hand, it is humanitarian, then every penny will be counted.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47872586,
+                      "by": "boothby",
+                      "time": 1776923137,
+                      "parent": 47871582,
+                      "text": "On the other hand, if Musk really flips his lid, he's one OTA away from a network of ground-delivered lithium bombs.  The fear of humanoid bots is their banality: if a government or private company has a reason to build them, then the world is full of hardware with terrifying capability and questionable security.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47872974,
+                  "by": "kruffalon",
+                  "time": 1776928358,
+                  "parent": 47871389,
+                  "text": "> If money or economics were relevant in these decisions, most wars would probably not play out in the first place.\n\nI don't understand what you mean here.\n\nAren't wars fought over natural resources or the political power over natural resources.\n\nObviously people sometimes miscalculate but in principle I mean.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47870679,
+              "by": "Terr_",
+              "time": 1776901342,
+              "parent": 47869979,
+              "text": "Or they might decide to, er, pre-deliver the payloads.\n\n\"Citizen, congratulations on reaching your age of majority. Report for your Patriotic Assurance Implant at surgical bay 43B.\"",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872979,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47870067,
+          "by": "Morromist",
+          "time": 1776896490,
+          "parent": 47869528,
+          "text": "China had more births in 2025 than all of europe and russia combined so I don't think they're going to run out of soldiers.",
+          "kids": [
+            {
+              "id": 47871133,
+              "by": "marcus_holmes",
+              "time": 1776905547,
+              "parent": 47870067,
+              "text": "The more important fact is that China makes all the drones",
+              "kids": []
+            },
+            {
+              "id": 47871898,
+              "by": "LanceJones",
+              "time": 1776913798,
+              "parent": 47870067,
+              "text": "But also more deaths. It's the delta that's important.",
+              "kids": [
+                {
+                  "id": 47872949,
+                  "by": "vasco",
+                  "time": 1776928116,
+                  "parent": 47871898,
+                  "text": "Old people don't go to war, how is that important. All that matters is who has the most 20 year olds they don't care about killing.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47871145,
+              "by": "mjcohen",
+              "time": 1776905710,
+              "parent": 47870067,
+              "text": "If you believe them.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872887,
+          "by": "theshrike79",
+          "time": 1776927396,
+          "parent": 47869528,
+          "text": "Remote controlled autonomous robots/drones can also be used for, say, elder care.\n\nA nurse can log in to a HelperBot remotely, check up on the client, tidy up the house and maybe even give medication. Instead of having to drive around between clients, losing maybe hours a day just on transit, one person can manage more people per day.\n\n...but the same system can be modified for KillerBot easily like we know from EVERY SCI-FI BOOK EVER.\n\nWe live in interesting times.",
+          "kids": []
+        },
+        {
+          "id": 47871116,
+          "by": "hatthew",
+          "time": 1776905423,
+          "parent": 47869528,
+          "text": "> If war is mostly played out from a disrance, will years of playing RTS give South Korea an edge ?\n\nNot sure if this is serious, but RTS skills are different from real-world battlefield skills. Macro is completely different, and while micro skills might be slightly transferrable, computers are so much better that no human will ever be microing real units on a real battlefield.",
+          "kids": []
+        },
+        {
+          "id": 47872173,
+          "by": "dyauspitr",
+          "time": 1776917360,
+          "parent": 47869528,
+          "text": "We are less than 5 years from robot armies. I mean if you put a person behind a Unitree robot, we have robot armies now. Those things run pretty fast and are quite good at obstacle clearance. They also cost $20,000 per unit which is throwaway money by any metric. Full autonomy is real close though.",
+          "kids": []
+        },
+        {
+          "id": 47869626,
+          "by": "markus_zhang",
+          "time": 1776894004,
+          "parent": 47869528,
+          "text": "I don't think Russian army is very modern -- but maybe that's the reason of your quotation marks.\n\nI kinda think that the competitions among the big dogs (US/Russia/China/etc.) would eventually green light ANY AI/Robots projects if they can justify tipping the scale somehow, and in the process completely destroys the last element of any political counter-weight. Because \"fear gives men wings\".\n\nI would really hate to live in a dystopian world worse than what is described in the books/movies.",
+          "kids": []
+        },
+        {
+          "id": 47872184,
+          "by": "dyauspitr",
+          "time": 1776917519,
+          "parent": 47869528,
+          "text": "Russia is not a “modern” army. They are literally using low tech drones from Iran against Ukraine because they can’t come up with their own.",
+          "kids": [
+            {
+              "id": 47872995,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871017,
+          "by": "thatguy0900",
+          "time": 1776904394,
+          "parent": 47869528,
+          "text": "To some extent it already has, Ukraine had a press release a few days ago stating they had attacked and taken a position using only robots and drones for the first time\n\nhttps://www.businessinsider.com/ukraine-russia-position-take...",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47866262,
+      "by": "dmurray",
+      "time": 1776877333,
+      "parent": 47864785,
+      "text": "A year ago this [0] table tennis robot backed by Google DeepMind was discussed on HN.\n\nIt plays much worse and the HN discussion is anchored around whether it's OK to call it \"human-level\" or if the authors should have clarified that they meant a human who doesn't actually play table tennis. But it was accepted as being SOTA at that time.\n\nWhat happened since then? This looks like the kind of level of advance we see in, say, coding AIs, but I thought physical robotics was advancing much more slowly.\n\nA partial answer is that the new robot cheats in ways that DeepMind didn't seem to. It has high speed cameras all over the room and can detect spin by observing the logo on the ball. But I'm not sure this explains such a big advance.\n\n[0] https://news.ycombinator.com/item?id=43861207",
+      "kids": [
+        {
+          "id": 47869019,
+          "by": "hermitcrab",
+          "time": 1776890421,
+          "parent": 47866262,
+          "text": "As a human player (of a not-high standard) I cannot see the spin of the ball directly. I can only infer it from the movement of my opponents bat. So I would wonder that a camera could pick it up in real time.\n\nAlso IT'S TABLE TENNIS, NOT PING PONG!",
+          "kids": [
+            {
+              "id": 47870412,
+              "by": "throwup238",
+              "time": 1776898948,
+              "parent": 47869019,
+              "text": "> Also IT'S TABLE TENNIS, NOT PING PONG!\n\nAlas HN has finally found its next religious war!\n\nI’ve been feeling a little bored after that whole tabs vs spaces one was settled.",
+              "kids": [
+                {
+                  "id": 47871171,
+                  "by": "user3939382",
+                  "time": 1776905977,
+                  "parent": 47870412,
+                  "text": "Settled how? Tabs win, right?",
+                  "kids": [
+                    {
+                      "id": 47871290,
+                      "by": "scythe",
+                      "time": 1776906961,
+                      "parent": 47871171,
+                      "text": "go fmt",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47873080,
+              "by": "zhouzhao",
+              "time": 1776929558,
+              "parent": 47869019,
+              "text": "It's pīngpāng.",
+              "kids": []
+            },
+            {
+              "id": 47871023,
+              "by": "paolovictor",
+              "time": 1776904465,
+              "parent": 47869019,
+              "text": "To be honest, if Chinese folks are fine with calling it \"ping pong\" (乒乓), I'm fine, too.\n\n(Also, you sorta can infer the spin from the ball arc or even if you catch a glimpse of the rotating label)",
+              "kids": [
+                {
+                  "id": 47872491,
+                  "by": "Foobar8568",
+                  "time": 1776921708,
+                  "parent": 47871023,
+                  "text": "In french, we call that ping pong too. So yeah for ping pong.",
+                  "kids": []
+                },
+                {
+                  "id": 47871175,
+                  "by": "mcmoor",
+                  "time": 1776906043,
+                  "parent": 47871023,
+                  "text": "Lmao the character used is so cute",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869092,
+              "by": "hermitcrab",
+              "time": 1776890780,
+              "parent": 47869019,
+              "text": "According to this video it can read the spin:\n\nhttps://www.youtube.com/watch?v=EH8kZDc7OLk",
+              "kids": []
+            },
+            {
+              "id": 47870288,
+              "by": "neosat",
+              "time": 1776898019,
+              "parent": 47869019,
+              "text": "As a player myself, and having seen much higher level player than me, reading the spin from the ball rotation (and in fact trajectory) of the ball is a common (if advanced) skill. Sometimes the movement of the bat can be deceptive (since with the same movement, where it contact on the bat, the finger pressure can affect the spin).\n\nFor example, backspin/underspin balls will move slower after the first bounce and feel 'damper' while topspin will jump. So it's def. possible (and in fact reliable) to read the spin from the spin and trajectory of the ball.",
+              "kids": [
+                {
+                  "id": 47870369,
+                  "by": "QuantumGood",
+                  "time": 1776898644,
+                  "parent": 47870288,
+                  "text": "Visually reading spin is unreliable at all levels; the ITTF passed the two-color rubber rule requiring one black and one red side to neutralize players taking advantage of their opponents being unable to read the spin from watching the ball rotation via twiddling rackets with the same color rubber on both sides, but different characteristics.",
+                  "kids": [
+                    {
+                      "id": 47870838,
+                      "by": "stavros",
+                      "time": 1776902777,
+                      "parent": 47870369,
+                      "text": "I can't parse that sentence, can you please clarify?",
+                      "kids": [
+                        {
+                          "id": 47871187,
+                          "by": "QuantumGood",
+                          "time": 1776906089,
+                          "parent": 47870838,
+                          "text": "Apologies! I left a much clearer edit on screen, and when I noticed I had not commited it, the edit window had closed.",
+                          "kids": []
+                        },
+                        {
+                          "id": 47871002,
+                          "by": "thatguy0900",
+                          "time": 1776904266,
+                          "parent": 47870838,
+                          "text": "Ping pong paddles have two sides, with different characteristics for each side. Now the two sides have to have different colors so your opponent can see what you are hitting it with, where before you could use the same color on both sides and your opponent wouldn't be able to tell how the ball would react",
+                          "kids": [
+                            {
+                              "id": 47871468,
+                              "by": "stavros",
+                              "time": 1776908949,
+                              "parent": 47871002,
+                              "text": "Thanks!",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47872197,
+              "by": "jamesjyu",
+              "time": 1776917793,
+              "parent": 47869019,
+              "text": "It was actually called ping pong until it became a trademark dispute, and the sport had to call it table tennis!",
+              "kids": []
+            },
+            {
+              "id": 47871138,
+              "by": "segmondy",
+              "time": 1776905588,
+              "parent": 47869019,
+              "text": "It's ping pong.",
+              "kids": [
+                {
+                  "id": 47873029,
+                  "by": "thenthenthen",
+                  "time": 1776929071,
+                  "parent": 47871138,
+                  "text": "It is ping pang if you use standard pinyin. Also, all these fancy cameras, I wonder if they considered using sound as well? I am a super noob fE player but sound hints are pretty telling of the speed and where and how the ball was hit",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47871545,
+              "by": "james_marks",
+              "time": 1776909824,
+              "parent": 47869019,
+              "text": "Ping Pong is what you play for fun in the basement. The competitive sport is Table Tennis.",
+              "kids": [
+                {
+                  "id": 47872584,
+                  "by": "4gotunameagain",
+                  "time": 1776923014,
+                  "parent": 47871545,
+                  "text": "This is like software developers who write javascript wanting to be called engineers, isn't it",
+                  "kids": [
+                    {
+                      "id": 47872938,
+                      "by": "ReptileMan",
+                      "time": 1776927983,
+                      "parent": 47872584,
+                      "text": "Vibe code",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47870435,
+              "by": "bombcar",
+              "time": 1776899243,
+              "parent": 47869019,
+              "text": "It’s miniature table pickleball.",
+              "kids": []
+            },
+            {
+              "id": 47870375,
+              "by": "dataflow",
+              "time": 1776898679,
+              "parent": 47869019,
+              "text": "> Also IT'S TABLE TENNIS, NOT PING PONG!\n\nIs it also MOVING STAIRCASE, NOT ESCALATOR?",
+              "kids": []
+            },
+            {
+              "id": 47870345,
+              "by": "davebren",
+              "time": 1776898467,
+              "parent": 47869019,
+              "text": "The ball trajectory gives the spin",
+              "kids": []
+            },
+            {
+              "id": 47869345,
+              "by": "BrandoElFollito",
+              "time": 1776892314,
+              "parent": 47869019,
+              "text": "I had a look at Google trends for France. Table tennis is slightly more common than ping pong but the latter is much more stable. Table tennis has huge peaks, the biggest one being during the OG in Paris. These parks are not reflected in there ping pong trend\n\nInterestingly, for Youtube searches this is the other way, with a much bigger difference in favour to ping pong",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47870153,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869102,
+      "by": "amandle",
+      "time": 1776890827,
+      "parent": 47864785,
+      "text": "Reminds me of the Mitch Hedberg joke: \"The depressing thing about tennis is that no matter how good I get, I'll never be as good as a wall.\"",
+      "kids": [
+        {
+          "id": 47869423,
+          "by": "_doctor_love",
+          "time": 1776892733,
+          "parent": 47869102,
+          "text": "I used to love Mitch Hedberg. I still do, but I used to, too.",
+          "kids": [
+            {
+              "id": 47870059,
+              "by": "EGreg",
+              "time": 1776896406,
+              "parent": 47869423,
+              "text": "Peter Ilyich Tchaikovsky was born in Votkinsk, May 7 1840.\n\nWhen he was a little boy he never played out in the streets of Votkinsk like the other little children of Votkinsk, because when Tchaikovsky was one month old, his parents moved to St. Petersburg.\n\n— Victor Borge",
+              "kids": [
+                {
+                  "id": 47871039,
+                  "by": "mjcohen",
+                  "time": 1776904638,
+                  "parent": 47870059,
+                  "text": "As Victor said, his parents were very upset when they came home and found him in front of a roaring fire, because they did not have a fireplace.",
+                  "kids": []
+                },
+                {
+                  "id": 47870093,
+                  "by": "_doctor_love",
+                  "time": 1776896673,
+                  "parent": 47870059,
+                  "text": "Put up in a place\n\nwhere it is easy to see\n\nthe cryptic admonishment\n\nT.T.T\n\n                                                     ¨ \n\nWhen you feel how depressingly\n\nslowly you climb\n\nit's well to remember that\n\nThings Take Time\n\n-- Piet Hein",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47870106,
+              "by": "jimt1234",
+              "time": 1776896725,
+              "parent": 47869423,
+              "text": "If you don't like a parade, run in the opposite direction to fast-forward it.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870391,
+      "by": "sd9",
+      "time": 1776898785,
+      "parent": 47864785,
+      "text": "The official Sony AI video, which is really interesting and has some glorious footage: https://youtu.be/FrGq8ltb-_E?si=PWm1Dv0T9UHUFw0t",
+      "kids": [
+        {
+          "id": 47871456,
+          "by": "emmelaich",
+          "time": 1776908804,
+          "parent": 47870391,
+          "text": "More details and videos at https://ace.ai.sony/",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869556,
+      "by": "retrochameleon",
+      "time": 1776893539,
+      "parent": 47864785,
+      "text": "I'll be impressed when it's a humanoid robot that has to contend with similar kinematic limitations as a human player.",
+      "kids": [
+        {
+          "id": 47872680,
+          "by": "alexose",
+          "time": 1776924434,
+          "parent": 47869556,
+          "text": "Yeah, the dang thing can reach all the way to the net while standing three feet behind the table",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872739,
+      "by": "perlgeek",
+      "time": 1776925369,
+      "parent": 47864785,
+      "text": "> In matches detailed in the study, Ace in April 2025 won three out of five versus elite players and lost two matches against professional players, the top skill level in the sport. Sony AI said that since then Ace beat professional players in December 2025 and last month.\n\nWhat exactly is an \"elite\" player, if it's not a professional?",
+      "kids": []
+    },
+    {
+      "id": 47869136,
+      "by": "halfnhalf",
+      "time": 1776891062,
+      "parent": 47864785,
+      "text": "Don't table tennis players learn to predict how the ball will act based on their opponents movements? Seems like if they aren't able to do that with a robot opponent (who doesn't look or behave like a human) then they wouldn't be able to play at their best.",
+      "kids": [
+        {
+          "id": 47869377,
+          "by": "ACCount37",
+          "time": 1776892452,
+          "parent": 47869136,
+          "text": "I do expect this to have a \"novelty edge\" over human opponents - which can be closed with practice, on the human end.\n\nAnd, like many AIs, it can have \"jagged capability\" gaps, with inhuman failure modes living in them - which humans can learn to exploit, but the robot wouldn't adapt to their exploitation because it doesn't learn continuously. Happened with various types of ML AIs designed to fight humans.",
+          "kids": [
+            {
+              "id": 47870461,
+              "by": "Ferret7446",
+              "time": 1776899498,
+              "parent": 47869377,
+              "text": "Only if you assume the AI can't improve.  Otherwise, AI has a fundamental edge over humans in that they don't get old and die, and can be copied perfectly without an expensive retraining period",
+              "kids": [
+                {
+                  "id": 47872468,
+                  "by": "ACCount37",
+                  "time": 1776921500,
+                  "parent": 47870461,
+                  "text": "Oh, they can. They just need a human touch to actually improve.\n\nFor now. It's a work in progress.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869882,
+              "by": "zingar",
+              "time": 1776895380,
+              "parent": 47869377,
+              "text": "Chess players learned to exploit chess computers’ weaknesses in the beginning too, but they can’t any longer. This version of the robot might not learn continuously, but the next will be better.",
+              "kids": [
+                {
+                  "id": 47871148,
+                  "by": "cool_dude85",
+                  "time": 1776905732,
+                  "parent": 47869882,
+                  "text": "I believe there are still some echoes of the concept. Even top engines will play certain grandmaster draw lines unless told more or less explicitly not to. So if you were playing a match against Stockfish you'd want to play the Berlin draw as White every time, for example.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47870154,
+          "by": "LeCompteSftware",
+          "time": 1776897039,
+          "parent": 47869136,
+          "text": "Yes, you're dead on:\n\n  Rui Takenaka, an elite-level player who has won and lost matches against Ace, said in comments provided by Sony AI: \"When it came to my serve, if I used a serve with complex spin, Ace also returned the ball with complex spin, which made it difficult for me. But when I used a simple serve - what we call a knuckle serve - Ace returned a simpler ball. That made it easier for me to attack on the third shot, and I think that was the key reason why I was able to win.\"\n\nIt seems like the human players might be playing in a way that tacitly overestimates their AI opponents' intelligence and underestimates their skill. AFAIK the SOTA Go AIs are still vulnerable to certain very stupid adversarial strategies that wouldn't fool an amateur (albeit they're not something you'd come up with in normal play, more like a weird cheat code). I wonder if this could get ironed out with a bit more training against humans vs. simulation.",
+          "kids": []
+        },
+        {
+          "id": 47869500,
+          "by": "hermitcrab",
+          "time": 1776893214,
+          "parent": 47869136,
+          "text": "You can predict the movement of the ball (speed, direction, spin) based on the movement of the bat relative to the ball. What the rest of the player's body is doing is irrelevant to predicting what the ball will do - but relevant to predicting where they will be when you make the return shot.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47872772,
+      "by": "arjunthazhath",
+      "time": 1776925812,
+      "parent": 47864785,
+      "text": "Glad to see new kind of robots other than those cliche dog like ones....that does nothing but walk. In india its pretty much seen in every public event as a marketing gimmick.",
+      "kids": []
+    },
+    {
+      "id": 47869301,
+      "by": "janalsncm",
+      "time": 1776892082,
+      "parent": 47864785,
+      "text": "Here is the paper:\n\nhttps://www.nature.com/articles/s41586-026-10338-5\n\nI would love to see a video of this thing that shows the whole table. From the paper I guess they have to light the area very brightly. But it seems like a pretty serious set up.",
+      "kids": [
+        {
+          "id": 47869506,
+          "by": "lucidrains",
+          "time": 1776893250,
+          "parent": 47869301,
+          "text": "quite surprised to see SAC, considering the deepmind ping pong paper resorted to evolutionary strategies, iirc",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869923,
+      "by": "mgh2",
+      "time": 1776895676,
+      "parent": 47864785,
+      "text": "Nature video\nhttps://www.youtube.com/watch?v=EH8kZDc7OLk",
+      "kids": []
+    },
+    {
+      "id": 47870078,
+      "by": "jcims",
+      "time": 1776896573,
+      "parent": 47864785,
+      "text": "The motion system constrains the problem quite a bit.  This video of high speed vision/actuators is 16 years old - https://www.youtube.com/watch?v=bfdHY26E2jc\n\nI was expecting/hoping for a humanoid robot.",
+      "kids": []
+    },
+    {
+      "id": 47870023,
+      "by": "ChrisMarshallNY",
+      "time": 1776896249,
+      "parent": 47864785,
+      "text": "Makes sense that it would.\n\nReminds me of this old The Onion story: https://theonion.com/ping-pong-somehow-elicits-macho-posturi...",
+      "kids": []
+    },
+    {
+      "id": 47871933,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47871620,
+      "by": "throwatdem12311",
+      "time": 1776910559,
+      "parent": 47864785,
+      "text": "I don’t care about robots being better than humans at human achievement.\n\nWould anyone ever watch Clankers play hockey against eachother at a Clanker Olympics? The idea is absurd, I want to see humans competing because they are humans not just because they are good.",
+      "kids": [
+        {
+          "id": 47872999,
+          "by": "fc417fc802",
+          "time": 1776928679,
+          "parent": 47871620,
+          "text": "I would absolutely watch a clanker olympics if it was tightly regulated, involving fully autonomous bipedal robots that fit within a strict physical envelope putting on inhuman displays of athleticism. I'd be particularly interested in gladiatorial competitions since on top of super human athleticism blood sports have otherwise fallen out of favor due to the human cost.\n\nAre you seriously telling me you wouldn't enjoy watching mechas going at it with greatswords? As a bonus (as suggested regarding cars by another commenter) mount explosive charges to weak points that must be defended.",
+          "kids": []
+        },
+        {
+          "id": 47871649,
+          "by": "efskap",
+          "time": 1776910926,
+          "parent": 47871620,
+          "text": "Furthermore, I think we care most about the context surrounding the humans.\n\nIf a txt2vid model could generate a 100% perfect video of a soccer match, perfectly rendering each blade of grass, would anyone watch it? No, because we care about the team and the stories of the players. Not just the spectacle being shown.",
+          "kids": []
+        },
+        {
+          "id": 47872763,
+          "by": "NitpickLawyer",
+          "time": 1776925689,
+          "parent": 47871620,
+          "text": "Plenty of people watch TCEC (Top Chess Engine Championship) livestreams. Even more watch a selection of games curated by professional analysts. Some of the games are really interesting and surface novel stuff.",
+          "kids": []
+        },
+        {
+          "id": 47871648,
+          "by": "mgfist",
+          "time": 1776910908,
+          "parent": 47871620,
+          "text": "> Clankers play hockey against eachother at a Clanker Olympics\n\nWell actually hockey in particular could be entertaining, depending on how they play.",
+          "kids": [
+            {
+              "id": 47871686,
+              "by": "throwatdem12311",
+              "time": 1776911462,
+              "parent": 47871648,
+              "text": "Robocops vs Terminators maybe",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870505,
+      "by": "jmward01",
+      "time": 1776899924,
+      "parent": 47864785,
+      "text": "I'm not that excited about 'x beats human at y' anymore. I am more interested in 'x beats human at made up on the spot tasks p d and q'. That is starting to happen more generically and is a bigger sign of emerging capability. We can always create something confined that will beat humans, it isn't until recently that we are starting to be able to generally beat humans at tasks.",
+      "kids": []
+    },
+    {
+      "id": 47869374,
+      "by": "metadat",
+      "time": 1776892422,
+      "parent": 47864785,
+      "text": "Is there a video of this in action?  Pictures are not satisfying at all!",
+      "kids": [
+        {
+          "id": 47869433,
+          "by": "ddarolfi",
+          "time": 1776892806,
+          "parent": 47869374,
+          "text": "https://www.youtube.com/watch?v=EH8kZDc7OLk\n\nhttps://sonyresearch.github.io/ace_public/",
+          "kids": [
+            {
+              "id": 47869981,
+              "by": "bubblegumcrisis",
+              "time": 1776895990,
+              "parent": 47869433,
+              "text": "Am I correct in my understanding that- they had specialized software that not only tracked the ball, calculated spins using the logo, and fed calculated trajectories?",
+              "kids": [
+                {
+                  "id": 47871547,
+                  "by": "fourthark",
+                  "time": 1776909831,
+                  "parent": 47869981,
+                  "text": "Yes, using nine specialized cameras. Still very impressive but the human is overmatched on equipment alone.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47869293,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872273,
+      "by": "downboots",
+      "time": 1776918850,
+      "parent": 47864785,
+      "text": "Robo-augmented padel, the future",
+      "kids": []
+    },
+    {
+      "id": 47870164,
+      "by": "chasil",
+      "time": 1776897100,
+      "parent": 47864785,
+      "text": "What happens when two of them play each other?\n\nHow easy is it to introduce artifacts that reduce accuracy and performance?",
+      "kids": []
+    },
+    {
+      "id": 47870417,
+      "by": "nemo44x",
+      "time": 1776898989,
+      "parent": 47864785,
+      "text": "Well, I guess we’re going to fire all the Ping-pong players at the office and replace them with these robots.",
+      "kids": []
+    },
+    {
+      "id": 47869770,
+      "by": "allthetime",
+      "time": 1776894838,
+      "parent": 47864785,
+      "text": "Much like the robots beating half marathon records in China recently… who cares? Cake making robots can make cakes way faster than human bakers. Cars and motorcycles go faster than bicyclists. It is a boring given that purpose made machines perform the tasks they are built to perform better than humans.",
+      "kids": [
+        {
+          "id": 47869825,
+          "by": "jedberg",
+          "time": 1776895131,
+          "parent": 47869770,
+          "text": "It's an amazing feat of engineering because it requires constant micro-adjustments, something that robots couldn't do a few years ago.",
+          "kids": [
+            {
+              "id": 47870256,
+              "by": "allthetime",
+              "time": 1776897799,
+              "parent": 47869825,
+              "text": "Yeah, thinking through it a bit further, the real story here, aside from the mechanical engineering, is the application of AI/machine learning/computer vision processing. The advancements that have made it possible to reason about, simulate, and react to the complexities of a spinning ball in a fraction of a second are pretty cool. My gripe is mostly that this article isn't focusing on and detailing this.",
+              "kids": []
+            },
+            {
+              "id": 47871642,
+              "by": "throwatdem12311",
+              "time": 1776910827,
+              "parent": 47869825,
+              "text": "Coming soon to an ICE Goon Squad near you!",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869992,
+          "by": "hydrolox",
+          "time": 1776896077,
+          "parent": 47869770,
+          "text": "isn't this a technology forum?",
+          "kids": [
+            {
+              "id": 47870096,
+              "by": "allthetime",
+              "time": 1776896688,
+              "parent": 47869992,
+              "text": "The article's main focus is on the \"vs. human\" aspect and is light on technical details. I would love to hear specifics from the engineers behind this.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47869169,
+      "by": "finger",
+      "time": 1776891295,
+      "parent": 47864785,
+      "text": "I wonder if a top player with access to a robot like this can get an extra edge in training?",
+      "kids": [
+        {
+          "id": 47869261,
+          "by": "hermitcrab",
+          "time": 1776891860,
+          "parent": 47869169,
+          "text": "Even club level players have access to tennis table 'robots'. They fire the ball at you and collect the return in a net. You can set the speed, position and spin. They are very basic compared to this robot, but useful for training.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47871690,
+      "by": "aldielshala",
+      "time": 1776911497,
+      "parent": 47864785,
+      "text": "Finally an AI that takes someone's job and nobody's upset about it.",
+      "kids": []
+    },
+    {
+      "id": 47870784,
+      "by": "OisinMoran",
+      "time": 1776902343,
+      "parent": 47864785,
+      "text": "This is great, I remember being sorely disappointed by the hyped up Timo Boll vs Kuka robot 12 years ago. I thought it was going to be a real match and seemed like the robot would destroy him, but ended up just being a marketing stunt and felt like a fixed fight, with no real digging into the tech or why the robot \"lost\". Still some  cool footage: https://youtu.be/tIIJME8-au8",
+      "kids": []
+    },
+    {
+      "id": 47869281,
+      "by": "tantalor",
+      "time": 1776891979,
+      "parent": 47864785,
+      "text": "> Now, Wireless Joe Jackson! There was a blern hitting machine.\n\n> Exactly! He was a machine designed to hit blerns. I mean come on, Wireless Joe was nothing but programmable bat on wheels.\n\n> Oh? And I suppose Pitch-o-mat 5000 was just a modifier howitzer?\n\n> Yep!",
+      "kids": []
+    },
+    {
+      "id": 47869161,
+      "by": "tartoran",
+      "time": 1776891229,
+      "parent": 47864785,
+      "text": "Cool. Now let's see two robots play and if it's fun let it become it's own thing. Other than that, this could be used for training actual players.",
+      "kids": [
+        {
+          "id": 47870163,
+          "by": "jimt1234",
+          "time": 1776897085,
+          "parent": 47869161,
+          "text": "I've always wished for something similar: autonomous car racing. No human drivers. No remote controls. Just program the cars before the race, and let them go. Maybe even load the cars with mild explosives so they go BOOM when they crash.",
+          "kids": [
+            {
+              "id": 47871644,
+              "by": "chucksmash",
+              "time": 1776910842,
+              "parent": 47870163,
+              "text": "https://en.wikipedia.org/wiki/DARPA_Grand_Challenge_(2005)\n\n(Linking that one as it's the first in which any of the teams completed the entire course)",
+              "kids": []
+            },
+            {
+              "id": 47872374,
+              "by": "te",
+              "time": 1776920076,
+              "parent": 47870163,
+              "text": "Here's an entrance to the rabbit hole:  https://www.a1k0n.net/2021/01/22/indoor-localization.html",
+              "kids": []
+            },
+            {
+              "id": 47870840,
+              "by": "pinkmuffinere",
+              "time": 1776902819,
+              "parent": 47870163,
+              "text": "Absolutely love this idea, it sounds very fun",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869685,
+          "by": "jareklupinski",
+          "time": 1776894329,
+          "parent": 47869161,
+          "text": "robot ping pong league",
+          "kids": [
+            {
+              "id": 47870385,
+              "by": "davebren",
+              "time": 1776898732,
+              "parent": 47869685,
+              "text": "It would be a good benchmark for humanoid robots",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870506,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47869893,
+      "by": "slowhadoken",
+      "time": 1776895473,
+      "parent": 47864785,
+      "text": "The greatest blernsball player was a machine for playing blernsball.",
+      "kids": []
+    },
+    {
+      "id": 47870659,
+      "by": "runicelf",
+      "time": 1776901190,
+      "parent": 47864785,
+      "text": "Now we need to find out if the robot can win against the wall",
+      "kids": []
+    },
+    {
+      "id": 47869659,
+      "by": "amelius",
+      "time": 1776894187,
+      "parent": 47864785,
+      "text": "AI gets all the fun jobs. Yet again.\n\nNow build a robot that can catch a bullet.",
+      "kids": [
+        {
+          "id": 47869772,
+          "by": "RijilV",
+          "time": 1776894851,
+          "parent": 47869659,
+          "text": "careful what you wish for.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869667,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47871476,
+      "by": "vova_hn2",
+      "time": 1776909035,
+      "parent": 47864785,
+      "text": "While the engineering behind this achievement is really impressive, it doesn't feel that important in the grand scheme of things.\n\nWe had machines \"beating\" humans in physical tasks for a very long time. No one would be impressed by a car winning a running competition or a construction crane lifting more weight than an Olympic weightlifting champion.",
+      "kids": [
+        {
+          "id": 47871627,
+          "by": "jillesvangurp",
+          "time": 1776910644,
+          "parent": 47871476,
+          "text": "The significance of ping pong is not beating humans but that it is a sport that depends on high precision, fast movement, and rapid responses. The aim of the game is to out maneuver the opponent and corner them such that they can't respond and adapt quickly enough. A robot beating a human means that it does this better, faster, and more precise. A few days ago, a bi pedal robot ran a a half marathon about eight or nine minutes faster than the fastest human can.\n\nThese are not the clumsy robots of a few years ago that could only do simple, pre-programmed tasks and had to work in fenced off areas because they had no awareness of anything around them (including fragile people) but self stabilizing, inhumanly fast running robots that can operate in any kind of environment and adapt to a wide variety of tasks. And then complete those tasks at very high precision and speed.",
+          "kids": []
+        },
+        {
+          "id": 47871727,
+          "by": "_carbyau_",
+          "time": 1776911866,
+          "parent": 47871476,
+          "text": "And humans have mastered radio waves for communication, washing machines for washing clothes, dishwashers for dishes etc etc.\n\nHowever, the point here is not that it makes a sport redundant, but that a type of observation, calculation, and movement has been achieved.\n\nI for one hope to see this tech in action from the customer side of a teppanyaki restaurant. It won't replace the humour of a good human teppanyaki chef but maybe I'll be able to afford it....",
+          "kids": []
+        },
+        {
+          "id": 47871630,
+          "by": "throwatdem12311",
+          "time": 1776910673,
+          "parent": 47871476,
+          "text": "We’ve had chess computers better than humans for a long time now but nobody cares about that because it’s not about winning it’s about the humanity.",
+          "kids": []
+        }
+      ]
+    }
+  ]
+}

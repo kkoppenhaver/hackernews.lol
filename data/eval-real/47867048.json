@@ -1,0 +1,635 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47867048,
+    "title": "Website streamed live directly from a model",
+    "points": 246,
+    "descendants": 71,
+    "article_url": "https://flipbook.page/",
+    "hn_url": "https://news.ycombinator.com/item?id=47867048",
+    "self_post": false
+  },
+  "story": {
+    "id": 47867048,
+    "title": "Website streamed live directly from a model",
+    "url": "https://flipbook.page/",
+    "by": "sethbannon",
+    "score": 247,
+    "time": 1776880878,
+    "descendants": 71,
+    "text": "https://x.com/zan2434/status/2046982383430496444 (https://xcancel.com/zan2434/status/2046982383430496444)"
+  },
+  "comments": [
+    {
+      "id": 47869079,
+      "by": "giobox",
+      "time": 1776890725,
+      "parent": 47867048,
+      "text": "I just asked it to create a torque spec diagram of the suspension for my car, a subject I'm pretty familiar with. It amazingly drew everything correctly, displayed the correct torque figures and allowed me to click on individual components to zoom in further, providing more specs.\n\nGenuinely one of the most impressive demos I've tried in a long time. I was able to use it almost like a living version of a classic illustrated Haynes workshop manual.",
+      "kids": [
+        {
+          "id": 47873036,
+          "by": "taffydavid",
+          "time": 1776929134,
+          "parent": 47869079,
+          "text": "I have an old door on the back yard, been planning to make a bike shelter this week so I asked it to make me a plan. It drew a regular shed with an \"upcycled door\". But no sign of where a bike should fit into it. No bike would ever fit in that thing, and the only structure it showed how to construct didn't resemble the actual finished thing.\n\nLike every other AI demo I've tried ever, impressive on the surface, but the system fundamentally doesn't understand what it is doing",
+          "kids": []
+        },
+        {
+          "id": 47869176,
+          "by": "tomashubelbauer",
+          "time": 1776891360,
+          "parent": 47869079,
+          "text": "I asked it about designing a 12 V solar system for a garden shed and it got everything but the broadest of strokes wrong. It figured out there should be a solar panel, a solar charge controller, a battery and some loads, but the wiring was non-sensical and when I drilled in on the solar charge controller settings etc. it completely fell apart. Absolute non-starter for any information you plan on depending on, but good entertainment value and impressive execution.",
+          "kids": []
+        },
+        {
+          "id": 47869517,
+          "by": "thegrim33",
+          "time": 1776893349,
+          "parent": 47869079,
+          "text": "I decided to test it out myself.\n\nWent to the website, typed in \"Jeep Wrangler JK engine bay with components labeled\" (Since I'm intimately familiar with JK engine bays). Seems like a pretty analogous test to what you did, if anything an even easier test.\n\nLet's see what we get .. a very nice looking diagram of a wrangler engine bay with components labeled, looks good.\n\nBut wait ..\n\n- The brake fluid reservoir is on the wrong side of the engine bay\n\n- Where the brake fluid reservoir is, it's labeled as the coolant overflow tank, and while the actual coolant overflow tank does exist in the diagram, it has no label.\n\n- The battery is on the wrong side of the engine bay.\n\n- The top of the front grill is labeled as the \"oil filter cap\".\n\n- The oil fill cap is in the wrong place.\n\n- Half of the battery is labeled as the fuse box, when the fuse box is correctly shown, but unlabeled, on the other side of the engine bay.\n\n- It shows two different windshield washer reservoirs next to each other.\n\nI could keep going on ...\n\nNow I tried clicking on the incorrectly labeled coolant overflow reservoir and it switches to a new page which now shows a completely different looking coolant overflow, but now it's at least located in the correct place in the engine bay.\n\nBut of course it doesn't look remotely like the actual coolant overflow container. It also shows the radiator cap as on the top of the coolant reservoir, when in reality it is very much on the top of the radiator itself.\n\nLike .. I can find fault with every aspect of it. But of course, if you didn't actually know much about the topic it'd all look fairly believable. The story of LLMs basically.",
+          "kids": [
+            {
+              "id": 47869931,
+              "by": "dugidugout",
+              "time": 1776895704,
+              "parent": 47869517,
+              "text": "It does poorly on creative concepts as well.\n\nI attempted to explore the works of Kinoko Nasu/TYPE-MOON through its characters and the relationships across works and it was mostly nonsense. Sure it had some broad relations correct, but it presented a tiny set of meaningful characters and only attempted to touch Fate/Stay-Night and Tsukihime.\n\nEven more damning was that it produced garbled text for a few of the textual representations and often even if the lettering was clean, the grammar was off.",
+              "kids": [
+                {
+                  "id": 47871775,
+                  "by": "hgoel",
+                  "time": 1776912321,
+                  "parent": 47869931,
+                  "text": "To be fair, disentangling even just the Fate series is nearly impossible even for humans",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869695,
+              "by": "toraway",
+              "time": 1776894433,
+              "parent": 47869517,
+              "text": "I had a tab on nuclear reactors open and so typed in \"Pressurized Water Reactor\" and the result while very visually appealing is completely nonsensical (connected the high/low pressure coolant loops together) and would definitely explode.\n\nhttps://imgur.com/a/DEb3oD4",
+              "kids": []
+            },
+            {
+              "id": 47870426,
+              "by": "jazzypants",
+              "time": 1776899098,
+              "parent": 47869517,
+              "text": "Do we ever simply accept that LLMs weren't made for this kind of detail-oriented work? I can't imagine something like this ever being anything other than a toy which can't be trusted.\n\nWill Silicon Valley executives ever accept this reality? If we acquiesce and admit that LLMs are a good tool for prototyping and boilerplate-reduction, but not finished products-- is that when the bubble finally bursts?",
+              "kids": [
+                {
+                  "id": 47872854,
+                  "by": "maplethorpe",
+                  "time": 1776926915,
+                  "parent": 47870426,
+                  "text": "I think the unfortunate fact is that most jobs in the world do not require accuracy, so an inaccurate result has a negligible impact over an accurate one.\n\nI used to feel job safety in the knowledge that AI labs weren't likely to solve the hallucination problem. Then it dawned on me that they don't need to — they just need to reduce our collective expectations.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869623,
+              "by": "macprothrowaway",
+              "time": 1776893970,
+              "parent": 47869517,
+              "text": "I also replied because I asked it about a Mac Pro case I had right in front of me. Mostly right words, totally wrong visuals.\nAnd while I see what you mean by 'story of LLMs', I ask LLMs about things I know often, and for the last 12 months theyve been pretty dang accurate. This ai visual example is the strongest 'its just guessing' Ive seen in years. For a demo, pretty cool still though. Not sure why OP exaggerated, or simply doesnt know his car as well as he thinks he does.",
+              "kids": []
+            },
+            {
+              "id": 47871061,
+              "by": "ofjcihen",
+              "time": 1776904917,
+              "parent": 47869517,
+              "text": "Does it make sense that maybe it has a model of the vehicle it can pull from its corpus wholesale but then the “guess the next letter” portion takes over for labeling and just guesses poorly?",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869585,
+          "by": "macprothrowaway",
+          "time": 1776893771,
+          "parent": 47869079,
+          "text": "I have a Mac Pro 5,1 taken apart on my desk right in front of me. I asked it for a diagram of the 5,1 internals. While it was MacProish looking, it was wrong about every visual element. The text fields were right at first glace. Every click I did was basically all wrong too.\nVisually it looked cool, but actually the first time Ive seen AI be wrong constantly since maybe 2023.",
+          "kids": []
+        },
+        {
+          "id": 47871194,
+          "by": "debo_",
+          "time": 1776906149,
+          "parent": 47869079,
+          "text": "I queried \"your mom\" and it created a historical social timeline of motherhood superimposed with a placenta. I approve",
+          "kids": []
+        },
+        {
+          "id": 47871059,
+          "by": "tiltowait",
+          "time": 1776904877,
+          "parent": 47869079,
+          "text": "Interesting! To join the cavalcade of others sharing their experiences:\n\nI first asked it \"how big are geckos\". It gave me a cool comparison diagram between three gecko extremes (leachianus, Jaragua dwarf gecko, and leopard gecko, if curious). Info all looked correct. Drilling into the Jaragua brought me to a less-impressive page with utter gibberish text and duplicated info boxes. So it goes. I drilled further, but they were more esoteric topics I'm less versed on (lamellar setae), I can't evaluate the accuracy without further research.\n\nI also gave it something broader: \"tokay gecko\". More duplicate info boxes, and for some reason it \"drew\" two geckos on top of each other. Kind of cute, but tokays are extremely territorial, so happy cohabitation isn't their default (though it's not unheard of).\n\nStill, despite the issues, I thought it was very neat.",
+          "kids": []
+        },
+        {
+          "id": 47871967,
+          "by": "dolphinsarefun",
+          "time": 1776914620,
+          "parent": 47869079,
+          "text": "Since ecco the dolphin just had two remasters and a new game announced, I decided to ask for it to show me a map of the first stage of tides of time. Should be easy, it just has to search for it and then generate something off of it. The stage is mostly empty too, just an open area, then a large opening with an upward current that leads to a separate bay with a warp ring. Three spaces, some dolphins and a circle.\n\nIt did a diagram that has absolutely nothing to do with the actual stage, not even close. And tells me a complete whole slew of completely wrong information. It shows pod of dolphins that teach you to dash attack (you know it by default).  It shows a power sonar crystal (the sonar is a default ability, there is a \"power\" sonar I guess, but it is not obtained from crystals, and while the game features crystals, there are none in the game until level 3 and they look nothing like the diagram's). It shows air pockets... which are just bubbles (In the game, there are actually air refilling bubbles, but air pockets would refer to a small bit of open air in an underwater tunnel, like, the actual, you know, real life geological feature.)There are some medusas far off in the background in the image (They're yellow. The ones in the game are clear. They are also not present until later levels). An exit cave leads to the sea of silence (An actual stage. Wrong game.). A random cave says \"Health source\" (???? You do heal by eating fish but???). There is no warp ring.\n\nSo basically, the ONLY correct elements in the diagram are the presence of dolphins and the fact the diagram is labeled \"Home Bay\". Every single other element on this is wrong and would be wrong for all iterations of the Home Bay.\n\nFor a visual search tool, this sucks at visuals.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47873040,
+      "by": "gyomu",
+      "time": 1776929200,
+      "parent": 47867048,
+      "text": "I love this because it articulates so well a precise vision of a world I don’t want to live in.\n\nThis is built from the collective works of all humans throughout history who have strived to make infographics, illustrations, and communicate knowledge - with 0 actual credit or reference to them (or financial compensation, if they’re still alive).\n\nInstead, who is making money from this? Google, as providers of the model - and maybe the founders of this product, if they ever choose to monetize it somehow.\n\nI’m not even going to get into how the results it produces have just enough “insight” to appear valid but the moment you inspect it up close, it’s completely wrong in most details, and replete with ornamentation that doesn’t actually add to meaning - a Potemkin village of knowledge - because the common answer to this criticism around here is “just wait 6 months bro the models will definitely solve all those problems”.\n\n(some of the things I’ve tried for reference)\n\nhttps://flipbook.page/n/56fed5ac8e164467b1d6151a6d5068ae\n\nhttps://flipbook.page/n/deeb4d846d1a44738aa70d8973fc5765\n\nhttps://flipbook.page/n/335fb5d4c4d8428d82e8a43fc4f7a4e8\n\nWe are not better off investing billions of dollars in computers doing this over paying humans to write and illustrate and make cultural artefacts. We are not better off putting this in the hands of kids rather than meaningfully designed resources & curriculum designed by humans.\n\nWhat are we even doing.\n\nThat’s the biggest problem with the current wave of AI tooling - it’s so easy to make a cool demo all while completely missing the point of what actually is good for human flourishing.",
+      "kids": []
+    },
+    {
+      "id": 47868101,
+      "by": "martianlantern",
+      "time": 1776885891,
+      "parent": 47867048,
+      "text": "Cool project, but just a side thought I was having about how do people have resources and the money to make things like this and make it avl for public, I mean it's fair to say they have their own GPUs or if they are using api keys for gpt or Gemini with enterprise subsidized inference\n\nBut still coming from a frugal background I still cannot wrap my head around this",
+      "kids": [
+        {
+          "id": 47870905,
+          "by": "zan2434",
+          "time": 1776903327,
+          "parent": 47868101,
+          "text": "I am unfortunately just paying for this out of pocket! Didn't really expect it to blow up like this.",
+          "kids": [
+            {
+              "id": 47872346,
+              "by": "prodigycorp",
+              "time": 1776919719,
+              "parent": 47870905,
+              "text": "Thank you for sharing this. Not often do you get projects that expand your imagination about what we can do with these models.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47870631,
+          "by": "throwatdem12311",
+          "time": 1776901010,
+          "parent": 47868101,
+          "text": "They’ll take it down once they get hit with a 50k inference bill overnight after getting hit by the hug.",
+          "kids": []
+        },
+        {
+          "id": 47869520,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47870501,
+          "by": "rjh29",
+          "time": 1776899889,
+          "parent": 47868101,
+          "text": "University?",
+          "kids": []
+        },
+        {
+          "id": 47868219,
+          "by": "apsurd",
+          "time": 1776886510,
+          "parent": 47868101,
+          "text": "I didn't want to even try it because of similar. (\"immigrant mentality\" they call it around here. it's not a pejorative. TLDR: frugal because starting life over)\n\nand it's really slow. I didn't end up waiting. Not a slight to the creators, let them create. It's just really freaking slow I didn't wait.",
+          "kids": [
+            {
+              "id": 47868343,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871179,
+          "by": "fragmede",
+          "time": 1776906062,
+          "parent": 47868101,
+          "text": "I mean, do you have any hobbies or does every cent you have go to food, rent, and savings, with no frivolities, not even a drink after work or food that isn't rice and beans? Some people play video games or painting or carpentry or what have you. Instead of spending money on alcohol or sports, some people with FAANG-level salaries choose to spend their entertainment budget on GenAI art projects. Not your cup of tea, totally fine, but I suspect your budget has something others could choose to find frivolous if someone wanted to nitpick.",
+          "kids": [
+            {
+              "id": 47872634,
+              "by": "HWR_14",
+              "time": 1776923743,
+              "parent": 47871179,
+              "text": "The comment seems less about frivolousness and more about budget.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872809,
+      "by": "Nikolas0",
+      "time": 1776926378,
+      "parent": 47867048,
+      "text": "Congrats on the launch! This is an amazing product.\nSomething I would add is a panel with sources in case someone wants to have a deep dive in the information.\nMy 2 cents: This could be transformed to a state of the art teacher kind of product",
+      "kids": []
+    },
+    {
+      "id": 47871604,
+      "by": "monkpit",
+      "time": 1776910427,
+      "parent": 47867048,
+      "text": "Ah I was thinking this created the webpage itself, which I always thought was an interesting concept. Some future where the application is crafted in realtime to fulfill the needs of the user. Has anyone made something like this?",
+      "kids": []
+    },
+    {
+      "id": 47871080,
+      "by": "andai",
+      "time": 1776905110,
+      "parent": 47867048,
+      "text": "Sneed's Feed and Seed (Formerly Chuck's)\n\nhttps://flipbook.page/n/4a5e1797903b478c876a35e64c6c57fe",
+      "kids": [
+        {
+          "id": 47871427,
+          "by": "dlivingston",
+          "time": 1776908464,
+          "parent": 47871080,
+          "text": "Aw, I tried to navigate through the ownership history and it told me the last name was \"Chuck's Feed and Seed.\"\n\nI would have been so impressed if it got it right.",
+          "kids": []
+        },
+        {
+          "id": 47871134,
+          "by": "frontendstrong",
+          "time": 1776905555,
+          "parent": 47871080,
+          "text": "Genuinely my favourite joke from the Simpsons.",
+          "kids": [
+            {
+              "id": 47871158,
+              "by": "mikrl",
+              "time": 1776905859,
+              "parent": 47871134,
+              "text": "Argh… I still can’t wrap my head around the esoteric humour. What is a feeduck and seeduck anyway?",
+              "kids": [
+                {
+                  "id": 47871448,
+                  "by": "dlivingston",
+                  "time": 1776908687,
+                  "parent": 47871158,
+                  "text": "There is a common stem:\n\n    snEED\n    fEED\n    sEED\n\nNow take the implied stem from Chuck and apply it to the rest of the phrase:\n\n    chUCK",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47868368,
+      "by": "mfrye0",
+      "time": 1776887323,
+      "parent": 47867048,
+      "text": "Interesting idea, but just about everything is failing for me. Probably the HN hug of death happening.\n\n  Gemini generateContent request failed: { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://ai.google.dev/gemini-api/docs/rate-limits\" } ] } ] } }",
+      "kids": []
+    },
+    {
+      "id": 47868634,
+      "by": "sd9",
+      "time": 1776888535,
+      "parent": 47867048,
+      "text": "This seems like an expensive product to subject to the HN hug of death.\n\nThe sample videos on the tweet are very very cool.\n\nUnfortunately it didn’t really work for me, I’ll try it out in a few days when the traffic’s died down.",
+      "kids": []
+    },
+    {
+      "id": 47872966,
+      "by": "markusw",
+      "time": 1776928268,
+      "parent": 47867048,
+      "text": "This is so good and so fun! :D",
+      "kids": []
+    },
+    {
+      "id": 47872810,
+      "by": "jdthedisciple",
+      "time": 1776926382,
+      "parent": 47867048,
+      "text": "I like the visual style it produces, great for educational material. What is it called?",
+      "kids": []
+    },
+    {
+      "id": 47870541,
+      "by": "choult",
+      "time": 1776900290,
+      "parent": 47867048,
+      "text": "Fun. But just as flawed as any LLM.\n\nhttps://flipbook.page/n/6bd29678afc04b799276f4d3d62cc18e",
+      "kids": []
+    },
+    {
+      "id": 47871557,
+      "by": "squibonpig",
+      "time": 1776909921,
+      "parent": 47867048,
+      "text": "Very cool as a demo. I tried something information-dense, a poker pre-flop chart for a specific stack depth (40BB BTN vs UTG rfi)  and it was about what I expected. It doesn't even resemble a poker chart and there's no salvageable information as far as I can tell. Not really something this should be able to do though.\n\nhttps://flipbook.page/n/d48526ab345c4880a3b2171785508f52",
+      "kids": []
+    },
+    {
+      "id": 47871662,
+      "by": "joelres",
+      "time": 1776911050,
+      "parent": 47867048,
+      "text": "I typed in the address of my childhood home, and breathed a sigh of relief when it showed a random home with solar panels and 'clean modern sustainable living' which my childhood home was not. Even added solar panels.\n\nGeneral design was correct, and it included the name of a town just nearby.\n\nNot a surprising result, but made me reflect on what a weird world we now live in.",
+      "kids": []
+    },
+    {
+      "id": 47871605,
+      "by": "gxt",
+      "time": 1776910442,
+      "parent": 47867048,
+      "text": "Beyond the training boundary. Seems a propos for \"an infinite visual browser\". I'm just not clear on how we get to the beyond part of it.\n\nhttps://flipbook.page/n/f8982ddfd3ef4cbcb2ad8449d7d049b6",
+      "kids": []
+    },
+    {
+      "id": 47869947,
+      "by": "ianand",
+      "time": 1776895785,
+      "parent": 47867048,
+      "text": "It's like \"GPT is all you need for the backend\" [1] on steroids\n\n[1] https://news.ycombinator.com/item?id=34503418",
+      "kids": [
+        {
+          "id": 47870519,
+          "by": "trhway",
+          "time": 1776900014,
+          "parent": 47869947,
+          "text": "The future of programming and IT tech - If you need a database, you just say to the model \"you're a database\". Or \"you're a CRM\", \"you're a Doom game\",  \"you're a Word processor\", etc.\n\nIt was \"network is the computer\", now it will be \"model is the computer\", and the model will be like one large  (\"multi tenant\" - it will know on its own how/when to separate tenants' data and when to analyze it all together) model living on tens/hundreds of millions of nodes in AWS ... the AWS itself will be just that model.",
+          "kids": [
+            {
+              "id": 47870713,
+              "by": "throwup238",
+              "time": 1776901646,
+              "parent": 47870519,
+              "text": "And when the datacenter staff show up for work every morning the AI will them “You are employee #5378. Today you are a janitor. You will…” going off on a long list of hyper precise instructions for them to follow, like a human prompt.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870090,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47870091,
+      "by": "stephenpontes",
+      "time": 1776896667,
+      "parent": 47867048,
+      "text": "Didn't quite nail the labeling of each piece correctly for a small form factor PC build:\n\nhttps://flipbook.page/n/12267bbfdeb043c3aa477337950b2b71\n\n- M2 is labeled as GPU\n\n- GPU is labeled as M.2 and RAM?\n\n- RAM is labeled as GPU\n\n- Random plant inside the case?\n\n- This is also not a typical layout for a SFF PC\n\nGreat demo, interesting transitions and UI, but the model / generated information is definitely not correct.",
+      "kids": []
+    },
+    {
+      "id": 47867925,
+      "by": "Legend2440",
+      "time": 1776885100,
+      "parent": 47867048,
+      "text": "Interesting idea and cool demo.\n\nFor this to really be practical you'd need a way to run networks many times faster and more efficiently than today's GPUs. This is too slow to work even with cloud GPUs powering it.\n\nMaybe someday.",
+      "kids": []
+    },
+    {
+      "id": 47870251,
+      "by": "__MatrixMan__",
+      "time": 1776897772,
+      "parent": 47867048,
+      "text": "This is fun.  I started with \"all hail the glow cloud\" and now I'm clicking to wander around Nightvale.  It's not exactly suprrising that it knows all of the lore, but it paints a pretty cohesive picture...",
+      "kids": []
+    },
+    {
+      "id": 47869519,
+      "by": "otterpro",
+      "time": 1776893354,
+      "parent": 47867048,
+      "text": "It's pretty cool. I created a beautiful isometric illustration of home garden, which is worthy of being featured in a real book or magazine. I really like the isometric view to explain things, and the color palette is consistent and pleasant.",
+      "kids": []
+    },
+    {
+      "id": 47870039,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47868958,
+      "by": "deviantony",
+      "time": 1776890045,
+      "parent": 47867048,
+      "text": "Very cool project ! I fear this might have a pretty high hallucination potential (with current models) the deeper you dig into the base image/context and clicking on potentially unrelated elements in the image. \nNevertheless, love the idea.",
+      "kids": []
+    },
+    {
+      "id": 47869790,
+      "by": "sentientslug",
+      "time": 1776894924,
+      "parent": 47867048,
+      "text": "This is not really working for me at all, the second images always look near identical to the first with some minor changes. Maybe my prompts are the issue? Anyone have some good prompts?",
+      "kids": [
+        {
+          "id": 47869850,
+          "by": "consumer451",
+          "time": 1776895232,
+          "parent": 47869790,
+          "text": "I started with the prompt \"F-104 Starfighter\" and it went pretty well. [0]\n\nI wish I could share all of the things I clicked on afterwards, exactly in the order in which I tried to tell the story. When I try to use the share feature on anything below the root node, I get \"This page could not be saved for sharing.\" However, the video generation does work in that share modal, in the way I would expect. [1]\n\nSuper cool project.\n\n[0] https://flipbook.page/n/aa99d756f5aa4fd6bc617106c8d5077c\n\n[1] https://drive.google.com/file/d/1_YUr8NoIhB5DEYQkR_G3QjcgNz5...",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47871386,
+      "by": "dnnddidiej",
+      "time": 1776907984,
+      "parent": 47867048,
+      "text": "Fun. Uploaded a Kookaburra and got an Encarta like experience zooming on different things.",
+      "kids": []
+    },
+    {
+      "id": 47868853,
+      "by": "namanvyas",
+      "time": 1776889556,
+      "parent": 47867048,
+      "text": "Couldn't get it to load (probably getting hammered right now) but the concept is interesting. Feels like one of those things where the tech needs to get 10x cheaper before it actually makes sense as a product.",
+      "kids": []
+    },
+    {
+      "id": 47871660,
+      "by": "singingtoday",
+      "time": 1776911004,
+      "parent": 47867048,
+      "text": "The images I upload are displayed with an incorrect aspect ratio.\n\nNeat project though!",
+      "kids": []
+    },
+    {
+      "id": 47868552,
+      "by": "4ndrewl",
+      "time": 1776888234,
+      "parent": 47867048,
+      "text": "It looks pretty nice - reminds me of Dorling Kindersley books. But the graphics, whilst stylised, are pretty hit-and-miss. Great idea, just a bit too soon.",
+      "kids": []
+    },
+    {
+      "id": 47871969,
+      "by": "Isharmla",
+      "time": 1776914648,
+      "parent": 47867048,
+      "text": "Incredible AI visualization tool",
+      "kids": []
+    },
+    {
+      "id": 47870278,
+      "by": "readitalready",
+      "time": 1776897941,
+      "parent": 47867048,
+      "text": "This kind of thing would be great if we could have large local models sometime in the future.",
+      "kids": []
+    },
+    {
+      "id": 47868154,
+      "by": "brohan90",
+      "time": 1776886174,
+      "parent": 47867048,
+      "text": "This is one of the more unique ideas i've encountered in a long time",
+      "kids": [
+        {
+          "id": 47868321,
+          "by": "matt_heimer",
+          "time": 1776886983,
+          "parent": 47868154,
+          "text": "It's perfect for toddlers (I mean that in a good way), it's the infinite answer to the infinite \"What's that?\" series of questions they can generate. Make everything a hyperlink and it's almost like a LLM mind map of knowledge.",
+          "kids": [
+            {
+              "id": 47869212,
+              "by": "RIMR",
+              "time": 1776891548,
+              "parent": 47868321,
+              "text": "Don't trust it too much. I got it to generate a datacenter filled with brains in jars, and it went with it.",
+              "kids": [
+                {
+                  "id": 47870028,
+                  "by": "radarsat1",
+                  "time": 1776896289,
+                  "parent": 47869212,
+                  "text": "you gave me the idea of using it to explore weird random scifi ideas, ended up spending way too much time clicking through details about the role of astrophage in the development of intelligence in deep sea life. Fun!",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870016,
+      "by": "dh1011",
+      "time": 1776896220,
+      "parent": 47867048,
+      "text": "Very cool idea. Wish it could render faster.",
+      "kids": []
+    },
+    {
+      "id": 47870109,
+      "by": "farmeroy",
+      "time": 1776896730,
+      "parent": 47867048,
+      "text": "I kind of find this absolutely infuriating for reality, but super fun for diagrams of things like 'interdimensional subcutaneous engineering' or whatever scifi/fantasy word salad you want to throw at it",
+      "kids": []
+    },
+    {
+      "id": 47868383,
+      "by": "wxw",
+      "time": 1776887380,
+      "parent": 47867048,
+      "text": "So cool! Love the exploration into new interfaces.",
+      "kids": []
+    },
+    {
+      "id": 47869782,
+      "by": "victorbjorklund",
+      "time": 1776894882,
+      "parent": 47867048,
+      "text": "This is just epic. Really amazing.",
+      "kids": []
+    },
+    {
+      "id": 47868298,
+      "by": "ZeidJ",
+      "time": 1776886888,
+      "parent": 47867048,
+      "text": "This would make an amazing educational tool",
+      "kids": []
+    },
+    {
+      "id": 47871437,
+      "by": "iJohnDoe",
+      "time": 1776908578,
+      "parent": 47867048,
+      "text": "So cool! People being critical of it not being accurate, but from a technology concept it’s super awesome.",
+      "kids": []
+    },
+    {
+      "id": 47869608,
+      "by": "DonHopkins",
+      "time": 1776893861,
+      "parent": 47867048,
+      "text": "This wins the internet.\n\nI went from Cat Photos into History of Victorian Cat Photos With Props like Miniature Tea Sets And Velvet Chairs And Humorous Captions On Calling Cards In Visually Ironic Aristocratic Cooperplate Font The Victorian Meme Script With High Stakes Expectations Anchored In A World With Human Dignity As It Relates To Modern Memes in just a few clicks.\n\nOddly specific, but that was exactly what I needed to see today.",
+      "kids": []
+    },
+    {
+      "id": 47869357,
+      "by": "gardenhedge",
+      "time": 1776892356,
+      "parent": 47867048,
+      "text": "Game changer when the technology catches up",
+      "kids": []
+    },
+    {
+      "id": 47869260,
+      "by": "tristor",
+      "time": 1776891850,
+      "parent": 47867048,
+      "text": "This is very cool, if a bit glitchy right now (probably thanks to HN popularity).  I used to this to generate infographics of the rear subframe, diff carrier, and rear suspension of my car and to get detailed specifications on the bushings, suspension members, and other components.  Most of the information matches what I already know, and could be really useful if trained specifically on manufacturer/dealer shop manuals to create interactive models of vehicles you can drill to and get part numbers and specifications for any component on a car.",
+      "kids": []
+    },
+    {
+      "id": 47868717,
+      "by": "moralestapia",
+      "time": 1776888905,
+      "parent": 47867048,
+      "text": "This is real nice, wow. Congratulations.\n\nThis very well could be a sneak-peek into how educational resources might look like in the future.",
+      "kids": []
+    },
+    {
+      "id": 47870752,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47869007,
+      "by": "CrzyLngPwd",
+      "time": 1776890340,
+      "parent": 47867048,
+      "text": "The worst part of this sort of slop is the attention it squanders by being glacially slow.\n\nIn the age of such enormous computing power, this sort of thing is pure waste.\n\nMS Encarta CDs were faster and more in-depth.",
+      "kids": [
+        {
+          "id": 47869035,
+          "by": "gblargg",
+          "time": 1776890498,
+          "parent": 47869007,
+          "text": "Maybe it has an \"act like a 56k modem connection\" directive in its internal prompt. /s",
+          "kids": []
+        }
+      ]
+    }
+  ]
+}

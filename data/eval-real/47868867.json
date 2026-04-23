@@ -1,0 +1,1196 @@
+{
+  "pair": {
+    "story_type": "news",
+    "hn_id": 47868867,
+    "title": "Apple fixes bug that cops used to extract deleted chat messages from iPhones",
+    "points": 541,
+    "descendants": 134,
+    "article_url": "https://techcrunch.com/2026/04/22/apple-fixes-bug-that-cops-used-to-extract-deleted-chat-messages-from-iphones/",
+    "hn_url": "https://news.ycombinator.com/item?id=47868867",
+    "self_post": false
+  },
+  "story": {
+    "id": 47868867,
+    "title": "Apple fixes bug that cops used to extract deleted chat messages from iPhones",
+    "url": "https://techcrunch.com/2026/04/22/apple-fixes-bug-that-cops-used-to-extract-deleted-chat-messages-from-iphones/",
+    "by": "cdrnsf",
+    "score": 543,
+    "time": 1776889651,
+    "descendants": 134,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47873007,
+      "by": "Canada",
+      "time": 1776928823,
+      "parent": 47868867,
+      "text": "This is a problem with all kinds of apps. There is no discipline in the handling of user data. Take the notes app. When you delete text it not gone you can still see it in the sqlite database they use for storage. I'm sure this is so they can support sync be recording your changes as CRDTs or something.\n\nAnd if the app isn't leaky, the OS will probsbly screw you lime in this case. The concept of being able to clean up your laptop is just not supported, you have to wipe the whole device which is ridiculous.",
+      "kids": []
+    },
+    {
+      "id": 47869383,
+      "by": "dlcarrier",
+      "time": 1776892486,
+      "parent": 47868867,
+      "text": "This was a bug that left it cached on the device.  Apple and Google have put themselves in the middle of most notifications, causing the contents to pass through their servers, which means that they are subject to all the standard warrantless wiretapping directly from governments, as well as third-party attacks on the infrastructure in place to support that monitoring.\n\nIf you don't want end-to-end messages made available to others, set your notifications to only show that you have a message, not what it contains or who its from.",
+      "kids": [
+        {
+          "id": 47869434,
+          "by": "gruez",
+          "time": 1776892808,
+          "parent": 47869383,
+          "text": "> Apple and Google have put themselves in the middle of most notifications, causing the contents to pass through their servers, which means that they are subject to all the standard warrantless wiretapping directly from governments, as well as third-party attacks on the infrastructure in place to support that monitoring.\n\n>If you don't want end-to-end messages made available to others, set your notifications to only show that you have a message, not what it contains or who its from.\n\nThis incorrect on two counts:\n\n1. As per what you wrote immediately before the quoted text, the issue was that the OS keeps track of notifications locally. Google/Apple's notification servers have nothing to do with this\n\n2. It's entirely possible to still have end-to-end messaging even if you're forced to send notifications through Google/Apple's servers, by encrypting data in the notification, or not including message data at all. Indeed that's what signal does. Apple or Google's never sees your message in cleartext.",
+          "kids": [
+            {
+              "id": 47870198,
+              "by": "saagarjha",
+              "time": 1776897369,
+              "parent": 47869434,
+              "text": "If Signal wants to show you a notification with message text, it needs to put it on the screen through an OS service. That service was storing the plaintext on the device.",
+              "kids": [
+                {
+                  "id": 47872597,
+                  "by": "kmacdough",
+                  "time": 1776923285,
+                  "parent": 47870198,
+                  "text": "They have to. The device storage is itself encrypted, so the FBI already broke into the phone. When the device is unlocked, notifications are visible by design and therefore available in plain text to the user. The edge case is with disappearing messages, a feature Apple did not build for. The message is intended to be plainly visible to the user, but only for a controlled time on the assumption that the users privileges may eventually be compromised.\n\nThis makes for a very odd and specific  interaction with a 3rd party feature. Security is a hard problem.",
+                  "kids": []
+                },
+                {
+                  "id": 47870639,
+                  "by": "avianlyric",
+                  "time": 1776901056,
+                  "parent": 47870198,
+                  "text": "Through an OS service yes, but not a hosted backend service. Obviously that service has store the notification in plaintext (although everything on an iPhone is encrypted at rest, but notification crypto keys have to stay in active memory for the lock screen to work), otherwise it wouldn’t be able to display the notification text.\n\nApple support applications sending encrypted notifications, where the OS launches the app the decrypt the notification body locally and pass it back to the OS for display.",
+                  "kids": []
+                },
+                {
+                  "id": 47871322,
+                  "by": "wpm",
+                  "time": 1776907310,
+                  "parent": 47870198,
+                  "text": "This is correct, but my understanding of it is that the push notification (which is not the same thing as the actual \"Notification\" that is shown on the screen) basically contains a \"hey $DEVICE, go talk to $APP_NOTO server they got something for you\".\n\nAPNS just taps on the device's metaphorical shoulder and hands them a courtesy phone \"call for you sir\"",
+                  "kids": [
+                    {
+                      "id": 47872607,
+                      "by": "sitharus",
+                      "time": 1776923334,
+                      "parent": 47871322,
+                      "text": "That’s not how it works. Not on iOS anyway.\n\nFor a standard notification the content of that notification is sent through the push notification servers. This includes the title, text, icon, grouping, and sound presets to use. The majority of user-visible notifications are sent this way - the app on the device does not run.\n\nThat allows the OS to display your notification without ever running the app, which saves limited resources on the phone. Originally this was the only option, a push notification couldn’t start your app.\n\nThese days an app can also register a notification extension which is a standalone program that can modify the incoming notification. It has 30 seconds to do whatever it needs to, though you need to be careful with RAM use or the OS will kill the process and present the notification unaltered. Generally you’d put something generic in the push as a fallback.\n\nThere’s also background notifications. These let the app run for 30 seconds and the app can post a local notification during this time, but they’re not guaranteed to be delivered. The OS can decide the system doesn’t have the resources and defer or drop them, or terminate the app before it’s finished if the ram is needed elsewhere.\n\nThere are some other special cases depending on what your app does.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47870613,
+                  "by": "Vinnl",
+                  "time": 1776900908,
+                  "parent": 47870198,
+                  "text": "Yes, but that service is running locally.",
+                  "kids": []
+                },
+                {
+                  "id": 47871469,
+                  "by": "dmitrygr",
+                  "time": 1776908969,
+                  "parent": 47870198,
+                  "text": "> it needs to put it on the screen through an OS service. That service was storing the plaintext on the device.\n\nTechnically, so can the OS's text drawing primitive while drawing Signal's UI.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47871444,
+              "by": "totetsu",
+              "time": 1776908647,
+              "parent": 47869434,
+              "text": "What about when my notifications are showing up on my MacBook next to the phone via mirroring?",
+              "kids": [
+                {
+                  "id": 47871629,
+                  "by": "ChadNauseam",
+                  "time": 1776910672,
+                  "parent": 47871444,
+                  "text": "talking totally out of my ass, but apple seems to have robust infrastructure for e2ee communication between your devices, for example it is known that location information in find my is not visible to apple. I’d be surprised if the channel to send iphone notifications to your mac wasn’t also e2ee",
+                  "kids": [
+                    {
+                      "id": 47871740,
+                      "by": "zadikian",
+                      "time": 1776911980,
+                      "parent": 47871629,
+                      "text": "Unless something has changed since I last did this, the app's server initiating the apns doesn't encrypt using some public key for the destination. So no e2ee at that layer. But you could encrypt the payload and have the app decrypt it if you're managing the keys yourself.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47869554,
+              "by": "mdavidn",
+              "time": 1776893532,
+              "parent": 47869434,
+              "text": "You are correct, but you omitted one complication: Clients trust Google's and Apple's servers to faithfully exchange the participants' public keys.",
+              "kids": [
+                {
+                  "id": 47869595,
+                  "by": "pcl",
+                  "time": 1776893815,
+                  "parent": 47869554,
+                  "text": "Apps (such as Signal) that care about end-to-end encryption do their own key management. So, Apple / Google servers only ever see ciphertext, and don't have access to the key material that's used for the encryption.",
+                  "kids": [
+                    {
+                      "id": 47870018,
+                      "by": "toast0",
+                      "time": 1776896230,
+                      "parent": 47869595,
+                      "text": "Afaik, e2e messengers don't include ciphertext with push notifications. It's an empty push to wake the client. Then the client contacts the origin to fetch the ciphertext.",
+                      "kids": [
+                        {
+                          "id": 47870192,
+                          "by": "saagarjha",
+                          "time": 1776897313,
+                          "parent": 47870018,
+                          "text": "This is how it used to work; notifications can be encrypted now and Signal uses an extension to decrypt them.",
+                          "kids": [
+                            {
+                              "id": 47872440,
+                              "by": "pseudalopex",
+                              "time": 1776921095,
+                              "parent": 47870192,
+                              "text": "A Signal developer 12 days ago said Our FCM and APN notifications are empty and just tell the app to wake up, fetch encrypted messages, decrypt them, and then generate the notification ourselves locally.[1]\n\n[1] https://news.ycombinator.com/item?id=47723445",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": 47869731,
+                  "by": "xmx98",
+                  "time": 1776894625,
+                  "parent": 47869554,
+                  "text": "Sending public keys through the notification system is an unnecessary complication.",
+                  "kids": []
+                },
+                {
+                  "id": 47869665,
+                  "by": "soamv",
+                  "time": 1776894226,
+                  "parent": 47869554,
+                  "text": "Which clients?",
+                  "kids": []
+                },
+                {
+                  "id": 47869646,
+                  "by": "ls612",
+                  "time": 1776894123,
+                  "parent": 47869554,
+                  "text": "Isn’t that what Contact Key Verification solves? Or do I misunderstand how that works?",
+                  "kids": []
+                },
+                {
+                  "id": 47869712,
+                  "by": "qurren",
+                  "time": 1776894496,
+                  "parent": 47869554,
+                  "text": "... and hold participants' private keys truly private, which you cannot verify without a rooted phone.",
+                  "kids": [
+                    {
+                      "id": 47872571,
+                      "by": "microtonal",
+                      "time": 1776922795,
+                      "parent": 47869712,
+                      "text": "You don’t need a rooted phone. An open source OS with reproducible builds is enough. That way you can validate what the code does without giving up verified boot,  or opening up another attack vector, etc.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47869538,
+          "by": "asteroidburger",
+          "time": 1776893463,
+          "parent": 47869383,
+          "text": "Both Apple and Google offer the ability for your app to intercept and modify messages before being displayed. Use that to send encrypted messages and decrypt them there, using your own code on the user’s device.",
+          "kids": [
+            {
+              "id": 47870046,
+              "by": "Zak",
+              "time": 1776896346,
+              "parent": 47869538,
+              "text": "That framing Makes it sound like the app developer has to do something active to keep message cleartext out of notifications. That's not how it is on Android.\n\nA Firebase Cloud Messaging push notification contains what the app developer's server puts in it. That could include the message body or it could just be an instruction to the app to poll the server for new messages. It has nothing to do with the notification that's displayd on an Android device. Those are entirely local.\n\nAn app that cares about privacy wouldn't send anything more than a poll instruction over FCM.",
+              "kids": [
+                {
+                  "id": 47870664,
+                  "by": "avianlyric",
+                  "time": 1776901243,
+                  "parent": 47870046,
+                  "text": "You can implement either approach on iOS as well.\n\nBut if you have strong end-to-end encryption for messages, then you don’t have to care about the transport anymore, you assume they’re all compromised. At that point you might as well use the push notification system as your transport, given both OSs allow applications to intercept the push notification locally and decrypt it before it’s displayed to the user.",
+                  "kids": [
+                    {
+                      "id": 47872365,
+                      "by": "asteroidburger",
+                      "time": 1776919992,
+                      "parent": 47870664,
+                      "text": "Plus, decrypting using a key stored locally cuts out a network roundtrip, which has battery and data usage impacts.",
+                      "kids": []
+                    }
+                  ]
+                },
+                {
+                  "id": 47870204,
+                  "by": "saagarjha",
+                  "time": 1776897417,
+                  "parent": 47870046,
+                  "text": "This has performance/reliability tradeoffs.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869676,
+              "by": "ls612",
+              "time": 1776894304,
+              "parent": 47869538,
+              "text": "In fact this is what both iMessage and Signal (and maybe Whatsapp too but I can’t tell from a quick google) do.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47872001,
+          "by": "BLKNSLVR",
+          "time": 1776915081,
+          "parent": 47869383,
+          "text": "> set your notifications to only show that you have a message, not what it contains or who its from.\n\nI'm pretty sure that's the default in GrapheneOS. Or at least that's how mine behaves.",
+          "kids": []
+        },
+        {
+          "id": 47870804,
+          "by": "1r0nym4n",
+          "time": 1776902509,
+          "parent": 47869383,
+          "text": "Right, it would be too hard to just have a server send a notification and to jumble that notification locally with the read of the unlocked message without it going through Apple/Google servers.",
+          "kids": []
+        },
+        {
+          "id": 47870787,
+          "by": "unethical_ban",
+          "time": 1776902356,
+          "parent": 47869383,
+          "text": "Incorrect. At least according to the Matrix (chat) app FAQs I have read recently.\n\nWith Matrix apps, certain metadata is pushed from the chat server, to a push server, through Google and then to my device. But the message is not part of that data - it's E2EE. What happens is the app wakes up from the metadata notification, and then fetches the message and displays it in the notification field.\n\nYour last point is correct, at least until/unless this is remedied in Android, too.",
+          "kids": []
+        },
+        {
+          "id": 47872032,
+          "by": "sneak",
+          "time": 1776915582,
+          "parent": 47869383,
+          "text": "This is misinformation, and is false.\n\nFor many apps, they choose to do it this way.  For most e2ee apps, they do not.  The notification displayed on screen does not need to be the notification pushed through APNS.",
+          "kids": []
+        },
+        {
+          "id": 47871718,
+          "by": "ya3r",
+          "time": 1776911723,
+          "parent": 47869383,
+          "text": "Telegram secure chat messages do this by default.",
+          "kids": [
+            {
+              "id": 47872394,
+              "by": "seanieb",
+              "time": 1776920403,
+              "parent": 47871718,
+              "text": "Oh please, Telegram being mentioned positively during a discussion of security, privacy or state surveillance? Telegram is a security nightmare, it’s not e2ee no mater what BS their very very untrustworthy founder keeps spouting, it’s not default and what they do offer is probably not secure. Servers owned by Russian oligarchs loyal to Putin. Durovs rebel persona, where he’s persona non grata in Russia is also BS. He was shown to be freely traveling in and out of Russia and having negotiations with the Russian government around censorship of Telegram all while Durov was telling us he couldn’t return. And the Russian FSB won’t use it because it’s known in their circles as being compromised.\n\nhttps://www.youtube.com/watch?v=a2eBDU5ea0A&t=392s\n\n> \"That largely depends on what an officer does outside of work. If someone is involved in corrupt dealings, and in fact, I know very few who aren't, then they reason like this. Can this messenger be monitored by internal security officers? Previously, many used WhatsApp. Almost no one used telegram because there's a wellfounded belief that this messenger is to some extent controlled by the Russian authorities. People used signal. Some use three months, but all that has now been shut down again. Why is it monitored? I think they're worried about a possible coup and trying to limit the ability to coordinate mass actions via communication channels from abroad. Hence the Max messenger. So now most security officers have switched to Chatty. That's a Dubai based messenger, but it's definitely not a universal remedy. Some have moved to Zangi, which is [clears throat] an Armenian app that markets itself as American. When it comes to targeting the opposition, the state will always find the resources. It's one of the main priorities, more important than any financial or commercial issue, even more than counterterrorism.\"",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869846,
+          "by": "xmx98",
+          "time": 1776895205,
+          "parent": 47869383,
+          "text": "You are right in that it is Google’s and Apple’s OS notification api, and we do give them the plaintext messages.",
+          "kids": []
+        },
+        {
+          "id": 47869491,
+          "by": "asdfman123",
+          "time": 1776893179,
+          "parent": 47869383,
+          "text": "Seems like you should use an app like Signal for anything sensitive at all so you don't have to worry about megacorp ecosystems as much.",
+          "kids": [
+            {
+              "id": 47869634,
+              "by": "jdwithit",
+              "time": 1776894058,
+              "parent": 47869491,
+              "text": "As mingus88 said, this story is literally in response to Apple leaking messages sent through Signal. Doesn't matter if the message is securely transmitted if the operating system then keeps it lying around in plain text in a cache.\n\nFrom the linked article:\n\n> The independent news outlet reported that the FBI had been able to extract deleted Signal messages from someone’s iPhone using forensic tools, due to the fact that the content of the messages had been displayed in a notification and then stored inside a phone’s database — even after the messages were deleted inside Signal.",
+              "kids": [
+                {
+                  "id": 47869873,
+                  "by": "stavros",
+                  "time": 1776895361,
+                  "parent": 47869634,
+                  "text": "You can easily configure Signal not to show the message contents if you want, though.",
+                  "kids": [
+                    {
+                      "id": 47871103,
+                      "by": "QuantumNomad_",
+                      "time": 1776905308,
+                      "parent": 47869873,
+                      "text": "Except even when you turn off message previews, it has to be specifically from within Signal settings. Not the iOS settings for notifications for the Signal app. To the user it looks the same, so it’s easy to make the mistake of turning off the previews in iOS settings instead of from within Signal settings. I didn’t even know there was a difference between the two until the recent posts about it.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47869955,
+                      "by": "jim33442",
+                      "time": 1776895834,
+                      "parent": 47869873,
+                      "text": "The original comment mentions this but gives the wrong reasoning. The APNs are encrypted either way, but this setting prevents Signal from decrypting them client-side and letting the notification cache store it. Yeah this is more secure because it means not trusting Apple to do their job right with local storage, but it's also kind of a reasonable thing to trust.",
+                      "kids": []
+                    },
+                    {
+                      "id": 47872071,
+                      "by": "barbs",
+                      "time": 1776916053,
+                      "parent": 47869873,
+                      "text": "That's what Signal does on my iPhone, I thought it was the default?",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47869558,
+              "by": "mingus88",
+              "time": 1776893546,
+              "parent": 47869491,
+              "text": "Nope, Signal messages were stored in the phones notification DB even after the app was deleted\n\nhttps://www.404media.co/fbi-extracts-suspects-deleted-signal...",
+              "kids": [
+                {
+                  "id": 47869607,
+                  "deleted": true,
+                  "kids": []
+                },
+                {
+                  "id": 47871285,
+                  "by": "Slash32",
+                  "time": 1776906891,
+                  "parent": 47869558,
+                  "text": "totally agree",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869543,
+              "by": "ryanisnan",
+              "time": 1776893474,
+              "parent": 47869491,
+              "text": "This is also an oversimplification. If I understand the issue correctly, the notification with the message contents was what was cashed locally and then accessed. This same vulnerability would exist with Signal if you had the notifications configured to display the full message contents. In this case, it has nothing to do with either Apple or Signal.",
+              "kids": [
+                {
+                  "id": 47869909,
+                  "deleted": true,
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47870045,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47869394,
+      "by": "6thbit",
+      "time": 1776892535,
+      "parent": 47868867,
+      "text": "The \"bug\" discussed in the article is only part of the problem.\n\nThe main problem, which is notifications text is stored on a DB in the phone outside of signal, is not addressed. To avoid that you have to change your settings.\n\nIn this case, the defendant had deleted the signal app completely, and that likely internally marks those app's notifications for deletion from the DB, so the bug fixed here is that they were not removing notifications from the local database when the app that generated them was removed, now they do.\n\n  Impact: Notifications marked for deletion could be unexpectedly retained on the device\n  Description: A logging issue was addressed with improved data redaction.\n  CVE-2026-28950\n\nThey classify this as \"loggging issue\" so it sounds like notifications were not actually in the database itself but ended up in some log.",
+      "kids": [
+        {
+          "id": 47871500,
+          "by": "firesteelrain",
+          "time": 1776909290,
+          "parent": 47869394,
+          "text": "This tweet seems to imply it’s logs, json, plist and SQLite DB.\n\nBiome — /private/var/mobile/Library/Biome/streams/.../Notification/segments/ — the raw title/body logs\n\n2. BulletinBoard + UserNotificationsCore — /var/mobile/Library/{BulletinBoard,UserNotificationsCore}/.{json,plist} — delivered + dismissed state\n\n3. CoreDuet — /var/mobile/Library/CoreDuet/coreduetdClassD.db — SQLite that re-ingests Biome events\n\nhttps://x.com/zeroxjf/status/2047081983449178128?s=46",
+          "kids": [
+            {
+              "id": 47872053,
+              "by": "saagarjha",
+              "time": 1776915821,
+              "parent": 47871500,
+              "text": "I don’t think they are correct",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869680,
+          "by": "concinds",
+          "time": 1776894316,
+          "parent": 47869394,
+          "text": "You're speculating. \"Marked for deletion\" could mean after you dismiss it, not just after you delete the whole app.",
+          "kids": [
+            {
+              "id": 47870449,
+              "by": "6thbit",
+              "time": 1776899366,
+              "parent": 47869680,
+              "text": "i'll speculate further: it could've been on the dismiss notification code, and when you delete the app the OS dismisses the removed app's notifications, triggering the same code path.\n\nin this case as per reporting, defendant removed the app. unclear if they first dismissed them.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869774,
+          "by": "twoodfin",
+          "time": 1776894866,
+          "parent": 47869394,
+          "text": "SQLite WAL?",
+          "kids": []
+        },
+        {
+          "id": 47870220,
+          "by": "saagarjha",
+          "time": 1776897527,
+          "parent": 47869394,
+          "text": "Why do you think they aren't the same thing?",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869244,
+      "by": "nxobject",
+      "time": 1776891772,
+      "parent": 47868867,
+      "text": "Note that Signal offers the option to use generic “You’ve received messages” notifications - it’s good practice in general.",
+      "kids": [
+        {
+          "id": 47869283,
+          "by": "sunnybeetroot",
+          "time": 1776892013,
+          "parent": 47869244,
+          "text": "So does every app, go to iOS settings > notifications shows previews > never.",
+          "kids": [
+            {
+              "id": 47869360,
+              "by": "rvnx",
+              "time": 1776892376,
+              "parent": 47869283,
+              "text": "Most likely changes the preview on the client-side, but the message is still full on the server-side",
+              "kids": [
+                {
+                  "id": 47872814,
+                  "by": "ThePowerOfFuet",
+                  "time": 1776926458,
+                  "parent": 47869360,
+                  "text": "Signal does not have the plaintext of the messages and therefore could not send it as part of the notification.",
+                  "kids": []
+                },
+                {
+                  "id": 47872553,
+                  "by": "solenoid0937",
+                  "time": 1776922469,
+                  "parent": 47869360,
+                  "text": "Correct, parent comment is spreading misinformation/false sense of security.",
+                  "kids": []
+                },
+                {
+                  "id": 47872222,
+                  "deleted": true,
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869333,
+              "by": "Barbing",
+              "time": 1776892267,
+              "parent": 47869283,
+              "text": "Is setting it from Signal directly more trustworthy?\n\nOr maybe it’s impossible for iOS to store the preview content if it never showed in the first place, but not sure if it’s even documented.",
+              "kids": []
+            },
+            {
+              "id": 47869328,
+              "by": "elashri",
+              "time": 1776892224,
+              "parent": 47869283,
+              "text": "I wish it can be disabled for particular apps and not an all or nothing situation.",
+              "kids": [
+                {
+                  "id": 47869364,
+                  "by": "Barbing",
+                  "time": 1776892390,
+                  "parent": 47869328,
+                  "text": "Can be!\n\nSettings > Apps > choose an app > Lock Screen Appearance: Show Previews - Never",
+                  "kids": []
+                },
+                {
+                  "id": 47869435,
+                  "by": "bradyd",
+                  "time": 1776892817,
+                  "parent": 47869328,
+                  "text": "That setting is available for each individual app.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47872225,
+          "by": "thire",
+          "time": 1776918166,
+          "parent": 47869244,
+          "text": "That's the first thing that came to mind. Glad that they already thought about it!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869247,
+      "by": "modeless",
+      "time": 1776891790,
+      "parent": 47868867,
+      "text": "Oh, I was originally confused about this because I had thought the push notifications were end-to-end encrypted, so they couldn't be cached in readable form by the push notification service, and only decrypted by the app on device upon receiving the notification. But it seems like after the notification was decrypted by the app and shown to the user using OS APIs, the notification text was was then stored by the OS in some kind of notification history DB locally on the device?",
+      "kids": [
+        {
+          "id": 47870223,
+          "by": "saagarjha",
+          "time": 1776897541,
+          "parent": 47869247,
+          "text": "Something of that sort.",
+          "kids": []
+        },
+        {
+          "id": 47870928,
+          "by": "bigyabai",
+          "time": 1776903556,
+          "parent": 47869247,
+          "text": "> I had thought the push notifications were end-to-end encrypted\n\nMuch of the metadata is plaintext, in both Apple and Google's Push Notification architecture.",
+          "kids": [
+            {
+              "id": 47870990,
+              "by": "modeless",
+              "time": 1776904158,
+              "parent": 47870928,
+              "text": "My understanding is that in Signal's implementation of push notifications the message text is end-to-end encrypted by Signal and decrypted on device by the Signal app. The decryption is not handled by the OS's push notification system.",
+              "kids": [
+                {
+                  "id": 47871212,
+                  "by": "tadfisher",
+                  "time": 1776906342,
+                  "parent": 47870990,
+                  "text": "If I am reading this right, your understanding is incorrect. Signal's \"new messages\" push message payload is empty. Upon receiving a message of this type, the Signal app wakes up, fetches the actual messages, and (optionally) displays local notifications for them.\n\nAt no point does the push message payload contain message text or metadata, encrypted or not.",
+                  "kids": [
+                    {
+                      "id": 47872234,
+                      "by": "thire",
+                      "time": 1776918304,
+                      "parent": 47871212,
+                      "text": "So that means iOS is caching the local notifications, not the push event... I wonder why it was needed to begin with, especially for a month",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872428,
+      "by": "compounding_it",
+      "time": 1776920966,
+      "parent": 47868867,
+      "text": "So for third party apps this seems like if you do e2e then along with this bug fix your texts are safe. E2E apps could be independently verified by a third party let’s say.\n\nBut what about iMessage. The source code will never be available for neither the servers nor the app.",
+      "kids": []
+    },
+    {
+      "id": 47872673,
+      "by": "gsky",
+      "time": 1776924320,
+      "parent": 47868867,
+      "text": "have you ever thought maybe Apple is creating a backdoor like this to make secret deals with gov orgs.\n\ntrusting a valley company is the last thing you could do since there is a ton of money to be made from selling secrets",
+      "kids": []
+    },
+    {
+      "id": 47872581,
+      "by": "samarth0211",
+      "time": 1776922966,
+      "parent": 47868867,
+      "text": "That was definitely necessary, becuase the major reason people buy iphones is privacy and security",
+      "kids": []
+    },
+    {
+      "id": 47871394,
+      "by": "650REDHAIR",
+      "time": 1776908056,
+      "parent": 47868867,
+      "text": "I’m frustrated that Signal isn’t notifying users about this.\n\nI disabled notifications and instead Signal reminded me to re-enable them…",
+      "kids": [
+        {
+          "id": 47872411,
+          "by": "seanieb",
+          "time": 1776920720,
+          "parent": 47871394,
+          "text": "The issue is only an issue if your phone is physically taken, then unlocked and the message notifications extracted from a iOS cache database. Todays update by Apple fixes issue for every app, not just Signal.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869267,
+      "by": "pixel_popping",
+      "time": 1776891878,
+      "parent": 47868867,
+      "text": "In privacy circles, this was always known, as Google/Apple often sends notification content to their servers (which means that it bypass the App realm).\n\nSome people talking about it (different but in the same scope of issue):\nhttps://blog.davidlibeau.fr/push-notifications-are-a-privacy...",
+      "kids": [
+        {
+          "id": 47869349,
+          "by": "massel",
+          "time": 1776892334,
+          "parent": 47869267,
+          "text": "I expect that Signal encrypts the notification data prior to sending it to Apple, then decrypts it on-device using a Notification Service Extension – this is a common pattern to avoid trusting Apple with any sensitive data.\n\nThat would mean Apple stored the cleartext on-device after decryption.",
+          "kids": [
+            {
+              "id": 47869613,
+              "by": "eggnet",
+              "time": 1776893897,
+              "parent": 47869349,
+              "text": "Signal doesn’t provide anything in the message other than… “there are pending messages.” Signal wakes up, fetches them, then generates notifications on the phone itself.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869296,
+          "by": "6thbit",
+          "time": 1776892064,
+          "parent": 47869267,
+          "text": "in the case reported the content did not leave the device. feds retreived them directly from the phone.",
+          "kids": []
+        },
+        {
+          "id": 47869354,
+          "by": "rvnx",
+          "time": 1776892346,
+          "parent": 47869267,
+          "text": "+ Messengers like Snapchat and WhatsApp;\n\ndespite \"end-to-end\" encryption (for WhatsApp) they are sending copy of some messages based on keywords to authorities, PRISM-like.\n\nOfficially to protect kids, but who knows what is in this keywords list.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869272,
+      "by": "itopaloglu83",
+      "time": 1776891928,
+      "parent": 47868867,
+      "text": "Thankfully Apple backported the fix the iOS 18 as well.",
+      "kids": [
+        {
+          "id": 47869457,
+          "by": "ilikepi",
+          "time": 1776892943,
+          "parent": 47869272,
+          "text": "Not only that, but iOS 18.7.8 actually seems to be available to devices capable of running iOS 26 without any workarounds, unlike 18.7.3 through .6. It makes me wonder if those intermediate releases really were supposed to be available but weren't due to some issue on the distribution side that no one bothered to fix.",
+          "kids": [
+            {
+              "id": 47869927,
+              "by": "lynndotpy",
+              "time": 1776895695,
+              "parent": 47869457,
+              "text": "Very serious vulns were being exploited in the wild, I think that's what forced their hand. I don't think Apple ever had a discrepancy like the one with iOS 18.7.3 through .6 being held back.\n\nFor those on iOS 18, beware that the update to iOS 18.7.8 will toggle Automatic Updates back on. Make sure to switch it back off so you don't wake up to a nasty surprise when iOS 26 is non-consensually forced onto your iPhone.",
+              "kids": [
+                {
+                  "id": 47872740,
+                  "by": "wao0uuno",
+                  "time": 1776925376,
+                  "parent": 47869927,
+                  "text": "I just updated to iOS 18.7.8 and automatic updates are still off. Updates used to enable Bluetooth but event that's not the case anymore.",
+                  "kids": []
+                }
+              ]
+            },
+            {
+              "id": 47869588,
+              "by": "itopaloglu83",
+              "time": 1776893783,
+              "parent": 47869457,
+              "text": "I think that was another attempt by Apple to push users to iOS 26, but after seeing how many people with compatible devices refuse to upgrade, they finally caved in and provided an update.",
+              "kids": [
+                {
+                  "id": 47869942,
+                  "by": "lynndotpy",
+                  "time": 1776895765,
+                  "parent": 47869588,
+                  "text": "They caved, but they're still pulling out new tactics to trick users into installing iOS 26.\n\nThe new iOS 18 update will _also_ toggle Automatic Updates back on. I had it happen just now on my 13 Mini against my will. I had to go back into settings and very carefully navigate to disable automatic updates.",
+                  "kids": [
+                    {
+                      "id": 47872797,
+                      "by": "wao0uuno",
+                      "time": 1776926172,
+                      "parent": 47869942,
+                      "text": "Interesting. Judging by the time of your post I assume that you're American. I'm in Europe and automatic updates stay disabled for me. I just upgraded 3 devices without any problems.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47869831,
+              "by": "layer8",
+              "time": 1776895144,
+              "parent": 47869457,
+              "text": "There seems to have been a change of mind, maybe also due to the severity of the exploits. The non-availability of security updates for models that are upgradable to a newer major version has been Apple's practice for many years now.\n\nThe way major upgrades are presented in the Settings UI makes it clear that users installing these security updates while not upgrading to a newer major version do so very intentionally. So Apple is now supporting these users deliberately.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47871085,
+      "by": "trinsic2",
+      "time": 1776905188,
+      "parent": 47868867,
+      "text": "I would never rely on a closed system for secure messaging to many unknowns.",
+      "kids": [
+        {
+          "id": 47872715,
+          "by": "exfil",
+          "time": 1776924865,
+          "parent": 47871085,
+          "text": "Agree. Peoples are trusting App with unknown source code & delivery path, infrastructure controlled by 3rd party. Application cannot protect against OS and OS cannot protect against HW. Too many known unknowns. Seek the arguments how and why OTF got re-funded last time.",
+          "kids": []
+        },
+        {
+          "id": 47871282,
+          "by": "dewey",
+          "time": 1776906849,
+          "parent": 47871085,
+          "text": "And yet iOS is probably the most secure mobile platform for secure messaging. Especially in lock down mode.",
+          "kids": [
+            {
+              "id": 47871698,
+              "by": "trinsic2",
+              "time": 1776911559,
+              "parent": 47871282,
+              "text": "Except, you cant really verify all of that. so IMHO that's just speculation based on the surfacing of news which can easily be distorted. Or maybe you can. Is there any sources on people that have evaluated the security of these features.",
+              "kids": [
+                {
+                  "id": 47871744,
+                  "by": "dewey",
+                  "time": 1776912054,
+                  "parent": 47871698,
+                  "text": "You can’t verify that even on an open OS as there will still be closed hardware blobs. At least with popular systems there’s a lot of state level hacking activity so zero days get patched routinely. Also Apple has a program for researchers where they get more access to the system (That program was criticized heavily though for the way it was implemented).\n\nIt’s not a perfect system so right now you still have to trust someone at some point in the chain.",
+                  "kids": [
+                    {
+                      "id": 47872799,
+                      "by": "j_maffe",
+                      "time": 1776926211,
+                      "parent": 47871744,
+                      "text": "> At least with popular systems there’s a lot of state level hacking activity so zero days get patched routinely\n\nNot sure how you're implying one leads to the other.",
+                      "kids": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870708,
+      "by": "chislobog",
+      "time": 1776901582,
+      "parent": 47868867,
+      "text": "Looking at the detritus in the filesystem on Jailbroken iOS devices you will observe that iOS decides to vacuum, purge, and let linger all sorts of databases and logs until something triggers a cleanup which is usually time or an iCloud sign-out induced erase and subsequent sync. People have been complaining for years about excessive phantom “system storage” and “other data.” Interestingly the photos thumbs database can grow seemingly indefinitely in size for some weeks or more if you’re regularly deleting all of your photos and saving to photos from apps or taking photos. I suspect that there a lot of behavioral data records that is left on most devices until a convenient period of inactivity passes and the possible user behavior analysis and reporting functions of iOS allow whatever cleanup happens after processing on device. It would be useful to capture iCloud backup restores from physical devices to corellium virtual devices with some creative matching of your existing idevices identifiers. Could see what triggers a cleanup during backups, local or otherwise, get a good look at what is being restored from iCloud. I also think it’s possible that iCloud can sync a database, say safari bookmarks, pushing it to the device inducing a state where the device bookmarks are moved to inaccessible tables and left there, unavailable to the end user, but not out of sync with the current active session state. Of course this is just my musing based on observations of weekly ffs extractions of a few devices over the last 5 years.",
+      "kids": [
+        {
+          "id": 47870938,
+          "by": "handedness",
+          "time": 1776903674,
+          "parent": 47870708,
+          "text": "My observations from when I daily drove iOS (no more) mirror yours: the incredible amount of cruft that would accumulate was astonishing. At one point I had a device that was majority full of system storage and other data. The same was true across family devices, too.\n\nSome years ago I stopped depending on Apple's purchased downloaded movies for long flights, after an instance of having the files downloaded to the device beforehand, but Apple deciding I didn't have the DRM keys to play said files during a long transoceanic flight. I then moved to storing DRM-free movies in VLC, but iOS prioritized keeping system storage and other data cruft around, and wiped VLC's stored files. Talk about paying for an expensive device and media you don't really own.\n\nI'd imagine the metadata picture that could be synthesized from that data could be extensive in some cases. This stuff is hard and I'm sure there are good reasons for caching things, especially on a device positioned to primarily act as a readily available front end for online stores, but I have a hard time believing that Apple's executing it well.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47871525,
+      "by": "random3",
+      "time": 1776909631,
+      "parent": 47868867,
+      "text": "Makes you think what’s the biggest concerns wrt Mythos — is it finding or fixing the vulnerabilities that’s scarier :))",
+      "kids": []
+    },
+    {
+      "id": 47869681,
+      "by": "varun_ch",
+      "time": 1776894319,
+      "parent": 47868867,
+      "text": "This makes me wonder: Cellebrite makes tools for law enforcement to break into iPhones, likely exploiting weaknesses/vulnerabilities. Does Apple buy Cellebrite’s tools and reverse engineer them? Or would they not have a way of acquiring them legally?",
+      "kids": [
+        {
+          "id": 47870237,
+          "by": "saagarjha",
+          "time": 1776897624,
+          "parent": 47869681,
+          "text": "Cellebrite sells their lower-level devices to Apple directly for things like data transfer at Apple Stores. The ones above that are unlikely to be sold to Apple.",
+          "kids": [
+            {
+              "id": 47870636,
+              "by": "tredre3",
+              "time": 1776901037,
+              "parent": 47870237,
+              "text": "> Cellebrite sells their lower-level devices to Apple directly for things like data transfer at Apple Stores.\n\nPlease substantiate that claim. Why would Apple need mystical third party devices to transfer data? They've designed both the user devices and the software, and they're both capable of exchanging data, and I'm sure Apple can do even more once they put the devices in diagnostic mode. What am I missing? What is Cellebrite providing here?",
+              "kids": [
+                {
+                  "id": 47870724,
+                  "by": "avianlyric",
+                  "time": 1776901714,
+                  "parent": 47870636,
+                  "text": "Because it’s a pain in the arse to design, manufacture and build a specialist device just for use in your stores.\n\nI’m sure Apple could do everything that box does and more. But why bother designing, building and manufacturing your own specialist device when someone else already sells a perfectly good tool that does the job.\n\nDon’t forget this is for use in a retail store by people who will have been given 5mins training on how to use the device. You want something that just requires a person to plug two phones in and hit a big “go” button. And it needs to work 99% of the time with zero messing around.",
+                  "kids": [
+                    {
+                      "id": 47871294,
+                      "by": "dewey",
+                      "time": 1776906981,
+                      "parent": 47870724,
+                      "text": "They built specialized tools to update iOS through the cardboard box without opening it before it goes on sale. I’m sure they can build something with a big “go” button if it’s important.",
+                      "kids": [
+                        {
+                          "id": 47872354,
+                          "by": "Petersipoi",
+                          "time": 1776919861,
+                          "parent": 47871294,
+                          "text": "Nobody is arguing whether or not Apple could build the box.  Apple could do almost anything that another company does.  \"Why doesn't Apple build their own planes to ship iPhones\".  Well, obviously because it's way cheaper, faster, and rational to use the perfectly good existing planes/boxes/you-name-it.",
+                          "kids": [
+                            {
+                              "id": 47872390,
+                              "by": "dewey",
+                              "time": 1776920274,
+                              "parent": 47872354,
+                              "text": "That’s true, but it seems unlikely to me that they would partner with the company that helped the FBI unlock iPhones and is in general an adversary to Apple.",
+                              "kids": []
+                            },
+                            {
+                              "id": 47872860,
+                              "by": "jrflowers",
+                              "time": 1776927019,
+                              "parent": 47872354,
+                              "text": "> Nobody is arguing whether or not Apple could build the box.\n\nPeople aren’t debating whether or not Apple could theoretically find a way to transfer data between the devices they make and sell. The question here is if there is any evidence for the assertion that Apple buys Cellebrite devices in lieu of making their own solution for transferring data between the devices that they make and sell.",
+                              "kids": []
+                            }
+                          ]
+                        },
+                        {
+                          "id": 47872068,
+                          "by": "RulerOf",
+                          "time": 1776916025,
+                          "parent": 47871294,
+                          "text": "They did?",
+                          "kids": [
+                            {
+                              "id": 47872117,
+                              "by": "jackvalentine",
+                              "time": 1776916586,
+                              "parent": 47872068,
+                              "text": "Yes!\n\nhttps://www.macworld.com/article/2107557/iphone-ios-update-i...\n\nhttps://talk.macpowerusers.com/t/apples-in-box-device-update...",
+                              "kids": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 47870858,
+              "by": "jrflowers",
+              "time": 1776902978,
+              "parent": 47870237,
+              "text": "Do you have a link that talks about this in more detail?",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871015,
+          "by": "kstrauser",
+          "time": 1776904388,
+          "parent": 47869681,
+          "text": "I can’t imagine a scenario where Apple couldn’t legally buy them on the grey market. I can imagine it being illegal to sell them, like contractual restrictions blocking purchasers from reselling them. But short of the tools being a munition or controlled substance, you can buy whatever you want.",
+          "kids": []
+        },
+        {
+          "id": 47869859,
+          "by": "bilbo0s",
+          "time": 1776895264,
+          "parent": 47869681,
+          "text": "I bet Apple has access to Mythos now.\n\nNot saying they should use it to reverse engineer hacking tools.\n\nJust saying they have access to Mythos now.",
+          "kids": [
+            {
+              "id": 47871956,
+              "by": "klausa",
+              "time": 1776914425,
+              "parent": 47869859,
+              "text": "You bet that the company that was prominently mentioned as a parter in the announcement for a thing, has access to that thing?\n\nWow, such a risky bet, I'm not sure it'll pay off.",
+              "kids": []
+            },
+            {
+              "id": 47870408,
+              "deleted": true,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47872728,
+      "by": "ratg13",
+      "time": 1776925125,
+      "parent": 47868867,
+      "text": "I think people are too focused on the device part of it.\n\nWhatever Apple did to block access to the cache does not negate the fact that these notification messages are still being sent in plaintext through Apple and Google’s servers.\n\nIt’s hard to imagine that Apple/Google couldn’t just be compelled to hand this information over if ordered by a court and wouldn’t need your phone at all.\n\nAnd this loophole possibly only hinges on the fact that most law enforcement maybe never realized this was something they could ask for.\n\nOr perhaps this is happening and the public just doesn’t know it yet.",
+      "kids": []
+    },
+    {
+      "id": 47870609,
+      "by": "kippinsula",
+      "time": 1776900884,
+      "parent": 47868867,
+      "text": "every time something like this surfaces I'm reminded how many privacy guarantees end at the app boundary. you can do all the e2e crypto you want, the OS layer is going to do whatever it does with your strings once they hit a render path. probably an unsolvable category of bug as long as notifications need to show readable text somewhere.",
+      "kids": [
+        {
+          "id": 47870623,
+          "by": "riddlemethat",
+          "time": 1776900975,
+          "parent": 47870609,
+          "text": "If you want security through obscurity you can revert to IPoAC (RFC 1149).",
+          "kids": [
+            {
+              "id": 47871515,
+              "by": "Razengan",
+              "time": 1776909510,
+              "parent": 47870623,
+              "text": "Speech capable avians can spontaneously leak secrets",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47871511,
+          "by": "Razengan",
+          "time": 1776909464,
+          "parent": 47870609,
+          "text": "> probably an unsolvable category of bug as long as notifications need to show readable text somewhere.\n\nLet screens always show garbled pixel vomit, decoded on device only by your private AR glasses",
+          "kids": [
+            {
+              "id": 47872077,
+              "by": "kippinsula",
+              "time": 1776916123,
+              "parent": 47871511,
+              "text": "threat model just shifts to whoever has a camera pointed at your face, but probably still an improvement.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47869919,
+      "by": "skrtskrt",
+      "time": 1776895650,
+      "parent": 47868867,
+      "text": "It's not new that push notifications should be presumed to be insecure, with their content passing through - and probably persisted - outside the app sandbox and anything in control of in-app encryption.\n\nApple should have fixed this long ago (not that you can trust a closed system), but Signal should also have strong guardrails & warnings around allowing message content in push notifications.",
+      "kids": []
+    },
+    {
+      "id": 47869310,
+      "by": "maerF0x0",
+      "time": 1776892126,
+      "parent": 47868867,
+      "text": "Cat and Mouse, good. This is the adversarial setup that results in a better outcome for all.",
+      "kids": []
+    },
+    {
+      "id": 47871130,
+      "by": "benjx88",
+      "time": 1776905530,
+      "parent": 47868867,
+      "text": "Anthropic Mythos at work! iOS is so good and well built that only 1 bug was found and those patch. \"It's either all a joke ... or none of it is.\" -Bruce Banner",
+      "kids": [
+        {
+          "id": 47871434,
+          "by": "mplewis",
+          "time": 1776908539,
+          "parent": 47871130,
+          "text": "What did Anthropic have to do with any of this?",
+          "kids": [
+            {
+              "id": 47872961,
+              "by": "JumpCrisscross",
+              "time": 1776928250,
+              "parent": 47871434,
+              "text": "> What did Anthropic have to do with any of this?\n\nTo be fair, the day after Glasswing was announced [1] iOS 26.4.1 was released [2]. Three weeks later, we have 26.4.2. When I saw the update prompt, my first thought was security fixes from Mythos. (In reality, the data do not show that Apple is releasing iOS 26 versions more frequently after Project Glasswing was announced than it was before. If we see another release in two weeks, I think we can conclude at least a statistically-meaningful signal.)\n\n[1] https://www.anthropic.com/project/glasswing\n\n[2] https://en.wikipedia.org/wiki/IOS_26#Version_history",
+              "kids": []
+            },
+            {
+              "id": 47871928,
+              "by": "benjx88",
+              "time": 1776914078,
+              "parent": 47871434,
+              "text": "It was an attempt at humor and banter, should've flag that or something.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47869191,
+      "by": "unethical_ban",
+      "time": 1776891442,
+      "parent": 47868867,
+      "text": "I wonder if the same flaw exists on Android/GrapheneOS.",
+      "kids": []
+    },
+    {
+      "id": 47870548,
+      "by": "ghstinda",
+      "time": 1776900369,
+      "parent": 47868867,
+      "text": "I like apple, but would never trust them with privacy. NYPD uses ISMI catchers and other tech. This is a nothing burger or nothing donut.",
+      "kids": []
+    },
+    {
+      "id": 47869939,
+      "by": "cubefox",
+      "time": 1776895736,
+      "parent": 47868867,
+      "text": "It is completely unclear from this article whether this means Apple does no longer cache dismissed notifications somewhere.",
+      "kids": []
+    },
+    {
+      "id": 47869570,
+      "by": "tcfhgj",
+      "time": 1776893661,
+      "parent": 47868867,
+      "text": "bug or backdoor?",
+      "kids": [
+        {
+          "id": 47869674,
+          "by": "6thbit",
+          "time": 1776894288,
+          "parent": 47869570,
+          "text": "\"Never attribute to malice that which is adequately explained by stupidity.\"",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47871041,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47872253,
+      "by": "classified",
+      "time": 1776918616,
+      "parent": 47868867,
+      "text": "Good. Now, are they fixing any of their other gazillion bugs?",
+      "kids": []
+    },
+    {
+      "id": 47872187,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47871224,
+      "deleted": true,
+      "kids": []
+    },
+    {
+      "id": 47870170,
+      "by": "ashishb",
+      "time": 1776897158,
+      "parent": 47868867,
+      "text": "This has nothing to do with Apple/Firebase notification service.\n\nIt has to do with the fact that any notification displayed on your device goes via a separate system service which was caching them.\n\nIt is amusing to see how often people confuse device notifications with Apple notification service.",
+      "kids": []
+    },
+    {
+      "id": 47870383,
+      "by": "aucisson_masque",
+      "time": 1776898726,
+      "parent": 47868867,
+      "text": "> This was because notifications that displayed the messages’ content were also cached on the device for up to a month.\n\nWhy can't we have notification history just like on Android then. It's very useful when you dismiss a notification you didn't want to, or you look for some old stuff.",
+      "kids": []
+    },
+    {
+      "id": 47869907,
+      "by": "lynndotpy",
+      "time": 1776895562,
+      "parent": 47868867,
+      "text": "Heads up. They have released an iOS 18 update (good!) but, and please bear the caps:\n\nUPDATING IOS WILL ENABLE AUTOMATIC UPDATES TO IOS 26.\n\n(Bad!) This is a new shady tactic they're using trying to get iOS 18 users to install iOS 26.",
+      "kids": [
+        {
+          "id": 47869944,
+          "by": "layer8",
+          "time": 1776895778,
+          "parent": 47869907,
+          "text": "This was already the case for 18.7.7. However, after turning automatic updates off in 18.7.7, after updating to 18.7.8 it remained off (reproducibly on several devices I updated). Maybe there is a one-time flag that is set so that after turning off automatic updates after having been turned on automatically, they aren't automatically turned on again on subsequent updates.",
+          "kids": [
+            {
+              "id": 47870489,
+              "by": "lynndotpy",
+              "time": 1776899784,
+              "parent": 47869944,
+              "text": "Huh, my experience was the opposite. I don't think Apple undid my setting with iOS 18.7.7, but they did with iOS 18.7.8.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869941,
+          "by": "xmx98",
+          "time": 1776895752,
+          "parent": 47869907,
+          "text": "Thanks for the warning!",
+          "kids": []
+        },
+        {
+          "id": 47869978,
+          "by": "jim33442",
+          "time": 1776895972,
+          "parent": 47869907,
+          "text": "Avoid iOS 26 at all costs. I was forced to update to it because I needed to factory reset my phone, and it's super buggy. I'm not even one of those people harping on the Liquid Glass design decisions, those are w/e, the problem is just that the phone routinely freaks out doing basic tasks like trying to open the camera app or close the keyboard. They should roll it back.",
+          "kids": []
+        }
+      ]
+    }
+  ]
+}

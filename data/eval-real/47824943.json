@@ -1,0 +1,1052 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47824943,
+    "title": "5x5 Pixel font for tiny screens",
+    "points": 561,
+    "descendants": 120,
+    "article_url": "https://maurycyz.com/projects/mcufont/",
+    "hn_url": "https://news.ycombinator.com/item?id=47824943",
+    "self_post": false
+  },
+  "story": {
+    "id": 47824943,
+    "title": "5x5 Pixel font for tiny screens",
+    "url": "https://maurycyz.com/projects/mcufont/",
+    "by": "zdw",
+    "score": 561,
+    "time": 1776611968,
+    "descendants": 121,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": 47866819,
+      "by": "FelipeCortez",
+      "time": 1776879837,
+      "parent": 47824943,
+      "text": "1x5 can also work if you take advantage of subpixel rendering https://www.msarnoff.org/millitext/",
+      "kids": [
+        {
+          "id": 47872174,
+          "by": "FrostKiwi",
+          "time": 1776917361,
+          "parent": 47866819,
+          "text": "Actually blown away by how good that works with my 1920x1200 8-bit HP Z24n G2 monitor [1] and my Laptop's 1920x1080 6-bit Panel [2]\n\n[2x5-HP-Z24n-G2] https://i.imgur.com/yLyrpfg.jpeg\n\n[1x5-HP-Z24n-G2] https://i.imgur.com/Z7kH005.jpeg\n\n[2x5-Innolux-N156HCA-GA3] https://i.imgur.com/F4Ypxwj.jpeg\n\n[1x5-Innolux-N156HCA-GA3] https://i.imgur.com/etkot5o.jpeg\n\n[1] https://jp.ext.hp.com/monitors/business/z_z24n_g2/\n\n[2] https://www.panelook.com/N156HCA-GA3__15.6__overview_33518.h...",
+          "kids": []
+        },
+        {
+          "id": 47869510,
+          "by": "JohnDotAwesome",
+          "time": 1776893264,
+          "parent": 47866819,
+          "text": "Amazing. I zoomed in with my phone on the generated image and was surprised to see I could just make out the text! https://storage.j0.hn/subpixelfont.png - Also wow my screen is dirty af",
+          "kids": [
+            {
+              "id": 47871097,
+              "by": "jkonline",
+              "time": 1776905250,
+              "parent": 47869510,
+              "text": "Suggest you check your .htaccess (or however you secure your server) for storage.j0.hn.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47867090,
+          "by": "rossant",
+          "time": 1776881071,
+          "parent": 47866819,
+          "text": "Whoa, amazing!",
+          "kids": []
+        },
+        {
+          "id": 47868679,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47869808,
+          "by": "throwaway27448",
+          "time": 1776895030,
+          "parent": 47866819,
+          "text": "It seems like you need 2x5 for legibility",
+          "kids": []
+        },
+        {
+          "id": 47867927,
+          "by": "dorianmariecom",
+          "time": 1776885109,
+          "parent": 47866819,
+          "text": "\"if you look closely at the screen\"",
+          "kids": []
+        },
+        {
+          "id": 47871193,
+          "deleted": true,
+          "kids": []
+        },
+        {
+          "id": 47871679,
+          "by": "CGMthrowaway",
+          "time": 1776911358,
+          "parent": 47866819,
+          "text": "I was annoyed that all the images of the pixel fonts were larger than they actually ostensibly would be on a tiny screen, so I zoomed out my browser all the way on macbook pro retina screen, only to find the tiny letters of the blog text were 100x more readable than any of the pixel fonts in the post.\n\nAnd if the pixel font images were to be rendered at actually 5 pixels on my Retina screen, because the resolution of Retina screen is so tiny, the pixel fonts would still be unreadable without a microscope.\n\nSo while it's a cool project, as long as we can put Retina-dense screens in things, we are past the point where there is any useful need for a 5 pixel font",
+          "kids": [
+            {
+              "id": 47872203,
+              "by": "bagels",
+              "time": 1776917855,
+              "parent": 47871679,
+              "text": "$30 devices don't have apple screens.",
+              "kids": []
+            },
+            {
+              "id": 47871914,
+              "deleted": true,
+              "kids": []
+            },
+            {
+              "id": 47872475,
+              "by": "cafebabbe",
+              "time": 1776921550,
+              "parent": 47871679,
+              "text": "Retro games\n\nElectronic devices\n\nFine prints in images",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47867985,
+      "by": "ludocode",
+      "time": 1776885354,
+      "parent": 47824943,
+      "text": "The 5x5 is very nice, and the 3x5 isn't bad either. Unfortunately neither of them have all of ASCII. The size is also a bit misleading because you need to add spacing so really they need a 6x6 or 4x6 grid.\n\nI'm quite fond of Spleen:\n\nhttps://github.com/fcambus/spleen\n\nIt has a 5x8 font which has all of ASCII, but most glyphs are actually 4x8 and include horizontal spacing. I modified it to reduce the rest for a project I'm doing so all glyphs are 4x8. The result can be rendered on a 5x9 grid with a guaranteed line of horizontal and vertical spacing between all glyphs. It's very nice.",
+      "kids": [
+        {
+          "id": 47872560,
+          "by": "RachelF",
+          "time": 1776922641,
+          "parent": 47867985,
+          "text": "In the early 1980s there were actually word processors for the Apple 2 which had a 40 column display (7 pixel wide fonts default) that gave 60 columns using the a 5x5 font in graphics mode. It was a selling point.\n\nThe hardware solution was to buy an \"80 column card\" that gave 80 columns of proper text, if your monitor could handle it.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47870989,
+      "by": "archargelod",
+      "time": 1776904156,
+      "parent": 47824943,
+      "text": "Most tiny fonts are actually terrible to read at a glance especially when they're rendered at 1:1 scale.\nI've had a need couple years ago for a very tiny and compact font for a game mod I was making. And after trying a lot of 33, 35, even 2*5 fonts - they were all terrible to read.\n\nIn the end, I found \"Gremlin-3x6\" font[0] made by the guy named zephram. It's 1 pixel taller, but still a very compact when laid out horizontally. But, most importantly, all standard latin characters are pretty distinct from each other and it remains readable without zooming in too much.\n\nUnfortunately, since then, zephram deleted his fontstruct account and all of his fonts. I have a copy of this font in my mod repo[1] along with a CC0 license and you can see the actual rendering of the font in the project screenshots[2].\n\n[0] - https://fontstruct.com/fontstructions/show/1488093\n\n[1] - https://codeberg.org/janAkali/isaac-extended-icons-mod/src/b...\n\n[2] - https://codeberg.org/janAkali/isaac-extended-icons-mod/media...",
+      "kids": [
+        {
+          "id": 47871337,
+          "by": "ciupicri",
+          "time": 1776907486,
+          "parent": 47870989,
+          "text": "> The server returned a \"404 Not Found\".\n\nfor [0]",
+          "kids": [
+            {
+              "id": 47871435,
+              "by": "archargelod",
+              "time": 1776908543,
+              "parent": 47871337,
+              "text": "As I explained in the last paragraph of my comment, it was deleted for some reason. I also couldn't find any archives of that page. I only added the link to show where I got the font from, in case people will miss the link inside the license file.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47866864,
+      "by": "bmurray7jhu",
+      "time": 1776880057,
+      "parent": 47824943,
+      "text": "Similar discussion for CJK scripts\n\nhttps://chinese.stackexchange.com/questions/16669/lowest-pix...",
+      "kids": []
+    },
+    {
+      "id": 47866918,
+      "by": "soperj",
+      "time": 1776880295,
+      "parent": 47824943,
+      "text": "If the author sees this. I think the lower case t would benefit from a pixel above the cross, similar to how the lower case k goes up one more pixel. It looks a lot like the capital T with how it is now.  It is very well done though. Thanks for sharing.",
+      "kids": [
+        {
+          "id": 47867340,
+          "by": "gpm",
+          "time": 1776882249,
+          "parent": 47866918,
+          "text": "I think I'd go with something like\n\n     x\n    xxx\n     x\n     xx",
+          "kids": [
+            {
+              "id": 47868612,
+              "by": "soperj",
+              "time": 1776888438,
+              "parent": 47867340,
+              "text": "didn't even think about the stem on the bottom. \nOriginally I was thinking just the cross\n\n     x\n    xxx\n     x\n     x\n\nBut I think you're right.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47869602,
+          "by": "usefulcat",
+          "time": 1776893836,
+          "parent": 47866918,
+          "text": "Agree about lowercase t. I was surprised the lowercase l didn't look more like\n\n    xx\n     x\n     x\n     x\n     xx",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47866960,
+      "by": "kibwen",
+      "time": 1776880463,
+      "parent": 47824943,
+      "text": "> 4x4: Not enough to draw \"E\", \"M\" or \"W\" properly.\n\nHowever, 5x5 isn't enough to draw \"e\" properly if you also want lowercase letters to have less height than uppercase, so you need at least 6 vertical pixels. And then that isn't enough to draw any character with a descender properly, so you need at least 7 vertical pixels (technically you should have 8 in order to allow \"g\" and \"y\" to have a distinct horizontal descender while still sitting on the baseline, but this is probably an acceptable compromise). And remember that in practice this means you will still need at least 8x6 pixels to draw each character, to allow for a visible gap between letters below and beside them.",
+      "kids": [
+        {
+          "id": 47869014,
+          "by": "JoshTriplett",
+          "time": 1776890390,
+          "parent": 47866960,
+          "text": "> if you also want lowercase letters to have less height than uppercase\n\nI think that's the least of the properties I'd be willing to sacrifice to have a font that tiny.",
+          "kids": []
+        },
+        {
+          "id": 47867065,
+          "by": "mulr00ney",
+          "time": 1776880951,
+          "parent": 47866960,
+          "text": "I think the `e` looks better in the 'real pixels' example they gave; I find my tends to 'fill in' the space of the top part of the letter, and I suspect in the context of a longer sentence it'd be pretty easy to parse.\n\n(but yeah, it's not quite right, and is especially jarring in the nice, clean, blown up pixels in the top example)",
+          "kids": [
+            {
+              "id": 47869325,
+              "by": "kibwen",
+              "time": 1776892198,
+              "parent": 47867065,
+              "text": "It definitely looks better in the second screenshot than the first, but you have to be very, very close to the screen in order to see individual pixels like that. And on low-res displays, which this sort of font might be necessary for, it's going to look somewhat different because low-res screens tend to be chosen for cheapness, and cheap screens tend to be monochrome, so none of that artistic fuzzy subpixel coloring.",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47869783,
+      "by": "patrakov",
+      "time": 1776894896,
+      "parent": 47824943,
+      "text": "Using multi-level grayscale instead of just two pixel states, on and off, can produce readable text at even smaller font sizes. The catch is that I have to say \"text\", not \"letters\", i.e., rely on humans inferring the too-blurry letters from their context. And I do not even need a specially designed font for that.\n\nExample: https://imgur.com/a/text-80-characters-per-line-240-pixels-w...\n\nThat's 3 horizontal pixels per character on average, including inter-character spacing.",
+      "kids": []
+    },
+    {
+      "id": 47872894,
+      "by": "thuridas",
+      "time": 1776927524,
+      "parent": 47824943,
+      "text": "Some non-ascii characters will be hard on 5x5 like ñ o É",
+      "kids": []
+    },
+    {
+      "id": 47871355,
+      "by": "thwarted",
+      "time": 1776907666,
+      "parent": 47824943,
+      "text": "This reminded me of work to get the C64 to do 80 columns in software, using a 3x7 pixel grid (with one row and column used for spacing), some of which were part of commercial products.\n\nhttps://www.pagetable.com/?p=901\n\n> Creating a 4×8 character set that is both readable and looks good is not easy. There has to be a one-pixel gap between characters, so characters can effectively only be 3 pixels wide. For characters like “M” and “N”, this is a challenge.",
+      "kids": []
+    },
+    {
+      "id": 47866982,
+      "by": "TruthSHIFT",
+      "time": 1776880577,
+      "parent": 47824943,
+      "text": "Don't forget Jason Kottke's Silkscreen font: https://kottke.org/plus/type/silkscreen/",
+      "kids": []
+    },
+    {
+      "id": 47871737,
+      "by": "JCTheDenthog",
+      "time": 1776911960,
+      "parent": 47824943,
+      "text": ">Narrower 4x5 and 3x5 dimensions are possible, but would require sacrificing the M, dotted zero, and reduce U/V/Y distinctiveness.\n\nI think 3x5 works well enough:\n\nhttps://robey.lag.net/2010/01/23/tiny-monospace-font.html",
+      "kids": []
+    },
+    {
+      "id": 47868218,
+      "by": "jh00ker",
+      "time": 1776886507,
+      "parent": 47824943,
+      "text": "I always loved the 5x6 Pixel font in this classic 90s PC game:\nhttps://covertaction.fandom.com/wiki/Cryptography_(Mini-Game...\n\nThe extra 1 pixel of height for the text in green, in particular, allowed for some cool \"italic\" styling, especially for letters like E, D, J, U, V",
+      "kids": []
+    },
+    {
+      "id": 47872287,
+      "by": "userbinator",
+      "time": 1776918967,
+      "parent": 47824943,
+      "text": "Looking at the screenshots shows why there's a reason 5x7 is the \"standard\" for tiny legible fonts that cover all of ASCII, e.g. as found in character LCD displays:\n\nhttps://en.wikipedia.org/wiki/HD44780_(integrated_circuit)",
+      "kids": []
+    },
+    {
+      "id": 47868078,
+      "by": "mikestew",
+      "time": 1776885790,
+      "parent": 47824943,
+      "text": "\"Images were displayed on an Apple 30\" Cinema Display\"\n\nYowsa. For those playing at home, that monitor is over 20 years old:\n\nhttps://everymac.com/monitors/apple/studio_cinema/specs/appl...",
+      "kids": []
+    },
+    {
+      "id": 47872717,
+      "by": "larsbrinkhoff",
+      "time": 1776924896,
+      "parent": 47824943,
+      "text": "The LINC minicomputer operating system LAP6 came with a 4x5 font, but it didn't have lower case.",
+      "kids": []
+    },
+    {
+      "id": 47866853,
+      "by": "iamjackg",
+      "time": 1776879990,
+      "parent": 47824943,
+      "text": "I actually thought of this (or a previous similar project? The one posted here seems more recent...) just a few days ago while watching the announcement video for this new DJ device, since it seems to use a 5x5 font: https://driftdj.com/dj-hybrid",
+      "kids": [
+        {
+          "id": 47869248,
+          "by": "botanrice",
+          "time": 1776891796,
+          "parent": 47866853,
+          "text": "yo! thanks for sharing, this is a wicked cool device. I've always wanted a \"pocket\" mixer to take with me on planes and trains. I know there are smaller devices that can perform that duty but their more like repurposed EQ or audio interfaces that can be used to mix.\n\nbut wowza!! $900 for that lil guy, dang!",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47870128,
+      "by": "chuckadams",
+      "time": 1776896830,
+      "parent": 47824943,
+      "text": "Fonts like this are also great for huge screens like LED signage.  Big pixels and very low resolution, so logically a tiny screen.",
+      "kids": []
+    },
+    {
+      "id": 47868935,
+      "by": "huydotnet",
+      "time": 1776889928,
+      "parent": 47824943,
+      "text": "I'm gonna use this article to explain to my peers about LLM quantization!",
+      "kids": [
+        {
+          "id": 47869886,
+          "deleted": true,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868796,
+      "by": "mjaniczek",
+      "time": 1776889329,
+      "parent": 47824943,
+      "text": "Oh cool, I have to try these fonts on my amber CRT getting commands from an Elm webapp ([demo](https://youtu.be/M9Q5tFPtGaA?t=121), [code](https://github.com/Janiczek/crt-esp32-elm/tree/main/vdom/)) - there's not a lot of real estate in a 400x240 NTSC resolution. But the scanlined rendering has so much charm!\n\nEDIT: realized a better demo for this discussion would be the photos I took of all the tiny bitmap fonts I had converted to the C array style at the time. Thread has more but here are my favorites: https://bsky.app/profile/janiczek.cz/post/3mh25atboz224",
+      "kids": []
+    },
+    {
+      "id": 47872127,
+      "by": "parlortricks",
+      "time": 1776916743,
+      "parent": 47824943,
+      "text": "This is great, i use a 3x3 font i drew up for lowres games, though there are many example that look mostly the same since it is such a small space.",
+      "kids": []
+    },
+    {
+      "id": 47866962,
+      "by": "z2",
+      "time": 1776880465,
+      "parent": 47824943,
+      "text": "The 3x2 is fascinating, it's the same resolution as braille, albeit rotated 90 degrees. I wonder if this could become a braille-like system that's both visually and finger-readable.\n\nNote: there are repeat glyphs here like c and o, though the example actually uses a different c somehow. But perhaps repeats are ok given context.",
+      "kids": [
+        {
+          "id": 47869891,
+          "by": "0110101001",
+          "time": 1776895464,
+          "parent": 47866962,
+          "text": "In the 2x2 resolution (which can't support all of Braille, but does support the first 10 characters), A, B, C, E, and F are all the recognizable Braille shapes for those letters (though in offset positions).\n\nAt first, it seemed like an Easter egg, but it's probably just a natural happenstance of two people centuries apart deciding to represent the first ten letters of the alphabet in a 2x2 grid with a general idea to use fewer dots at the start than at the end.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47870463,
+      "by": "davebren",
+      "time": 1776899515,
+      "parent": 47824943,
+      "text": "Somewhat relevant, I learned a mapping of individual characters to colors with a chrome extension I made, so the text size doesn't really matter since words are just sequences of colors.\nhttps://chromewebstore.google.com/detail/rainbow-text/jhkgcm...",
+      "kids": []
+    },
+    {
+      "id": 47870429,
+      "by": "SyzygyRhythm",
+      "time": 1776899167,
+      "parent": 47824943,
+      "text": "The ship computers in the old game Privateer (and probably Wing Commander) had a pretty nice pixel font. Most of the characters were 3x4, but with a few niceties: descenders (j, p, q) could go below the normal outline, and wide glyphs like m/n/w were more than 3 pixels wide. Overall, pretty readable for uppercase/lowercase/numerics, and included a few \"futuristic\" touches.",
+      "kids": []
+    },
+    {
+      "id": 47867654,
+      "by": "octagons",
+      "time": 1776883760,
+      "parent": 47824943,
+      "text": "I developed a font with a similar resolution that was not nearly as legible for my Pi Zero with an e-ink screen many years ago. It allowed for similar tooling such as the flipper zero and esp32 marauder projects. I should fire that project up and implement this font…",
+      "kids": [
+        {
+          "id": 47869025,
+          "by": "Footprint0521",
+          "time": 1776890439,
+          "parent": 47867654,
+          "text": "Dude I was thinking exactly that, might have to mod my f0 momentum firmware",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47824953,
+      "by": "lostmsu",
+      "time": 1776612096,
+      "parent": 47824943,
+      "text": "Small g is unreadable. I obviously know the alphabet and despite that it took quite some time to understand what letter is that.",
+      "kids": [
+        {
+          "id": 47869225,
+          "by": "eichin",
+          "time": 1776891661,
+          "parent": 47824953,
+          "text": "From using Okidata printers back in the day, a \"tall\" lower case g really does look bad in running text. (The similarity to the e is a little troublesome, but I don't have a fix for that...)",
+          "kids": []
+        },
+        {
+          "id": 47866417,
+          "by": "bartvk",
+          "time": 1776878109,
+          "parent": 47824953,
+          "text": "Perhaps they should've used something similar to the 9. However then it wouldn't really look like a lower-case g.",
+          "kids": [
+            {
+              "id": 47868215,
+              "by": "antraip",
+              "time": 1776886474,
+              "parent": 47866417,
+              "text": "Here is how I would personally modify lowercase g:\n\n   xxx\n  x   x\n  xxxxx\n      x\n  xxxx\n\nIt looks a bit like a 9 but the descender is different.\n\n(Could play around with how many x's to put on the first and third lines, particularly whether to set the first/last bits on those lines as \"corners\" or make it more rounded.)\n\nI would also modify the top of lowercase e in a similar fashion.",
+              "kids": [
+                {
+                  "id": 47869058,
+                  "by": "JoshTriplett",
+                  "time": 1776890614,
+                  "parent": 47868215,
+                  "text": "I might do something like this instead:\n\n      xx\n     x x\n      xx\n    x  x\n     xx\n\nA little awkward, but very distinct from the 9. The reason to narrow the head of it is to allow the end of the descender to rise upwards without turning it into an 8.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47870538,
+      "by": "dnnddidiej",
+      "time": 1776900278,
+      "parent": 47824943,
+      "text": "Makes me wonder. Geeks are happy to learn a new keyboard layout. What about a new alphabet that can give higher on screen density of data. Now 3x3 isn't necessary because we have high res monitors. We need 26 distinguishable shapes for a-z.\n\nIn theory (focusing on non colourblind english speakers) there could be say 8 distinct colours and 8 shapes giving 64 chars.",
+      "kids": [
+        {
+          "id": 47870665,
+          "by": "DHowett",
+          "time": 1776901247,
+          "parent": 47870538,
+          "text": "There was a project a while back that attempted to do this, named “Dotsies”.\n\nhttps://www.omniglot.com/conscripts/dotsies.htm (original site https://www.dotsies.org, which has a casual introduction text that slowly transitions into dots; however, it was unavailable at the time of writing.)",
+          "kids": []
+        },
+        {
+          "id": 47870680,
+          "by": "fluoridation",
+          "time": 1776901351,
+          "parent": 47870538,
+          "text": "Doesn't braille already cover this need?",
+          "kids": []
+        },
+        {
+          "id": 47870592,
+          "by": "mchl-mumo",
+          "time": 1776900707,
+          "parent": 47870538,
+          "text": "This would be insanely cool. Building characters for the digital era not for handwriting.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47869422,
+      "by": "enriquto",
+      "time": 1776892729,
+      "parent": 47824943,
+      "text": "This is cool, but my problem is the opposite: I have a modern laptop screen with tiny pixels.  What I need is then a huge bitmap font... does anybody have any?",
+      "kids": [
+        {
+          "id": 47873094,
+          "by": "sandos",
+          "time": 1776929644,
+          "parent": 47869422,
+          "text": "Why a bitmap font if you have tiny pixels? Just use a sharp font like Iosevka or similar.",
+          "kids": []
+        },
+        {
+          "id": 47871763,
+          "by": "frankling_",
+          "time": 1776912224,
+          "parent": 47869422,
+          "text": "Here are a few made by upscaling and then manually cleaning up classic fonts: https://github.com/B2HDPI/B2HDPI\n\nThe glyph coverage is enough for most programming languages; missing glyphs just fall back to a pixelized look.\n\nLode 1.5x works really well at 110 ppi displays, which seems to be the uncanny valley for antialiasing.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47871588,
+      "by": "biomech",
+      "time": 1776910217,
+      "parent": 47824943,
+      "text": "In the 3 x 2 example, the text is supposed to say “can probably” but I think the glyph for b was used instead, so it reads “you ban probably”.",
+      "kids": []
+    },
+    {
+      "id": 47871314,
+      "by": "shumatsumonobu",
+      "time": 1776907224,
+      "parent": 47824943,
+      "text": "This is gorgeous. 5x5 is a wild constraint — every pixel has to earn its place. The fact that it's still readable at that size says a lot about the craft.",
+      "kids": []
+    },
+    {
+      "id": 47867500,
+      "by": "calebm",
+      "time": 1776883017,
+      "parent": 47824943,
+      "text": "You could call it the \"Minimum Viable Font\"",
+      "kids": []
+    },
+    {
+      "id": 47869885,
+      "by": "rahimnathwani",
+      "time": 1776895422,
+      "parent": 47824943,
+      "text": "6×3 is also good (fits on a 7×4 grid).\n\nhttps://archive.org/details/zx_Tasword_2_Tutor_1983_Tasman_S...",
+      "kids": []
+    },
+    {
+      "id": 47866973,
+      "by": "damieng",
+      "time": 1776880520,
+      "parent": 47824943,
+      "text": "You can get nicer 5x5 fonts amd it was not that uncommon back in the day. 4 wide is not too bad if you make the center of M and W just two pixels inset from top or bottom respectively or borrow the spacing column.\n\nPlenty of systems did it like CP/M on the Spectrum +3 and it looks pretty decent.",
+      "kids": []
+    },
+    {
+      "id": 47867555,
+      "by": "rbanffy",
+      "time": 1776883239,
+      "parent": 47824943,
+      "text": "One nice use for these tiny fonts is large text in terminals. Unicode now has 2x4 (from Kaypro), 2x3 (from Teletext, TRS-80), and 2x2 mosaic characters. Unicode also has 3x3 large text (from HP terminals) but font and terminal support is limited.",
+      "kids": [
+        {
+          "id": 47867828,
+          "by": "kevin_thibedeau",
+          "time": 1776884586,
+          "parent": 47867555,
+          "text": "I assume you mean Braille is the 2x4 set. What range introduces 3x3 codepoints?",
+          "kids": [
+            {
+              "id": 47869529,
+              "by": "rbanffy",
+              "time": 1776893404,
+              "parent": 47867828,
+              "text": "The 3x3 are the large text blocks - intended to use in 3x3 groups to form letters and numbers from the fragments in the range. There are 2x4 mosaics as well, separate from the Braille alphabet. These are symbols coming from legacy systems (such as the HP terminals and Kaypro CP/M machines).",
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47867256,
+      "by": "perarneng",
+      "time": 1776881839,
+      "parent": 47824943,
+      "text": "If you start from the bottom of the page directly and scroll up then the 5x5 looks even better.",
+      "kids": []
+    },
+    {
+      "id": 47868176,
+      "by": "GolfPopper",
+      "time": 1776886256,
+      "parent": 47824943,
+      "text": "I didn't seen any mention of Tony Pai's quite good 3x3 font (only uppercase):\n\nhttps://tonypai.itch.io/3x3-pixel-font",
+      "kids": [
+        {
+          "id": 47868888,
+          "by": "throwaway287391",
+          "time": 1776889778,
+          "parent": 47868176,
+          "text": "A bunch of these appear to be 9x9-ish? (B, P, Q, R, Z, 0, most of the non-alphanumerics...)",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47866650,
+      "by": "dfox",
+      "time": 1776879093,
+      "parent": 47824943,
+      "text": "IIRC the really cheap Casio Organizers/DataBanks of 90's used 5x5 font. And then my ex used something like that on linux in order to fit a ridiculous amount of xterms onto 14\" CRT (somewhat absurd feat with her congenital vision defect).",
+      "kids": []
+    },
+    {
+      "id": 47868586,
+      "by": "pugworthy",
+      "time": 1776888357,
+      "parent": 47824943,
+      "text": "CGA era developers are like, \"Yea been there done that...\"",
+      "kids": [
+        {
+          "id": 47869960,
+          "by": "reaperducer",
+          "time": 1776895865,
+          "parent": 47868586,
+          "text": "And Commodore 64 people.\n\nVIP Term, and others, had 3x7 fonts on 4x8 grids to connect to 80-column mainframes.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47867202,
+      "by": "ghssds",
+      "time": 1776881628,
+      "parent": 47824943,
+      "text": "You could do a bit better with a 4x5 font for every characters except M, W, m, and w which would be 5x5 but use the pixels normaly used to separate them from the next character, so every caracters still use the same width.",
+      "kids": []
+    },
+    {
+      "id": 47866441,
+      "by": "ramses0",
+      "time": 1776878259,
+      "parent": 47824943,
+      "text": "...and don't forget \"twoslice\": https://joefatula.com/twoslice.html\n\nI haven't done the pixel-by-pixel deviation checking, but they may be comparable and independently derived!",
+      "kids": [
+        {
+          "id": 47867572,
+          "by": "graybeardhacker",
+          "time": 1776883340,
+          "parent": 47866441,
+          "text": "Can people read that?  I want to do a study to see the cognitive difference between people who can read that and those who can't.\n\nI can't at all.",
+          "kids": [
+            {
+              "id": 47867664,
+              "by": "JoshTriplett",
+              "time": 1776883827,
+              "parent": 47867572,
+              "text": "I could read every word at nearly full speed, with the exception of \"tends\" that required a lot of puzzling out.\n\nBut I'm backfilling a lot of information from context, the same way that this works: https://www.dictionary.com/articles/typoglycemia\n\nIt would have been much harder to read a series of random words, or another piece of text with a less predictable structure.",
+              "kids": []
+            },
+            {
+              "id": 47871008,
+              "by": "GaryBluto",
+              "time": 1776904349,
+              "parent": 47867572,
+              "text": "I tried copying a random line of text, pasted it into the textbox and could read most of it. Only a few words tripped me up.",
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": 47866801,
+          "by": "Nnnes",
+          "time": 1776879776,
+          "parent": 47866441,
+          "text": "See also Picket Right, 2 pixels wide (7 high) and still readable: https://stormgold.itch.io/picket-right-font",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868906,
+      "by": "namanvyas",
+      "time": 1776889838,
+      "parent": 47824943,
+      "text": "I've used 3x5 fonts on a couple of embedded projects and honestly the biggest pain isn't the font itself, its getting the spacing right.",
+      "kids": []
+    },
+    {
+      "id": 47867691,
+      "by": "Dwedit",
+      "time": 1776883927,
+      "parent": 47824943,
+      "text": "A 3x5 font does not sacrifice the M or W.  H,M,W end up as similar looking characters, but the M has the center pixel one higher, and the W has the center pixel one lower.",
+      "kids": []
+    },
+    {
+      "id": 47866738,
+      "by": "JoshTriplett",
+      "time": 1776879499,
+      "parent": 47824943,
+      "text": "These look great.\n\nI would have loved to have seen a sample of the 4x5, not just the 5x5.",
+      "kids": []
+    },
+    {
+      "id": 47866778,
+      "by": "DonThomasitos",
+      "time": 1776879661,
+      "parent": 47824943,
+      "text": "Incomplete blog post! Where was the comparison vs. a 1x1 pixel font?",
+      "kids": []
+    },
+    {
+      "id": 47871256,
+      "by": "drdeca",
+      "time": 1776906647,
+      "parent": 47824943,
+      "text": "simplifier has a 4x4 version : https://simplifier.neocities.org/4x4",
+      "kids": []
+    },
+    {
+      "id": 47872486,
+      "by": "Pxtl",
+      "time": 1776921638,
+      "parent": 47824943,
+      "text": "The 3x5 size is pretty common in wplace, it's a good compromise.",
+      "kids": []
+    },
+    {
+      "id": 47866711,
+      "by": "IvanK_net",
+      "time": 1776879378,
+      "parent": 47824943,
+      "text": "Too bad \"tiny screens\" pretty much do not exist anymore. Screens with hundreds of pixels on each side are very cheap already.\n\nIt reminds me people who research \"colorizing grayscale photos\", which do not exist anymore either (if you want a color photo of someone you met in your life, there probably exists a color photo of that person).",
+      "kids": [
+        {
+          "id": 47866993,
+          "by": "joefourier",
+          "time": 1776880628,
+          "parent": 47866711,
+          "text": "> Too bad \"tiny screens\" pretty much do not exist anymore. Screens with hundreds of pixels on each side are very cheap already.\n\nFind me a 0.66\" OLED display for ~$1 that has hundreds of pixels on each side then.\n\n> It reminds me people who research \"colorizing grayscale photos\", which do not exist anymore either (if you want a color photo of someone you met in your life, there probably exists a color photo of that person).\n\nWhat train of thought led you to think people are primarily researching colorising new B&W photos? As opposed to historical ones, or those of relatives taken when they were young? You can take a colour photo of granddad today but most likely the photos of him in his 20s are all in black and white.",
+          "kids": [
+            {
+              "id": 47867312,
+              "by": "IvanK_net",
+              "time": 1776882159,
+              "parent": 47866993,
+              "text": "If you know a person who is 70 years old, they were 20 in 1975 - color photos existed back then.\n\nEvery grayscale photo of someone famous has already been colorized during the past 50 years. If there are only grayscale photos of you, you were probably born before 1900, and all your friends or your children (who might want to colorize your photo) are probably dead, too.",
+              "kids": [
+                {
+                  "id": 47867963,
+                  "by": "joefourier",
+                  "time": 1776885262,
+                  "parent": 47867312,
+                  "text": "1. Improving the colourisation algorithms has value, it might be that the available colourised photos of celebrities have inaccurate colours or are of poorer quality than say, one done with a diffusion model that can be instructed about the colours of certain objects\n\n2. Don’t forget about B&W films! Getting automatic methods to be consistent over a long length is still not 100% solved. People are very interested in seeing films from WW1 and WW2 in colour, for instance.\n\n3. Plenty of people (myself included) have relatives in their 80s or 90s. Or maybe someone wants to see their ancestors from the 19th century in colour for whatever reason?",
+                  "kids": []
+                },
+                {
+                  "id": 47869278,
+                  "by": "eichin",
+                  "time": 1776891973,
+                  "parent": 47867312,
+                  "text": "Color photos existed but color film and processing was very expensive (and while mono film development \"middle school student can do at home\" for a generation, home color work wasn't a thing until late 80s/early 90s as far as I recall.)  So in practice, I personally have childhood pics of my dad with his mom and sister - that were shot black and white but colorized by being hand painted, and this was pretty common...",
+                  "kids": []
+                },
+                {
+                  "id": 47867415,
+                  "by": "zimpenfish",
+                  "time": 1776882544,
+                  "parent": 47867312,
+                  "text": "> If you know a person who is 70 years old, they were 20 in 1975\n\nBloody hell, warn people before you post things like that.",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47867729,
+          "by": "akavel",
+          "time": 1776884112,
+          "parent": 47866711,
+          "text": "There's a really nice, very low-power, 84x48 B&W LCD screen still widely available for electronics use, a clone of a Nokia 5110 screen - see e.g.:\n\n- https://github.com/akavel/clawtype#clawtype\n\n- mandatory \"Bad Apple\" vid (not mine): https://youtu.be/v6HidvezKBI\n\n(for the \"splash screen\" linked above I used font u8g2_font_3x5im_te: https://docs.rs/u8g2-fonts/latest/u8g2_fonts/fonts/struct.u8... and a multilingual u8g2_font_tiny5_t_all: https://docs.rs/u8g2-fonts/latest/u8g2_fonts/fonts/struct.u8...)",
+          "kids": []
+        },
+        {
+          "id": 47866832,
+          "by": "compiler-guy",
+          "time": 1776879891,
+          "parent": 47866711,
+          "text": "Quick browsing at adafruit.com (or any other similar vendor), reveals plenty of displays that are 128, 240, and 320 pixels wide. At 6 pixels of width per character, that's only 21, 40, and 53 characters wide. Seems quite useful to me.\n\nThere are also several 32x32 led panels, which one could imagine needing some text.\n\nAlso, this kind of thing is just interesting, regardless of the usefulness.",
+          "kids": []
+        },
+        {
+          "id": 47869218,
+          "by": "alnwlsn",
+          "time": 1776891592,
+          "parent": 47866711,
+          "text": "I wish that were the case. I'm trying to make a tiny emulated z80 computer, and to fit a screen of 64x16 test on a smartwatch sized screen, I have to use a 4x6 pixel font, because the highest res, most available screen I can get in that size is just 240x280. High-res 400+ px smartwatch screens like the apple watch has - you can only get those if you buy 10000 at once and sign an NDA.\n\nActually, the 4x6 doesn't look half bad if viewed at wrist-level.\n\n128x64 monochrome screens are very common in both LCD and OLED format.",
+          "kids": []
+        },
+        {
+          "id": 47866830,
+          "by": "JoshTriplett",
+          "time": 1776879876,
+          "parent": 47866711,
+          "text": "> Too bad \"tiny screens\" pretty much do not exist anymore.\n\nhttps://www.crystalfontz.com/product/cfal12856a00151b-128x56... - 128x56\n\nhttps://www.crystalfontz.com/product/cfag12864u4nfi-128x64-t... - 128x64\n\nThere's a whole world of embedded devices with wide varieties of screen resolutions.",
+          "kids": [
+            {
+              "id": 47868443,
+              "by": "IvanK_net",
+              "time": 1776887716,
+              "parent": 47866830,
+              "text": "That is not a tiny screen, it has over 7 thousand pixels.\n\nI think you will not be able to read 5x5 pixel letters on that display (a letter would be about 1 mm tall).",
+              "kids": [
+                {
+                  "id": 47869168,
+                  "by": "JoshTriplett",
+                  "time": 1776891290,
+                  "parent": 47868443,
+                  "text": "0.27mm dot pitch, so each letter would be 1.35mm square in a box of 1.62mm square. I expect I could read it just fine at the distances I'd expect to look at such a screen.\n\nI tested this on a phone, and was able to read it without much difficulty at roughly 18-30 inches.",
+                  "kids": []
+                },
+                {
+                  "id": 47870185,
+                  "by": "ranger_danger",
+                  "time": 1776897246,
+                  "parent": 47868443,
+                  "text": "What is your definition of a tiny screen?",
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47866970,
+          "by": "sophacles",
+          "time": 1776880510,
+          "parent": 47866711,
+          "text": "There exist plenty of reasons to colorize grayscale photos in 2026.\n\n* a huge corpus of historical imagery\n\n* cheaper grayscale cameras + post processing will surely enable all sorts of uses we haven't imagined yet.\n\n* a lower power CCD and post-processing after the fact or on a different device allows for better power budget in cheap drones (etc).\n\n* these algorithms can likely be tuned or used as a stepping stone for ones that convert non-visible wavelengths into color images.\n\nAnd that's just off the top of my head as someone who doesn't really work with that stuff. I'm sure there are plenty of other reasons I can't think of.",
+          "kids": [
+            {
+              "id": 47867379,
+              "by": "IvanK_net",
+              "time": 1776882403,
+              "parent": 47866970,
+              "text": "Grayscale cameras are not that much cheaper than color cameras. And if you decided to use a grayscale camera on purpose, you probably do not care about the color information (which would be totally \"made up\" by the colorizing algorithm).\n\nAlso, if there are only grayscale photos of you, you were probably born before 1900, and all your friends or your children (who might want to colorize your photo) are probably dead, too.",
+              "kids": [
+                {
+                  "id": 47867601,
+                  "by": "sophacles",
+                  "time": 1776883475,
+                  "parent": 47867379,
+                  "text": "What does the existence of a color photograph of my grandmother as an old woman have to do with my desire to colorize a grayscale photo of her as a child? Or colorize the photos of her wedding?\n\nIt's a very strange argument to make: there exist some photos therefore other photos may not be colorized!",
+                  "kids": [
+                    {
+                      "id": 47868394,
+                      "by": "IvanK_net",
+                      "time": 1776887413,
+                      "parent": 47867601,
+                      "text": "Did you colorize grayscale photos of your grandmothers wedding?\n\nSeeing that a \"neat tool\" exists and using that \"neat tool\" are two diffrent things. Google Glass was neat, too.",
+                      "kids": [
+                        {
+                          "id": 47869075,
+                          "by": "JoshTriplett",
+                          "time": 1776890704,
+                          "parent": 47868394,
+                          "text": "Is there a particular reason you resent what other people enjoy researching and spending time on, enough so to post all this?",
+                          "kids": [
+                            {
+                              "id": 47870763,
+                              "by": "IvanK_net",
+                              "time": 1776902100,
+                              "parent": 47869075,
+                              "text": "I am just saying that the colorization was needed in 1995, when 90% of people had black-and-white childhood photos.\n\nBut today, only 1% of people has black-and-white childhood photos. I just makes me want to argue when people pretend that it is still needed as much as in 1995 :D\n\nI was also arguing with my friends about buying laptops with an optical drive ten years ago :D",
+                              "kids": []
+                            }
+                          ]
+                        },
+                        {
+                          "id": 47869105,
+                          "by": "sophacles",
+                          "time": 1776890840,
+                          "parent": 47868394,
+                          "text": "I have not yet, because my uncle hasn't scanned those photos yet. I have colorized the pictures of my grandmother as a child, and some previously unmentioned ones of the farm my grandfather grew up on. I've also colorized some photos of ancestors that no one alive this century has ever met.\n\nJust because you don't want to use a tool, it doesn't mean others also won't.",
+                          "kids": []
+                        },
+                        {
+                          "id": 47869139,
+                          "by": "nancyminusone",
+                          "time": 1776891077,
+                          "parent": 47868394,
+                          "text": "what are you even talking about? enough people want to colorize pictures that there's a damn Know Your Meme page for it\n\nhttps://knowyourmeme.com/memes/colorized-history",
+                          "kids": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 47867874,
+          "by": "kevin_thibedeau",
+          "time": 1776884808,
+          "parent": 47866711,
+          "text": "Terminals are tiny screens.",
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": 47868189,
+      "by": "ESMP",
+      "time": 1776886339,
+      "parent": 47824943,
+      "text": "Wouldn't something like this be ideal for devices like Xteink X4?",
+      "kids": []
+    },
+    {
+      "id": 47870166,
+      "by": "hank808",
+      "time": 1776897133,
+      "parent": 47824943,
+      "text": "Very cool for anyone with flawless eyesight!",
+      "kids": []
+    },
+    {
+      "id": 47867905,
+      "by": "tliltocatl",
+      "time": 1776884945,
+      "parent": 47824943,
+      "text": "At that point, just go Braille! Amazing work anyway.",
+      "kids": []
+    },
+    {
+      "id": 47869729,
+      "by": "AvAn12",
+      "time": 1776894614,
+      "parent": 47824943,
+      "text": "Like dot matrix printer fonts",
+      "kids": []
+    },
+    {
+      "id": 47867634,
+      "by": "akavel",
+      "time": 1776883637,
+      "parent": 47824943,
+      "text": "See also u8g2 fonts: https://docs.rs/u8g2-fonts/latest/u8g2_fonts/fonts/index.htm... (available also in original C at: https://github.com/olikraus/u8g2/wiki/fntlistall)",
+      "kids": []
+    },
+    {
+      "id": 47867690,
+      "by": "onlyrealcuzzo",
+      "time": 1776883924,
+      "parent": 47824943,
+      "text": "I love the design of your website!",
+      "kids": []
+    },
+    {
+      "id": 47872414,
+      "by": "sponno",
+      "time": 1776920762,
+      "parent": 47824943,
+      "text": "And for 1x1 screens\n..........................",
+      "kids": []
+    },
+    {
+      "id": 47870240,
+      "by": "anthk",
+      "time": 1776897648,
+      "parent": 47824943,
+      "text": "I remember a weird font with a special alphabet made of dots or something like that. Not Braille, it was for fast reading or such.",
+      "kids": []
+    },
+    {
+      "id": 47870081,
+      "by": "russellbeattie",
+      "time": 1776896592,
+      "parent": 47824943,
+      "text": "I think on my 6.8\" WQHD+ 3200 x 1440 phone screen (70.5mm width), an actual 5x5 pixel square might be the size of a period → .\n\nDoing the math, 70.5mm / 1440px = 0.05mm per pixel, x5 = 0.25mm wide. Just a guess though, I'm not exactly sure how big a period is without a microscope.",
+      "kids": []
+    },
+    {
+      "id": 47869099,
+      "by": "Theodores",
+      "time": 1776890820,
+      "parent": 47824943,
+      "text": "Many decades ago it was anti aliasing with MS clear type that made small text possible. Yet, before that, for regular TV, this had been worked out, so lots of text could be shown on things like business TV, in glorious analogue PAL or never twice same colour for Americans.\n\nSmall text is an interesting problem, but we have moved on from pixels as useful units.",
+      "kids": []
+    },
+    {
+      "id": 47870479,
+      "by": "JKCalhoun",
+      "time": 1776899668,
+      "parent": 47824943,
+      "text": "Gonna have to ask for a proportional version of this font.\n\nI mean, look at the capital \"I\".\n\n;-)",
+      "kids": []
+    },
+    {
+      "id": 47868059,
+      "by": "dmitrygr",
+      "time": 1776885696,
+      "parent": 47824943,
+      "text": "I have used this one before, it uses one fewer pixels per char: (4x6 = 24 < 25 = 5x5)\n\nhttps://fontstruct.com/fontstructions/show/1656341/tom-thumb",
+      "kids": []
+    },
+    {
+      "id": 47871987,
+      "by": "LandenLove",
+      "time": 1776914864,
+      "parent": 47824943,
+      "text": "Now do 1x2 using Morse code.",
+      "kids": []
+    },
+    {
+      "id": 47870160,
+      "by": "analog8374",
+      "time": 1776897080,
+      "parent": 47824943,
+      "text": "bunk! he left out 1x1",
+      "kids": []
+    },
+    {
+      "id": 47870143,
+      "by": "analog8374",
+      "time": 1776896952,
+      "parent": 47824943,
+      "text": "i really like your website design",
+      "kids": []
+    },
+    {
+      "id": 47867752,
+      "by": "thesuperevil",
+      "time": 1776884219,
+      "parent": 47824943,
+      "text": "Gg",
+      "kids": []
+    },
+    {
+      "id": 47871189,
+      "deleted": true,
+      "kids": []
+    }
+  ]
+}
