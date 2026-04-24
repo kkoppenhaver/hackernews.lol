@@ -6,7 +6,7 @@ import { planThread } from "@/lib/planner";
 import { generateThread } from "@/lib/generator";
 
 export const runtime = "nodejs";
-export const maxDuration = 120; // seconds — Vercel hobby tier caps at 10s; bump to 60s on Pro, 300s on Enterprise
+export const maxDuration = 60; // seconds — Vercel Hobby caps at 60s; bump to 300s on Pro if needed
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);

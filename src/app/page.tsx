@@ -21,7 +21,19 @@ export default function Home() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ url }),
       });
-      if (!r.ok) throw new Error((await r.text()) || `${r.status}`);
+      if (!r.ok) {
+        // API errors return JSON; platform errors (504, HTML 500 pages) don't.
+        let msg: string;
+        try {
+          const j = await r.clone().json();
+          msg = typeof j?.error === "string" ? j.error : `HTTP ${r.status}`;
+        } catch {
+          msg = r.status === 504
+            ? "timed out — the generator took too long"
+            : `HTTP ${r.status} (upstream error)`;
+        }
+        throw new Error(msg);
+      }
       setThread(await r.json());
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));

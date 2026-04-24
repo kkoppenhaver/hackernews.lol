@@ -4,7 +4,7 @@
  * from data/archetype-mix.json, derived from observation of 20 eval threads.
  */
 
-import archetypeMix from "../../data/archetype-mix.json" with { type: "json" };
+import archetypeMix from "../../data/archetype-mix.json";
 import type { StoryType } from "@/lib/ingest";
 
 // ---------- Types ----------
