@@ -5,7 +5,7 @@
  */
 
 import { Readability } from "@mozilla/readability";
-import { JSDOM, VirtualConsole } from "jsdom";
+import { parseHTML } from "linkedom";
 
 import { checkUrl } from "@/lib/safety";
 
@@ -118,11 +118,11 @@ async function fetchWithLimits(url: string) {
 }
 
 function extract(html: string, baseUrl: string) {
-  const vc = new VirtualConsole();
-  vc.on("error", () => {});
-  vc.on("jsdomError", () => {});
-  const dom = new JSDOM(html, { url: baseUrl, virtualConsole: vc });
-  const doc = dom.window.document;
+  // linkedom is a lightweight, pure-JS DOM that works on Vercel's Node runtime
+  // (jsdom's @exodus/bytes / html-encoding-sniffer chain breaks under CJS/ESM mix).
+  const { document } = parseHTML(html);
+  void baseUrl; // kept in signature for future relative-link resolution
+  const doc = document;
 
   // Fallback metadata if Readability fails
   const og = (p: string) =>
