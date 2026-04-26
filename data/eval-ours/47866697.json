@@ -1,0 +1,215 @@
+{
+  "pair": {
+    "story_type": "news",
+    "hn_id": 47866697,
+    "title": "We found a stable Firefox identifier linking all your private Tor identities",
+    "points": 639,
+    "descendants": 174,
+    "article_url": "https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/",
+    "hn_url": "https://news.ycombinator.com/item?id=47866697",
+    "self_post": false
+  },
+  "story": {
+    "id": 47866697,
+    "title": "We Found a Stable Firefox Identifier Linking All Your Private Tor Identities",
+    "url": "https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/",
+    "by": "wearyvalley",
+    "score": 56,
+    "time": null,
+    "descendants": 18,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "a34ti5oh",
+      "by": "greensignal_",
+      "time": null,
+      "parent": null,
+      "text": "This is a really solid find. The IndexedDB ordering leakage is clever - I wouldn't have thought to check that vector. Mozilla's response speed (fix in 150) is reassuring too.\n\nThe Tor Browser angle is the genuinely scary part though. \"New Identity\" is supposed to be a full reset, and having it silently fail to break this fingerprint feels like a serious regression in the threat model. Tor users are explicitly trying to defeat linkability - that's the whole point.\n\ncurious if this affects other Gecko-based browsers (Librewolf, Mullvad) the same way or if they had already patched it differently.",
+      "age": "8 minutes ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "74ptecel",
+          "by": "bent_fiber7",
+          "time": null,
+          "parent": null,
+          "text": "Tor Browser's threat model is about defeating network-level tracking, not browser fingerprinting. If you're running Tor Browser on the same machine as your regular browser, IndexedDB ordering was never your concern - the Tor process isolation should handle it. The \"New Identity\" feature resets circuits and clears history, which it still does. This is a Firefox bug, not a Tor failure.",
+          "age": "8 minutes ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "w4h3b0vl",
+          "by": "wearyvalley",
+          "time": null,
+          "parent": null,
+          "text": "You're right about the threat model gap - Tor Browser assumes network isolation but doesn't defend against local fingerprinting vectors like this. The \"New Identity\" bypass is especially problematic since users explicitly trust it to sever linkability.\n\nWe're working with the Tor Project on whether the fix needs to be more aggressive than Firefox's approach (e.g., randomizing IndexedDB ordering per identity reset rather than just per-process). The challenge is doing that without tanking performance for legitimate use cases.",
+          "age": "2 hours ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "6alhg4fa",
+              "by": "wisepacket",
+              "time": null,
+              "parent": null,
+              "text": "This is a good catch, but if you're serious about local fingerprinting defenses, check out Brave's approach with per-site process isolation and their fingerprint randomization in Private mode. They've been iterating on this for a couple years now - https://brave.com/privacy-updates/. The IndexedDB ordering specifically gets shuffled per-origin in their implementation, which is closer to what the Tor Project is apparently considering. Worth cross-referencing if Mozilla ends up going the randomization route rather than just the per-process fix.",
+              "age": "27 minutes ago",
+              "points": 9,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lrigyycc",
+      "by": "grl567",
+      "time": null,
+      "parent": null,
+      "text": "I tested this locally against the IndexedDB spec and can confirm the ordering is indeed stable across restarts within a single Firefox process. Created a simple test harness that hammers IDB with 100+ database names and the insertion order comes back identical every time.\n\nThe clever part is that this works even when you'd expect isolation - the ordering is derived from internal hash table state that persists at the process level. In Tor Browser specifically, the \"New Identity\" button clears the profile but doesn't fork a new process, so the fingerprint survives. That's a pretty fundamental design assumption broken.\n\nMozilla's fix (Bug 2024220) randomizes the iteration order, which is the right call. Worth noting that Chromium-based browsers likely have similar issues since they share the same Blink IndexedDB implementation - curious if Chrome/Edge teams are auditing for this too.\n\nThe responsible disclosure timeline here was solid. From discovery to patch in Firefox 150 is fast for a privacy issue of this severity. If you're running an older ESR version in enterprise, 140.10.0 is the minimum you want.",
+      "age": "1 hour ago",
+      "points": 12,
+      "kids": [
+        {
+          "id": "o8aork24",
+          "by": "feather30",
+          "time": null,
+          "parent": null,
+          "text": "The spec actually allows implementers to optimize insertion-order iteration, but Firefox's hash table seeding is process-global rather than per-origin. Minor correction: the ordering isn't truly \"stable across restarts\", it's stable within a single process lifetime. Once you restart Firefox completely, the hash seed resets and you get a different ordering. The vulnerability is the cross-origin linkability during that single session, which is what makes it a tracker's dream. Tor Browser's \"New Identity\" should have been resetting the process entirely, not just clearing cookies.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "p8de0cke",
+              "by": "weary_oak99",
+              "time": null,
+              "parent": null,
+              "text": "> Minor correction: the ordering isn't truly \"stable across restarts\", it's stable within a single process lifetime.\n\nRight, but the practical implication is worse than you might think. Most users don't restart Firefox daily. They suspend their laptops, close the lid, reopen it. The process stays alive for weeks. A tracker just needs to fingerprint you once, then correlate that same hash ordering across multiple visits to their site or their ad network partners within that session window. For Tor Browser users who expect \"New Identity\" to be a full reset, this is catastrophic because the hash seed persists through that operation. It's not just cross-origin linkability, it's defeating the stated security model of the anonymity tool itself. The fix in Firefox 150 randomizes the hash seed per-origin, which breaks the cross-site correlation. That's the key move.",
+              "age": "31 minutes ago",
+              "points": 8,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "isofn4b1",
+      "by": "cedar17",
+      "time": null,
+      "parent": null,
+      "text": "This reminds me of the old days when browser fingerprinting felt like a theoretical concern. I've been doing infra security for about eight years, and I've watched these \"small\" implementation details become serious attack surfaces. The IndexedDB ordering thing is particularly nasty because it's so deterministic - not even probabilistic like canvas fingerprinting. Tor Browser users specifically rely on New Identity to break linkability, so this hitting that guarantee is pretty damning. Firefox 150 patch is good to see, though it makes me wonder what else is lurking in similar database/storage mechanisms.",
+      "age": "1 hour ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "ho3f4bns",
+          "by": "oryq341",
+          "time": null,
+          "parent": null,
+          "text": "Have you looked at Brave's approach with their fingerprinting defenses? They randomize IndexedDB ordering per-session, which sidesteps this entirely. Not a plug for Brave specifically - just that the mitigation exists and Firefox could have borrowed it. Mozilla's track record on privacy-by-default features is... spotty.",
+          "age": "2 hours ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "a1cwpi8n",
+              "by": "silent_stone",
+              "time": null,
+              "parent": null,
+              "text": "The whole fingerprinting arms race makes me wonder if we're solving the wrong problem. Even with randomization, sites can just request the same data multiple times per session and observe timing differences, or correlate with other side channels. Brave's approach is good for IndexedDB specifically, but there are always more leaks - cache timing, memory access patterns, even font rendering now.",
+              "age": "1 hour ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "bmqa7vg3",
+          "by": "sb652",
+          "time": null,
+          "parent": null,
+          "text": "The IndexedDB ordering persistence is even worse than canvas fingerprinting because it's architectural rather than rendering-dependent. I've been tracking this since the Firefox bug opened - the order comes from the internal hash table iteration, which is deterministic per process. What caught me is that Tor Browser's New Identity doesn't actually restart the Firefox process, just clears caches and cycles circuits. So the IndexedDB hash seed stays stable across identity resets. The fix in 150 randomizes the iteration order per-origin, which is the right call, though it took longer to ship than I'd have expected for something this fundamental.",
+          "age": "8 minutes ago",
+          "points": 3,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "5903xz9u",
+      "by": "grey_vector7",
+      "time": null,
+      "parent": null,
+      "text": "I remember when Firefox privacy features actually meant something. We used to joke that the browser vendors were in an arms race to see who could add the most checkboxes and call it \"privacy.\" Now we're finding out that fundamental primitives like database ordering leak stable identifiers across the entire process lifetime.\n\nThe really depressing part is that this took external security researchers to find. Not fuzzing, not formal verification, just someone thinking \"wait, what if I create a bunch of IndexedDB databases and see if the order is consistent?\" It's the kind of thing that should have been caught during the IndexedDB spec review or at least during implementation.\n\nAnd the Tor Browser angle is the kicker. \"New Identity\" is supposed to be a nuclear reset button. Users are making serious life-or-death trust assumptions about that feature (journalists, activists, people in hostile regimes), and it turns out to be security theater because of inherited IndexedDB behavior. Mozilla fixed it fast, which is good, but this feels like a canary in the coal mine for how much fingerprinting surface area exists in browsers that nobody's really audited carefully.",
+      "age": "35 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "ykfazctz",
+          "by": "SlowMaple42",
+          "time": null,
+          "parent": null,
+          "text": "This is a good find, but it's worth noting that the real failure here isn't Firefox's-it's that IndexedDB's spec doesn't define the ordering semantics clearly enough to prevent this. The W3C should have mandated deterministic ordering guarantees from the start, or made it explicitly implementation-dependent and opaque to scripts.\n\nMozilla fixed it in 150, which is good. But the deeper issue is that browsers keep discovering these \"fundamental primitive\" leaks years after shipping. We need formal specs with threat models baked in, not just \"we'll add a checkbox and see if researchers find holes.\"\n\nThe Tor Project angle is the real regulatory concern here. If New Identity doesn't actually reset unlinkability, that's a false promise to users in hostile contexts (journalists, dissidents, abuse survivors). This should probably trigger a CVE and a public advisory to Tor Browser users on older versions, not just a quiet patch cycle.",
+          "age": "1 hour ago",
+          "points": 11,
+          "kids": []
+        },
+        {
+          "id": "atjlvtm9",
+          "by": "tinybadge99",
+          "time": null,
+          "parent": null,
+          "text": "I actually tested this against Firefox 149 before the patch dropped, and yeah, the IndexedDB ordering leak is real. Created 50 databases with random names, logged the insertion order, closed the tab, opened a new one with different origin, created the same 50 databases again in the same order. Identical ordering both times. Process-scoped, exactly as described.\n\nWhat got me is that Mozilla's own testing apparently didn't catch this. The fix in 150 randomizes the ordering on each process start, which works, but it makes you wonder what else is leaking through fundamental APIs that just... nobody thought to check for ordering side-channels.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "fwsudvrb",
+              "by": "mhyy981",
+              "time": null,
+              "parent": null,
+              "text": "The randomization fix in 150 only affects new processes though. What about persistent IndexedDB state across process restarts? If I create databases in Firefox 149, then upgrade to 150 and restart, do the old database ordering persist in the IndexedDB storage files themselves?\n\nAlso curious whether the fix applies to private browsing sessions that share the same process as normal browsing. If I have one normal tab and one private tab in the same Firefox window (which they do by default), can the private tab's IndexedDB ordering still leak to the normal tab's origin, or does private mode get its own isolated process in 150+?\n\nhttps://bugzilla.mozilla.org/show_bug.cgi?id=2024220",
+              "age": "1 hour ago",
+              "points": 11,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qk3h3oyd",
+      "by": "lostforest",
+      "time": null,
+      "parent": null,
+      "text": "This reminds me of the broader IndexedDB spec problem that Chrome's V8 team has been quietly wrestling with for years. The ordering guarantee itself is actually underspecified in the W3C spec - implementations differ on whether enumeration order is insertion-order, key-order, or implementation-defined. Firefox happens to use a deterministic internal ordering that leaks process state.\n\nThe clever part here isn't just that IndexedDB is leaky (we've known that since the Brave fingerprinting work from 2019), but that the authors found the *specific* vector that survives Tor Browser's New Identity reset. That's a real delta from previous research.\n\nWorth noting: this pattern - stable process-scoped identifiers leaking across origin boundaries - shows up in other browser APIs too. SharedArrayBuffer timing, WebGL shader compilation caches, even Worker pool sizing on some browsers. The root issue is that browser processes expose their internal scheduling/allocation decisions to the page layer, and those are trivially observable.\n\nThe fix (randomizing the ordering per-origin) is straightforward but it's going to break some sites that accidentally depend on the current ordering. Already seeing reports on the Mozilla bug about calendar apps and database sync libraries that hardcoded assumptions about key order.",
+      "age": "33 minutes ago",
+      "points": 16,
+      "kids": [
+        {
+          "id": "uvj2po7y",
+          "by": "raw_marble_",
+          "time": null,
+          "parent": null,
+          "text": "This spec ambiguity problem actually goes deeper than just IndexedDB. WHATWG's iteration ordering guarantees are a mess across the platform - Map, Set, Object.keys(), even localStorage have slightly different semantics depending on the engine. V8 and SpiderMonkey made different architectural choices years ago that are now baked into billions of deployed browsers.\n\nThere was a push around 2019-2020 to tighten the spec, but it got deprioritized because \"most real code doesn't depend on this.\" Except, well, fingerprinting code absolutely does. The Firefox team probably didn't realize they were leaking process identity until someone actually measured it at scale.",
+          "age": "2 hours ago",
+          "points": 6,
+          "kids": [
+            {
+              "id": "nztfgsc7",
+              "by": "qd895",
+              "time": null,
+              "parent": null,
+              "text": "Actually, the bigger issue here is that Firefox's IndexedDB implementation doesn't isolate the database handle's internal cursor state per origin. Even if you tighten the spec on enumeration order, you'd still need per-origin object stores or a randomized internal layout on each browser startup. Mozilla's fix (Firefox 150) does the latter, but it only works within a single process lifetime. The Tor Browser problem is harder because they can't just randomize on startup without breaking legitimate use cases where code assumes stable ordering within a session.",
+              "age": "2 hours ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:29:00.233Z"
+}

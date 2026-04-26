@@ -1,0 +1,234 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47847558,
+    "title": "Show HN: VidStudio, a browser based video editor that doesn't upload your files",
+    "points": 294,
+    "descendants": 105,
+    "article_url": "https://vidstudio.app/video-editor",
+    "hn_url": "https://news.ycombinator.com/item?id=47847558",
+    "self_post": false
+  },
+  "story": {
+    "id": 47847558,
+    "title": "VidStudio - Free Online Video Resizer & Editor",
+    "url": "https://vidstudio.app/video-editor",
+    "by": "throwaway_8126",
+    "score": 169,
+    "time": null,
+    "descendants": 20,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "vq408rio",
+      "by": "dw561",
+      "time": null,
+      "parent": null,
+      "text": "This reminds me of the early days of video.js when we were trying to avoid server transcoding costs. The browser WASM approach is clever, but I've found in production that WebCodecs support is still spotty across devices (especially older Android), and memory constraints become real once you're working with anything over 30 minutes. Worth testing heavily on actual user hardware before betting your workflow on it.",
+      "age": "4 hours ago",
+      "points": 8,
+      "kids": []
+    },
+    {
+      "id": "etv8hrd6",
+      "by": "beacon35",
+      "time": null,
+      "parent": null,
+      "text": "Built something similar for a client two years ago, except we went full server-side because browser video processing was either too slow or ate all the RAM on mobile devices. We burned through a lot of AWS credits. If this actually handles 4K or longer clips client-side without melting, that's genuinely impressive. The WASM optimization work is non-trivial.",
+      "age": "1 minutes ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "hzv21h39",
+          "by": "plainmatrix7",
+          "time": null,
+          "parent": null,
+          "text": "How are they handling WebCodecs support across browsers? Safari still doesn't have it, and Firefox support is spotty. That's a huge gap if you're targeting \"any device.\" Did they fall back to a slower codec path, or does it just not work on those browsers?",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "298ndftk",
+      "by": "rep521",
+      "time": null,
+      "parent": null,
+      "text": "I built something similar back in 2016 using Emscripten for client-side video work, and the privacy pitch always sounded better than it actually worked. Browser WASM video processing hits a wall fast once you're past toy examples. Decoding and encoding are CPU-bound, and most users don't have the hardware headroom (especially on mobile). The real cost isn't the server transcoding, it's the client's battery and heat.\n\nThat said, the WebCodecs API changes the math here versus my era. If they're actually using hardware-accelerated decode/encode instead of pure JS, this could be genuinely useful for lightweight tasks. But I'd need to see the actual benchmarks. \"Lightning fast\" is doing a lot of work in that marketing copy.",
+      "age": "4 hours ago",
+      "points": 16,
+      "kids": [
+        {
+          "id": "nkvwe37h",
+          "by": "LazyFiber99",
+          "time": null,
+          "parent": null,
+          "text": "The WebCodecs API is definitely a game-changer here. I've been tracking this for the past couple years, and the encoder/decoder access you get now versus 2016 is night-and-day. You're right that battery drain on mobile is real, but the split between software and hardware encoding in WebCodecs does help. Most modern phones can offload H.264/VP9 encoding to the actual hardware encoder rather than melting the CPU.\n\nThat said, the throughput bottleneck for most users is still the browser's memory model. You're copying frames in and out of WASM a lot, which adds latency. Frame-accurate seeking is listed here, but I'd be curious how they handle B-frame seeking on variable framerate sources without pre-decoding the whole thing. That's where I hit the wall hard.",
+          "age": "2 hours ago",
+          "points": 16,
+          "kids": []
+        },
+        {
+          "id": "yz807zj1",
+          "by": "throwaway_6700",
+          "time": null,
+          "parent": null,
+          "text": "WebCodecs is genuinely the game-changer here. Back in 2016-2018 when I was hacking on similar projects, hardware video decode was basically a fantasy on consumer devices. Now Safari, Chrome, Firefox all expose it. The battery math flips completely when you're not burning cycles in software.\n\nThat said, the parent's right about the wall. Batch operations and mobile still hurt. But for the single-video workflows (resize for platform, quick trim, watermark), this actually works now in ways it didn't five years ago.",
+          "age": "1 hour ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "ahdjcg0t",
+              "by": "deep_ember",
+              "time": null,
+              "parent": null,
+              "text": "Tested this locally with a 4K 60fps file (2.1GB, h.264). Safari on M1 decode was instant, but encode back to MP4 with WebCodecs took 8 minutes for a simple resize. On my 2019 Intel MacBook it hit 100% CPU and the fan never stopped. The parent's point about mobile stands-tried on iPad Pro and it throttled hard after 90 seconds of encoding.\n\nFor the use case (quick platform resizing), it works. Batch operations or 4K on older hardware? Still painful.",
+              "age": "3 hours ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tggqqj2x",
+      "by": "redbadge",
+      "time": null,
+      "parent": null,
+      "text": "WebAssembly video processing is impressive for the privacy angle, but there's a hard ceiling here that the landing page doesn't mention: you're limited to whatever the browser's video codec support is. On Safari you get H.264 only (no VP9, no AV1). On Chrome you might get more, but you can't transcode between codecs server-side, so users with incompatible hardware end up with degraded quality or failed exports. The \"no upload\" feature is the selling point, but it also means you can't offer the transcoding guarantees that ffmpeg-on-a-server gives you. Nice for privacy-conscious users doing basic trims, but for anything serious (batch processing, format normalization across devices) you're still reaching for desktop ffmpeg or a service like Cloudinary.",
+      "age": "2 hours ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "184mafh2",
+          "by": "sleeve13",
+          "time": null,
+          "parent": null,
+          "text": "I tested this with a few MP4s and some WebM files on both Chrome and Safari last week. The parent's right about the codec ceiling, but there's a practical angle worth adding: even on Chrome where you theoretically have VP9/AV1 support, the actual decode happens in the browser tab's context. I hit browser memory limits around 2GB video size before things started failing gracefully.\n\nOn Safari it was worse. H.264 only meant I couldn't even load a VP9 file without a manual conversion first, which defeats the whole \"no upload\" pitch. One file I tried (1080p, 30 minutes) just errored out silently.\n\nThe landing page does say \"works in any modern browser\" but doesn't explain what \"works\" actually means. A quality matrix showing codec support per browser would save users from the trial-and-error I just did. Still, for the use case of quick crops and resizing of standard MP4s before uploading to social media, it handles that fine. Just don't expect transcoding miracles.",
+          "age": "1 hour ago",
+          "points": 12,
+          "kids": []
+        },
+        {
+          "id": "7q0nlgwf",
+          "by": "dust5",
+          "time": null,
+          "parent": null,
+          "text": "This is just FFmpeg in a browser. The privacy pitch doesn't matter when you can't actually do useful video work without uploading to a real service anyway.",
+          "age": "3 hours ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "hynguk1u",
+              "by": "rawcedar",
+              "time": null,
+              "parent": null,
+              "text": "I remember when we all thought Flash would be the solution to this exact problem back in 2008. \"Run video tools locally, no server needed,\" everyone said. Turns out the browser sandbox is a lot more constraining than a desktop app, and the codec/hardware landscape is messier than anyone expected.\n\nThe real issue here isn't the privacy pitch (which is genuine). It's that the hard limits are baked into the browser spec, not the tool. You can't tell Safari \"please decode VP9\" any more than FFmpeg in WASM can. If someone needs actual cross-codec transcoding, they're uploading to a server whether they want to or not. The landing page should probably just say that upfront instead of implying you can do everything offline. That's more honest.",
+              "age": "1 hour ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7dh33x84",
+      "by": "broken_forest_",
+      "time": null,
+      "parent": null,
+      "text": "If you're already doing browser-based video work, FFmpeg.wasm is worth comparing here - https://github.com/ffmpegwasm/ffmpeg.wasm. We built something similar for a client last year and found the perf ceiling hits pretty fast once you're doing multi-track work or heavy compression. Still, the WebAssembly story has gotten so much better in the last 18 months.",
+      "age": "1 hour ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "ejvaptlx",
+          "by": "jgoj728",
+          "time": null,
+          "parent": null,
+          "text": "FFmpeg.wasm is the obvious comparison, yeah. The real difference here is that VidStudio is targeting the \"I just need to resize for Instagram\" crowd, not developers. FFmpeg has a steeper curve and you're still fighting memory limits on anything heavier than a trim/compress pass.",
+          "age": "3 hours ago",
+          "points": 4,
+          "kids": []
+        },
+        {
+          "id": "o5ukndzc",
+          "by": "otms629",
+          "time": null,
+          "parent": null,
+          "text": "FFmpeg.wasm is solid but the binding overhead gets real fast. The key difference here is VidStudio's using WebCodecs (the native browser API) for decoding, which sidesteps a lot of the serialization tax. For single-track work or batch resizing it doesn't matter much, but multi-track editing is where the architecture choice pays off. Worth benchmarking both if you're targeting the same use case.",
+          "age": "2 hours ago",
+          "points": 5,
+          "kids": [
+            {
+              "id": "nu0uifl6",
+              "by": "bluesocket_",
+              "time": null,
+              "parent": null,
+              "text": "We actually built a similar batch processing tool for a client doing TikTok content farming, and yeah, WebCodecs was the inflection point for us too. FFmpeg.wasm worked fine for single conversions, but once you're queuing 50+ videos the serialization overhead becomes your bottleneck, not the actual encoding. The native API just handles it better. That said, we still fell back to server-side ffmpeg for anything requiring custom filters or precise audio sync. Browser limitations are real once clients want to do anything beyond standard resizing and compression.",
+              "age": "5 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "0c4iniqs",
+          "by": "BentSpark23",
+          "time": null,
+          "parent": null,
+          "text": "FFmpeg.wasm is the obvious comparison, though I'd push back slightly on the perf ceiling claim. We did a similar eval six months ago and found that for single-track editing and compression, browser WebAssembly is actually competitive now. Multi-track is still rough, sure, but most users aren't doing that.\n\nThe real constraint I kept hitting was memory, not CPU. A 2GB video file in the browser just isn't happening on most devices, which is why the \"no upload\" pitch matters more than the raw speed. You're trading some performance headroom for privacy and UX simplicity.\n\nThat said, if you're already building client-side tooling, ffmpeg.wasm gives you more control over codecs and filters. This looks more like it's optimized for the casual user who wants to resize for social media without leaving the tab.",
+          "age": "37 minutes ago",
+          "points": 3,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "ltk57ake",
+      "by": "GreenRiver",
+      "time": null,
+      "parent": null,
+      "text": "Built something similar for a client last year, took video uploads, resized them server-side for different platforms. Bandwidth costs were killing us until we pivoted to browser-side processing with FFmpeg.js. The privacy angle is huge too. People don't realize how many \"free\" video tools are just harvesting footage for training data. This approach sidesteps that entirely.",
+      "age": "2 hours ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "2j3j8okj",
+          "by": "loudmesh",
+          "time": null,
+          "parent": null,
+          "text": "FFmpeg.js is solid but the bottleneck shifts once you hit 4K or longer clips. Have you benchmarked WebAssembly decoders like libvpx-js vs the native WebCodecs API? The latter can offload to hardware acceleration on most modern devices, which makes a huge difference for resizing without reencoding. We switched our encoder pipeline to use WebCodecs for decode/scale and only touched the bitstream for audio remix. Cut processing time by 60%.",
+          "age": "3 hours ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "ix3n7ofy",
+          "by": "soft_stone_",
+          "time": null,
+          "parent": null,
+          "text": "FFmpeg.js works but has real limitations at scale. WASM video processing hits a wall fast once you're doing anything beyond simple resizes. Browser APIs like WebCodecs help, but codec support is still fragmented (Safari lags on VP9, Firefox on AV1). \n\nThe bandwidth win is real though. Did you measure actual processing time client-side vs your old server setup? Most people don't account for the fact that a 500MB video takes 2-3 minutes to process in the browser on a mid-range machine, whereas your server probably did it in 20 seconds. Different tradeoff than just \"no upload costs.\"",
+          "age": "2 hours ago",
+          "points": 6,
+          "kids": [
+            {
+              "id": "vyhitsny",
+              "by": "silentcache",
+              "time": null,
+              "parent": null,
+              "text": "You're describing the exact problem that killed every browser-based video tool I've tried. WebCodecs support is a nightmare (Safari still doesn't have VP9, half of Android is a crapshoot), and once you hit a 1GB file, most machines grind to a halt. The claim about \"no waiting\" is marketing fiction unless you're resizing a 5MB TikTok. Meanwhile Clipchamp already solved this five years ago by just doing it server-side and eating the bandwidth costs. The privacy story doesn't hold up either if they're still collecting telemetry or monetizing your usage data some other way.",
+              "age": "3 hours ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:24:56.282Z"
+}

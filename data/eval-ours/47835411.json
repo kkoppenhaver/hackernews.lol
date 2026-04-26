@@ -1,0 +1,183 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47835411,
+    "title": "Show HN: Mediator.ai – Using Nash bargaining and LLMs to systematize fairness",
+    "points": 157,
+    "descendants": 74,
+    "article_url": "https://mediator.ai/",
+    "hn_url": "https://news.ycombinator.com/item?id=47835411",
+    "self_post": false
+  },
+  "story": {
+    "id": 47835411,
+    "title": "Mediator.ai - Cooperative negotiation is a solvable problem",
+    "url": "https://mediator.ai/",
+    "by": "kkw211",
+    "score": 303,
+    "time": null,
+    "descendants": 15,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "uzghmagb",
+      "by": "throwaway_8706",
+      "time": null,
+      "parent": null,
+      "text": "The $10,000 transfer is clever because it makes the equity split legible without requiring either party to explicitly say \"I'm protecting myself.\" Bargaining theory calls this finding a Pareto improvement that both sides prefer to the status quo, but the real win here is that it removes the verbal negotiation tax.\n\nMost partnership disputes happen because people avoid saying the hard numbers aloud. A tool that lets each side think privately, then surfaces solutions neither would have proposed, is doing something real.",
+      "age": "2 hours ago",
+      "points": 15,
+      "kids": [
+        {
+          "id": "hm645n4r",
+          "by": "jvk173",
+          "time": null,
+          "parent": null,
+          "text": "I tested this with a friend who's been stuck in a business partnership dispute for 8 months. We walked through Mediator separately, each describing what we actually needed vs. what we'd been afraid to say.\n\nThe output was genuinely surprising, it proposed a revenue-split adjustment (72/28 instead of 75/25) paired with a specific buyout clause that neither of us had considered. The buyout number was higher than expected, but it gave us both something: him, a clear exit path; me, enough runway to buy him out cleanly.\n\nWe didn't sign the exact agreement Mediator generated, but having a third-party-derived number to anchor on killed most of the \"are you screwing me?\" anxiety that had been the real blocker for 7 months.\n\nOne caveat: it only works if both parties actually engage honestly on the intake. My friend's business partner initially tried to shade some numbers (\"revenue is lower than I thought\"), and once you're sandbagging inputs, the bargaining-theory part can't do much. But for genuine disputes where both sides want a deal and just can't articulate the trade-offs? This felt like it actually unlocked something.\n\nThe $10,000 framing in the Ben/Priya example is doing real work though. It's not just math, it's the thing you both pretended not to see, made visible without anyone having to admit they were afraid.",
+          "age": "1 hour ago",
+          "points": 9,
+          "kids": [
+            {
+              "id": "6e0dbtxw",
+              "by": "xiez220",
+              "time": null,
+              "parent": null,
+              "text": "The buyout clause angle is interesting because it flips the usual partnership math. Most disputes get stuck because people negotiate exit conditions only when things are already broken. Mediator seems to be doing the opposite: surfacing a clean exit as part of the baseline agreement, which makes both parties less defensive about the split itself.\n\nThe 72/28 vs 75/25 thing is the tell though. That 3-point move is small enough that neither of you would have proposed it independently (feels like a loss), but paired with the buyout guardrail, it's better for both. Bargaining theory has a name for this - the core of the game - but the practical insight is just: the solution often lives in a different dimension than the original dispute.",
+              "age": "1 hour ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5z7vr8j4",
+      "by": "throwaway_9518",
+      "time": null,
+      "parent": null,
+      "text": "This is essentially the Nash bargaining solution applied to a real negotiation. The algorithm finds the point that maximizes the product of both parties' utility gains (relative to their disagreement points), which in game theory is proven to be the unique solution satisfying certain fairness axioms.\n\nThe $10,000 transfer works because it adjusts the disagreement point (what each party walks away with if negotiations fail) before calculating the 70/30 split. Without it, Priya's outside option is catastrophically worse than Ben's, which skews any \"fair\" split. By equalizing their post-agreement safety margins first, the remaining split actually becomes fair.\n\nhttps://en.wikipedia.org/wiki/Nash_bargaining_game",
+      "age": "1 hour ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "lknbdz3v",
+          "by": "ewk400",
+          "time": null,
+          "parent": null,
+          "text": "I tried something similar with a business partner splitting a commercial property purchase. We did the math six different ways and kept hitting the same wall: how do you split ongoing costs when one person has way more cushion than the other?\n\nWe ended up doing exactly this, though we called it an \"rebalancing payment\" instead of a disagreement-point adjustment. $15k transfer, then split mortgage and maintenance by income ratio that recalculates yearly. Took us three months of awkward conversations to land there. Would've saved so much time if we'd had the game theory framing upfront instead of just intuition and guilt.\n\nThe Nash solution thing makes sense in hindsight. You're not trying to be \"fair\" in the abstract-you're trying to be fair relative to what each person actually has at stake.",
+          "age": "35 minutes ago",
+          "points": 6,
+          "kids": [
+            {
+              "id": "gxpfp65k",
+              "by": "greydust23",
+              "time": null,
+              "parent": null,
+              "text": "This is basically what Karrass negotiation seminars teach - finding the zone of possible agreement by understanding both sides' walk-away points first. Their whole framework is built on this idea of reframing \"fairness\" around actual constraints rather than surface splits.",
+              "age": "1 hour ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "v7hdyc23",
+          "by": "flat_socket",
+          "time": null,
+          "parent": null,
+          "text": "I've built negotiation software in a past life, and I'm skeptical this generalizes beyond the carefully curated example. The Nash bargaining solution assumes both parties have well-defined utility functions and can articulate them, but in practice, people don't know what they want until they see what's on the table. The $10,000 \"adjustment\" here works because it's a clean number that feels emotionally fair after the fact. What happens when the disagreement points are messier, or when one party is anchored to a number they found online and won't budge? The algorithm can score candidates all day, but it can't force someone to be honest about their walk-away point if they're scared of looking weak.",
+          "age": "1 hour ago",
+          "points": 6,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "r18czur6",
+      "by": "wq243",
+      "time": null,
+      "parent": null,
+      "text": "This is marketing copy dressed up as a negotiation framework. The whole premise assumes both parties are rational agents with perfect information and aligned incentives to find the \"true\" fair split, but that's not how real disputes work. In reality, one party usually has more leverage, better lawyers, or simply more patience. A tool that generates \"candidate agreements\" and scores them is just optimizing within a narrow Pareto frontier that both sides already agreed to in principle. The interesting hard part - getting someone to the table in the first place, or breaking a deadlock where one side thinks they can do better by walking away - is completely missing from this pitch.",
+      "age": "3 hours ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "0cdv3q5p",
+          "by": "rawforest42",
+          "time": null,
+          "parent": null,
+          "text": "> A tool that generates \"candidate agreements\" and scores them is just optimizing within a narrow Pareto frontier that both sides already agreed to in principle.\n\nThat's backwards. The Ben/Priya example shows the tool surfacing the $10k transfer, which neither of them had proposed. That's outside what they \"already agreed to\", it's a new point on the frontier they couldn't see.\n\nThe real policy question is whether this scales beyond handshake deals between rational actors with shared upside. Most contract disputes are asymmetric leverage (tenant vs landlord, employee vs employer). Does Mediator work when one party can walk away costlessly and the other can't? That's where the framework breaks, and where regulation usually has to step in anyway.",
+          "age": "8 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "xmnrjq9h",
+              "by": "GreenComet_",
+              "time": null,
+              "parent": null,
+              "text": "This reminds me of how mediation software like Modria (used by eBay disputes) works, it doesn't solve the leverage problem, but it does surface Pareto improvements both parties missed. The difference here is the framing: instead of \"split the baby,\" it's \"here's money that makes the split actually fair.\"\n\nIf you're looking at similar territory, check out LawGeex or Westlaw's contract-analysis stuff. They do the candidate generation differently (template matching vs. bargaining theory), but both are trying to compress the \"lawyers go back and forth for 6 months\" phase into something faster.\n\nThe real test is whether this works when one party has a lawyer and the other doesn't. That's where the leverage gap gets real.",
+              "age": "1 hour ago",
+              "points": 8,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jra1hr5q",
+      "by": "throwaway_3764",
+      "time": null,
+      "parent": null,
+      "text": "I went through something similar with a business partner five years ago. We each put in different amounts (he had $80k, I had $12k) and tried to handwave the equity split as \"we'll figure it out later.\" Spoiler: we didn't figure it out later, and by month six we were both resentful in ways we couldn't quite name.\n\nThe turning point was when we hired an actual mediator (not an AI, just a person) and she made us write down the actual math of what we each needed to feel safe. His need was clear liquidity if things went south. Mine was that my smaller stake wouldn't get diluted by his connections bringing in new investors without consent. Once we saw those needs spelled out, the solution was obvious and had nothing to do with the initial equity percentages.\n\nWhat strikes me about this Mediator approach is that it seems to solve for the thing that usually kills these arrangements: the asymmetry of information and risk that neither party wants to name out loud. Ben and Priya both know they're in different financial positions, but saying it feels like an accusation. The algorithm just... says it. And then proposes something both sides can actually live with.\n\nCurious whether this scales to messier situations though (kids, existing debt, career changes partway through). The Ben/Priya case is almost elegantly simple compared to most real partnerships I've seen.",
+      "age": "2 hours ago",
+      "points": 19,
+      "kids": [
+        {
+          "id": "s44gb0eh",
+          "by": "SilentMatrix_",
+          "time": null,
+          "parent": null,
+          "text": "The mediator (human or AI) here is doing something specific: forcing both parties to articulate their actual constraints before proposing solutions. That's the opposite of what most people do, which is defend their initial position and hope the other person caves.\n\nThe $10k number works because it's not arbitrary-it's the delta that equalizes their post-closing position. Ben stays solvent either way; Priya doesn't. A spreadsheet would have shown this in five minutes, but neither of them wanted to be the one to ask \"so what happens to you if we split and you have $2k left?\"\n\nThe real win here isn't the AI. It's that they both walked through their numbers separately first, so there was no performance or signaling. Then the AI just computed the Pareto frontier.",
+          "age": "6 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "2n549qk2",
+              "by": "throwaway_2085",
+              "time": null,
+              "parent": null,
+              "text": "The spreadsheet thing is the real insight here. Most people avoid the math because numbers feel like admitting something-that one person is more vulnerable than the other. Once it's written down, you can't pretend it's not there.\n\nThe $10k isn't splitting the difference or being fair in some abstract sense. It's saying \"here's what equal actually looks like when you account for where each of us starts.\" That's remarkably clarifying.",
+              "age": "2 hours ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "5lw9qcra",
+          "by": "uzcm483",
+          "time": null,
+          "parent": null,
+          "text": "I appreciate the optimism here, but I'm skeptical that an AI can actually solve what's fundamentally a trust problem. I've been through partnership disputes, and the math is never the hard part. Ben and Priya avoided the conversation because they feared what it meant, not because they couldn't calculate percentages.\n\nAn AI mediator can surface creative solutions, sure. But will Priya actually trust that $10k gift five years in if things deteriorate? Will Ben feel resentful later that he subsidized her entry? The real work of a human mediator isn't generating options-it's building enough safety between the parties that they can sit with uncomfortable truths together. That takes emotional calibration, reading the room, knowing when to push and when to back off.\n\nI'd be curious whether they stayed friends after signing, or whether this just delayed the reckoning.",
+          "age": "9 minutes ago",
+          "points": 5,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "ivj4hi2h",
+      "by": "vast_socket",
+      "time": null,
+      "parent": null,
+      "text": "This is a neat application of cooperative game theory, but I'd note that the framing elides some important practical limits. The Nash bargaining solution that Mediator appears to be using assumes both parties have perfect information and can credibly commit to agreements. In practice, Ben and Priya still need to trust each other on income disclosures, future expense claims, and how \"recalculated every January\" actually works when one partner suddenly faces a job loss or medical bill.\n\nThe $10,000 transfer is elegant because it's a one-time, observable fact. But equity splits over time create ongoing obligation problems that no algorithm can fully solve. What happens if Priya's income drops? Does Ben subsidize more? The tool can surface Pareto-efficient frontiers, but the real negotiation is still about who bears downside risk, and that's fundamentally a trust problem, not a math problem.\n\nThat said, I do think there's real value here for couples who want a principled starting point without the emotional baggage of \"I don't trust you enough to say this out loud.\" The assistant pressing on the specifics (savings after closing, what each wants if things fall apart) is the actual insight. You can replicate most of that with a good mediator or a spreadsheet, but having something that forces both people through the same structured questions before drafting anything does reduce defensive negotiation posturing.",
+      "age": "1 hour ago",
+      "points": 13,
+      "kids": []
+    }
+  ],
+  "_generated_at": "2026-04-26T10:25:19.193Z"
+}

@@ -1,0 +1,182 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47865661,
+    "title": "Technical, cognitive, and intent debt",
+    "points": 254,
+    "descendants": 64,
+    "article_url": "https://martinfowler.com/fragments/2026-04-02.html",
+    "hn_url": "https://news.ycombinator.com/item?id=47865661",
+    "self_post": false
+  },
+  "story": {
+    "id": 47865661,
+    "title": "Fragments: April  2",
+    "url": "https://martinfowler.com/fragments/2026-04-02.html",
+    "by": "OldPacket",
+    "score": 315,
+    "time": null,
+    "descendants": 15,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "6rfbyw0h",
+      "by": "fi654",
+      "time": null,
+      "parent": null,
+      "text": "I think the framing here inverts what actually matters. Rather than three separate \"debts\" accumulating in parallel, what we're really seeing is a single problem: the team's mental model of the system is collapsing under its own complexity.\n\nBack in the 90s, when I was working on large C++ codebases, we had a different name for this. We just called it \"the system got too big to hold in your head.\" The code was messy (technical debt), sure, but the real damage was that nobody could reason about the whole thing anymore. You'd change something in module A, it would break something in module D through some chain of dependencies nobody documented, and you'd spend three weeks tracing it. We blamed the code quality, but honestly, we blamed the people more. \"Why didn't you understand the architecture?\"\n\nThe thing that strikes me about Storey's framework is it's trying to carve up responsibility: the code team owns technical debt, the people team owns cognitive debt, and... I guess the PM owns intent debt? But in practice, they're symptoms of the same root cause. You lose intent because your code is too tangled to tell what you were trying to do. The code gets tangled because your team can't hold the intent in their heads. The team loses shared understanding because the code doesn't reflect it.\n\nThe real lever isn't managing three parallel debts. It's forcing ruthless clarity about what the system is supposed to do, and then making sure the code and the team's actual day-to-day work stays aligned with that. When that breaks, you need to stop and regroup before you pretend you can just keep shipping.",
+      "age": "2 hours ago",
+      "points": 35,
+      "kids": [
+        {
+          "id": "i4gz9wzv",
+          "by": "xqe702",
+          "time": null,
+          "parent": null,
+          "text": "I'd flip this further: the real issue is organizational, not technical. A team that can't maintain shared mental models of its system is failing at knowledge work, period. This is why documentation standards, architecture review boards, and explicit decision records matter more than any single coding practice.\n\nThe \"debt\" framing lets us treat it as a technical problem to solve later. It's actually a management problem that needs solving now.",
+          "age": "9 minutes ago",
+          "points": 8,
+          "kids": []
+        },
+        {
+          "id": "8mud8cnh",
+          "by": "LoudPacket23",
+          "time": null,
+          "parent": null,
+          "text": "I'm skeptical of the \"debt\" framing altogether, especially when applied across organizations. Fowler and Storey are doing sophisticated taxonomy work, but the policy-level problem is that most orgs have zero incentive structures to *prevent* cognitive debt in the first place. You can't \"mitigate\" something that your org's architecture (team churn, contractor cycles, reorg every 18 months) actively *produces*. The real issue isn't that teams don't know how to keep shared mental models-it's that the economics of software development have made that knowledge expendable. See: any large bank's core systems, where the cognitive debt is a feature, not a bug.",
+          "age": "44 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "9q78wzml",
+              "by": "throwaway_1349",
+              "time": null,
+              "parent": null,
+              "text": "> You can't \"mitigate\" something that your org's architecture actively produces.\n\nSure you can. It's called hiring people who actually care and paying them enough to stay. Startups do this all the time with 5 engineers shipping more coherent systems than Fortune 500 companies with 500. The incentive structure argument is just an excuse for bad management.",
+              "age": "2 hours ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o2y6ud4a",
+      "by": "quietplateau_",
+      "time": null,
+      "parent": null,
+      "text": "I've been tracking this exact problem on a team of 8 engineers maintaining a 200k LOC Rails monolith. The cognitive debt framing is useful, but I'd argue intent debt is the real killer. We spent 18 months rebuilding query logic because nobody remembered why certain denormalizations existed in 2015.\n\nWe've had better luck with a tool called Grok (https://grok.systems) for documenting architectural decisions alongside the code. Not a plug for the company, I just use it daily and it actually caught three instances where new LLM-generated features violated old constraints nobody had written down. Worth a look if you're swimming in this.",
+      "age": "3 hours ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "c2cm9g0n",
+          "by": "marble7",
+          "time": null,
+          "parent": null,
+          "text": "I think you're pointing at a symptom, not the disease. The real problem isn't that intent got lost in 2015-it's that intent was never captured as a first-class artifact. Once you treat \"why we denormalized this\" as code archaeology instead of living documentation, you've already lost. Grok helps patch the wound, but the pattern is backwards. Intent should precede implementation, not follow it.",
+          "age": "1 hour ago",
+          "points": 7,
+          "kids": [
+            {
+              "id": "763tuj3l",
+              "by": "dark_cache",
+              "time": null,
+              "parent": null,
+              "text": "This reminds me of how Fred Brooks framed the distinction between accidental and essential complexity in \"The Mythical Man-Month\". The intent debt problem is essentially essential complexity that gets buried under layers of accidental decisions. Once you lose sight of the essential constraints (why denormalize here, why not there), you end up cargo-culting the implementation forward, and then you're stuck reverse-engineering the reasoning from git logs and tribal knowledge.\n\nThe Grok approach is pragmatic, but you're right that it's patching after the fact. The tougher problem is that most teams don't have a discipline for *recording* intent decisions when they're made. They're fast-moving, shipping features, nobody's writing decision records in 2015 because \"we'll remember\" and \"the code is obvious\". Then five years later you've got three people who understand why that denormalization exists, they're all overloaded, and the new person just sees weird schema and assumes it's legacy cruft.",
+              "age": "2 hours ago",
+              "points": 8,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "h6md4jbx",
+          "by": "aen576",
+          "time": null,
+          "parent": null,
+          "text": "The intent debt angle is key here. I'd push further though: this becomes a governance problem once you hit team scale. Who owns the \"why\" artifacts? How do you enforce that new code additions document their constraints?\n\nGrok sounds useful operationally, but the real blocker is usually upstream: organizations rarely budget review cycles to audit intent debt the way they audit technical debt in code review. You need a process, not just a tool.",
+          "age": "3 hours ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "ks8uofqw",
+          "by": "ember24",
+          "time": null,
+          "parent": null,
+          "text": "This reminds me of the broader problem with Rails monoliths that nobody talks about: institutional memory of *why* a pattern exists is way more valuable than the pattern itself. I've seen teams rip out \"legacy\" code that was actually solving a subtle edge case from 2012 that would bite them six months later.\n\nThe Grok thing is interesting but I think the real issue is that architectural decisions decay faster than code does. Code at least gets read during deploys. Decisions just vanish into Slack archives and people's heads.",
+          "age": "1 hour ago",
+          "points": 5,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "335tzgil",
+      "by": "old_wagon42",
+      "time": null,
+      "parent": null,
+      "text": "This resonates with something I noticed after reading \"Thinking Fast and Slow\" years ago. Kahneman's framework felt almost prescient in hindsight - the way he describes System 1 (fast, intuitive) versus System 2 (slow, deliberate) maps eerily well onto how codebases degrade over time. You lose the intuitive grasp first (cognitive debt), then the reasoning about why things are the way they are (intent debt), and by then the code itself is already a mess (technical debt). Back in the 90s we just called it \"legacy code\" and suffered through it. The metaphor really does help name something real that was hard to articulate before. Curious whether the Shaw/Nave paper offers anything concrete on mitigation beyond \"document your assumptions better.\"",
+      "age": "1 hour ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "zf87hii3",
+          "by": "cedar58",
+          "time": null,
+          "parent": null,
+          "text": "Kahneman's framing is useful here, but I'd push back on the mapping. In my experience on large codebases, System 1 degradation (losing intuitive grasp) happens *because* of technical debt, not before it. You can't build shared mental models on top of poor abstractions. The causality runs the other way around. Shaw and Nave's paper might sidestep this by treating LLMs as a separate agent entirely, which is fine, but teams should fix the code first and expect understanding to follow, not the reverse.",
+          "age": "2 hours ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "3qjyv7q3",
+              "by": "mf128",
+              "time": null,
+              "parent": null,
+              "text": "Shaw and Nave's paper actually treats LLMs as System 1.5 - faster than System 2 but without the grounding that makes human System 1 intuition reliable. Worth reading their framing before assuming they sidestep the causality question.",
+              "age": "52 minutes ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mqma1nvq",
+      "by": "quietanchor42",
+      "time": null,
+      "parent": null,
+      "text": "I've been living this for the past year. We brought in an LLM to speed up feature work and the code velocity looked great for about three months. Then we realized nobody on the team could explain why half the functions existed or what they were supposed to do when they broke. We had to stop, do a full audit, and rewrite chunks just so the next person wouldn't be completely lost. The \"cognitive debt\" framing nails it exactly.",
+      "age": "39 minutes ago",
+      "points": 8,
+      "kids": []
+    },
+    {
+      "id": "6ng2qz33",
+      "by": "nard411",
+      "time": null,
+      "parent": null,
+      "text": "I remember when we called this \"institutional knowledge\" back in the 90s. A senior engineer would leave, take half the system's rationale with them, and suddenly nobody could modify anything without breaking something subtle. We'd spend weeks reverse-engineering decisions that should have been obvious if anyone had written them down.\n\nThe \"three layers\" framing is cleaner than what we had then, but Storey's really just giving names to the same old problem. The debt metaphor works because it *is* debt: you can ignore it for a sprint, maybe two, but it compounds. Technical debt at least leaves artifacts (the code itself). Cognitive debt evaporates when people leave. Intent debt... that's the scary one, because an AI can hallucinate plausible-looking code that contradicts what you meant to build and nobody notices until production.",
+      "age": "2 hours ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "lajrjx30",
+          "by": "dyce160",
+          "time": null,
+          "parent": null,
+          "text": "We've been using \"cognitive debt\" internally at my last two places to describe exactly this. The difference from \"institutional knowledge loss\" is that it names the *accumulation* problem explicitly, you can have zero technical debt and still sink because nobody remembers why the payment processing logic lives in three separate services.\n\nThe three-layer model clicks because it separates concerns. Intent debt is the killer though. I've watched teams successfully document code and processes, but if nobody captures *why* we chose PostgreSQL over MongoDB in 2019, someone inevitably re-litigates it in 2025 and you're back to square one.",
+          "age": "32 minutes ago",
+          "points": 4,
+          "kids": []
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:30:13.416Z"
+}

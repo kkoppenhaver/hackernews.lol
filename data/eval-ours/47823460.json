@@ -1,0 +1,213 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47823460,
+    "title": "Show HN: Prompt-to-Excalidraw demo with Gemma 4 E2B in the browser (3.1GB)",
+    "points": 160,
+    "descendants": 62,
+    "article_url": "https://teamchong.github.io/turboquant-wasm/draw.html",
+    "hn_url": "https://news.ycombinator.com/item?id=47823460",
+    "self_post": false
+  },
+  "story": {
+    "id": 47823460,
+    "title": "Prompt → Diagram — Gemma 4 E2B in desktop Chrome (WebGPU)",
+    "url": "https://teamchong.github.io/turboquant-wasm/draw.html",
+    "by": "uns613",
+    "score": 208,
+    "time": null,
+    "descendants": 18,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "o2114jz3",
+      "by": "pilot78",
+      "time": null,
+      "parent": null,
+      "text": "This is essentially what the TurboQuant paper (https://arxiv.org/abs/2412.08335) describes, but reimplemented in WGSL instead of the original inference framework. The 2.4× KV cache compression via polar quantization + QJL is solid, though I'd be curious about the actual memory bandwidth trade-off on M1, the compute shader overhead for decompression on each attention pass might eat some of those 30 tok/s gains vs. a more straightforward quantization scheme like GPTQ.\n\nThat said, getting this to run in-browser on Chrome is legitimately clever. WebGPU subgroups landing in Chromium was the unlock here. Have you profiled where the time actually goes (prefill vs. decode)?",
+      "age": "34 minutes ago",
+      "points": 9,
+      "kids": []
+    },
+    {
+      "id": "h0rxe6v3",
+      "by": "deep_canyon2",
+      "time": null,
+      "parent": null,
+      "text": "The WGSL shader implementation is clever, but I'm curious about the actual memory footprint during inference. The 2.4x KV cache compression via polar quantization helps, but Gemma 4 27B still needs what, roughly 50GB unquantized? Even with TurboQuant that's pushing against the 3GB RAM ceiling you mention. Are you doing additional weight quantization (int8, int4?) on top of the KV compression, or is the model served at full precision and only the cache gets compressed?",
+      "age": "1 hour ago",
+      "points": 11,
+      "kids": [
+        {
+          "id": "04fctn9m",
+          "by": "wagon38",
+          "time": null,
+          "parent": null,
+          "text": "I've been following WebGPU demos for a while, and I keep running into the same wall: everyone's benchmarking against ideal cases. You're claiming 30+ tok/s on M1, but what's the actual breakdown? Is that wall-clock time from prompt-submit to first token, or time-per-token on a pre-warmed model after the first 50 tokens? Because shader compilation overhead is usually hidden in those numbers, and the 3GB ceiling assumes you're not doing anything else in the browser.\n\nAlso, the \"full precision weights, compressed cache only\" design feels like it sidesteps the real problem. Gemma 4 27B at float32 won't fit in most consumer GPU VRAM even with perfect cache compression. Are you actually quantizing the weights client-side at load time, or are users downloading 50GB and the browser is just OOMing before they see the first diagram?",
+          "age": "1 hour ago",
+          "points": 12,
+          "kids": [
+            {
+              "id": "7i8vg8xo",
+              "by": "tinystone",
+              "time": null,
+              "parent": null,
+              "text": "> Gemma 4 27B still needs what, roughly 50GB unquantized?\n\nGemma 2 27B is ~54GB at fp32, so that math checks out. But the post doesn't claim to run full precision weights-the demo uses the quantized model from Hugging Face (google/gemma-2-27b-it-GGUF or similar), which is already 8-bit or lower. The KV cache compression is orthogonal to weight quantization.\n\nThat said, the parent's point about the 3GB ceiling is worth pressing on. The demo page says \"needs ~3 GB RAM\" but doesn't specify whether that's peak during the forward pass or steady-state. If you're running Gemma 2 27B quantized (even at int4, ~7GB on CPU) plus browser overhead plus the KV cache, you're likely over budget on most consumer laptops. The M1 benchmark is also a bit of a red herring-unified memory changes the game; desktop Chrome on Windows/Linux has a tighter constraint.\n\nWould be useful to see actual peak memory numbers during inference, not just the KV footprint alone.",
+              "age": "2 hours ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "kve3end8",
+          "by": "GreyCedar",
+          "time": null,
+          "parent": null,
+          "text": "I think you're framing this as a weight-quantization problem when it's actually a model-selection problem. Gemma 4 27B at full precision is indeed huge, but the author isn't running the full 27B model in the browser-they're using the E2B (efficient, browser) variant, which is a much smaller distilled checkpoint. That's the reframe.\n\nThe bottleneck isn't \"can we fit 27B weights into 3GB\" (you can't). It's \"does a smaller, optimized model + aggressive KV cache compression let you have a useful conversation at browser inference speeds?\" The answer on M1 Chrome appears to be yes at 30+ tok/s.\n\nThe weight quantization question is fair for the full model, but it's not the constraint that matters here. You'd want to ask: what's the actual parameter count of the E2B checkpoint, and does it fit in GPU VRAM after you account for activations + the compressed KV cache? Those are the actual numbers that determine feasibility.\n\nThis is a common pattern with in-browser LLM demos: people reach for the biggest model name they recognize, but the real wins come from choosing the right (smaller, often distilled) model for the hardware. Llama 2 7B, Phi 3 mini, Gemma 2B-they run. The 27B variants don't, unless you're running a much more aggressive quantization pipeline, which this demo isn't claiming to do.",
+          "age": "2 hours ago",
+          "points": 10,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "dao8rr0v",
+      "by": "pilot75",
+      "time": null,
+      "parent": null,
+      "text": "I got this running on my M1 MacBook Air and it's snappy. Generated a flowchart in under 2 seconds. The KV cache compression is doing real work here-without it I'd hit memory limits on anything past 3-4 turns of conversation. Nice to see inference actually work client-side without needing to phone home to some API.",
+      "age": "1 hour ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "m9o2rmgy",
+          "by": "redcache7",
+          "time": null,
+          "parent": null,
+          "text": "If you're hitting memory limits, the WASM variant might be worth trying too-turboquant-wasm works CPU-side for vector search and doesn't need WebGPU. Trades some speed but gives you broader browser support and you can inspect the quantization directly. https://github.com/ggerganov/llama.cpp has a similar approach if you want to see how others handle KV compression.",
+          "age": "1 hour ago",
+          "points": 7,
+          "kids": []
+        },
+        {
+          "id": "tv7471xd",
+          "by": "eagerpilot2",
+          "time": null,
+          "parent": null,
+          "text": "One minor note: WebGPU subgroups landed in Chrome 134, but the shader-f16 extension is still behind a flag on most M1/M2 Macs. You might need to enable it manually at chrome://flags/#enable-webgpu-shader-f16 for the full 2.4x compression to kick in. Without it, you're probably getting closer to 1.8-2.0x depending on how aggressively the quantization backs off.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "4yxpvw88",
+          "by": "BrokenVector",
+          "time": null,
+          "parent": null,
+          "text": "I've been running this locally for a week now on an M1 Mac and the throughput is genuinely surprising. Started with the raw Gemma 4 model running in browser and was hitting the memory wall exactly where you describe-3-4 turns max before things crawled or the tab crashed.\n\nThe 2.4x KV cache compression via WGSL compute shaders is the real magic here. I didn't expect GPU-side quantization to be viable in a browser context, but the polar + QJL approach is clever. Tested it against the CPU-side turboquant-wasm implementation (same algorithm, different backend) and the WGSL version edges it out by about 8-10 tok/s on my hardware.\n\nOne gotcha I hit: Chrome 134 is hard requirement-134.0.6998 specifically. I tried 133 and inference would timeout. Worth checking version if someone reports slowness.\n\nThe Excalidraw output is nice because you're not waiting for 5,000 tokens of raw JSON. The model learns to emit compact code instead and you get visual feedback in maybe 1-2 seconds per diagram. Tried asking for increasingly complex flowcharts (12-step processes, swimlane diagrams) and it held together reasonably well up to depth 5 or 6.\n\nMain friction remains the mobile gap. iOS Safari has no WebGPU subgroups support yet, so the whole thing is desktop-only. Makes sense given memory constraints, but limits utility for the \"show someone a diagram on my phone\" use case.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "ag7wxha8",
+              "by": "odd_vector99",
+              "time": null,
+              "parent": null,
+              "text": "The WGSL implementation is clever, but I'd note that the 30+ tok/s number is measured on M1 which has a particularly wide GPU. On Intel integrated graphics (which is what most desktop users have), you're looking at maybe 8-12 tok/s before memory pressure forces spilling to system RAM. Still usable for diagram generation, but the gap between the demo setup and \"works for everyone with Chrome 134+\" is wider than the post implies. The 3 GB RAM requirement also assumes you've closed everything else, which most people haven't done.\n\nThat said, the polar + QJL compression approach is genuinely novel for browser context. I haven't seen anyone else pull off 2.4× lossless KV compression on the GPU side before.",
+              "age": "1 hour ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kxyl3sgz",
+      "by": "weary_spark42",
+      "time": null,
+      "parent": null,
+      "text": "I've been doing similar KV cache compression work for on-device inference, and the 2.4x figure is solid if you're careful about which layers you compress. The polar quantization piece is clever, but I'd be curious whether they're seeing degradation on longer context windows (say, >8k tokens). In my tests, uniform compression across all layers starts hurting answer quality around the 10k mark, especially for tasks that need to reference early context.\n\nAlso worth noting: WebGPU subgroups are still somewhat spotty across Chrome versions. I've had to add fallbacks for users on Chrome 132 and earlier. The shader-f16 requirement is a real blocker for the older integrated GPUs too.",
+      "age": "2 hours ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "o75alwlr",
+          "by": "blueanchor7",
+          "time": null,
+          "parent": null,
+          "text": "We've been using similar polar quantization on DistilBERT embeddings for edge inference. The 2.4x compression holds up well for <12k context, but you're right that layer-selective compression matters. Have you tried applying higher compression ratios only to middle layers? That's where we saw the least degradation. https://github.com/quantization-research/layer-selective-compression",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "hqb43g8i",
+              "by": "GreyWidget",
+              "time": null,
+              "parent": null,
+              "text": "DistilBERT embeddings aren't quite the same compression target as KV cache though. The paper they're citing (if there is one) likely deals with attention heads, not embedding-layer quantization. Have you measured the actual perplexity hit when you selectively compress middle layers vs. uniform?",
+              "age": "1 minutes ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "21t3fw3t",
+          "by": "cedar76",
+          "time": null,
+          "parent": null,
+          "text": "I remember when we had to hand-roll cache optimization in CUDA back around 2012, and the tricks were basically the same: figure out what matters for your specific workload, compress ruthlessly, accept some loss. The polar quantization is nice, but calling it \"clever\" feels like it's reinventing what people figured out in signal processing decades ago.\n\nThat said, the 2.4x figure on KV cache is respectable for a browser context. The real test is whether it holds up past 8k tokens like the parent mentioned. I'd want to see actual benchmarks on retrieval-heavy tasks (RAG-style, where the model needs to dig back into early turns) before claiming this solves the context window problem. Uniform compression is always the first thing people try, and it always fails at scale. Selective per-layer compression is harder to implement but you pay for it either way.\n\nThe WGSL shader implementation is the genuinely interesting bit here. Most people don't realize you can ship linear algebra in compute shaders on the GPU side without dropping to a full inference runtime.",
+          "age": "1 hour ago",
+          "points": 12,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "4952dnka",
+      "by": "basicvector23",
+      "time": null,
+      "parent": null,
+      "text": "The KV cache compression is nice, but the real gotcha here is the WebGPU subgroups requirement. That's not just \"Chrome 134+\", it's a specific GPU feature that Intel iGPUs on Windows still don't reliably support. Tested this on a Framework laptop with Iris Xe and it falls back to CPU, tanking performance to maybe 2 tok/s. The 30+ tok/s number assumes you have the right hardware, which most laptops don't.",
+      "age": "58 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "q7b9surc",
+          "by": "FastCable_",
+          "time": null,
+          "parent": null,
+          "text": "Fair point on the iGPU caveat, though \"most laptops\" is a bit broad. M-series Macs, RTX 4050+ on Framework/Legion, and even AMD 780M handle subgroups fine. The 2 tok/s fallback is real, but so is the 30+ on hardware that actually supports it. Would've been clearer if the post mentioned minimum GPU reqs upfront.",
+          "age": "3 hours ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "t8elwqew",
+              "by": "known_sleeve23",
+              "time": null,
+              "parent": null,
+              "text": "> The 2 tok/s fallback is real, but so is the 30+ on hardware that actually supports it.\n\nThe gotcha is that WebGPU subgroups aren't just a \"nice to have\", they're the load-bearing wall here. Khronos didn't standardize subgroups until 2023, and adoption is patchy. Intel Arc on Windows is still iffy, and you'll see the same CPU fallback on older AMD RDNA cards. The post makes this sound like a Chrome version problem when it's really a GPU capability problem. That distinction matters because someone on a 2-year-old Framework or ThinkPad with Intel 12th gen will try this, hit 2 tok/s, assume the demo is broken, and give up. A one-line \"requires subgroups support\" in the requirements would've saved a lot of friction.",
+              "age": "51 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "epzjo6tt",
+          "by": "grey_spark_",
+          "time": null,
+          "parent": null,
+          "text": "The Iris Xe fallback is brutal. I hit the same wall on a 2023 XPS 13 with Arc A370M, and yeah, 2 tok/s makes it unusable for real-time generation. The subgroups requirement basically cuts the addressable laptop market in half. AMD's RDNA2 and M-series handle it fine, but Intel's integrated stuff is a mess until the next driver cycle. If you're demoing this, you almost need a disclaimer: \"tested on M1/M2, YMMV on Windows Intel.\"",
+          "age": "6 minutes ago",
+          "points": 3,
+          "kids": []
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:26:02.700Z"
+}

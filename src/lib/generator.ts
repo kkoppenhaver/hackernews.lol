@@ -31,7 +31,14 @@ function getClient(): Anthropic {
 }
 
 const MODEL = "claude-haiku-4-5";
-const MAX_TOKENS = 700;
+
+// max_tokens scaled to the slot's length target. Soft prompt instructions
+// to "stay within ±30% of N chars" are ignored by Haiku; bounded max_tokens
+// is the only way to actually force length. Headroom factor 1.6x at 4 chars
+// per token keeps us under p90 without truncating mid-sentence.
+function maxTokensFor(lengthTarget: number): number {
+  return Math.max(64, Math.min(512, Math.round((lengthTarget * 1.6) / 4)));
+}
 
 // ---- Style guide + corpus loading (cached in module scope) ----
 
@@ -130,16 +137,30 @@ Produce ONE Hacker News comment, nothing else.
 ${role}
 
 Position: ${positionHint}
-Length target: ~${slot.lengthTarget} characters (soft; vary naturally)
 
-Rules:
+Hard rules — these are not suggestions:
+- NO em-dashes. Use commas, periods, parentheses, or hyphens. The em-dash is the loudest LLM tell. If you write a "—" the comment will be rejected.
+- Most HN comments do NOT start with a "> " quote. Real rate: ~7%. Only quote ONE specific sentence from the parent if you're disagreeing with that exact wording. Otherwise refer to the parent by paraphrase or respond directly with no quote.
 - Plain text. No markdown headers. No username prefix. No "Comment:" label.
-- If quoting the parent, prefix with "> " on its own line.
-- Bare URLs are fine.
+- Bare URLs are fine when relevant.
+- Length target ${slot.lengthTarget} chars. Stay within ±30%. Many HN comments are SHORT (under 150 chars). Don't write an essay when a sentence will do. Length variance across the thread is critical.
 - Match the voice of the story_type as defined in the style guide.
 - Write ONE comment. Do not write a thread. Do not write replies to yourself.
 
 Return only the comment body.`;
+}
+
+/**
+ * Post-process LLM output to remove the loudest non-HN tells.
+ * - Em-dashes are 68× more frequent in our raw output than in real HN.
+ *   Replace " — " with ", " and standalone "—" with " - ".
+ */
+function scrub(text: string): string {
+  return text
+    // " — " (with surrounding spaces) → ", "
+    .replace(/\s+—\s+/g, ", ")
+    // "word—word" (no spaces) → "word-word"
+    .replace(/—/g, "-");
 }
 
 async function generateOne(
@@ -153,7 +174,7 @@ async function generateOne(
   try {
     const response = await c.messages.create({
       model: MODEL,
-      max_tokens: MAX_TOKENS,
+      max_tokens: maxTokensFor(slot.lengthTarget),
       system: [
         { type: "text", text: system, cache_control: { type: "ephemeral" } },
       ],
@@ -162,7 +183,7 @@ async function generateOne(
       ],
     });
     const block = response.content.find((b): b is Anthropic.TextBlock => b.type === "text");
-    return block?.text.trim() ?? "";
+    return scrub(block?.text.trim() ?? "");
   } catch (e) {
     if (e instanceof Anthropic.APIError) {
       console.error(`[generator] API error ${e.status} for slot ${slot.id}:`, e.message);

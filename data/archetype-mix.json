@@ -159,14 +159,14 @@
     "default":   0.05
   },
   "length_targets": {
-    "_comment": "Character count targets for LLM generation. Sample from a Gaussian around p50 with stddev ~ (p90-p50)/1.28.",
-    "show_hn":        { "top_p50": 140, "top_p90": 450, "reply_p50": 200, "reply_p90": 600 },
-    "ask_hn":         { "top_p50": 400, "top_p90": 900, "reply_p50": 350, "reply_p90": 700 },
-    "tell_hn":        { "top_p50": 500, "top_p90": 1100, "reply_p50": 400, "reply_p90": 800 },
-    "news":           { "top_p50": 200, "top_p90": 800, "reply_p50": 250, "reply_p90": 600 },
-    "blog_technical": { "top_p50": 250, "top_p90": 700, "reply_p50": 300, "reply_p90": 650 },
-    "github":         { "top_p50": 200, "top_p90": 600, "reply_p50": 250, "reply_p90": 500 },
-    "research":       { "top_p50": 200, "top_p90": 550, "reply_p50": 250, "reply_p90": 500 },
-    "launch_hn":      { "top_p50": 180, "top_p90": 550, "reply_p50": 250, "reply_p90": 600 }
+    "_comment": "Character count targets for LLM generation. Calibrated against real HN: aggregate median 215, p90 ~750. Top-comment median 246, p90 777. Halved from initial v1 estimates after first eval (top-comments came in 3x too long). Sample from a Gaussian around p50 with stddev ~ (p90-p50)/1.28, then clip to [40, p90].",
+    "show_hn":        { "top_p50": 130, "top_p90": 380, "reply_p50": 150, "reply_p90": 450 },
+    "ask_hn":         { "top_p50": 220, "top_p90": 650, "reply_p50": 180, "reply_p90": 500 },
+    "tell_hn":        { "top_p50": 260, "top_p90": 800, "reply_p50": 220, "reply_p90": 600 },
+    "news":           { "top_p50": 150, "top_p90": 550, "reply_p50": 160, "reply_p90": 480 },
+    "blog_technical": { "top_p50": 170, "top_p90": 520, "reply_p50": 180, "reply_p90": 480 },
+    "github":         { "top_p50": 140, "top_p90": 420, "reply_p50": 150, "reply_p90": 380 },
+    "research":       { "top_p50": 150, "top_p90": 420, "reply_p50": 160, "reply_p90": 380 },
+    "launch_hn":      { "top_p50": 140, "top_p90": 400, "reply_p50": 160, "reply_p90": 420 }
   }
 }

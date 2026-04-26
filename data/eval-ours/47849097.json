@@ -1,0 +1,204 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47849097,
+    "title": "Show HN: GoModel – an open-source AI gateway in Go",
+    "points": 196,
+    "descendants": 72,
+    "article_url": "https://github.com/ENTERPILOT/GOModel/",
+    "hn_url": "https://news.ycombinator.com/item?id=47849097",
+    "self_post": false
+  },
+  "story": {
+    "id": 47849097,
+    "title": "GitHub - ENTERPILOT/GoModel: AI gateway written in Go. Lightweight unified OpenAI-compatible API for OpenAI, Anthropic, Gemini, Groq, xAI & Ollama. LiteLLM alternative with observability, guardrails, streaming, costs and usage tracking.",
+    "url": "https://github.com/ENTERPILOT/GOModel/",
+    "by": "tted158",
+    "score": 145,
+    "time": null,
+    "descendants": 17,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "8nw7ws3a",
+      "by": "throwaway_5248",
+      "time": null,
+      "parent": null,
+      "text": "I remember when we all just had a single API key in an env var and called it a day. Now we need a gateway to talk to the gateway. Reminds me of the early days of node.js package management before npm centralized everything.\n\nThat said, the Go implementation here is sensible. It's basically what LiteLLM does but compiled down, which means no Python runtime overhead. Worth a shot if you're already running containers and tired of the latency tax from the Python version.",
+      "age": "4 hours ago",
+      "points": 18,
+      "kids": []
+    },
+    {
+      "id": "7ynj0kxr",
+      "by": "broken_oak23",
+      "time": null,
+      "parent": null,
+      "text": "Go is a solid choice for this, but worth noting that the observability/guardrails angle is where most gateways fall apart. LiteLLM does streaming and cost tracking reasonably well, though the per-provider request/response handling can get messy at scale.\n\nThe unified API surface is the easy part. The harder part is actually tracking which provider you're hitting for billing purposes when you're doing provider failover or load balancing. This repo doesn't seem to address how it handles that scenario if, say, your primary Anthropic key quota is hit mid-request.",
+      "age": "17 minutes ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "x6dpiafv",
+          "by": "lantern35",
+          "time": null,
+          "parent": null,
+          "text": "Yeah, but the provider failover tracking is the gotcha that kills a lot of these projects. How does GoModel actually handle it? If I'm load balancing across OpenAI and Groq and one fails over, does it log which provider handled the actual request for billing purposes? The README doesn't mention it, and that's usually where things fall apart in production.",
+          "age": "1 hour ago",
+          "points": 6,
+          "kids": [
+            {
+              "id": "0jfnslmm",
+              "by": "beacon39",
+              "time": null,
+              "parent": null,
+              "text": "Every time I see a new LLM gateway project on HN, someone mentions LiteLLM in the parent and we all pretend the failover/billing problem is solved. It's not. LiteLLM's approach to provider tracking during fallback is half-baked at best, and nobody wants to admit it publicly. This repo looks polished but I'd bet money it has the same gap. The README silence is actually the loudest signal here.",
+              "age": "2 hours ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "yhdrgsdh",
+          "by": "greenriver7",
+          "time": null,
+          "parent": null,
+          "text": "Another LiteLLM clone that's going to gather dust. The \"observability/guardrails\" pitch is what every gateway starter project claims, then you look at the actual code and it's just logging to stdout and a basic rate limiter.\n\nShow me the failover logic. Show me how cost tracking actually works when you're balancing between three providers mid-request. The README doesn't even mention retries or what happens when Anthropic returns a 429 while you're halfway through a Claude call. That's the hard part. That's why LiteLLM still exists despite being messy.\n\nAlso written in Go doesn't automatically win you anything here. Most of the pain is in the provider API differences, not the language. Could've done this in Python faster.",
+          "age": "27 minutes ago",
+          "points": 16,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "4ptxg3lf",
+      "by": "SilentWagon99",
+      "time": null,
+      "parent": null,
+      "text": "How is this different from LiteLLM under the hood? Both proxy multiple providers through a single interface. The README mentions \"LiteLLM alternative\" but I don't see the actual architectural differences spelled out anywhere.",
+      "age": "1 hour ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "jj0765y7",
+          "by": "bent_dust",
+          "time": null,
+          "parent": null,
+          "text": "LiteLLM is Python-heavy and relies on a proxy pattern with extensive middleware. GoModel is pure Go with a smaller binary footprint (~20MB vs 200MB+) and built-in observability from the start. If you're running this in a containerized environment where startup latency and memory matter, the architectural difference becomes pretty obvious. That said, LiteLLM has better docs and a larger ecosystem at this point.",
+          "age": "2 hours ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "mcky5jm3",
+              "by": "DeepSignal",
+              "time": null,
+              "parent": null,
+              "text": "Spun this up locally against Ollama and Claude API. Latency is solid (80ms p95 on streaming), but the observability dashboard seems to only track request counts and token usage, not per-model latency breakdowns like LiteLLM's proxy does. Also missing request replay / debugging tools that LiteLLM bakes in. The Go binary is indeed tiny though.",
+              "age": "1 hour ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ubsjp0x6",
+      "by": "throwaway_4927",
+      "time": null,
+      "parent": null,
+      "text": "The docker command in the docs passes secrets via `-e` flags, which the README itself warns against (\"Avoid passing secrets via -e on the command line - they can leak via shell history and process lists\"). The example should use `--env-file .env` consistently throughout instead of showing the anti-pattern first.",
+      "age": "3 hours ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "v0j9joxs",
+          "by": "throwaway_9616",
+          "time": null,
+          "parent": null,
+          "text": "Yeah, this is a footgun. The README shows the bad pattern first and then mentions the warning later. LiteLLM's docs handle this better by only showing `--env-file` in the quickstart and keeping the security note prominent. For production deploys, shell history on shared machines is real risk. Worth opening an issue on this repo to swap the example order.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "yv09vy1i",
+              "by": "slow_oak",
+              "time": null,
+              "parent": null,
+              "text": "I burned through shell history on a staging server last month when a junior dev copy-pasted the docker run command from our internal wiki. Took 20 minutes to rotate keys across three providers. The warning is there, but burying it after the vulnerable example doesn't help anyone in a hurry.",
+              "age": "14 minutes ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "zgxpznyj",
+          "by": "tinybeacon",
+          "time": null,
+          "parent": null,
+          "text": "This is actually called out explicitly in the Docker docs pattern. You've got the anti-pattern in the quick start (using -e on the command line), then the warning buried lower saying not to do that. The env-file approach works fine, just create a `.env` file with your keys and pass `--env-file .env` instead. Solves the shell history leak and is cleaner for local dev too.",
+          "age": "4 hours ago",
+          "points": 9,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "394en26z",
+      "by": "grey_valley",
+      "time": null,
+      "parent": null,
+      "text": "Tested this locally against the docker setup. Spins up cleanly, and the unified API interface actually works. Dropped requests to Claude, GPT-4, and Groq through the same endpoint without code changes.\n\nPerformance is solid on the gateway side (~2ms overhead per request on my machine), but the real win is cost tracking and request logging without vendor lock-in. The streaming support doesn't drop frames either.\n\nOne gotcha: if you're using multiple providers, the error handling falls back silently sometimes instead of telling you which provider failed. Had to dig through logs to debug why a Groq request wasn't reaching the model. Otherwise, solid alternative to LiteLLM for smaller deployments.",
+      "age": "3 hours ago",
+      "points": 17,
+      "kids": [
+        {
+          "id": "l0nl82e3",
+          "by": "basicglider99",
+          "time": null,
+          "parent": null,
+          "text": "> the error handling falls back silent\n\nThis is a pretty serious issue for a gateway. Silent failures mean requests disappear without logging, which defeats the whole point of observability. Have you filed an issue on the repo, or is this something you worked around locally? The logging setup looks comprehensive otherwise, so this might be a quick fix if the maintainers are responsive.",
+          "age": "44 minutes ago",
+          "points": 13,
+          "kids": [
+            {
+              "id": "lzndjxlb",
+              "by": "kupd358",
+              "time": null,
+              "parent": null,
+              "text": "The silent failure mode is actually worse than it looks. If you're proxying production traffic through this and a provider goes down, you lose observability into which requests failed and which succeeded. The logging setup captures the inbound request fine, but when the upstream provider times out or returns a 5xx, the gateway just... doesn't record it consistently across all providers.\n\nI'd check the error handling in the request loop before deploying this to any critical path. The maintainers are responsive (I've seen replies within 24h), so filing a detailed issue with a minimal reproduction case would probably get traction fast.",
+              "age": "1 hour ago",
+              "points": 8,
+              "kids": [
+                {
+                  "id": "egcziowz",
+                  "by": "weary_canyon",
+                  "time": null,
+                  "parent": null,
+                  "text": "This whole discussion is making me realize we're basically recreating what Voxy or similar request-routing layers did five years ago, just with LLM providers instead of telecom backends. The silent failures here are a symptom-you've got N independent services with wildly different timeout and retry semantics (Groq's sub-second latency vs. Claude's variable response times), and no unified circuit breaker pattern across them.\n\nThe real leverage isn't cost tracking, it's building a proper bulkhead pattern so one provider melting down doesn't cascade. Before worrying about observability polish, I'd be checking if this handles provider degradation at all. Last time I saw a gateway without that, it just queued requests forever.",
+                  "age": "1 hour ago",
+                  "points": 2,
+                  "kids": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wapi3wru",
+          "by": "GreenCrate23",
+          "time": null,
+          "parent": null,
+          "text": "> the error handling falls back silent\n\nThat's a pretty serious issue for production use. Have you filed this on the repo? Silent failures are exactly the kind of thing that causes cascading failures in a gateway that's supposed to be a reliability layer.\n\nAlso curious whether the ~2ms overhead holds up under load. That's fine for a handful of requests, but gateways usually see bursty traffic. Have you load tested this against something like k6 or Apache Bench?",
+          "age": "14 minutes ago",
+          "points": 9,
+          "kids": []
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:25:37.599Z"
+}

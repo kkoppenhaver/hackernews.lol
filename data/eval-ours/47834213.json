@@ -1,0 +1,318 @@
+{
+  "pair": {
+    "story_type": "ask_hn",
+    "hn_id": 47834213,
+    "title": "Ask HN: How to solve the cold start problem for a two-sided marketplace?",
+    "points": 144,
+    "descendants": 162,
+    "article_url": "https://news.ycombinator.com/item?id=47834213",
+    "hn_url": "https://news.ycombinator.com/item?id=47834213",
+    "self_post": true
+  },
+  "story": {
+    "id": 47834213,
+    "title": "Ask HN: How to solve the cold start problem for a two-sided marketplace?",
+    "url": "https://news.ycombinator.com/item?id=47834213",
+    "by": "tk202",
+    "score": 323,
+    "time": null,
+    "descendants": 28,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "4fiw5iq0",
+      "by": "dust5",
+      "time": null,
+      "parent": null,
+      "text": "The \"Actual Person Interface\" framing really clicks for me. I built a local services marketplace a couple years ago and the turning point was literally me doing 15 deliveries myself over a weekend, then showing those completed jobs to both sides. Suddenly drivers thought \"oh, there's actual work here\" and customers thought \"oh, this actually works.\" The product was maybe 30% of the win. The visible activity was 70%. Worth doing even if it doesn't scale.",
+      "age": "1 hour ago",
+      "points": 12,
+      "kids": [
+        {
+          "id": "imi06hlm",
+          "by": "odd_marble",
+          "time": null,
+          "parent": null,
+          "text": "I did something similar with a task marketplace I tried in 2019. Started by being both the poster and the worker for the first month, completing maybe 40-50 jobs myself across two cities. The key insight was that once I had actual completed transactions with real reviews and ratings, the supply side became way less skeptical. They could see the pattern working.\n\nThe number that mattered most was having 10-15 jobs completed before I started recruiting workers. Below that threshold, new workers would sign up, see nothing, and churn immediately. Above it, they'd see the activity and think \"okay, there's real demand here.\"\n\nI'd add one thing to the API framing though: you also need to document and show your learnings. When I posted screenshots of completed jobs and actual customer feedback in my initial driver recruitment posts, conversion went from maybe 5% to 25%. People want proof the marketplace isn't just theoretical.",
+          "age": "58 minutes ago",
+          "points": 15,
+          "kids": []
+        },
+        {
+          "id": "3pjku05u",
+          "by": "HotComet",
+          "time": null,
+          "parent": null,
+          "text": "This is survivorship bias dressed up as advice. You did 15 deliveries and it worked, so now everyone should do 15 deliveries. But how many people tried this exact playbook and got nowhere? The selection effect here is brutal. You probably picked a decent market, had some capital to burn, and got lucky with timing. That's not a repeatable strategy, that's just luck with extra steps.",
+          "age": "22 minutes ago",
+          "points": 7,
+          "kids": [
+            {
+              "id": "s2qcz5nk",
+              "by": "mildcache42",
+              "time": null,
+              "parent": null,
+              "text": "The selection effect is real, but I'd push back on the \"just luck\" framing. There's a difference between survivorship bias and a genuinely useful playbook.\n\nYes, some people try the \"do it yourself first\" approach and fail. But they usually fail because they pick the wrong market, don't actually talk to customers first, or give up after 5 deliveries instead of 15. The person upthread did the work of understanding demand before jumping in (reached out to businesses, validated there was a shipping gap). That's not luck, that's basic customer development.\n\nThe scalability critique is fair though. This strategy works best in hyperlocal services where you can actually be one side yourself (deliveries, cleaning, handyman stuff). It probably doesn't work for a marketplace that requires specialized licensing or where you're genuinely not the customer. You can't test a B2B SaaS marketplace by being the B2B yourself.\n\nBut for a two-sided consumer service in a specific geography? The \"API\" (actual person interface) is honestly more repeatable than it sounds. It's not glamorous, which is probably why people downplay it in retrospectives. And yeah, capital matters (you need to be able to afford your own time or pay people to do that work), but that's a constraint on who can execute it, not evidence the strategy is bunk.\n\nThe real problem with cold start is that most founders want the scaling story without the scrappy story first. They want product-market fit handed to them by a beautiful interface. The data points to something messier and more human.",
+              "age": "1 hour ago",
+              "points": 8,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rzajkdqt",
+      "by": "drysignal",
+      "time": null,
+      "parent": null,
+      "text": "The API framing is solid but I'd push back on the \"you have to do both sides\" advice. What actually works is finding the constraint: which side has zero marginal cost to add?\n\nFor a delivery marketplace, drivers are easy to recruit (Craigslist, word of mouth, pay them directly). Shippers are the hard side because they need trust, reliability, SLA guarantees. So own that side first as a service (API or white-label), then graduate to the platform once you have 50+ consistent merchant relationships. Uber did the inverse because driver supply was constrained, not demand.\n\nThe sockpuppet thing works tactically but it's expensive and creates bad incentives. You end up optimizing for fake engagement instead of real margins. Better: pre-commit to a specific geography, manually service both sides for 6 months, measure NPS, then open it up.",
+      "age": "2 minutes ago",
+      "points": 13,
+      "kids": [
+        {
+          "id": "uu8bm371",
+          "by": "GreenMesh99",
+          "time": null,
+          "parent": null,
+          "text": "This matches my experience building a courier network back in 2015. We started by doing deliveries ourselves (three of us, evenings after day jobs) while simultaneously recruiting drivers through Craigslist and Facebook groups. The counterintuitive part: merchants didn't care about our platform at first. They cared that we showed up, didn't lose their packages, and undercut FedEx Ground by 40%. Once we had 200+ completed deliveries under our belt, the pitch to new merchants became \"here's proof we're reliable\" instead of \"here's a cool app.\" The drivers side solved itself once merchants actually had consistent work. By month six we had enough activity that the platform UI actually mattered. Before that it was just a spreadsheet and texts. The \"own the hard side first\" framing is exactly right. For us the hard side was the merchant relationships because they had existing workflows and were risk-averse. We had to white-label the whole thing, just invoicing through email for the first year.",
+          "age": "1 hour ago",
+          "points": 10,
+          "kids": []
+        },
+        {
+          "id": "y6ganq4o",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly the constraint-finding framework I needed to hear. You're right that we've been thinking about driver supply as the bottleneck when it's actually merchant trust. I'm going to pivot to building out a white-label service for 3-5 specific businesses first, get their feedback on reliability and SLAs, then open up the platform once we have real operational data. Thanks for the reframe.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "siaqdrqi",
+              "by": "OddEmber7",
+              "time": null,
+              "parent": null,
+              "text": "I'd actually flip this: white-label first is smart operationally, but you're still solving the wrong constraint. The real bottleneck isn't merchant trust in your service, it's merchant awareness that this problem exists as a separate product. Most small shippers don't think \"I need a specialized delivery platform,\" they think \"UPS is expensive.\" Your white-label approach helps, but you'll hit a ceiling because you're still doing all the sales legwork yourself. Consider instead: pick one specific merchant vertical (dental supply distributors, local bakeries, whatever) where reliable same-day delivery is actually a pain point they complain about, and solve *that* obsessively first. Then the next 20 in that vertical sell themselves because word travels fast in tight industries. The platform opens naturally once you own a vertical.",
+              "age": "15 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7ev6h369",
+      "by": "wise_spark7",
+      "time": null,
+      "parent": null,
+      "text": "The Reddit example keeps getting cited, but does anyone actually know how many sock puppets they needed before the network effect kicked in? I've seen startups burn serious cash on fake activity that never converted to real retention. The \"cheat to kickstart\" advice assumes the fake side will naturally graduate to real users once momentum builds, but in a delivery marketplace that's risky - you're training drivers to accept orders from ghost accounts. How do you even transition them over without breaking trust?",
+      "age": "1 hour ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "bhkf2aml",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "You're hitting on the real tension here. I think the Reddit example is misleading because their sock puppets were mostly creating content in existing communities, not simulating marketplace demand that needs to convert to real transactions.\n\nFor a delivery marketplace specifically, you're right that ghost orders are dangerous. Drivers who accept fake jobs and then show up to ghost addresses lose trust fast. I've been thinking about this differently: what if the \"cheating\" phase is just you doing one side manually while you validate the other side is real?\n\nSo instead of fake orders, I post on Craigslist offering actual money for deliveries (even if I'm subsidizing heavily), prove there's real work, get real drivers signed up. Then I go sell that driver availability to businesses. The drivers aren't trained on ghosts, they're trained on real jobs at a loss leader price. Once I have 5-10 drivers with 50+ completed jobs each, I can credibly pitch businesses on reliability.\n\nThe ghost-to-real transition problem you mention is exactly why I think the manual heavy-lifting approach matters more than the fake-activity approach. You're not trying to fool anyone, you're just accepting the unit economics are bad until you hit critical mass on both sides.\n\nDoes that match what you were getting at, or do you see holes in it?",
+          "age": "1 hour ago",
+          "points": 32,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "0wlouugu",
+      "by": "VastMesh_",
+      "time": null,
+      "parent": null,
+      "text": "I did this for a food delivery platform in 2019. Spent the first month literally taking orders myself, biking them across the city at a loss just to get real data on timing and routes. Once I had 20 paying restaurants locked in, recruiting drivers became trivial because there was actual work to show them. The marketplace didn't exist until I proved the unit economics worked with my own legs.",
+      "age": "1 hour ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "pwbq740o",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly what I'm going to do. The \"prove unit economics with your own labor first\" angle resonates way more than trying to bootstrap both sides simultaneously. Did you find the 20 restaurants came from cold outreach or existing relationships?",
+          "age": "47 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "0ec5wztd",
+              "by": "lazycable",
+              "time": null,
+              "parent": null,
+              "text": "Mostly cold outreach, but I'd already spent 2 years in food service so I knew the pain points. Hit up about 80 restaurants with a simple pitch: \"I'll handle delivery logistics, you keep 100% of food margin.\" Got rejections from corporate chains (they had their own), but indie spots were desperate. The first 5 were rough (low order volume, timing misses), but once I optimized the routes based on actual data from my own deliveries, the 6th–10th came way easier. They saw the system working.",
+              "age": "1 hour ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "tnhu0qw6",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly what I needed to hear. The \"prove unit economics with your own labor first\" approach makes so much sense - I've been trying to build the product in a vacuum. Going to spend the next month doing what you did: lock in 10-15 restaurants, do the deliveries myself, get real timing data. Then recruiting drivers becomes a completely different conversation. Thanks for the concrete example.",
+          "age": "10 minutes ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "tv6ymphh",
+          "by": "mildspark",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly right. I did something similar with a local service platform in 2018, and the \"doing the work yourself first\" part is non-negotiable. You learn things no amount of user research can teach you. The timing constraints, the actual pain points drivers face, what restaurants actually need operationally. I spent 3 weeks as my own driver and it completely changed how I prioritized features. Once I had proof of concept with real volume (about 40 orders/week), onboarding the second side became straightforward because I could say \"here's the actual demand\" instead of asking for faith.",
+          "age": "12 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "ng6mzo6e",
+              "by": "badge27",
+              "time": null,
+              "parent": null,
+              "text": "The \"do it yourself first\" part is critical, but I'd add that you need to measure what you're learning. Paul Graham wrote about this in the Airbnb essay – they didn't just take photos of apartments, they tracked which listings converted, what questions hosts asked, how long viewings took. That data shaped every product decision.\n\nIn the delivery space specifically, you're learning labor costs, actual pickup/dropoff times (not estimates), customer acquisition friction, and churn drivers. Document all of it. After 40 orders you should know your unit economics cold – cost per delivery, gross margin if you added a 20% platform fee, what driver retention looks like at different earnings rates.\n\nThe tricky part people skip: once you onboard real drivers, they'll expose feature gaps you never anticipated as a solo operator. Routes, scheduling, rating systems. Don't just count orders – track where the platform friction is.",
+              "age": "44 minutes ago",
+              "points": 6,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pqcgrsve",
+      "by": "deep_wagon2",
+      "time": null,
+      "parent": null,
+      "text": "The Reddit example actually cuts both ways. Yes, they faked early activity, but what they really did was solve the cold start by being a platform FOR content, not a marketplace matching two economic actors. The hard part of your problem isn't visibility, it's that drivers need consistent work and businesses need reliable service on day one. You can't fake that. The moment a business tries your platform and waits 20 minutes for a driver, you've lost them forever. That's why the \"become one side yourself\" advice keeps winning. You need real supply and real demand simultaneously, or at least the credible promise of one when you onboard the other. Craigslist/Facebook to find drivers is smart because you're not asking them to trust your platform, you're asking them to work. Then they see the platform is real because it actually routes them jobs.",
+      "age": "1 hour ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "qrnpni99",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "You're right that consistency is the hard part. I've been thinking about this wrong - I can't just match supply and demand, I need to guarantee both sides show up reliably or the whole thing collapses. \n\nMy plan is to start by picking one neighborhood, personally doing 10-15 deliveries a week myself while recruiting drivers through local channels, then only onboarding businesses once I have 3-4 committed couriers. That way when a shop tries us, someone's actually there. Will report back on whether this works better than the product-first approach.",
+          "age": "22 minutes ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "398bpqo9",
+              "by": "weary_thread",
+              "time": null,
+              "parent": null,
+              "text": "This is exactly what Instacart did before they had the logistics figured out. They'd batch orders themselves, sometimes losing money on deliveries, just to prove the model worked in specific neighborhoods. Once they had 3-4 reliable zones with consistent demand, they could recruit and retain drivers because there was actually work for them.",
+              "age": "20 minutes ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "79icmnhb",
+      "by": "throwaway_5446",
+      "time": null,
+      "parent": null,
+      "text": "One thing nobody mentions about the cold start problem is that you often need to pick a *geographic constraint* that makes the chicken-and-egg dynamics tractable. I ran a task marketplace for handymen about five years ago, and the eureka moment wasn't some clever incentive structure - it was narrowing down to a single neighborhood in Portland.\n\nWhy does this matter? Because you can actually *know* the supply side. I spent two weeks literally knocking on doors of handymen, talking to them about what kind of work they wanted, what their availability looked like. Not as a customer, but as someone trying to understand their actual pain. Some of them weren't even registered anywhere - they just worked via referral networks. I signed up seven of them for the platform with a direct conversation, not through Craigslist.\n\nThen I could tell the demand side (homeowners looking for plumbing fixes, cabinet repairs, whatever) that I had these specific people available on Thursday afternoon. It felt less like \"here's a platform with maybe someone available\" and more like \"here are your options.\" The conversion difference was night and day.\n\nOnce you're running jobs regularly in one neighborhood, you've got actual data about velocity, pricing, what jobs cluster together. You can use that to expand to the next metro area or neighborhood. But trying to bootstrap both sides simultaneously across a whole city or region just doesn't work unless you're burning enough venture capital to subsidize your way through.\n\nThe sock puppet thing works at massive scale (see: Instagram's early user generation), but for a marketplace that's still finding product-market fit, your actual presence and relationships in a tight geography are way more valuable.",
+      "age": "1 hour ago",
+      "points": 39,
+      "kids": [
+        {
+          "id": "ngux2ywf",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly what I've been missing. The geographic constraint reframes the whole problem - instead of abstractly optimizing incentives, you're building a real network in a place where you can actually show up and have conversations. The door-knocking part sounds unglamorous but it makes sense that you'd learn way more about what handymen actually want than from surveys or signup funnels.\n\nI'm going to try this in a single neighborhood here. Start with supply (the couriers/drivers), not demand. Get maybe 10-15 people actually committed, then go recruit businesses who need them. Much more tractable than trying to balance both sides from zero.\n\nDid you find that once you had supply locked down, demand came naturally? Or did you still need to actively recruit businesses?",
+          "age": "11 minutes ago",
+          "points": 11,
+          "kids": [
+            {
+              "id": "6o0zqqyd",
+              "by": "lantern42",
+              "time": null,
+              "parent": null,
+              "text": "The geographic constraint angle is underrated because it solves the visibility problem that pure incentives can't touch. When you're in one neighborhood, you can actually see demand signals in real time. A handyman gets three requests in a week from people he already knows, or neighbors of past clients. That's not abstract growth hacking, that's just observable reality.\n\nThe door-knocking part also lets you filter for people who are actually serious. Someone who'll sit down and talk about their business for 20 minutes is way more likely to engage with a platform than someone who just fills out a signup form. You learn their real constraints too: maybe they're already booked through their own network and don't need more work, or maybe they're desperate for something better than cash-in-hand gigs. That information shapes everything about your supply-side strategy.\n\nOnce you've got 8-12 active couriers in one neighborhood and they're consistently getting work, the demand side accelerates on its own. New businesses in the area hear about it from neighbors. You can then expand to the next neighborhood with proof that the model works. Geographic compression lets you move fast because you can do in-person iterations instead of tweaking algorithm incentives for months.",
+              "age": "1 hour ago",
+              "points": 9,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "q1zj4f26",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly what I've been missing. The geographic constraint angle makes so much sense - you're right that it shifts the problem from \"how do I get both sides simultaneously\" to \"how do I saturate this one neighborhood.\" I'm going to start with a single zip code instead of trying to go city-wide. Thanks for the concrete example, this changes my approach significantly.",
+          "age": "1 hour ago",
+          "points": 11,
+          "kids": []
+        },
+        {
+          "id": "nojf6glu",
+          "by": "tk202",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly the insight I was missing. Geographic constraint makes total sense - you reduce the problem from \"build two sides of a marketplace\" to \"saturate one neighborhood with supply, then match it.\" I've been thinking about this wrong.\n\nDid you find that once you had density in that first neighborhood, expanding to adjacent areas was straightforward? Or did each new zone require the same door-knocking effort?",
+          "age": "5 minutes ago",
+          "points": 11,
+          "kids": []
+        },
+        {
+          "id": "wdza9ycx",
+          "by": "grey_maple",
+          "time": null,
+          "parent": null,
+          "text": "The geographic constraint angle is solid, but I'd push back on the framing. You didn't solve cold start by narrowing down - you solved it by becoming the supply side yourself. Two weeks knocking on doors is basically the sockpuppet strategy but honest. You were manually matching until the platform became useful. Most founders skip that part because it doesn't scale, then wonder why the marketplace stays empty.",
+          "age": "7 minutes ago",
+          "points": 4,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "jayq6q7b",
+      "by": "uv604",
+      "time": null,
+      "parent": null,
+      "text": "The cold start problem for marketplaces really does boil down to manual effort, but I'd frame it differently than just \"cheating\" or faking activity.\n\nWhat works is starting with the supply side that requires less coordination. Delivery is a good example because individual drivers will join if there's even sporadic work. So you recruit 5-10 drivers first (via Craigslist, Facebook, local cycling groups), maybe even do some runs yourself to prove the concept works. Then you go to businesses with a concrete pitch: \"I have 8 drivers available tomorrow morning. Can I help you move a box?\"\n\nThe key insight is that businesses care about *reliability*, not platform size. One driver who shows up is infinitely more useful than a marketplace with no one home. Once you have 10 businesses using you weekly, those drivers see consistent work and actually stick around. Then the flywheel starts.\n\nCompare this to Uber's early approach: they gave away $20 rides to supply (drivers) and subsidized trips for demand (riders). That's expensive and scales poorly. But it worked because they solved the coordination problem first (the app), then bought attention with cash.\n\nFor a local courier marketplace, you don't need the app to be perfect initially. You need businesses to have a phone number that gets answered, and drivers to have jobs. The platform comes after you've proven the unit economics work.",
+      "age": "1 hour ago",
+      "points": 24,
+      "kids": []
+    },
+    {
+      "id": "vwfo6a5a",
+      "by": "LostLantern99",
+      "time": null,
+      "parent": null,
+      "text": "This reminds me of how Airbnb solved the same problem on the supply side. They literally went to New York, knocked on doors of rent-controlled apartment owners, and professionally photographed their places. The hosts didn't even know they were on Airbnb at first-the team just made the listings gorgeous and the bookings followed. Sometimes you have to do the work your users aren't ready to do yet.",
+      "age": "54 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "c5w1lwd7",
+          "by": "MildWagon",
+          "time": null,
+          "parent": null,
+          "text": "The Airbnb example is interesting but I think it undersells how different their constraints were. They had a huge existing travel market (hotels, hostels) to pull from, plus a built product that could actually display those gorgeous photos. They could manually curate 50 supply-side units and it would *work* because the demand side was already trained to look for accommodations.\n\nA delivery marketplace is trickier. You need critical mass on both sides just to prove the core loop works. One professionally photographed apartment listing can get bookings. One driver available 9am-5pm on Tuesdays doesn't move the needle for a business with ad-hoc shipping needs scattered across the week.\n\nI think the real lesson from Airbnb is picking your beachhead market where you can actually do the heavy lifting (NYC with photographers, or in this case, maybe a single dense neighborhood where you and friends can be the delivery fleet for week one). But the scale dynamics are just not the same.",
+          "age": "6 minutes ago",
+          "points": 4,
+          "kids": []
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:27:39.548Z"
+}

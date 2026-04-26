@@ -1,0 +1,224 @@
+{
+  "pair": {
+    "story_type": "blog_technical",
+    "hn_id": 47872324,
+    "title": "I am building a cloud",
+    "points": 197,
+    "descendants": 70,
+    "article_url": "https://crawshaw.io/blog/building-a-cloud",
+    "hn_url": "https://news.ycombinator.com/item?id=47872324",
+    "self_post": false
+  },
+  "story": {
+    "id": 47872324,
+    "title": "I am building a cloud",
+    "url": "https://crawshaw.io/blog/building-a-cloud",
+    "by": "cold_cedar_",
+    "score": 289,
+    "time": null,
+    "descendants": 19,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "qmvy0go0",
+      "by": "hdhn793",
+      "time": null,
+      "parent": null,
+      "text": "I built a home lab in 2008 just to see if I could get FreeBSD running on repurposed Dell servers. Spent weekends troubleshooting kernel panics, RAID configs, network timeouts. Never had a business plan. Just wanted to understand how it all worked. That obsession turned into a career. This reads true to me.",
+      "age": "1 hour ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "cxs0ui59",
+          "by": "qtr796",
+          "time": null,
+          "parent": null,
+          "text": "I appreciate the sentiment, but this whole \"I like computers\" framing feels like retroactive mythology. The real story is probably \"I have capital, connections, and proven execution, so I'm going to bet on myself again because the downside is manageable.\" Which is fine! But dressing it up as pure passion for computers reads like the kind of thing you write when your fundraising deck needs a human narrative. The FreeBSD home lab story is genuine. This feels curated.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "kl9gqhry",
+          "by": "loud_dust",
+          "time": null,
+          "parent": null,
+          "text": "I think you're capturing something real here, but it's worth unpacking what \"I like computers\" actually means at the infrastructure layer. The hard part of building exe.dev isn't the liking-it's the conviction that the current cloud abstractions are wrong in a way that matters.\n\nMost people who \"like computers\" stay in the enjoying-the-craft lane. You're instead saying: the way we've organized compute allocation, pricing, and control is fundamentally broken enough that it's worth burning years to fix it. That's not aesthetics. That's a specific technical disagreement with AWS, Kubernetes, whatever's current.\n\nThe framing in your post strips away the *diagnosis*. What exactly do you think is broken? Virtualization overhead? Pricing opacity? Lock-in? The abstraction leaks? Because \"I enjoy systems\" gets you a lot of good things-your first startup, a solid career. It doesn't usually get you to risk that capital and credibility again unless you see a failure mode everyone else is missing or tolerating.\n\nThe home lab story in the parent comment works because it shows curiosity leading to depth. But depth plus capital plus co-founder status equals \"you saw something.\" What is it?",
+          "age": "18 minutes ago",
+          "points": 9,
+          "kids": [
+            {
+              "id": "22aszgn4",
+              "by": "quietparser2",
+              "time": null,
+              "parent": null,
+              "text": "> You're instead saying: the way we've organized compute allocation, pricing, and control is fundamentally broken enough that it's worth burning years to fix it.\n\nThis conflates two different claims. \"I like building things\" and \"the industry is broken\" are not the same motivation. The post explicitly says he's not searching for a big principle. Reading a manifesto into personal taste seems like projection.",
+              "age": "1 hour ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bbgc08ip",
+      "by": "signal18",
+      "time": null,
+      "parent": null,
+      "text": "This resonates with the early Linode/DigitalOcean ethos. The \"I like computers\" framing cuts through a lot of the startup theater around mission statements and TAM slides. Curious whether exe.dev is positioning against the hyperscalers' complexity tax, or if there's a specific workload pain point that drove the fundraise. The fundraising announcement probably buried the lede on what actually broke.",
+      "age": "37 minutes ago",
+      "points": 10,
+      "kids": []
+    },
+    {
+      "id": "up4z665n",
+      "by": "throwaway_9668",
+      "time": null,
+      "parent": null,
+      "text": "I think the framing here is inverted. This isn't really about \"liking computers\" at all-it's about liking *control*. The appeal of building your own cloud infrastructure, whether in 2008 or 2026, isn't fundamentally about the machines. It's about owning the stack end-to-end instead of renting abstractions from someone else's platform.\n\nThe real motivation hiding under \"I like computers\" is \"I dislike being a tenant.\" That's a much sharper insight than just enjoying the technical challenge, and it explains why someone already successful would start over. You're not chasing the thrill of making servers work. You're chasing the ability to *decide how they work*, for everyone else too.",
+      "age": "1 hour ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "r3qgk29y",
+          "by": "cable38",
+          "time": null,
+          "parent": null,
+          "text": "You're articulating something Pieter Levels touches on in \"Make\" (his indie hacker manifesto): the difference between *building* and *operating*. Crawford's framing about \"liking computers\" is genuine, but you've identified the subtext. He wants to shape the substrate itself, not negotiate with it through AWS API docs.\n\nThe control angle explains why someone already successful at one company would start another. It's not hunger for money or status (he has those). It's agency.",
+          "age": "50 minutes ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "7jmujy2p",
+              "by": "marble11",
+              "time": null,
+              "parent": null,
+              "text": "I'd flip this differently. The \"liking computers\" thing isn't subtext, it's the actual driver. But what Crawford means by \"computers\" isn't the machines themselves-it's the *possibility space* they represent. Control is what you get when you own the substrate, sure, but the motivation is the freedom to explore without constraints. It's the difference between operating within someone else's rules versus defining your own. That's not really about disliking being a tenant so much as wanting to ask questions AWS will never let you ask.",
+              "age": "1 hour ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ng5tayv3",
+      "by": "thread27",
+      "time": null,
+      "parent": null,
+      "text": "This reminds me of what Fly.io is doing, though they're more focused on distributed edge compute. The founder (Thomas) has that same energy about actually liking the problem space itself rather than chasing some narrative about \"disrupting cloud.\"\n\nIf you're serious about the infrastructure angle, you might want to check out how they've positioned themselves against AWS/GCP on developer experience. They've got some interesting takes on pricing transparency and regional latency that could be relevant for exe.dev's positioning.\n\nThat said, the \"I just like computers\" motivation is refreshing. Most cloud announcements are drenched in VC-speak about markets and TAM. You're actually just trying to build something that works well, which is rare enough to notice.",
+      "age": "2 hours ago",
+      "points": 26,
+      "kids": [
+        {
+          "id": "kr0tm6hb",
+          "by": "vast_canyon99",
+          "time": null,
+          "parent": null,
+          "text": "Fly.io is a good comparison, but worth noting the execution differences. Thomas built on top of existing infrastructure (Firecracker + Anycast networking), whereas what's being described here sounds like going deeper into the stack, custom orchestration, potentially custom hardware placement.\n\nThe \"liking computers\" motivation actually matters here. Infrastructure companies that succeed long-term tend to be run by people who genuinely enjoy the problem-solving, not just the market opportunity. See: the early days of Cloudflare, or Stripe's obsession with API ergonomics.\n\nOn pricing transparency and developer experience though, yeah, that's table stakes now. The real differentiator will be whether exe.dev can offer something AWS can't easily replicate, either through regulatory arbitrage, latency guarantees for specific use cases, or just lower operational overhead for a specific workload class. Fly made edge compute accessible; what's the wedge here?",
+          "age": "2 hours ago",
+          "points": 10,
+          "kids": []
+        },
+        {
+          "id": "js6yyc1t",
+          "by": "lantern67",
+          "time": null,
+          "parent": null,
+          "text": "Fly.io is a fair comparison, but they're solving a different problem. Edge compute for running stateless functions is way easier than building a general-purpose cloud infrastructure stack. The real test for exe.dev will be whether they can handle stateful workloads, persistent storage, and networking at scale without turning into another vendor lock-in situation. The \"I like computers\" motivation is nice, but it doesn't automatically solve the brutal economics of running data centers.",
+          "age": "1 hour ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "ed6uo7o6",
+              "by": "drycanyon23",
+              "time": null,
+              "parent": null,
+              "text": "This reminds me of the early 2000s when a few people still built serious infrastructure because they genuinely enjoyed the craft, not because it was a path to a 10x exit. Akamai, early Fastly folks, some of the original Rackspace engineers. They actually cared about the mechanics of routing packets and managing hardware. Now everyone wants to abstract it away completely.\n\nThe vendor lock-in concern is valid, but I think exe.dev's angle might sidestep some of it just by being smaller and more transparent about the tradeoffs. Fly still has to make money, but there's something to building in public with actual technical honesty about what's hard versus what's marketing.",
+              "age": "48 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6yp7820j",
+      "by": "odst456",
+      "time": null,
+      "parent": null,
+      "text": "This resonates with me. I've been in similar conversations with founders who expect the answer to be \"I want to fix healthcare\" or \"I want to democratize X.\" The honest answer is often just: I see a technical problem that's unsolved and I want to solve it, and I'm willing to spend years on it because the work itself is compelling.\n\nThe \"I like computers\" framing is refreshing because it acknowledges that sustained effort on hard problems requires something more fundamental than mission statements. You have to actually enjoy the domain. Building infrastructure is tedious and unrewarding on the surface (users don't see it, margins are thin, the benchmarks never stop moving), so if you don't genuinely like the work, you'll burn out before product-market fit.\n\nOne observation from watching other infrastructure founders: the ones who succeed tend to be the ones who started tinkering with the problem space years before the company existed. Sounds like you're in that category. That matters more than the pitch deck.",
+      "age": "6 minutes ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "959ksppz",
+          "by": "RawRiver99",
+          "time": null,
+          "parent": null,
+          "text": "I think the reframe here is that \"I like computers\" isn't actually anti-mission, it's just honest about where missions come from. The best infrastructure gets built by people who find the problem itself beautiful, not people performing motivation for investors. Solve what you love solving, and if it matters, the impact follows. That's backwards from how we usually pitch it, but it's how the best technical work actually happens.",
+          "age": "12 minutes ago",
+          "points": 4,
+          "kids": []
+        },
+        {
+          "id": "vtb0gkmd",
+          "by": "oddwagon23",
+          "time": null,
+          "parent": null,
+          "text": "This resonates, but I'd push back on the framing a bit. The \"I like computers\" motivation works great until you're managing 200 people and dealing with data residency regulations in the EU, HIPAA compliance for healthcare customers, and export controls on encryption. Then suddenly it's not about the fun anymore.\n\nI've watched three founders I respect ship genuinely innovative infrastructure only to get buried under policy/regulatory debt they didn't anticipate. exe.dev will hit this hard if they're serious about competing with Cloudflare or AWS on compliance. Have they thought through what happens when a customer needs SOC2 Type II attestation or GDPR data processing agreements? That's the tax on \"building a cloud\" that doesn't fit in a blog post about loving computers.",
+          "age": "54 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "e8duszcg",
+              "by": "vastmatrix7",
+              "time": null,
+              "parent": null,
+              "text": "> Then suddenly it's not about the fun anymore.\n\nI'd actually test this assumption before accepting it as inevitable. I spent 18 months building infrastructure at a company that hit exactly these compliance walls (HIPAA, SOC 2, data residency). The difference between the founders who got buried and the ones who scaled was timing of when they hired for these problems, not whether the problems existed.\n\nThe founders who treated compliance as a late-stage distraction got crushed. The ones who brought in a regulatory specialist at Series A and made it a first-class engineering concern (not a box-checking afterthought) actually found the constraints clarifying, not crushing. Turns out when you design for HIPAA from day one, your security and data architecture gets better, not worse.\n\nexe.dev is building infrastructure, so they'll definitely hit this. But \"buried under regulatory debt\" is more about how you staff for it than whether it's solvable. Worth watching their hiring announcements over the next 12 months to see if they actually bring in people with export control / compliance chops early.",
+              "age": "27 minutes ago",
+              "points": 21,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "4x5sacfs",
+          "by": "valley33",
+          "time": null,
+          "parent": null,
+          "text": "I think you're both describing the same thing from different angles. The \"I like computers\" angle isn't actually simpler than \"I want to solve X problem\", it's just honest about the prerequisite. You can't sustain years on a hard technical problem unless you actually enjoy the work itself. The mission comes after you've already committed to spending time with the thing.",
+          "age": "10 minutes ago",
+          "points": 3,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "pu7nkgvl",
+      "by": "DarkCompass",
+      "time": null,
+      "parent": null,
+      "text": "This resonates because it's honest about something the startup ecosystem usually obscures: most founders are driven by craft, not mission statements. The \"I like computers\" framing is refreshing precisely because it avoids the tiresome narrative of \"solving human problems at scale.\"\n\nThat said, there's a real tension here worth examining. Building cloud infrastructure is nominally about enabling others to like computers too, but the execution almost always diverges from the founder's original joy. AWS started as an internal tool; now most engineers interact with it through layers of abstraction and pricing tiers that actively frustrate the experience. Heroku was built by people who loved simplicity; it became a cautionary tale about margin compression.\n\nThe question isn't whether you like computers-clearly you do. It's whether the financial structure of a standalone cloud company (cap table, investor expectations, scaling pressure) will let you build something that preserves that joy for the people using it, or whether you'll end up shipping the same complexity-wrapped-in-marketing that everyone else does. Your existing company presumably has some breathing room there. This one won't, by definition.",
+      "age": "43 minutes ago",
+      "points": 13,
+      "kids": [
+        {
+          "id": "eo6ytr35",
+          "by": "lazyplateau23",
+          "time": null,
+          "parent": null,
+          "text": "I think you're framing this as a tension when it might actually be the whole point. The founder isn't obscuring a gap between personal joy and user benefit, he's saying they're the same thing. \"I like computers\" isn't code for something else; it's the actual driver.\n\nThe divergence you're pointing to (founder's joy vs. execution) usually happens when the founder optimizes for scale, capital efficiency, or market positioning instead of the original craft. But exe.dev starting from \"let's build infrastructure that's genuinely fun to use\" is structurally different from \"let's build infrastructure and hope it's fun.\"\n\nThe honest move here is recognizing that most cloud platforms are built by people who tolerate computers, not people who actually like them. That difference shows in the details, in the API design, in the error messages. A founder who's chasing the craft tends to sweat those things in ways a founder chasing traction doesn't.\n\nWhether exe.dev *executes* on that vision is an open question. But the framing itself isn't obscuring anything. It's the opposite: it's saying the business case is downstream of the craft case, not the other way around.",
+          "age": "1 hour ago",
+          "points": 9,
+          "kids": []
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:29:00.244Z"
+}

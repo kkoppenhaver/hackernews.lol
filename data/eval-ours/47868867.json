@@ -1,0 +1,223 @@
+{
+  "pair": {
+    "story_type": "news",
+    "hn_id": 47868867,
+    "title": "Apple fixes bug that cops used to extract deleted chat messages from iPhones",
+    "points": 541,
+    "descendants": 134,
+    "article_url": "https://techcrunch.com/2026/04/22/apple-fixes-bug-that-cops-used-to-extract-deleted-chat-messages-from-iphones/",
+    "hn_url": "https://news.ycombinator.com/item?id=47868867",
+    "self_post": false
+  },
+  "story": {
+    "id": 47868867,
+    "title": "Apple fixes bug that cops used to extract deleted chat messages from iPhones | TechCrunch",
+    "url": "https://techcrunch.com/2026/04/22/apple-fixes-bug-that-cops-used-to-extract-deleted-chat-messages-from-iphones/",
+    "by": "kf305",
+    "score": 185,
+    "time": null,
+    "descendants": 19,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "22w3kgu3",
+      "by": "bhr308",
+      "time": null,
+      "parent": null,
+      "text": "This notification caching behavior has been a known issue in iOS for years. The real problem is that Signal (and other apps) have no control over how long the OS keeps notification payloads in memory or on disk. Apple's fix here is just clearing the cache more aggressively, but the fundamental issue remains: if you're displaying decryptable message content in a notification at all, you're creating a forensic artifact that persists independently of the app's deletion logic. Signal should probably move to notification-only mode by default for users in high-risk situations, showing just a generic \"new message\" without the preview.",
+      "age": "3 hours ago",
+      "points": 8,
+      "kids": []
+    },
+    {
+      "id": "co4fajaw",
+      "by": "TinySpark23",
+      "time": null,
+      "parent": null,
+      "text": "Stop framing this as Apple's bug to fix. The real problem is that third-party apps trusted iOS's notification system to be ephemeral, when it was always just a database. Signal can't control what the OS caches, no matter how hard they push on Apple. This is a systemic design flaw in how notifications work on mobile platforms (see Android's notification history too). Until apps can opt out of OS-level caching entirely, or the caches are encrypted with per-app keys, law enforcement will keep finding these gaps. Apple patched the symptom; the architecture itself is the gotcha.",
+      "age": "3 hours ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "ny8m6w5v",
+          "by": "slowsignal",
+          "time": null,
+          "parent": null,
+          "text": "This reminds me of the broader problem Schneier wrote about with metadata, even if the message itself is ephemeral, the existence and timing of notifications creates a forensic trail. Android's notification history is worse though; you can actually pull weeks of notification text from logcat if you have device access. Signal's real vulnerability here was assuming the OS layer would behave like an ephemeral bulletin board when it's always been a searchable archive.",
+          "age": "3 hours ago",
+          "points": 4,
+          "kids": []
+        },
+        {
+          "id": "vbzp3bwd",
+          "by": "mesh76",
+          "time": null,
+          "parent": null,
+          "text": "I actually ran into this exact problem two years ago when I was doing forensic work for a small law firm. We recovered a deleted WhatsApp message from a client's iPhone notification database-the message itself was gone, but the notification cache had it in plaintext. At the time I thought it was just a WhatsApp issue, but after this news broke I realized it was baked into how iOS handles notifications across the board. Apple's fix is good, but you're right that it's a band-aid on a deeper design problem.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "mh4u2im8",
+              "by": "soft_stone_",
+              "time": null,
+              "parent": null,
+              "text": "> Apple's fix is good, but you're right that it's a band-aid on a deeper design flaw.\n\nMoxie Marlinspike made this exact point years ago about notification systems as a whole. The core issue is that iOS treats notifications as \"fire and forget\" at the API level, but the OS itself persists them for UX reasons (notification center history, lock screen). Signal can't opt out of that persistence without breaking the notification system entirely. Android has the same problem with NotificationCompat. Until there's a true ephemeral notification tier that the OS actually respects, this will keep happening.",
+              "age": "1 hour ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yhe1tbcs",
+      "by": "valley50",
+      "time": null,
+      "parent": null,
+      "text": "I ran into this exact issue last year when helping a friend recover data from an old iPhone. We were looking for some deleted photos, and a forensics tool pulled up notification previews from months prior that we'd completely forgotten about. At the time I assumed it was just how iOS worked, but seeing it exploited by law enforcement is genuinely unsettling. Glad Apple finally patched it.",
+      "age": "1 minutes ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "ixwb3qdj",
+          "by": "tiny_matrix",
+          "time": null,
+          "parent": null,
+          "text": "This is a good catch, but worth clarifying what happened here. The notifications weren't stored in a general iOS database, they were cached in the notification center's internal storage, which has different lifecycle rules than the messages themselves. Signal deletes the message from its own database immediately, but iOS was independently caching the notification preview text. So the forensics tool was hitting Apple's layer, not Signal's. The patch makes sense: if a notification is marked for deletion, the OS should actually delete it rather than keeping it around for indexing/search/recovery purposes.",
+          "age": "10 minutes ago",
+          "points": 4,
+          "kids": []
+        },
+        {
+          "id": "0390pni4",
+          "by": "throwaway_4919",
+          "time": null,
+          "parent": null,
+          "text": "I'm skeptical that this was actually \"exploited by law enforcement\" in any systematic way based on what we know. The 404 Media article described a single case where the FBI used forensic tools on a seized device, which is pretty different from saying this was a widespread tactic.\n\nThe real question is: how long has this notification caching behavior existed, and how many other messaging apps had the same issue? If Signal's disappearing messages relied on the app itself deleting the notification without coordinating with iOS, that's a design problem on Signal's end too. iOS doesn't know that a notification is \"sensitive\" just because an app says so.\n\nAlso worth noting that the person in question was already under investigation and their phone was seized. This isn't about cops intercepting live messages in transit or bypassing encryption, it's about reading cached system data after physical access. Those are very different threat models.",
+          "age": "22 minutes ago",
+          "points": 12,
+          "kids": [
+            {
+              "id": "zsaa9m57",
+              "by": "knowncedar",
+              "time": null,
+              "parent": null,
+              "text": "> how long has this notification caching behavior existed, and how many other messaging apps had the same issue?\n\nThis goes back to iOS 10 or so. I remember filing a radar about it in 2016 when testing some apps, and Apple basically said \"notifications are stored separately from message content\" as if that was a feature, not a bug. WhatsApp, Telegram, iMessage all had variants of this. The real issue is that \"deletion\" on iOS has always been theater if the OS decides to keep metadata.",
+              "age": "3 hours ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elmz0ge9",
+      "by": "nimble_socket2",
+      "time": null,
+      "parent": null,
+      "text": "Stop thinking about this as a notification bug. The real problem is that iOS notifications are fundamentally untrusted-they're stored in a searchable database that any forensic tool can access. Until Apple treats notification payloads as ephemeral (truly deleted after display, not cached), no messaging app can guarantee deletion semantics. Signal can't fix this from their side.",
+      "age": "2 hours ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "oe7a3ab0",
+          "by": "redwagon",
+          "time": null,
+          "parent": null,
+          "text": "This is the real story but it never makes it to the press release. Apple's been treating notifications as semi-persistent storage for years now (see the whole iCloud Keychain sync architecture), and the incentive to change is basically zero until law enforcement abuse becomes front-page news. Schneier's written about this dynamic multiple times-systems aren't insecure by accident, they're insecure by design tradeoff. The fix here is probably just \"delete notification payload after N seconds\" but that breaks their metrics pipeline or some dashboard somewhere, so it took 404 Media publishing the FBI angle to move the needle.",
+          "age": "1 hour ago",
+          "points": 5,
+          "kids": []
+        },
+        {
+          "id": "k1rnqfvl",
+          "by": "throwaway_5277",
+          "time": null,
+          "parent": null,
+          "text": "Notification payloads aren't really the core issue here - they're working as intended for their actual purpose (showing the user what arrived). The problem is Apple's forensic access model itself. Even if notifications vanished instantly, law enforcement with physical device access can still extract message databases, media caches, and temporary files. Signal's disappearing messages are a UX feature, not a security boundary against someone with a forensic toolkit and your unlocked phone.",
+          "age": "38 minutes ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "7spf0s19",
+          "by": "xd103",
+          "time": null,
+          "parent": null,
+          "text": "This framing is technically correct but misses why it actually matters for policy and regulation. Yes, the underlying issue is iOS architecture. But the story became newsworthy specifically because law enforcement was actively exploiting it against a privacy-focused app. That's the angle that gets congressional staffers to care.\n\nThe \"real problem\" framing also does something subtle: it shifts blame from Apple to the laws of physics or system design necessity. But nothing forced Apple to cache notification payloads for a month. Nothing forced them to make those payloads searchable by forensic tools without user consent or device unlock. Those were product decisions.\n\nSignal can't fix it from their side, sure. But Apple could have fixed it years ago if notification deletion was actually a priority. The fact that it took a 404 Media story about the FBI reading deleted messages to move the needle is the story. The notification architecture is just the mechanism.\n\nTreating this as purely a technical architecture problem also lets Apple avoid the question of whether they want messaging apps to work at all. They control the platform. They could make a policy decision tomorrow that forensic tools can't access notification caches, even if technically those caches still exist. Instead we get a quiet bug fix and everyone moves on.",
+          "age": "1 hour ago",
+          "points": 9,
+          "kids": [
+            {
+              "id": "27yp6zkq",
+              "by": "throwaway_6590",
+              "time": null,
+              "parent": null,
+              "text": "This is the lens that actually moves the needle in DC. A notification caching bug is a technical issue; law enforcement systematically extracting deleted messages from citizens' phones is a civil rights issue. That's what got the attention of signal researchers and privacy advocates.\n\nThe deeper policy problem is that we've let device makers define the boundaries of what \"deleted\" means. Apple gets to decide that a notification is retained data even after the message is gone. Google does the same. And because these platforms control the hardware and OS, there's no real alternative for end users who want a smartphone.\n\nYou'd think this would trigger some FTC action around deceptive practices (you delete a message in Signal, reasonably believing it's gone, but it's actually cached somewhere Apple controls). But the FTC has been understaffed on tech enforcement for years, and by the time they move, the forensic tool vendors have already reverse-engineered the next iOS version.\n\nThe legislative fix would be something like: if an app developer documents a message as deleted to the user, the OS cannot retain that data in any searchable form without explicit user consent. Make it statutory. Right now it's just a \"best practice\" that Apple can violate if the engineering seems convenient.\n\nThat's the conversation that needs to happen, and it only happens if people understand this isn't just a bug. It's a design choice.",
+              "age": "3 hours ago",
+              "points": 6,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wvc4hixy",
+      "by": "slowfeather2",
+      "time": null,
+      "parent": null,
+      "text": "I ran into this exact scenario two years ago while consulting for a security firm. We were doing incident response on a compromised iPhone and found cached Signal notifications in the notification database that the user thought were long gone. At the time, I remember emailing Meredith Whittaker about it (she was at Signal then too) and she basically said the OS-level caching was out of their control. The frustrating part was explaining to the client that deleting a message in Signal doesn't mean it's actually deleted from the phone's perspective. Apple's been slow on this one, but I'm glad to see them finally patching it. Worth noting that Android has similar issues with how it handles notification caching, though the forensic tools are less mature there.",
+      "age": "1 hour ago",
+      "points": 14,
+      "kids": [
+        {
+          "id": "wn68rzpw",
+          "by": "EagerEmber",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly why I switched our team to Wickr for sensitive comms. It doesn't cache notifications on device at all, and the whole conversation auto-deletes server-side after 24 hours. Not perfect, but the threat model is way different from Signal's approach of trusting the OS.",
+          "age": "44 minutes ago",
+          "points": 4,
+          "kids": []
+        },
+        {
+          "id": "uvdx9vzm",
+          "by": "qf613",
+          "time": null,
+          "parent": null,
+          "text": "This happened to me too, though I didn't dig into it until much later. Found old Signal notifications sitting in the device logs months after deletion. Filed it with Apple's security team in 2024 and got the standard \"we'll look into it\" response. Glad they finally patched it, though it's wild how long this persisted once it was public.",
+          "age": "3 hours ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "ptqanojp",
+          "by": "slow_wagon",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly why Bruce Schneier has been hammering on this for years, the OS notification layer is inherently a security boundary that app developers can't fully control. Signal can delete their database entries, but once that content hits the kernel's notification subsystem, it's out of their hands. The real fix (which Apple finally did) has to happen at the OS level, not the app level. Worth reading his stuff on notification security if you want the deeper context.",
+          "age": "3 hours ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "5ntpwqz0",
+              "by": "throwaway_9138",
+              "time": null,
+              "parent": null,
+              "text": "Schneier's work is solid, but the distinction matters here. Signal *could* have requested that iOS not cache notification content at all, or requested a shorter TTL on the notification database. They chose not to push for either. Apple's fix is good, but this wasn't purely \"out of their hands\" - it was a tradeoff between UX (showing message previews) and security that Signal accepted. Worth noting for future feature requests.",
+              "age": "3 hours ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:28:39.992Z"
+}

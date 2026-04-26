@@ -1,0 +1,225 @@
+{
+  "pair": {
+    "story_type": "show_hn",
+    "hn_id": 47816629,
+    "title": "Show HN: MDV – a Markdown superset for docs, dashboards, and slides with data",
+    "points": 151,
+    "descendants": 53,
+    "article_url": "https://github.com/drasimwagan/mdv",
+    "hn_url": "https://news.ycombinator.com/item?id=47816629",
+    "self_post": false
+  },
+  "story": {
+    "id": 47816629,
+    "title": "GitHub - drasimwagan/mdv: MDV — a Markdown superset for documents, dashboards, and slides with embedded data and visualizations. HTML + PDF export, live preview, VS Code extension.",
+    "url": "https://github.com/drasimwagan/mdv",
+    "by": "tinymaple23",
+    "score": 329,
+    "time": null,
+    "descendants": 19,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "r7v2569d",
+      "by": "CleverMaple",
+      "time": null,
+      "parent": null,
+      "text": "Similar project worth checking out: Quarto (quarto.org) does almost exactly this but with R/Python code execution baked in. If you don't need live computation it's probably overkill, but the output quality is excellent.",
+      "age": "13 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "8v3phxlf",
+          "by": "red_crate",
+          "time": null,
+          "parent": null,
+          "text": "The key difference is that MDV strips away the code execution layer entirely. Quarto's strength is reproducible research where your analysis code lives in the document-you change a filter, the chart updates automatically. MDV assumes your data is already processed (CSV, JSON files) and focuses on the presentation and layout story instead.\n\nSo if you're doing exploratory analysis or need live computation, Quarto wins. If you're building a polished report from static datasets, or want something lightweight enough to ship without a runtime, MDV's constraint is actually a feature. The self-contained HTML with inline SVG is nice too-no wrangling JavaScript dependencies or a server.",
+          "age": "46 minutes ago",
+          "points": 7,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "5qtayrtc",
+      "by": "throwaway_6003",
+      "time": null,
+      "parent": null,
+      "text": "The key differentiator here is that MDV commits to CommonMark strict compliance plus four minimal additions, whereas Quarto adds a full programming language on top. If your workflow doesn't need live Python/R execution, MDV's constraint-based approach (fenced blocks, named styles, YAML config) is simpler to reason about and faster to render. The self-contained SVG charts and no-JS-runtime requirement also matter for certain distribution scenarios. Worth trying both on a small report to see which mental model clicks.",
+      "age": "49 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "27niheeq",
+          "by": "OddBeacon2",
+          "time": null,
+          "parent": null,
+          "text": "Quarto still wins for reproducibility though – if your data changes, you rebuild and the analysis updates automatically. MDV seems to assume static CSV files. How does it handle a live database or API source that needs weekly refreshes?",
+          "age": "29 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "gwcv85r5",
+              "by": "grey_mesh23",
+              "time": null,
+              "parent": null,
+              "text": "I tested this with a PostgreSQL source using their data block syntax. You point the CSV reference to a shell script that queries the DB and pipes CSV output, then re-run the render. Works, but it's manual refresh, not live like Quarto's `{r} df <- query()` blocks. The tradeoff is clarity-no hidden execution, no environment surprises. If you need true live binding you need Quarto. If you want \"run this query Tuesday morning, commit the CSV, render the deck\" then MDV fits better.",
+              "age": "30 minutes ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4hb5tw28",
+      "by": "nimble_daemon2",
+      "time": null,
+      "parent": null,
+      "text": "This reminds me of the whole Jupyter notebook ecosystem problem. Everyone builds these beautiful interactive environments, but the moment you need to share or version control anything, you're back to exporting PDFs and dealing with merge conflicts in JSON.\n\nThe constraint of \"no code execution\" is interesting though. It sidesteps a lot of the reproducibility issues that plague Quarto, but you lose the ability to refresh charts when data changes without manually re-running the CLI. Wonder how they're handling that workflow in practice for actual reporting teams.",
+      "age": "29 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "57kf9ga7",
+          "by": "BrokenForest",
+          "time": null,
+          "parent": null,
+          "text": "The \"no code execution\" constraint is actually what makes this shine for collaborative workflows. You can version control the .mdv files cleanly (it's just text), hand them off to non-technical stakeholders, and they can edit the YAML data references or swap out CSV files without touching anything that breaks. That's genuinely hard to do with Jupyter or Quarto without someone knowing how to fix a broken cell.\n\nThe tradeoff you mention (manual CLI reruns) is real, but honestly most reporting workflows aren't pulling live data anyway. You're working with a snapshot from yesterday's batch job. If you need true live dashboards, this isn't the tool. But for \"I need to send a report that looks professional and my coworkers need to tweak the numbers,\" this feels way cleaner than the current nightmare of Google Sheets + Figma + copy-pasting numbers around.",
+          "age": "42 minutes ago",
+          "points": 16,
+          "kids": []
+        },
+        {
+          "id": "8if4rxaa",
+          "by": "canyon29",
+          "time": null,
+          "parent": null,
+          "text": "The \"no code execution\" constraint sounds good until you realize it just pushes the problem elsewhere. Now you need a separate build step, data pipeline management, and version control for datasets. You're not simplifying the workflow, you're just moving complexity from the rendering layer to the infrastructure layer. Most teams already have that infrastructure anyway (dbt, airflow, whatever), so this feels like it's solving a problem for people who don't actually have the problem.",
+          "age": "17 minutes ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "bw6kmod3",
+              "by": "dryvector",
+              "time": null,
+              "parent": null,
+              "text": "I actually tested this against our current reporting stack. We use dbt + Metabase, and I ran the MDV examples through our pipeline. The rendering is clean, but you hit the infrastructure problem immediately: dbt outputs parquet, MDV wants CSV or JSON, so you're adding a conversion layer. Also, no dynamic thresholds means hardcoding alert values into the markdown itself, which defeats version control for operational changes. Works fine for static monthly reports, but for anything requiring SLA adjustments or threshold tuning, you're editing markdown and re-rendering manually. That's a regression vs. what we have now.",
+              "age": "39 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0oxgkxo1",
+      "by": "throwaway_1393",
+      "time": null,
+      "parent": null,
+      "text": "The framing here is \"replace three tools with one markdown file,\" but I'd flip that: this is really \"markdown as a serialization format for what Figma/Slides/Tableau already do.\" The actual value isn't that you write markdown instead of using those tools, it's that your source is version-controllable and you can template/programmatically generate the whole deck. That's genuinely useful for reports that need to stay in sync with a data pipeline, but it's a different pitch than \"markdown superset.\" Worth repositioning around that constraint rather than the format choice.",
+      "age": "2 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "ondrq8mk",
+          "by": "brave_tundra23",
+          "time": null,
+          "parent": null,
+          "text": "We built something similar at my last gig (https://github.com/reportlab/reportlab plus custom templating). The version-control angle is real, but we found the hard part wasn't markdown rendering-it was keeping the data bindings sane as pipelines evolved. MDV looks cleaner than what we had, though I'd want to see how it handles schema drift before betting on it for production dashboards.",
+          "age": "43 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "eh43xeft",
+              "by": "BlueDaemon_",
+              "time": null,
+              "parent": null,
+              "text": "I spun up MDV locally against a moderately complex report (12 charts, 3 CSV sources, ~200 rows each) and tried to deliberately break the schema handling. Added a column to one CSV mid-render, changed a region name in another, renamed a series in the third.\n\nMDV caught the missing column immediately (good), but the region rename just silently dropped that segment from the chart (bad, took me 20 minutes to notice). The series rename propagated correctly because it's defined in the x= syntax, not inferred.\n\nThe bigger friction point: once you have 5+ datasets, the YAML front-matter gets unwieldy fast. I ended up writing a small Go script to generate it dynamically from a manifest, which defeats the \"markdown native\" pitch a bit. The rendering itself is solid, SVG output is clean, PDF looks professional, no runtime overhead.\n\nFor reports locked to a stable schema, this is genuinely useful. For dashboards where the pipeline mutates often, I'd still reach for something that validates the binding layer more aggressively. That said, the version-control win is real enough that I could see teams adopting this for weekly/monthly reports where the schema is semi-blessed.",
+              "age": "18 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "f1mqtx4e",
+          "by": "throwaway_6654",
+          "time": null,
+          "parent": null,
+          "text": "The version control angle is interesting, but I wonder if this solves the real pain point. Most data teams I know already have their dashboards in dbt + Looker / Metabase, which *also* live in git and can be templated. The switching cost to learn mdv syntax, migrate existing queries, and convince stakeholders to abandon their BI tool's UI seems pretty high. What's the migration story for someone running 50+ dashboards in Tableau?",
+          "age": "51 minutes ago",
+          "points": 5,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "exh4wxvn",
+      "by": "throwaway_4033",
+      "time": null,
+      "parent": null,
+      "text": "Been using something similar internally for quarterly reports and it's genuinely nice to avoid the Markdown-to-Slides-to-Excel juggling act. The constraint of \"no code execution\" actually keeps things lean. One thing I'd want to see: can you reference data across multiple CSV files without flattening them into one first? That's where most document tools fall apart for us.",
+      "age": "1 hour ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "he4nqn1c",
+          "by": "throwaway_2165",
+          "time": null,
+          "parent": null,
+          "text": "I think you're framing this as a data problem when it's really a schema problem. Instead of \"reference multiple CSVs\", what you probably want is a normalized data layer that MDV queries, not MDV doing the joins. A simple JSON or SQLite source would let you keep your CSVs separate but ask questions across them without flattening. That's more a dbt or observable-style transform step than a renderer concern.",
+          "age": "41 minutes ago",
+          "points": 4,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "l7i3bpf6",
+      "by": "DeepStone",
+      "time": null,
+      "parent": null,
+      "text": "Cloned and built this locally. The rendering is genuinely impressive, especially the SVG chart output and the PDF generation without external dependencies. Tested with a 50-row CSV dataset and a few chart types, and it all rendered clean in about 200ms.\n\nOne catch: the YAML dataset references only accept local file paths, not URLs. If you're pulling from an API or S3, you'd need to pre-download the CSV yourself. Not a dealbreaker for static reports, but limits the \"live dashboard\" angle compared to something like Quarto that can execute code.\n\nThe VS Code preview extension worked without friction though. Worth trying if you're tired of context-switching between Markdown, your charting tool, and your slide software.",
+      "age": "21 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "kjjmi5mz",
+          "by": "EagerFiber99",
+          "time": null,
+          "parent": null,
+          "text": "If you need live data, Quarto (https://quarto.org) handles API sources natively and exports to HTML/PDF with similar chart support. Been using it for quarterly dashboards pulling from Postgres directly. The learning curve is steeper though, definitely not as minimal as MDV's approach.",
+          "age": "50 minutes ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "8ke9kilo",
+          "by": "throwaway_1008",
+          "time": null,
+          "parent": null,
+          "text": "I've been using something similar at work (Quarto, which does R/Python inline) and the main limitation you're hitting is exactly the one I'd flag: the data-binding model here is too static for anything approaching a real dashboard. You're essentially pre-rendering snapshots.\n\nFor static reports it's fantastic. But if you actually need to refresh from a live source, you end up writing a shell script wrapper that pulls the CSV, runs mdv, uploads the HTML. That's not materially different from just using a Python Jupyter exporter or even a Makefile + pandoc setup.\n\nThe SVG output is genuinely nice though, no runtime bloat, embeds cleanly. Worth it if your workflow is \"weekly report automation\" rather than \"always-fresh KPI board.\"",
+          "age": "10 minutes ago",
+          "points": 13,
+          "kids": [
+            {
+              "id": "tp08c43h",
+              "by": "pzp641",
+              "time": null,
+              "parent": null,
+              "text": "This is really the product positioning problem, not a technical one. Quarto solved this by embracing the \"render-to-static\" model explicitly and marketing it as \"reproducible research documents\" rather than \"dashboards.\" MDV is positioning itself as both, which creates false expectations.\n\nThe real win here is for teams doing quarterly business reviews, financial reports, regulatory filings, places where \"snapshot at 10am Tuesday\" is the actual requirement. Position it there, add a CLI hook for cron jobs, maybe cite how the FCA now requires timestamped data provenance in fintech reports. You've got a narrower but much more defensible market than \"dashboard replacement.\"",
+              "age": "30 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-26T10:26:28.199Z"
+}
