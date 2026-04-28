@@ -13,221 +13,193 @@
     "id": 47866913,
     "title": "Coding Models Are Doing Too Much",
     "url": "https://nrehiew.github.io/blog/minimal_editing/",
-    "by": "cbwe882",
-    "score": 267,
+    "by": "feather70",
+    "score": 283,
     "time": null,
-    "descendants": 20,
+    "descendants": 17,
     "text": ""
   },
   "comments": [
     {
-      "id": "ay5hkbbu",
-      "by": "mildfeather99",
+      "id": "110hk5xu",
+      "by": "maple2",
       "time": null,
       "parent": null,
-      "text": "This is exactly the problem I hit with Cursor last week. Asked it to add a single validation check and it refactored my entire error handling layer. The fix was correct, but the diff was 200 lines and impossible to review carefully. Really glad someone's quantifying this-over-editing makes AI tools feel less trustworthy even when they're technically right.",
-      "age": "3 hours ago",
-      "points": 9,
+      "text": "I'm skeptical this is actually a widespread problem worth optimizing for. Every time I've used Claude or Copilot to fix a bug, it's been surgical. The examples I see online tend to be either (a) deliberately bad prompts like \"rewrite this function to be better\" or (",
+      "age": "48 minutes ago",
+      "points": 8,
       "kids": [
         {
-          "id": "5tjrx09z",
-          "by": "tundra19",
+          "id": "wgyww8le",
+          "by": "compass72",
           "time": null,
           "parent": null,
-          "text": "The over-editing problem is a symptom of how these models are incentivized during training. They're optimized for \"correct output\" on benchmarks, not \"minimal diff to fix the stated problem.\" From a code review and maintainability angle, this is a governance issue: we need tools that can be audited, and a 200-line diff defeats that purpose. The real fix isn't better prompting, it's retraining on edit-distance objectives where the cost of unnecessary changes is explicit. Otherwise we're just outsourcing code review burden to reviewers who now have to reverse-engineer what the model changed and why.",
-          "age": "1 hour ago",
-          "points": 3,
-          "kids": []
-        },
-        {
-          "id": "afa6inla",
-          "by": "eager_forest",
-          "time": null,
-          "parent": null,
-          "text": "This reminds me of watching sed and awk power users in the 90s complain when their coworkers would rewrite entire scripts instead of just adding a single regex. The muscle memory was different. Models are trained on completion tasks, not diff minimization tasks. No benchmark rewards them for touching the fewest lines possible. Until someone creates a \"minimal edit distance\" loss function during training, this stays unsolved. The fix isn't better prompting, it's better incentives.",
-          "age": "3 hours ago",
-          "points": 4,
-          "kids": [
-            {
-              "id": "e11wswu0",
-              "by": "packet20",
-              "time": null,
-              "parent": null,
-              "text": "You're identifying the real issue. Completion models learn from vast codebases where changes tend to cascade-refactoring is rewarded because it's common in training data. But the loss function never penalizes touching unrelated lines.\n\nA minimal edit distance objective during training would help, but there's a deeper problem: the model doesn't know what \"necessary\" means. It only knows \"plausible next token given context.\" You could try constraining it with a diff-size penalty in the prompt, but that's a band-aid. The fix really does need to be in the training objective itself.",
-              "age": "1 hour ago",
-              "points": 3,
-              "kids": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "mwlzwuf3",
-      "by": "SoftAnchor23",
-      "time": null,
-      "parent": null,
-      "text": "I wonder if this is partly a training data problem. These models are trained on GitHub commits and pull requests where the *norm* is comprehensive refactoring. A developer fixes a bug but also cleans up nearby code, renames variables for consistency, adds error handling they noticed was missing. That's rewarded as \"good practice\" in code review culture.\n\nBut in a live codebase with careful change management, you want surgical fixes. The model has learned the wrong objective. It's optimizing for \"what does good code look like\" instead of \"what is the minimal change to solve this specific problem.\"\n\nCurious if the paper explores whether you can fine-tune on a dataset of minimal diffs only, or if the over-editing is just baked into the base model's aesthetic sense at this point.",
-      "age": "1 hour ago",
-      "points": 13,
-      "kids": [
-        {
-          "id": "dswucoy2",
-          "by": "sharp_mesh",
-          "time": null,
-          "parent": null,
-          "text": "I think you're onto something with the training data, but I'd push back on the \"wrong objective\" framing. The model isn't confused about what it should do-it's doing exactly what it was trained to do: produce code that looks like high-quality GitHub commits. The problem is that \"high-quality commit\" and \"minimal fix\" are orthogonal goals, and the model has no way to distinguish them at inference time.\n\nWhen you ask \"fix this bug,\" the model sees a prompt it's seen thousands of times, but always in contexts where the full response includes cleanup, variable renames, better error handling. It's not that the model learned refactoring is good (though it did)-it's that the model learned the statistical pattern: \"when humans ask for a code fix in this scenario, the response typically includes these adjacent improvements.\" It's pattern-matching, not goal-seeking.\n\nThe real question is whether you can even solve this with better training data, or if you need a different architecture altogether. A model that understands \"do only this narrow thing\" would need to either (1) see enough examples of surgical edits during training (rare in commits), or (2) have some way to constrain its own outputs based on what changed in the input. Neither seems trivial.",
+          "text": "I tested this with Claude and Cursor on a real codebase last week. Asked Claude to fix a null-pointer bug in a 12-line validation function. It came back with 47 lines: added logging, restructured the whole thing with early returns, renamed variables, added a helper. The fix itself was correct but the diff was unreadable.\n\nThen I tried the same prompt but added \"make minimal changes, only fix the bug\". That helped but not entirely. It still added one unnecessary guard clause.\n\nThe parent's right that prompts matter, but I don't think that's the whole story. These models seem to optimize for \"clean code\" as a side effect of their training, not",
           "age": "1 minutes ago",
-          "points": 5,
-          "kids": []
-        },
-        {
-          "id": "nwgos427",
-          "by": "throwaway_9532",
-          "time": null,
-          "parent": null,
-          "text": "This is a sharp observation. The training data angle makes a lot of sense-these models are basically learning from a corpus where \"good\" commits are comprehensive improvements, not minimal fixes. But you're right that the incentive structure is completely different in production code with code review overhead.\n\nI'd add that there's also a model capability issue baked in. Most of these tools work by generating *completion tokens* and they're optimized for coherence and plausibility across the full span. A one-line fix requires the model to be confident about exactly where to stop, which is harder than just rewriting the whole function where it can maintain narrative consistency. The model knows \"this function needs work\" (because it failed the test) so it hedges by doing more.\n\nThe post's framing of this as a training objective problem seems right though. You'd need explicit examples of \"here's a bug, here's the minimal fix, here's what a bad over-edit looks like\" in the training set, weighted heavily. Harder problem than it sounds if your base corpus is GitHub where over-editing is valorized.",
-          "age": "2 hours ago",
           "points": 4,
           "kids": [
             {
-              "id": "e6qywu3o",
-              "by": "oldpilot",
+              "id": "v188dvut",
+              "by": "BasicPebble",
               "time": null,
               "parent": null,
-              "text": "This is just cope. The real problem is that these models aren't actually understanding the code, they're pattern-matching from training data. Adding \"minimal fix\" examples to the training set won't solve that. You can't train your way out of a fundamental limitation in how these things work.",
-              "age": "2 hours ago",
-              "points": 1,
+              "text": "I ran the same experiment on our codebase with four different models. Claude 3.5 Sonnet added unnecessary null checks 73% of the time. GPT-4o was better at 42%. Gemini 2.0 was worst at 89%. The constraint prompt helped",
+              "age": "30 minutes ago",
+              "points": 2,
               "kids": []
             }
           ]
-        },
-        {
-          "id": "97ttzs24",
-          "by": "gh132",
-          "time": null,
-          "parent": null,
-          "text": "This is the right intuition but I think it goes deeper. LLMs have no concept of \"minimal change.\" They predict the next token based on patterns, and the pattern they've learned is \"here's broken code, here's the fixed version\" where the fixed version is often substantially refactored.\n\nThe training signal doesn't distinguish between \"I fixed the bug\" and \"I fixed the bug AND cleaned up the function.\" Both are just examples of input→output. So the model learns to output whatever it thinks a competent developer would write, not what a careful diff would require.\n\nYou'd need either (1) synthetic training data explicitly labeled \"minimal fix only\" or (2) a reward model that penalizes token-distance from the original, or (3) better prompting that somehow makes the constraint salient. I'd be curious whether the post explores any of these.",
-          "age": "1 hour ago",
-          "points": 5,
-          "kids": []
         }
       ]
     },
     {
-      "id": "6i2bs2qo",
-      "by": "daemon55",
+      "id": "tkj3yo00",
+      "by": "basic_pilot42",
       "time": null,
       "parent": null,
-      "text": "I've been using these tools professionally for about two years now, and I think this framing misses something important. Yes, over-editing is real and annoying. But the alternative-models that are too conservative and only touch the exact lines you point to-is actually worse in practice.\n\nThe problem isn't that models rewrite code. It's that we're asking them to do surgery with a sledgehammer instead of a scalpel. When you ask Claude or Copilot to \"fix this bug,\" you're asking it to reason about context it doesn't have (why was this written this way? what are the project's conventions?). So it does what any reasonable person would do: it rewrites to make the code clearer and more defensible.\n\nThe real issue is reviewer burden, but I'd argue that's a training problem, not a model problem. If you're using these tools, you need reviewers who understand that the diff size doesn't correlate with risk. A rewritten function that passes tests and doesn't change behavior is actually *lower* risk than a one-liner that might have unintended side effects elsewhere.\n\nThat said, the paper's core question is worth answering: can we train models to be more conservative? Probably yes. But I'd want to see the tradeoff. Does training for minimal edits make the fixes worse? Do they miss legitimate improvements? If the answer is \"your code is less maintainable, but the diffs are smaller,\" that's not actually a win.",
-      "age": "2 hours ago",
-      "points": 23,
-      "kids": []
-    },
-    {
-      "id": "k3gi9iyd",
-      "by": "ColdOak",
-      "time": null,
-      "parent": null,
-      "text": "This is a really sharp observation about the incentive structure baked into how these models are trained and deployed.\n\nThe root cause isn't that models are \"trying to be helpful\" in some anthropomorphic sense. It's that they're optimized on benchmarks where the evaluation is \"did it produce working code?\" not \"did it produce the minimal diff?\" A model that rewrites a whole function to fix an off-by-one gets marked correct. One that changes exactly one character also gets marked correct. But during training, there's no penalty for the unnecessary changes, so the model learns to hedge by rewriting conservatively (which in practice means rewriting aggressively).\n\nThe gotcha is that this is actually profitable for tool vendors right now. A user who sees their code get substantially refactored might interpret that as \"the model really understands my codebase and is improving it\" rather than \"the model didn't know when to stop.\" It feels smarter. The actual cost (code review friction, merge conflicts, hidden behavior changes) is externalized onto the user's team.\n\nYou'd need either (1) models explicitly penalized for unchanged lines during training, or (2) a UI that forces the model to justify each edit and ask for permission before touching unrelated code. The second one is more likely in the near term, since it doesn't require retraining. Cursor or Copilot could gate refactoring suggestions behind a separate \"I know this changes unrelated code, proceed?\" confirmation.",
-      "age": "4 hours ago",
-      "points": 25,
-      "kids": []
-    },
-    {
-      "id": "fuxdxk5n",
-      "by": "blue_canyon",
-      "time": null,
-      "parent": null,
-      "text": "I'm skeptical this is actually a widespread problem worth solving. The sibling comment already mentions hitting it with Cursor, but that's anecdotal. How often does this actually happen in practice? A model that rewrites code \"correctly\" isn't the end of the world if reviewers are doing their job anyway. The real issue might be that people are shipping code without proper review, not that the model is too helpful.",
-      "age": "2 hours ago",
-      "points": 17,
+      "text": "I wonder if this is a real problem in practice or if it's being overstated. Every time I've used Claude or Copilot to fix a bug, the edits have been pretty surgical. The examples shown here feel cherry-picked.",
+      "age": "27 minutes ago",
+      "points": 10,
       "kids": [
         {
-          "id": "spuuqji0",
-          "by": "WearyFiber99",
+          "id": "znup9h7r",
+          "by": "deep_tundra23",
           "time": null,
           "parent": null,
-          "text": "I think you're framing this as a code review problem when it's really a trust problem. The issue isn't whether reviewers *can* validate a rewritten function, it's that they *won't* trust it the same way. A diff that changes 20 lines when 1 line needed changing burns credibility, even if the output is correct. It's not about shipping without review; it's about making review actually feasible at scale. If your model rewrites half the codebase every time you ask for a one-line fix, you've lost the signal-to-noise ratio that makes code review meaningful.",
-          "age": "18 minutes ago",
-          "points": 5,
-          "kids": [
-            {
-              "id": "awu8yu33",
-              "by": "plateau1",
-              "time": null,
-              "parent": null,
-              "text": "I deal with this in production code every day. The trust issue is real, but I'd push back slightly: the problem isn't just credibility, it's *cognitive load*. When I ask Claude to fix a bounds check, I need to verify the fix is correct. But if the model also renamed variables, restructured the conditional, and added validation I didn't ask for, I now have to mentally execute three changes instead of one. Even if all three are improvements, that's three things my brain has to sign off on. At scale with a team, that multiplies across every review.\n\nThe best models I've worked with (and yes, I use Cursor daily) have a \"minimal edit\" mode or at least respond well to \"only change what's necessary.\" But most default to the helpful rewrite. It's worth solving because it directly impacts how much code teams will let models touch.",
-              "age": "1 hour ago",
-              "points": 1,
-              "kids": []
-            }
-          ]
-        },
-        {
-          "id": "mmprgc8y",
-          "by": "cbwe882",
-          "time": null,
-          "parent": null,
-          "text": "Fair point on the anecdotal nature. I've been collecting examples from users and in my testing, it's roughly 40-50% of the time with Cursor and Claude Code when you ask for a targeted fix. But you're right that the real question is whether it matters in practice.\n\nThe code review angle is what I'm actually trying to isolate. When a reviewer sees a 15-line diff where 12 lines are unnecessary refactoring, they either (a) spend 3x longer verifying nothing broke, or (b) they rubber-stamp it. Both are bad. If the model had changed only the single line, review takes 30 seconds.\n\nI think the deeper issue is that models aren't trained to respect existing code style and structure. They optimize for \"correct output\" not \"minimal change.\" I'm working on a follow-up looking at whether we can finetune for editing constraints, but want to get the empirical numbers solid first. Happy to share what I find.",
-          "age": "52 minutes ago",
-          "points": 11,
-          "kids": []
-        }
-      ]
-    },
-    {
-      "id": "xerbgv9y",
-      "by": "lazy_plateau23",
-      "time": null,
-      "parent": null,
-      "text": "I think the framing here is slightly off. The \"over-editing\" problem isn't really about models doing too much, it's about the interaction pattern being fundamentally mismatched to how code review works.\n\nWhen you ask a model \"fix this bug,\" you're implicitly asking it to reason about the code, understand the intent, and apply best practices. Models are trained on massive codebases where the norm is to refactor while touching code. It's statistically the most common pattern in their training data. So they're not misbehaving, they're just doing what makes sense given the request.\n\nThe real issue is that we want two different things: (1) minimal diffs for code review, and (2) models that understand code deeply enough to fix bugs correctly. These pull in opposite directions. A model that only changes the absolute minimum might miss real problems (unhandled edge cases, type safety issues, etc.).\n\nI'd be more interested in tooling that makes this explicit. Show the minimal fix separately from suggested improvements. Let reviewers toggle between \"show me only what changed\" and \"show me the reasoning.\" Or train on a synthetic dataset where the task is literally \"make the smallest correct change,\" not \"fix this bug.\"\n\nThe Cursor experience you mention is pretty common in my team too, but I've stopped seeing it as the model doing too much. It's more that the UI doesn't help you ask for what you actually want.",
-      "age": "2 hours ago",
-      "points": 19,
-      "kids": [
-        {
-          "id": "cv651v43",
-          "by": "daemon44",
-          "time": null,
-          "parent": null,
-          "text": "This conflates two separate things though. Yes, models are trained on refactoring patterns, but that's precisely the problem the post is identifying. When you're asking for a targeted fix in a code review context, you don't want the model applying \"best practices\" across the whole function-you want surgical precision.\n\nThe training data argument actually supports the author's point: if models learn to refactor because that's common in open source, they'll keep doing it even when it's the wrong behavior for this specific use case. That's not a reason to accept over-editing, it's a reason to train differently or add constraints that penalize unnecessary changes.",
-          "age": "9 minutes ago",
+          "text": "I've actually had the opposite experience. Claude Code will sometimes add a null check or restructure a loop even when the bug fix is trivial. I switched to using aider (https://aider.chat/) which gives you more control over the scope of changes. It's designed specifically for surgical edits and",
+          "age": "48 minutes ago",
           "points": 6,
           "kids": []
-        },
+        }
+      ]
+    },
+    {
+      "id": "v295rr7y",
+      "by": "throwaway_9642",
+      "time": null,
+      "parent": null,
+      "text": "I've actually measured this with Claude and GPT-4 on a codebase I maintain. Asked them to fix 12 bugs (off-by-ones, logic errors, type mismatches). Claude stayed surgical on 10 of them, rewrote aggressively on 2. GPT-4 was closer to 7/12.\n\nThe thing is, it correlates hard with how specific your prompt is. \"Fix the bug on line 47\" gets you a 50-char",
+      "age": "2 minutes ago",
+      "points": 12,
+      "kids": [
         {
-          "id": "cpdmxnnu",
-          "by": "drytundra_",
+          "id": "akyzwyi9",
+          "by": "marble74",
           "time": null,
           "parent": null,
-          "text": "I actually tested this hypothesis by instrumenting a local Claude instance to track edit distances on ~200 bug fixes. The median edit distance was 3.2x larger than necessary. On simple off-by-one errors, it was closer to 5x.\n\nWhat's interesting is that this mirrors a pattern I saw years ago with early autocomplete tools. They'd \"helpfully\" reformat your entire file while fixing one typo. The difference then was that we could just reject the change. Now with these models integrated directly into the editor, there's this psychological pressure to accept the whole diff because it *looks* professional and well-intentioned.\n\nThe real issue the parent raises though-training data bias toward refactoring-is spot on. Models see \"touch code = refactor code\" so often in GitHub that they've internalized it as law. But code review friction is real, and you can measure it. I'd rather have a dumb model that changes exactly three characters than a helpful one that rewrites the function, even correctly.",
-          "age": "2 hours ago",
+          "text": "This reminds me of the broader problem with how we think about code ownership and authorship. When a model rewrites half your function, you're not just getting a code change-you're getting a loss of your own stylistic fingerprint, which matters more than people admit.\n\nI've seen this play out differently in different contexts. In a startup where velocity matters and code review is light, over-editing barely registers as a problem. You merge it, move on. But in a mature codebase with institutional knowledge baked into naming conventions and structure, those \"improvements\" the model makes actually erase context that only exists in the code's shape. The variable name `remaining_retries_after_backoff` exists for a reason. It's not verbosity, it's documentation.\n\nThe other angle is that models are optimizing for a different objective than what you asked for. You asked for a bug fix. The model has learned that good code is refactored code, is well-structured code",
+          "age": "5 minutes ago",
           "points": 16,
           "kids": [
             {
-              "id": "ch75tcx8",
-              "by": "WetGlider23",
+              "id": "cdanamup",
+              "by": "loudcompass",
               "time": null,
               "parent": null,
-              "text": "This is a great empirical finding, but I think the real lever here is regulatory. If we're moving toward mandating AI-assisted code review (which some enterprises are quietly doing), we need standards around edit distance and change scope. The FTC should be looking at this the same way they looked at dark patterns in UX. A model that systematically obscures intent through unnecessary refactoring is making security audits harder, which has downstream liability implications. The 5x edit distance on simple fixes isn't just annoying, it's a compliance nightmare waiting to happen.",
-              "age": "2 hours ago",
-              "points": 1,
+              "text": "I've been using Sourcegraph's Cody for about 6 months on a legacy Rails codebase with the same frustration. The surgical edits are there, but you're right that specificity in the prompt matters enormously. I started prefixing requests with \"minimal change only\" and the diff sizes dropped by maybe 40%. That said, Cody still rewrites more than Claude does on our machine-we actually switched to Claude for critical paths because of this exact issue. The code review tax wasn't worth the velocity gain. Worth trying if you're hitting this wall",
+              "age": "32 minutes ago",
+              "points": 4,
               "kids": []
             }
           ]
         },
         {
-          "id": "fls13y5q",
-          "by": "HotCable42",
+          "id": "r5zokx1a",
+          "by": "basic_matrix",
           "time": null,
           "parent": null,
-          "text": "I think you're diagnosing the symptom, not the disease. The real problem is that we've framed code assistance as a black box that should \"understand intent\" when really we need it to be a scalpel. We've optimized these models for throughput and general capability instead of precision on a specific, constrained task. If a model could *only* apply the minimal diff to fix the stated problem, it would be useless at 90% of what people ask it to do. So either we need much better prompting discipline, or we need a fundamentally different tool architecture. But asking GPT to \"fix this one bug\" and expecting it to respect code ownership is like asking a chef to fix your undersalted soup and being surprised when he rewrites your entire recipe.",
-          "age": "3 hours ago",
+          "text": "I've seen this exact pattern. Asked Claude to refactor a search function that had a subtle off-by-one in the pagination logic. It fixed the bug correctly but also reorganized the entire loop structure, extracted a new helper method, and added caching I never asked for. The diff was 47",
+          "age": "21 minutes ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "3aeontl7",
+              "by": "bentdust23",
+              "time": null,
+              "parent": null,
+              "text": "The real issue here is that we've framed this as a model behavior problem when it's actually a governance gap. If you're letting Claude or GPT-4 commit directly to your codebase, you need review gates. But that's expensive, which is why we're seeing pressure to train models to be \"faithful editors\" instead of fixing the actual workflow.\n\nThe better pattern: models generate diffs, humans review diffs, humans approve commits. That's not new. Version control exists for exactly this reason. The problem isn't that Claude over-edits, it's that",
+              "age": "34 minutes ago",
+              "points": 15,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5a8ava7",
+      "by": "DarkGlider99",
+      "time": null,
+      "parent": null,
+      "text": "I've used Claude Code and Cursor extensively over the past year, and I actually haven't seen this as a major problem in practice. When I ask for a specific fix, both tools tend to be pretty surgical about it. The over-editing happens maybe 20% of the time, and usually only when the initial prompt is vague.\n\nThe real issue I've noticed is the opposite: models sometimes make minimal changes that don't actually address the root cause. Paul",
+      "age": "22 minutes ago",
+      "points": 11,
+      "kids": [
+        {
+          "id": "h78wkhls",
+          "by": "BasicBadge",
+          "time": null,
+          "parent": null,
+          "text": "I think you're describing two different failure modes. Over-editing happens when you ask for a fix without context (\"make this faster\"). Minimal fixes happen when you ask for something surgical (\"change this one line\"). The model has to guess your intent, and it's biased toward safety and completeness when the intent",
+          "age": "1 minutes ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "wuvlnr3g",
+              "by": "throwaway_4263",
+              "time": null,
+              "parent": null,
+              "text": "> The model has to guess your intent, and it's biased toward safety and completeness when the intent\n\nThis is just excuse-making. The actual problem is that these models have no concept of \"minimal change\" as a goal. They're trained on GitHub where refactoring and bug fixes get mixed together constantly. So when you ask them to fix code, they do what the training data told them: clean it up, rename things, add validation.\n\nPaul's right that it depends on how you prompt. But that's the real issue - you have to treat these tools like unreliable contractors who need extremely specific instructions or they'll gold-plate everything. That's not \"surgical",
+              "age": "14 minutes ago",
+              "points": 8,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "6cxnvreb",
+          "by": "eagerbadge_",
+          "time": null,
+          "parent": null,
+          "text": "I think you're describing two different failure modes. The over-editing happens most when the model has to infer intent from context-like when you point at a bug and say \"fix this\" without explicitly stating the constraint \"only change what's broken.\"\n\nThe inverse problem you mention (insufficient fixes) usually crops up with more constrained prompts. If you say \"change X to Y,\" the model might do exactly that and miss that X was wrong in three places.\n\nThe real insight from the article seems to be that models can be trained to recognize edit scope. You can nudge them toward surgical fixes by",
+          "age": "32 minutes ago",
+          "points": 18,
+          "kids": [
+            {
+              "id": "17ca6hya",
+              "by": "silentparser",
+              "time": null,
+              "parent": null,
+              "text": "I ran into this exact thing last week with Cursor on a Django view. Asked it to add pagination to a queryset, and it rewrote the entire view, renamed variables, added a new utility function. The fix itself was correct but the diff was unmergeable without basically re-understanding the whole thing",
+              "age": "23 minutes ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yl2f17yn",
+      "by": "duln180",
+      "time": null,
+      "parent": null,
+      "text": "Reminds me of the old Perl motto \"there's more than one way to do it\" but inverted. Back when I used Vim + ctags for refactoring, you had to be surgical or risk breaking everything. Now models just... rewrite. I tested this with Claude on a simple",
+      "age": "51 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "3lljmkdk",
+          "by": "throwaway_6061",
+          "time": null,
+          "parent": null,
+          "text": "This reminds me of the broader shift from editing to generation. With Vim and ctags, you had to understand the code deeply enough to make minimal changes. Now the model is incentivized to \"complete\" tasks by rewriting, which feels more thorough to it. Similar problem with writing: LL",
+          "age": "44 minutes ago",
           "points": 4,
           "kids": []
         }
       ]
     }
   ],
-  "_generated_at": "2026-04-26T10:29:53.101Z"
+  "_generated_at": "2026-04-28T02:08:01.757Z"
 }

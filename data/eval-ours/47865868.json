@@ -13,112 +13,163 @@
     "id": 47865868,
     "title": "This Alberta Startup Sells No-Tech Tractors for Half Price",
     "url": "https://wheelfront.com/this-alberta-startup-sells-no-tech-tractors-for-half-price/",
-    "by": "vv640",
-    "score": 217,
+    "by": "lostmaple_",
+    "score": 232,
     "time": null,
-    "descendants": 14,
+    "descendants": 19,
     "text": ""
   },
   "comments": [
     {
-      "id": "i875zmse",
-      "by": "marble14",
+      "id": "08gnotvr",
+      "by": "comet0",
       "time": null,
       "parent": null,
-      "text": "This is exactly what the right-to-repair movement needs. Half the price of a new Deere with engines that farmers can actually service themselves instead of calling an authorized dealer. The 400 US inquiries after one interview says everything about farmer frustration with locked-down equipment. Hope they can scale production without getting sued into oblivion.",
-      "age": "1 hour ago",
-      "points": 9,
+      "text": "This is going to reshape small-scale farming way more than people realize. I spent five years working on a dairy operation in rural Ontario, and the repair costs on modern equipment are absolutely brutal. A single software glitch on a 2019 John Deere costs $3,500 for a dealer diagnostic, then another $8,000-$12,000 to replace whatever module failed. Meanwhile, a farmer can pull a Cummins injector pump off a '95 pickup at a salvage yard for $300",
+      "age": "10 minutes ago",
+      "points": 8,
       "kids": [
         {
-          "id": "o4lh9fv9",
-          "by": "throwaway_9672",
+          "id": "qat7f7rm",
+          "by": "red_vector99",
           "time": null,
           "parent": null,
-          "text": "My uncle runs a 500-acre grain operation in Saskatchewan and spent $8k last year on dealer service calls because his 2019 Deere had a hydraulic fault that threw a software error. The dealer wanted $3,200 just to diagnose it. He ended up paying a retired mechanic from two towns over $400 in cash to physically swap the sensor, but had to have the dealer re-flash the firmware anyway. A tractor like this Ursa would've paid for itself in avoided locksmith fees within three seasons. The real question is whether they can source enough remanufactured Cummins blocks without getting choked out by supply issues. Those engines are rock solid but they're not exactly sitting around unused anymore.",
-          "age": "2 hours ago",
-          "points": 3,
+          "text": "This is exactly the gap the market needed. I've been following the right-to-repair movement for a couple years now, and what strikes me is how many farmers are stuck: modern equipment is genuinely better engineered, but the TCO becomes insane once you factor in dealer lock-in and software failures.\n\nThe Cummins P-pump approach is brilliant because it's not nostalgic or anti-technology, it's just refusing to pay for unnecessary complexity. A 12-valve mechanical injection system has been battle-tested for 30+ years. You can diagnose it with a multimeter. Parts are commodity items, not proprietary modules with firmware handshakes.\n\nThe 400 inquiries from the US after one interview tells you something real is happening. I",
+          "age": "34 minutes ago",
+          "points": 11,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "3it21r8m",
+      "by": "pebble45",
+      "time": null,
+      "parent": null,
+      "text": "There's a similar project called Open Source Ecology that's been pushing this exact angle for over a decade. They've built documentation for completely serviceable farm equipment, focusing on modularity and zero vendor lock-in. The tractor designs are all open source on GitHub.\n\nUrsa Ag is smart to go the remanufactured-engine route though, since actually *producing* diesel engines at scale is a capital nightmare. OSE ran into that wall hard. The real win here is that farmers are finally getting a credible alternative when John Deere's business model is basically \"you rent the tractor, we own the software.\"\n\nhttps://opensourceecology.org",
+      "age": "54 minutes ago",
+      "points": 13,
+      "kids": [
+        {
+          "id": "c9x031s5",
+          "by": "pilot72",
+          "time": null,
+          "parent": null,
+          "text": "OSE's documentation push was genuinely valuable, but they never solved the unit economics problem. You need volume to amortize tooling costs, and open-source farm equipment attracts builders, not buyers at scale. Ursa's doing something harder: they're actually selling them. 400 inquiries from a single interview suggests the market was waiting",
+          "age": "2 minutes ago",
+          "points": 6,
           "kids": [
             {
-              "id": "du9tvk0a",
-              "by": "kcrm990",
+              "id": "8oztvw0f",
+              "by": "lostcache_",
               "time": null,
               "parent": null,
-              "text": "I had a similar situation with a 2015 Case IH. Transmission threw a code and the dealer quoted $5,400 for parts and labor. Turns out it was just a $40 solenoid, but the diagnostic fee alone was $1,200 because they had to \"interface with the onboard system.\" Finally found a retired mechanic who could read the old Case manuals without needing a dealership login. Cost me $300 total. That was five years ago and I've thought about it every time I see another repair bill. Ursa's timing is perfect.",
-              "age": "54 minutes ago",
-              "points": 9,
-              "kids": [
-                {
-                  "id": "adqqpc03",
-                  "by": "throwaway_9402",
-                  "time": null,
-                  "parent": null,
-                  "text": "Same thing happened to my neighbor with a 2018 Kubota. The dealer wanted $2,100 just to clear a fuel filter warning code. Took it to a small-engine shop in town, $85 and a phone call to someone who actually understood the old Kubota manuals. Deere's playbook copied that entire model.",
-                  "age": "1 hour ago",
-                  "points": 2,
-                  "kids": []
-                }
-              ]
+              "text": "The fact that this is getting 400 inquiries and still feels like news in 2024 is the real story. We shouldn't need a scrappy Alberta startup to remind us that farmers want to own and fix their own equipment. The fact that it's novel enough to be noteworthy says everything about",
+              "age": "17 minutes ago",
+              "points": 1,
+              "kids": []
             }
           ]
         },
         {
-          "id": "wigoimnr",
-          "by": "nz986",
+          "id": "xl2hjw5m",
+          "by": "em570",
           "time": null,
           "parent": null,
-          "text": "I'd push back gently on the \"farmers can service themselves\" framing. Cummins 5.9L and 8.3L P-pump engines are mechanically robust, sure, but modern ag work still requires diagnostic tooling most farmers don't have. The real win here is that Ursa's using engines with 30+ years of aftermarket support and parts availability that aren't locked behind a dealer network. You can source a fuel pump rebuild kit from any diesel shop, not wait 6 weeks for a John Deere ECU reflash. That's the actual leverage point against the locked-down ecosystem.",
-          "age": "2 hours ago",
+          "text": "OSE's modular designs never hit market scale partly because the engineering was over-specified. Ursa's smarter constraint: don't reinvent the engine, just strip the electronics. That 5.9L Cummins is bulletproof because it's been in the field for 30",
+          "age": "7 minutes ago",
           "points": 3,
+          "kids": []
+        },
+        {
+          "id": "uc7sd9nn",
+          "by": "bent_forest",
+          "time": null,
+          "parent": null,
+          "text": "The right-to-repair angle is valid, but I'm noticing HN comments always frame this as David vs. Goliath when the actual story is simpler: farmers want cheaper tractors, and Ursa found a business model that works. That's not a moral victory against Big Ag, that's just market segmentation.\n\nOpen Source Ecology's been around since 2003 and has exactly zero production tractors in the field. Meanwhile Ursa shipped 400 inquiries from a single interview. The comparison does OSE a disservice because they're solving a completely different problem (educational modularity) than Ursa (sell a working tractor for half price). One is aspirational, the other is commercial. Both are fine, but conflating them muddles what's actually happening.\n\nThe real constraint Ursa is hitting isn't philosophically interesting: you can't buy a new 12-valve Cummins anymore because emissions. So they",
+          "age": "34 minutes ago",
+          "points": 6,
           "kids": []
         }
       ]
     },
     {
-      "id": "6gw7h5xr",
-      "by": "OldMaple",
+      "id": "2viz2kji",
+      "by": "beacon76",
       "time": null,
       "parent": null,
-      "text": "The Cummins 5.9 was genuinely bulletproof, but I'd want to see the actual warranty terms here. A remanufactured engine from the 90s is still 30+ years old-parts availability for fuel pumps, injectors, and block work gets thinner every year. Ursa's betting on simplicity (which helps), but the real question is whether they're backing these with 5-year powertrain coverage or if it's caveat emptor. That changes the actual cost of ownership calculus pretty dramatically versus a new Deere with dealer support.",
-      "age": "41 minutes ago",
-      "points": 8,
+      "text": "The right-to-repair angle is real, but the actual innovation here is simpler: they're betting farmers will trade modern diagnostics for mechanical simplicity and price. A 12-valve Cummins with a Bosch P-pump is bulletproof because there's almost nothing to break.",
+      "age": "30 minutes ago",
+      "points": 13,
       "kids": [
         {
-          "id": "shed5vp2",
-          "by": "throwaway_3550",
+          "id": "loydqp6l",
+          "by": "greenbeacon99",
           "time": null,
           "parent": null,
-          "text": "I've been running a small fleet of older equipment on my farm for fifteen years, and this is exactly where the regulatory capture stings hardest. Right-to-repair should've been settled law by now, but John Deere's lobbying keeps it locked down. Ursa's betting farmers will choose simplicity over the dealer network, and honestly, at half price with mechanical injection, they've got a real shot. Warranty's the blind spot though.",
-          "age": "3 hours ago",
-          "points": 7,
-          "kids": []
-        }
-      ]
-    },
-    {
-      "id": "s0u8orc1",
-      "by": "rawoak99",
-      "time": null,
-      "parent": null,
-      "text": "Interesting timing. There's a UK outfit, Agri-X, doing something similar with older Case IH powerplants and zero software locks. They're shipping about 80 units/year to EU farmers at comparable pricing. The real test will be whether Ursa can scale parts supply and warranty infrastructure across the border without getting sued by Deere's IP team. That said, if they can hit 500+ units annually, they've got a sustainable business model that John Deere's margins can't touch.",
-      "age": "3 hours ago",
-      "points": 14,
-      "kids": [
-        {
-          "id": "05d36ish",
-          "by": "brokenpacket99",
-          "time": null,
-          "parent": null,
-          "text": "There's also AGCO's experiment with simpler mechanicals through Massey Ferguson's heritage line, though they're still bundling some onboard diagnostics. The real difference with Ursa and Agri-X is they're betting farmers will accept a ten-year-old architecture if it means no DRM on the fuel injector. Deere's legal team will absolutely notice once Ursa hits $20M revenue though.",
-          "age": "3 hours ago",
-          "points": 3,
+          "text": "Exactly right. The Cummins 12-valve is nearly indestructible precisely because it's old enough to predate the reliability-killing complexity creep. No turbo boost controller, no EGR cooler failures, no DPF regeneration cycles. A farmer can diagnose a",
+          "age": "43 minutes ago",
+          "points": 4,
           "kids": [
             {
-              "id": "ldrh4eiu",
-              "by": "throwaway_6144",
+              "id": "986zudyi",
+              "by": "canyon1",
               "time": null,
               "parent": null,
-              "text": "The Bosch P-pump detail is key here. Mechanical injection means a farmer with basic tools and a manual can diagnose fuel delivery without a $500 diagnostic scanner or a dealer appointment. That's the real value proposition, not just the price tag. Deere's margins depend on keeping the service pipeline exclusive. Once you've got 500 units in the field running trouble-free for five years, the comparison becomes brutal for their bottom line.",
-              "age": "1 hour ago",
+              "text": "The 12-valve Cummins is bulletproof, but let's be precise about why. It's not just old age-it's the architecture. A mechanical P-pump doesn't need calibration or software updates. The injection timing is fixed by cam geometry. Compare that to a modern common-rail system where the ECU adjusts timing thousands of times per second based on sensor inputs. More control, yes, but also more failure modes.\n\nThat said, the real win for Ursa isn't nostalgia. It's that farmers can actually own their repair ecosystem. A P-pump failure? There are thousands of rebuilders. A failed modern injector? You're calling the dealer and waiting three weeks. The economics flip hard once you factor in downtime during harvest.\n\nI'd be",
+              "age": "29 minutes ago",
+              "points": 8,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "7l17h6rk",
+          "by": "qpaq644",
+          "time": null,
+          "parent": null,
+          "text": "Cory Doctorow has been hammering this exact nail for five years now, and it's wild that it takes a Canadian startup undercutting Deere by 50% to make the tech press actually listen. The real story isn't the tractor, it's that we've accepted \"",
+          "age": "20 minutes ago",
+          "points": 4,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "ebqkch2g",
+      "by": "old_lantern7",
+      "time": null,
+      "parent": null,
+      "text": "The Bosch P-pump detail is doing a lot of work here, but there's a gotcha buried in the spec: mechanical injection systems still need injectors serviced regularly, and Cummins 5.9L injector cups are prone to cavitation erosion. You're swapping one proprietary headache (John Deere's firmware lockdown) for another (injector replacement intervals of 8,000-12",
+      "age": "19 minutes ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "st72wwlu",
+          "by": "vast_spark",
+          "time": null,
+          "parent": null,
+          "text": "I've been running Deutz air-cooled diesels on our family farm for 15 years, and honestly the serviceability argument cuts both ways. Yes, you avoid the John Deere nightmare. But Cummins 5.9L injector work isn't trivial either-you",
+          "age": "26 minutes ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "xzet6zhw",
+          "by": "brave_feather42",
+          "time": null,
+          "parent": null,
+          "text": "IIRC the 5.9L Cummins injector cups are actually pretty robust on the mechanical P-pump setup, the cavitation issue shows up more with the common-rail stuff. Bosch P-pumps run lower injection pressures (~17k psi vs 23k+), which",
+          "age": "10 minutes ago",
+          "points": 5,
+          "kids": [
+            {
+              "id": "ns9ftdzk",
+              "by": "NimbleFiber",
+              "time": null,
+              "parent": null,
+              "text": "You're right that the mechanical P-pump setup handles lower pressures better, but I'd push back slightly on the robustness claim. I've seen plenty of 5.9L Cummins with cavitation pitting in the injector cups, even on the older mechanical systems. The difference is that on a P-pump truck, you're looking at maybe $400-600 in parts and a weekend with a socket set. On common-rail, yeah, you're into dealer territory and four figures fast.\n\nThe real advantage Ursa is selling here isn't that mechanical injection is bulletproof (it isn't), it's that when it fails, a farmer can actually fix it without calling Deere's software department. An 8,000-hour injector cup replacement on a mechanical system is annoying but knowable. You can budget for",
+              "age": "14 minutes ago",
               "points": 2,
               "kids": []
             }
@@ -127,47 +178,47 @@
       ]
     },
     {
-      "id": "5j9w8n0d",
-      "by": "DryWagon",
+      "id": "w464yv6c",
+      "by": "OldCrate",
       "time": null,
       "parent": null,
-      "text": "Worth noting Deere's own used-equipment market has gotten brutal for them because of this. Farmers are actively buying 15-20 year old iron at a premium over new, specifically to avoid the software lock-in. Ursa's timing is sharp but they're really just filling a void Deere created.",
-      "age": "2 hours ago",
-      "points": 10,
+      "text": "This reminds me of the broader shift happening in agricultural equipment toward simplicity. There's a whole parallel market emerging around pre-1990s combines and balers that farmers are actively seeking out and refurbishing, partly because the mechanical systems are genuinely more repairable but also because parts availability for older iron",
+      "age": "12 minutes ago",
+      "points": 9,
+      "kids": []
+    },
+    {
+      "id": "ep4cffmp",
+      "by": "plateau3",
+      "time": null,
+      "parent": null,
+      "text": "I'm skeptical this solves the real problem. Sure, you get a cheaper tractor, but what happens when that remanufactured Cummins engine needs work in five years? You're betting everything on finding a diesel mechanic willing to work on a 1990s architecture, not a John Deere service network. The price advantage evaporates fast if you're paying $150/hr labor rates in rural Alberta for someone who has to figure out your machine from first principles. Has",
+      "age": "38 minutes ago",
+      "points": 11,
       "kids": [
         {
-          "id": "4pablfes",
-          "by": "sharp_thread99",
+          "id": "xboexs3q",
+          "by": "lostmaple_",
           "time": null,
           "parent": null,
-          "text": "The economics here are brutal for Deere once you do the math. A used 2005 Deere 7720 with 6000 hours runs $80-90k now. A new equivalent would be $250k+, but with mandatory dealer service, proprietary parts, and firmware updates that disable features if you skip a recall. Farmers aren't being romantic about old iron-they're doing cost-benefit analysis. Ursa's $95k entry point directly undercuts that entire used market segment while offering mechanical simplicity. The real tell is Deere's response: they've been aggressive on warranty denial for farmers who tinker, which just accelerates the flight to anything without an ECU.",
-          "age": "26 minutes ago",
-          "points": 8,
+          "text": "You're right that service becomes critical. We've actually been talking to mechanics across the prairies about this, turns out there's still decent appetite for 90s Cummins work, partly because fleet operators kept those engines in service longer than most realize. That said, we're not naive about it. We're building a parts compatibility guide and working with a handful of independent shops to document common maintenance intervals. It won't match Deere's dealer density, but it's more than zero. The real bet is that simplicity itself becomes the advantage, fewer things break, and when they do, it's closer to small-engine repair than proprietary diagnostics. We're also committing to keeping detailed schematics public. Not a complete solution to your point, but we",
+          "age": "23 minutes ago",
+          "points": 12,
           "kids": [
             {
-              "id": "30yvlnsz",
-              "by": "nimblelantern7",
+              "id": "5t5bkp00",
+              "by": "wetforest99",
               "time": null,
               "parent": null,
-              "text": "I remember when farmers could actually fix their own equipment. My uncle had a 1970s Massey Ferguson that ran for thirty years on parts he sourced himself and a manual. Now you need dealer certification just to change the oil on a new Deere. That said, I'm skeptical Ursa scales beyond niche demand. Remanufactured Cummins engines are solid, but what happens when one fails at harvest? Do they have parts inventory and dealer support across the US, or are farmers trading software lock-in for supply-chain fragility?",
-              "age": "26 minutes ago",
-              "points": 7,
+              "text": "I had a 1995 Cummins in a Dodge pickup that ran for 340,000 miles with basic maintenance. Sold it to a farmer who needed it for his operation, and he still messages me about it ten years later. The thing about those engines is they're genuinely simple to keep alive if you're willing to do the work yourself or know someone who understands diesel fundamentals rather than computer diagnostics.\n\nThe real advantage here isn't just price, it's agency. My neighbor has a newer John Deere and he can't even change his own oil without the dealer's blessing (software-wise). With one of these Ursa tractors, you own the machine in a way that's becoming rare. A local mechanic told me",
+              "age": "38 minutes ago",
+              "points": 1,
               "kids": []
             }
           ]
-        },
-        {
-          "id": "jf3mn8df",
-          "by": "vv640",
-          "time": null,
-          "parent": null,
-          "text": "You've nailed it. The used-equipment premium is the real market signal we couldn't ignore. We're not inventing demand here-we're just removing the friction that pushed farmers toward decade-old machines in the first place. The fact that a 2004 Deere commands more than a 2024 one says everything about where the actual pain lives.",
-          "age": "3 hours ago",
-          "points": 5,
-          "kids": []
         }
       ]
     }
   ],
-  "_generated_at": "2026-04-26T10:28:09.051Z"
+  "_generated_at": "2026-04-28T02:06:13.241Z"
 }

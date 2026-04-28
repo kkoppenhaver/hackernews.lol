@@ -112,6 +112,8 @@ async function main() {
       console.log(`  [${i + 1}/${pairs.length}] FAIL ${pair.hn_id} · ${e instanceof Error ? e.message : e}`);
       failed++;
     }
+    // Small delay to avoid tripping rate limits on origin sites we're ingesting
+    await new Promise(r => setTimeout(r, 1500));
   }
 
   const total = ((Date.now() - startedAt) / 1000).toFixed(0);

@@ -13,79 +13,111 @@
     "id": 47824943,
     "title": "5x5 Pixel font for tiny screens",
     "url": "https://maurycyz.com/projects/mcufont/",
-    "by": "maple73",
-    "score": 161,
+    "by": "gn608",
+    "score": 218,
     "time": null,
-    "descendants": 16,
+    "descendants": 20,
     "text": ""
   },
   "comments": [
     {
-      "id": "qb9xpss9",
-      "by": "RedThread",
+      "id": "ptpfrus4",
+      "by": "fastcompass2",
       "time": null,
       "parent": null,
-      "text": "The 5x5 constraint is a good call, but I'd push back slightly on the \"constant width makes programming easier\" framing. Yes, it simplifies string length calculation, but you're paying a real cost in visual quality for characters like \"i\" and \"l\" that don't need the full width. The ZX Spectrum's designers made similar tradeoffs, but they had less choice.\n\nThat said, the practical argument here is sound. On an AVR128DA28 with 16KB RAM, you're already constrained to tiny displays. A 128x64 OLED is tight but workable, and 350 bytes for full ASCII is genuinely impressive. I've done similar work on STM32L0 chips, and every byte counts when you're trying to keep power consumption under 10mA.\n\nOne question: how does the lowercase letter optimization work? You mention drawing lowercase one pixel smaller, but the grid is 6x6 (with 5x5 usable). Are you actually reducing vertical height for ascenders/descenders, or is this more of a visual illusion from thinner strokes? If it's the former, the rendering code must have some branching logic based on case, which defeats part of the \"constant width\" benefit.\n\nThe lcamtuf attribution is correct. That 5x6 font has been forked into embedded projects for years. It'd be worth linking to the original if you haven't already, since people hunting for tiny fonts always search for it first.",
-      "age": "2 hours ago",
-      "points": 13,
+      "text": "Stop thinking of this as a font optimization problem and start thinking of it as a display bandwidth problem. The real insight here isn't \"5x5 is the minimum,\" it's that lcamtuf figured out you can ship entire UI systems on AVRs if you flip the constraint from \"how big can",
+      "age": "1 hour ago",
+      "points": 8,
       "kids": [
         {
-          "id": "fl4c2u5f",
-          "by": "slowfiber",
+          "id": "ygrrmq04",
+          "by": "cold_lantern",
           "time": null,
           "parent": null,
-          "text": "I think you're spot-on about the visual cost, but I'd flip the framing slightly: the author isn't really arguing that constant width is universally better, just that it's a pragmatic choice for *this specific constraint*. On a 128x64 OLED you're already working with 8,192 pixels total. The math is going to be tight regardless.\n\nThat said, the \"programming is easier\" argument does gloss over something real. Variable-width fonts on microcontrollers aren't just harder to implement, they're harder to reason about when you're already juggling memory and display updates. I've done enough AVR projects to know that the cognitive load of tracking string widths at runtime, especially when your display code might be interrupt-driven, is a legitimate pain point that constant width eliminates.\n\nThe ZX Spectrum comparison is apt but maybe cuts the other way. The Spectrum used constant width because hardware bitmap rendering had no other option. Here, the author chose it deliberately despite having the option to vary widths. That's worth noting as a design decision rather than just a limitation inherited from the 80s.",
-          "age": "30 minutes ago",
-          "points": 21,
+          "text": "This is just lcamtuf's font from 2009. Nothing new here, just repackaged for the microcontroller nostalgia crowd. We were doing this on the Vic-20.",
+          "age": "2 hours ago",
+          "points": 3,
           "kids": [
             {
-              "id": "r8qqz0cp",
-              "by": "socket22",
+              "id": "46w5mwns",
+              "by": "odd_anchor99",
               "time": null,
               "parent": null,
-              "text": "If you're already dealing with the variable-width complexity, worth looking at what the embedded graphics community is using. The Adafruit GFX library has a few bitmap fonts in that size range, and there's also the work over at https://github.com/olikraus/u8g2 which lets you pick constant or variable width per font. u8g2 handles the layout math for you, which might save you from reinventing that part. That said, if 350 bytes is your constraint, rolling your own makes total sense.",
-              "age": "1 hour ago",
-              "points": 3,
+              "text": "> This is just lcamtuf's font from 2009. Nothing new here\n\nlcamtuf's was 5x6, not 5x5. Different constraints, different tradeoffs.",
+              "age": "35 minutes ago",
+              "points": 1,
               "kids": []
             }
           ]
-        },
-        {
-          "id": "8gpw53s4",
-          "by": "cedar57",
-          "time": null,
-          "parent": null,
-          "text": "I've actually shipped a couple of projects on AVR128DA with similar constraints. The constant width thing cuts both ways. Yes, it simplifies the math, but in practice I found myself working around it anyway, adding manual kerning tables for common pairs like \"rn\" or \"cl\" to avoid that chunky look. By that point you've lost the simplicity argument.\n\nThat said, if your constraint is \"fit the whole font in 350 bytes,\" variable width becomes a space vs. complexity tradeoff that probably isn't worth it. The author's being pragmatic about the actual hardware limit, not claiming it's the theoretically optimal choice.",
-          "age": "1 hour ago",
-          "points": 4,
-          "kids": []
         }
       ]
     },
     {
-      "id": "esx77e3v",
-      "by": "deepfeather",
+      "id": "u1hnaz7a",
+      "by": "lostbadge7",
       "time": null,
       "parent": null,
-      "text": "I threw this on a STM32H7 with a 320x240 display and rendered the full ASCII set in about 2.4KB of flash. Legibility at arm's length is solid, though I had to bump to 6x6 for anything smaller than 10pt. The constant width is genuinely nice for UI layouts. https://github.com/verifyme/stm32-fonttest",
-      "age": "26 minutes ago",
-      "points": 8,
+      "text": "I appreciate the effort here, but this feels like the kind of post that gets submitted to Show HN because the author is excited about shipping something, not because anyone actually needs a 5x5 font. The real question nobody's asking is: who is building things on AVR128DA28 with a 160x128 OLED and hitting memory constraints so tight that 350 bytes of font data matters, but loose enough that they're rendering arbitrary text?\n\nMost embedded projects either (a) use fixed strings baked into flash, in which case a bitmap of exactly what you need is smaller, or (b) have enough resources to use a proper font renderer like FreeType, which solves the actual problem (kerning, scaling, ligatures, unicode).\n\nlcamtuf's work was genuinely useful because he was solving a specific constraint at AFL Fuzzer's scale. This feels more like a leetcode problem dressed up as a practical tool. The ZX Spectrum reference is charming nostalgia, but nostalgia isn't a use case.\n\nIf you've actually shipped this in something real, I'd genuinely love",
+      "age": "3 hours ago",
+      "points": 11,
       "kids": [
         {
-          "id": "8x3eos71",
-          "by": "loudtundra99",
+          "id": "rfie6ret",
+          "by": "vokt262",
           "time": null,
           "parent": null,
-          "text": "I did something similar on an ESP32 with a 240x135 display. The constant width was a lifesaver for a simple menu system - no kerning surprises, predictable layouts. I ended up going with 4x6 though because even 5x5 felt tight at 3 inches. Curious if you found any tricks for making descenders work without blowing up the line height.",
-          "age": "1 hour ago",
-          "points": 4,
+          "text": "AVR128DA28 has 16 kB of RAM, not flash. The font data lives in flash (program memory), which is 128 kB on that chip. So the 350 bytes doesn't actually compete with display framebuffer space at all. The post conflates the two",
+          "age": "2 hours ago",
+          "points": 5,
+          "kids": []
+        },
+        {
+          "id": "7ekax5q9",
+          "by": "ocv505",
+          "time": null,
+          "parent": null,
+          "text": "I actually think this solves a real constraint, just not the one you're framing. The tight memory budget matters less than the predictable rendering model. If you're driving a small display from an AVR or STM32, you care about:\n\n1. Constant width means you can compute string bounds in one multiplication instead of iterating through a lookup table.\n2. At 5x5, you can fit 32x25 characters on a 160x128 display, which is enough for a small menu or status readout.\n3. 350 bytes is nothing, but more importantly, the entire font fits in L1 cache on devices with caches, and the algorithm to rasterize it is branchless.\n\nThe actual use case is probably \"I'm building a smart thermostat / industrial controller",
+          "age": "2 hours ago",
+          "points": 7,
           "kids": [
             {
-              "id": "y1pbn94s",
-              "by": "cable19",
+              "id": "pbae675y",
+              "by": "bent_marble",
               "time": null,
               "parent": null,
-              "text": "Descenders are really the hard part at this size. I'd argue you're hitting the actual limit of what makes sense without getting into variable-height shenanigans.\n\nThe trick I've seen work is just accepting that descenders (g, j, p, q, y) sit on the baseline instead of dropping below. It costs you one row vertically but keeps everything in a predictable bounding box. On a 240x135 display especially, that trade is probably worth it - you're already pixel-starved.\n\nIf you really need true descenders, you're forced into either: (1) increasing line height past 6 pixels, which defeats the space savings, or (2) doing variable-width descenders that hang into the next line, which breaks your layout predictability. The second option is what bitmap fonts on old systems did, and it's a mess for UI code.\n\nThe 4x6 choice actually makes more sense than 5x5 for displays under 4 inches. The readability delta is minimal but you get a meaningful space win. I'd be curious what your actual use case is - are you rendering lots of text or mostly numeric/indicator displays?",
+              "text": "lcamtuf's font-inline.h is excellent but this 5x5 variant is cleaner for OLEDs. If you're in this space, also check out Adafruit's GFX library fonts (especially the 5x7 bitmap set) and TinyFont",
+              "age": "37 minutes ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qer8k4m5",
+      "by": "OddThread7",
+      "time": null,
+      "parent": null,
+      "text": "I think the framing here misses the real win. This isn't about \"how small can a font get\", it's about accepting that most embedded display work doesn't need full Unicode or variable width at all.\n\nOnce you stop treating it as a font design problem and start treating it as a bandwidth/storage problem, suddenly a 350-byte fixed-width bitmap makes perfect sense. You're not optimizing for aesthetics, you're optimizing for the constraint that your AVR128DA28 or STM32L has maybe 16KB of addressable memory and a 128x64 OLED.\n\nThe policy angle here is interesting too: there's a regulatory push in IoT to ship devices with lower power budgets and minimal flash footpr",
+      "age": "41 minutes ago",
+      "points": 11,
+      "kids": [
+        {
+          "id": "ej888ket",
+          "by": "lazywidget2",
+          "time": null,
+          "parent": null,
+          "text": "I built a scrolling status display on an STM32L last year with a 128x64 OLED and honestly this 5x5 approach would have saved me weeks. I was trying to cram a proportional font and kept running out of RAM for the actual application logic. Switched",
+          "age": "2 hours ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "err3s9i4",
+              "by": "BlueSocket42",
+              "time": null,
+              "parent": null,
+              "text": "Weeks? You were doing it wrong then. Fixed width bitmaps have been the obvious choice for embedded displays since, I dunno, forever. This isn't some revelation.",
               "age": "1 hour ago",
               "points": 1,
               "kids": []
@@ -95,94 +127,105 @@
       ]
     },
     {
-      "id": "8o7g4vf0",
-      "by": "hotpebble",
+      "id": "rjo0n8kf",
+      "by": "redoak23",
       "time": null,
       "parent": null,
-      "text": "I built a similar thing for a project displaying sensor data on an old 128x64 OLED display a few years back. The constant-width approach saved me hours of debugging layout code. I used a 3x5 font initially and kept running into issues with \"M\" and \"W\" looking like smashed garbage, plus kerning became a nightmare once you have variable widths and limited pixels.\n\nThe jump to 5x5 feels obvious in hindsight. You get lowercase distinction for almost free, and 350 bytes is trivial even on constrained hardware. I ended up burning about 400 bytes but added box-drawing characters for menu borders, which was worth it.\n\nOnly gotcha I'd mention: if you're doing this on a microcontroller with limited flash, make sure your bitmap encoding is actually optimal for your toolchain. I wasted a weekend using a naive C array before switching to a lookup table. Compiler wasn't optimizing the way I expected.",
-      "age": "2 hours ago",
+      "text": "Just tested this on an Arduino with a 128x64 OLED. Compiled to 412 bytes with the full ASCII set, which is honestly smaller than I expected. Rendering speed is instant even at 60 FPS. The 5x5 constraint actually makes the glyphs",
+      "age": "1 hour ago",
       "points": 8,
       "kids": [
         {
-          "id": "miwv7t3y",
-          "by": "redpilot42",
+          "id": "jdvfglf3",
+          "by": "fast_crate2",
           "time": null,
           "parent": null,
-          "text": "I find it interesting that embedded systems work keeps gravitating toward these micro-optimizations while projects targeting actual modern hardware are drowning in bloat. A 350-byte font is elegant, sure, but we're celebrating fitting readable text on a screen that costs $3 while web frameworks casually ship 2MB of JavaScript for a button.\n\nThe real insight here isn't the font itself, it's the constraint forcing good design decisions. Wish more projects were built with that mindset instead of \"we have gigabytes, who cares.\"",
-          "age": "1 hour ago",
-          "points": 5,
-          "kids": []
+          "text": "This reminds me of the tiny bitmap fonts on old graphing calculators in the 90s. I had a TI-85 and spent way too long staring at those 5x7 glyphs. The tradeoff between readability and memory footprint was always brutal on those devices",
+          "age": "42 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "rsp44m6b",
+              "by": "exvi724",
+              "time": null,
+              "parent": null,
+              "text": "If you're into this space, check out Tom7's work on embedded fonts - his \"Font of Interesting Sizes\" has some clever 4x6 and 5x7 variants that trade off differently. https://tom7.org/grad/fonts/",
+              "age": "4 minutes ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a4scnbjw",
+      "by": "raw_sleeve",
+      "time": null,
+      "parent": null,
+      "text": "The 350-byte footprint is the real win here. Most embedded projects I've worked on (weather stations, sensor arrays, old Kindle hacks) hit a hard RAM wall around 16-32KB. A monospace font that trades zero design fluff for pure utility tends to outperform the prettier alternatives once you factor in the bitmap decompression overhead.",
+      "age": "1 hour ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "iv8hlihc",
+          "by": "brk811",
+          "time": null,
+          "parent": null,
+          "text": "This reminds me of the constraint I hit working on firmware for some ancient Casio calculators with 2KB of RAM. We ended up embedding a 3x5 bitmap font in about 80 bytes, but the trade-off was brutal-lowercase letters were basically unreadable, and kerning was completely impossible.\n\nThe jump to 5x5 actually solves real problems. The 350 bytes is almost negligible on modern microcontrollers, but the consistency of fixed-width makes display code so much simpler. I've seen projects spend weeks",
+          "age": "3 hours ago",
+          "points": 7,
+          "kids": [
+            {
+              "id": "swj8m52a",
+              "by": "VastPebble",
+              "time": null,
+              "parent": null,
+              "text": "I hit that same wall on a Mars Rover emulator project at uni (borrowed code from Russ Cox's Plan 9 font work). We needed to display telemetry on a 128x64 LCD and the fixed-width constraint was a lifesaver for the buffer calculations.",
+              "age": "41 minutes ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
         },
         {
-          "id": "3d6olq53",
-          "by": "TinySleeve",
+          "id": "4u4pqdn2",
+          "by": "soft_cedar2",
           "time": null,
           "parent": null,
-          "text": "lcamtuf's font is actually 5x6, not variable-width. The real win here is the monospace guarantee cutting layout code from hours to minutes. For OLED work under 160x128, this density is genuinely useful. Have you considered adding box-drawing characters for graphs?",
+          "text": "The irony is that we've spent 40 years optimizing fonts for screens with megabytes of RAM, then act surprised when embedded systems need to reinvent 1980s solutions. This is solid work, but it's almost a referendum on how bloated our tooling has become.",
           "age": "2 hours ago",
           "points": 4,
-          "kids": [
-            {
-              "id": "34gj9e1k",
-              "by": "throwaway_6640",
-              "time": null,
-              "parent": null,
-              "text": "> Have you considered adding box-drawing characters for graphs?\n\nYeah, but then you're really fighting the pixel budget. Box drawing for a 128x64 display ends up looking like a checkerboard from 2 feet away. I'd rather see someone build a small charting library that uses the existing 5x5 grid to fake smooth curves. The ZX Spectrum did this with block graphics and it actually looked decent.",
-              "age": "24 minutes ago",
-              "points": 3,
-              "kids": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "qniuu715",
-      "by": "matrix17",
-      "time": null,
-      "parent": null,
-      "text": "I built a weather display for an old 128x64 OLED using a similar 5x5 approach, and the memory savings were honestly surprising. The whole UI (time, temp, icons, 3-day forecast) fit in about 2KB of flash. Switched from a Raspberry Pi Zero to an ATtiny402 and the power draw dropped from 2W to 80mW. The readability at that size is totally fine if you accept the monospace constraint, which this font nails.",
-      "age": "1 hour ago",
-      "points": 10,
-      "kids": [
-        {
-          "id": "amku11s8",
-          "by": "lazystone",
-          "time": null,
-          "parent": null,
-          "text": "The 80mW figure sounds right for the ATtiny, but I'd push back on one thing: how are you handling the OLED refresh rate? Most 128x64 displays need 30-60Hz minimum to avoid flicker, and that's where power budgets get ugly fast. Are you doing partial updates, or refreshing the whole display each cycle? Because on paper ATtiny402 + OLED should be lower, but in practice I've seen refresh overhead eat most of that savings when you're not careful about SPI clock speed and update patterns.\n\nThe monospace constraint is real though. That's the actual win here-fixed-width lets you pre-calculate everything, no runtime string measurement. I'm curious what your 2KB includes: just the font bitmap, or the full UI state tree too?",
-          "age": "1 hour ago",
-          "points": 25,
           "kids": []
         }
       ]
     },
     {
-      "id": "upqbt8bk",
-      "by": "faststone99",
+      "id": "x0hld5ip",
+      "by": "fast_anchor42",
       "time": null,
       "parent": null,
-      "text": "I built a similar font for an embedded project on an STM32L152 a few years back, except I went 4x6 because I was trying to cram it onto a 96x64 LCD. The constant width thing was genuinely a lifesaver once I had to implement a simple menu system with right-aligned numbers. No second-guessing whether the \"100\" would clip.\n\nThe 5x5 approach here is smarter though. I spent way too much time hand-tuning kerning on a 4x6, and the letter distinctiveness problem (M, W) became real once you factor in sub-pixel rendering artifacts on cheap displays. Going one pixel bigger bought back legibility without the memory hit being significant. At 350 bytes, this would've fit in the flash of the chips I was working with three times over.\n\nOne thing I'd add: if you're targeting OLEDs, the constant-width property also makes animation smoother. Scrolling text doesn't jitter when every character is exactly 6 pixels wide.",
-      "age": "1 hour ago",
-      "points": 14,
+      "text": "This is just lcamtuf's 5x6 font with one pixel shaved off and presented as some grand optimization. The whole premise of \"5x5 is the minimum\" falls apart the second you try to render anything below 20pt on an actual screen. Most people can't even read 4x4 clearly, let alone rely on it for anything mission-critical.\n\nAnd the claim about memory efficiency is misleading. Yes, 350 bytes sounds tiny, but you're already burning 110KB+ on the framebuffer for any reasonable display. Shaving 350 bytes doesn't meaningfully change your project constraints. If you're actually RAM-constrained to that degree, you're not rendering fonts at all, you're bit-shifting pre-rendered glyphs.\n\nThe monospace justification (\"length of a string is always 6 times the number of characters\") is fine but that's not new. Every bitmap font does this. The constant-width thing is a solved problem that doesn't need rehashing.",
+      "age": "2 hours ago",
+      "points": 35,
       "kids": [
         {
-          "id": "3kraiv6b",
-          "by": "throwaway_3532",
+          "id": "xnbo0uyx",
+          "by": "BasicRiver",
           "time": null,
           "parent": null,
-          "text": "This takes me back to the mid-2000s when I was working on a graphing calculator project with a PIC microcontroller and a 128x64 LCD. We went 3x5 out of desperation, accepted it was basically unreadable, then discovered someone had already solved this problem in 1982. The constant-width constraint really is the killer feature once you're laying out menus or status displays. Wish I'd had something this well-thought-out back then.",
+          "text": "The 5x5 constraint is actually more subtle than just shaving a pixel. The monospace fixed-width grid (6 chars per 6 pixels) matters a lot for embedded work where you're compositing text into pre-calculated layouts. On a 128x64 OLED,",
           "age": "1 hour ago",
-          "points": 5,
+          "points": 6,
           "kids": [
             {
-              "id": "8xij31n0",
-              "by": "throwaway_3182",
+              "id": "l59xjowk",
+              "by": "lantern87",
               "time": null,
               "parent": null,
-              "text": "I tested this on a Raspberry Pi Pico (2 MB flash, 264 KB RAM) with a 128x64 SSD1306 display. Renders at 60 fps with zero flicker. The 350 byte footprint is genuinely hard to beat. Only gotcha: antialiasing looks worse at this scale, so stick with 1-bit per pixel.",
-              "age": "1 hour ago",
-              "points": 1,
+              "text": "If you're targeting microcontrollers with tight constraints, there's a reason bitmap fonts like this still dominate over vector approaches. That said, for anything consumer-facing on embedded displays, you'd want to look at what folks in the IoT space are already doing-projects like LVGL use adaptive scaling precisely because a fixed 5x5 assumes your use case is either hobby-level or pre-constrained to very specific hardware. The real win",
+              "age": "2 hours ago",
+              "points": 7,
               "kids": []
             }
           ]
@@ -190,5 +233,5 @@
       ]
     }
   ],
-  "_generated_at": "2026-04-26T10:29:25.091Z"
+  "_generated_at": "2026-04-28T02:07:44.457Z"
 }

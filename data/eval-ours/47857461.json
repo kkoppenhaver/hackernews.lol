@@ -13,122 +13,238 @@
     "id": 47857461,
     "title": "Tell HN: I'm sick of AI everything",
     "url": "https://news.ycombinator.com/item?id=47857461",
-    "by": "hot_widget",
-    "score": 63,
+    "by": "krmn135",
+    "score": 326,
     "time": null,
-    "descendants": 23,
+    "descendants": 30,
     "text": ""
   },
   "comments": [
     {
-      "id": "mbybzewu",
-      "by": "flat_matrix",
+      "id": "5vxvamsd",
+      "by": "forest14",
       "time": null,
       "parent": null,
-      "text": "I was at a startup in 1999 that pivoted twice based on investor pressure to \"be more internet.\" We had a perfectly functional desktop application, but suddenly we needed a web version, then a mobile version, then we needed to \"leverage the cloud\" (which wasn't even called that yet). Burned through cash, hired 40 people we didn't need, and folded in 2001. The irony is our original product still works today on abandonware sites.\n\nThis AI thing has that exact same energy. I keep seeing job postings where they've literally just swapped \"blockchain\" or \"machine learning\" for \"AI\" from 2017 templates. The worst part is knowing it'll probably take another five years of dead companies before people remember that technology serves the business, not the other way around.",
+      "text": "I actually think there's a meaningful difference here. During dotcom, the hype was mostly detached from reality-Pets.com was never going to work at that scale with those economics. But AI tooling is genuinely useful for a lot of engineering work right now. The problem isn't that the tech is fake; it's that every company is using it as a brand band-aid instead of actually thinking about what it solves for them.\n\nThe job posting thing especially bugs me because it signals the opposite of what they probably intend. If your value prop to engineers is \"we use AI,\" that tells me you haven't figured out what your actual problems are yet. The companies I'm genuinely interested in working for mention AI only when it's solving a specific bottleneck they've identified. Usually in a one-liner, not a whole section.\n\nI agree with you that fixing organizational dysfunction first would help immensely. Most places I've seen trying to \"AI-enable\" their processes are just autom",
+      "age": "4 minutes ago",
+      "points": 19,
+      "kids": []
+    },
+    {
+      "id": "w68sp0vm",
+      "by": "wdo105",
+      "time": null,
+      "parent": null,
+      "text": "I've been hiring engineers for the past 5 years and I can confirm this is real. What's interesting is that the AI language in job postings correlates almost perfectly with how immature their actual ML practice is. The teams that are genuinely doing sophisticated ML work tend to describe it in technical specifics: \"we're optimizing our ranking model with learned-to-rank techniques\" or \"we maintain a feature store with 40k+ features for our recommendation pipeline.\" The ones just spraying \"AI-powered\" everywhere usually haven't shipped anything beyond a RAG wrapper or some GPT API calls. It's almost a screening signal at this point. When I see a posting that's half AI buzzwords",
+      "age": "34 minutes ago",
+      "points": 13,
+      "kids": [
+        {
+          "id": "6je9mb7r",
+          "by": "krmn135",
+          "time": null,
+          "parent": null,
+          "text": "This is exactly the pattern I'm seeing. The teams actually shipping meaningful ML have the technical vocabulary to show for it. They don't need to say \"AI-powered\" because their job spec reads like an engineering doc.\n\nThe frustrating part is it makes hiring harder for everyone-real signal gets drowned out",
+          "age": "36 minutes ago",
+          "points": 4,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "ymk8hzz7",
+      "by": "hotspark99",
+      "time": null,
+      "parent": null,
+      "text": "The real tell is how job postings went from \"we're building X for customers who need Y\" to \"we use AI\" as if that's a value prop. Nobody cares that your stack includes an LLM. They care if your product actually works better because of it. The dotcom parallel is",
+      "age": "1 hour ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "sf67h0m8",
+          "by": "stone0",
+          "time": null,
+          "parent": null,
+          "text": "The dotcom parallel breaks down here though. Pets.com was wrong about logistics, not about whether people wanted pet supplies. But a lot of these \"AI-powered\" job postings are claiming AI solves problems that don't actually exist yet, or that existed fine before. That's closer to Koz",
+          "age": "52 minutes ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "runx49u8",
+              "by": "pilot55",
+              "time": null,
+              "parent": null,
+              "text": "Kozmo actually had a harder problem to solve operationally (same-day delivery in 1999), but you're right that the core demand was real. The AI case is murkier because we're conflating three things: (1) genuine algorithmic improvements that happened to use neural nets, (2) chatbot wrappers around existing CRUD apps, and (3) pure marketing theater.\n\nJob postings mostly live in bucket 2 or 3. A hiring manager who says \"we're an AI-first company\" without specifying what inference loop actually moves the needle is basically admitting they don't know why they're using it. That's the real warning sign. The dotcom founders at least *believed* in their vert",
+              "age": "48 minutes ago",
+              "points": 11,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "u4h84zla",
+          "by": "grey_stone99",
+          "time": null,
+          "parent": null,
+          "text": "The job posting thing is a symptom of deeper cargo cult thinking. Companies see that AI is getting attention and assume the attention itself is the product. So they jam it into every marketing surface hoping it sticks.\n\nBut you're right that dotcom had an excuse: the underlying infrastructure (broadband, payment processing, logistics) genuinely didn't exist yet. Companies were building toward a real future, just most of them burned out before getting there.\n\nWith AI, we're mostly watching people bolt ChatGPT onto existing workflows and call it innovation. The organizational problems stay put. If your customer support is terrible because you don't pay people enough to care, an LLM won't fix that, it'll just make the support terrible faster.\n\nWhat's different now is the hype cycle is compressed and",
+          "age": "55 minutes ago",
+          "points": 11,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "z74hfojd",
+      "by": "throwaway_8697",
+      "time": null,
+      "parent": null,
+      "text": "The real issue here isn't hype, it's regulatory capture. Companies aren't mandated to disclose AI usage in hiring, training data sourcing, or decision-making. The dotcom bubble at least had the SEC watching. We need EU-style transparency rules before this gets worse. What gets measured gets",
+      "age": "50 minutes ago",
+      "points": 9,
+      "kids": [
+        {
+          "id": "49xbzsf9",
+          "by": "krmn135",
+          "time": null,
+          "parent": null,
+          "text": "Good point on transparency. I think you're right that disclosure requirements would help, though I'm skeptical they'd move the needle on the actual hype cycle. Companies will just get creative with language.\n\nWhat I'm more worried about is the second-order effect: if every job posting says \"AI-driven this\" and \"machine learning that,\" how do candidates even parse signal from noise? The dotcom bubble at least had a technological excuse-the internet was genuinely new. This feels more like collective delusion about what's actually novel versus repackaged.\n\nThe regulatory angle is worth pushing on though. You're right the SEC wasn't watching closely enough in '99. If we're going to have serious AI infrastructure companies, they should have to disclose actual usage, benchmarks, and failure rates in their hiring/evaluation tools, not just marketing language. That would probably kill 60% of the \"AI-enabled\" claims overnight.",
+          "age": "34 minutes ago",
+          "points": 21,
+          "kids": []
+        },
+        {
+          "id": "emghejmb",
+          "by": "dh467",
+          "time": null,
+          "parent": null,
+          "text": "Regulatory capture lol. The SEC has been neutered for 20 years and the EU can barely enforce GDPR. Companies will do whatever maximizes quarterly earnings and settle fines later. The dotcom had actual product demand underneath-people genuinely wanted to buy stuff online. This is just marketing theater",
+          "age": "29 minutes ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "wtw7qsv0",
+              "by": "weary_cable",
+              "time": null,
+              "parent": null,
+              "text": "I worked at a company during the 2008 crisis that had pivoted hard into \"green tech\" right before everything collapsed. We spent months rewriting every piece of marketing copy to emphasize sustainability, hired a whole team around it, then laid most of them off within a year when the funding dried up. This feels exactly like that-the panic move to stay relevant",
+              "age": "4 minutes ago",
+              "points": 5,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ayt6fh9l",
+      "by": "CleverThread_",
+      "time": null,
+      "parent": null,
+      "text": "I was a junior dev during the late 90s at a mid-size e-commerce startup. We had investors telling us to slap \"Internet\" or \".com\" into every pitch deck, regardless of whether it made sense. The CEO once spent an entire board meeting arguing that our logistics problem would solve itself once we \"got big enough.\" It didn't.\n\nWhat strikes me about the current AI cycle is the speed and depth of the cargo cult behavior. Back then, at least the underlying technology-the web itself-was genuinely transformative, even if most companies had no idea what to do with it. Now I'm seeing job postings that say things like \"AI-powered customer support\" when they mean a chatbot that's just a worse version of their FAQ, or \"AI-driven analytics\" when they mean they're using an LLM to write SQL queries (badly).\n\nThe organizational dysfunction angle you mentioned is spot on. I've watched companies implement these tools without fixing the actual problems. You add Claude to a meeting where nobody actually talks to each other, and now you've just got well-written silence. One client hired an LLM to \"enhance their content pipeline\" when their real problem was that their writers had quit because management was impossible. They burned through their budget on API calls within six months.\n\nThe job posting thing bothers me more than the hype cycle itself. It tells me the company is marketing to investors (or VCs) rather than actually thinking about what they need to hire. When I see that kind of copy, I assume they're either desperate for capital or ran out of ideas about what actually makes their product different. Both are yellow flags.",
+      "age": "26 minutes ago",
+      "points": 28,
+      "kids": [
+        {
+          "id": "fg4z6n6d",
+          "by": "FastMesh42",
+          "time": null,
+          "parent": null,
+          "text": "I was at a mid-stage SaaS company in 2021-2022 when the \"AI pivot\" started. We had a perfectly functional product, decent margins, real customers. Then the board decided we needed to \"AI-first\" everything. Spent six months bolting GPT-2 into features nobody asked for. Lost two senior engineers who thought it was absurd. The",
+          "age": "36 minutes ago",
+          "points": 8,
+          "kids": [
+            {
+              "id": "481vgbvv",
+              "by": "lgj683",
+              "time": null,
+              "parent": null,
+              "text": "This is what happens when you have more money than sense. You bolt on whatever's trendy and hope the quarterly numbers move. I've seen this exact pattern three times now-dotcom, mobile, crypto-and every cycle someone acts shocked when the bolted-on feature doesn't fix broken fundamentals. The",
+              "age": "28 minutes ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20jz834l",
+      "by": "brokenmarble",
+      "time": null,
+      "parent": null,
+      "text": "The funny part is that job postings weren't honest about what they needed before either-they just said \"synergy\" and \"disruptive\" instead of \"AI-powered.\" Same packaging, different buzzword. At least now when a company leads with AI in their pitch, you know they've got nothing",
       "age": "1 hour ago",
       "points": 8,
       "kids": [
         {
-          "id": "g43kg9es",
-          "by": "cedar41",
+          "id": "3vbr69ug",
+          "by": "krmn135",
           "time": null,
           "parent": null,
-          "text": "The difference is that in 1999, at least the underlying infrastructure was real and useful. Kozmo.com failed as a business model, but people genuinely wanted same-day delivery. The web itself wasn't a bubble, just the valuations.\n\nWith AI, we're seeing companies slap it onto products where it actively makes things worse. Resume screeners that reject qualified candidates. Customer support chatbots that can't solve anything. \"AI-powered\" features that are just autocomplete with higher latency. And the recruiting copy is the most egregious part-suddenly every job posting needs to mention LLMs even when the role has nothing to do with them.\n\nThe venture capital playbook is identical though: find a technology that's genuinely interesting, convince everyone it's the future, dump money on it indiscriminately, and let the market sort out which applications actually create value versus which ones were just funded because the founder said the right buzzword in the pitch deck. Except this time it might take even longer to unwind because AI has real utility in specific domains, so the whole ecosystem gets to hide under that umbrella.",
-          "age": "3 hours ago",
-          "points": 18,
-          "kids": []
-        },
-        {
-          "id": "25knmnz0",
-          "by": "basicfeather",
-          "time": null,
-          "parent": null,
-          "text": "The infrastructure argument is weak though. AWS exists now and actually works, so what's the excuse? At least in 1999 companies had the cover of \"nobody knows how this will play out.\" Today every VC-backed startup is slapping AI onto their product roadmap because it's literally free marketing hype. The difference isn't that AI is real and useful-it's that we're dumber about acknowledging the con.",
-          "age": "54 minutes ago",
-          "points": 3,
+          "text": "Fair point, though I'd argue there's a difference. \"Synergy\" was at least aspirational bullshit-companies knew it was hollow. With AI, I think many actually believe the hype. The job postings aren't cynical, they're confused. Which might be worse.",
+          "age": "12 minutes ago",
+          "points": 5,
           "kids": [
             {
-              "id": "93pccr02",
-              "by": "greensleeve",
+              "id": "9a8ies0u",
+              "by": "DryMarble_",
               "time": null,
               "parent": null,
-              "text": "I've been through a few cycles of this now. The infrastructure argument isn't actually weak, though, it's just evolved. AWS works, yes, but the real difference between 1999 and today is that back then you needed actual technical competence to execute on the hype. You had to hire people who understood distributed systems, database replication, load balancing. Those people were expensive and hard to find.\n\nNow? You can prompt Claude to generate a feature spec, use it to hire mid-level engineers on the cheap because \"AI will help them be more productive,\" and ship something that technically works but solves no real problem. The friction is gone. In 1999, at least throwing money at a bad idea required you to employ actual engineers who might push back. Today the entire pipeline from idea to shipped product can run on hype and cheap labor.\n\nWhat kills me is watching companies hire \"AI engineers\" at startup salaries to do what was previously a data scientist or ML engineer role at FAANG rates. They're not delusional about AI being useful in theory. They're rational about extracting value from the hype while underpaying for it. The startups burning through VC money on AI feature creep are following a playbook that actually works now because the execution barrier is lower.",
-              "age": "26 minutes ago",
+              "text": "I worked at a startup during the 2015-2016 \"machine learning everything\" phase, and this absolutely mirrors that. We had a perfectly functional recommendation system built on collaborative filtering. Then the new VP of Product came in, declared we needed \"deep learning,\" and we spent six months building a neural network that performed identically to the old system but took three times longer to train.\n\nThe difference is that back then, at least the internal pressure was contained. Now it's baked into recruiting and investor narratives, so the confusion spreads outward. Job descriptions get written by people who've internalized the hype without understanding what it actually solves. You end up with posts asking for \"AI engineers\" to do work that's fundamentally just data plumbing.\n\nThe cynicism might actually be preferable to the genuine belief. At least you knew where you stood.",
+              "age": "49 minutes ago",
               "points": 14,
               "kids": []
             }
           ]
         },
         {
-          "id": "vcnhx0u5",
-          "by": "odd_glider42",
+          "id": "7tqc79sa",
+          "by": "throwaway_8895",
           "time": null,
           "parent": null,
-          "text": "The difference is that in 1999, at least the underlying infrastructure was real and useful. Kozmo.com failed as a business model, but people genuinely wanted same-day delivery. Now we're seeing companies retrofit AI into processes that don't need it, solving problems that don't exist. At least the dotcom bubble produced the plumbing we still use today.",
-          "age": "2 hours ago",
-          "points": 3,
+          "text": "\"Synergy\" and \"disruptive\" were at least vague enough that you could imagine them meaning something. \"AI-powered\" is actively misleading in most job postings because it usually just means \"we bought a ChatGPT subscription and now everyone has to use it for everything.\"\n\nThe difference is that dotcom buzzwords were aspirational cover for real business problems (logistics, discovery, matching). AI buzzwords are cover for the fact that companies haven't actually identified a problem yet. They're buying the solution first and retrofitting the use case.",
+          "age": "49 minutes ago",
+          "points": 18,
           "kids": []
-        }
-      ]
-    },
-    {
-      "id": "3xuhuy6x",
-      "by": "bravecrate7",
-      "time": null,
-      "parent": null,
-      "text": "Reminds me of the whole \"Web3\" pivot cycle. Every startup suddenly needed blockchain in their pitch deck around 2021-2022, regardless of whether it solved anything. Now it's the same energy with AI. The difference is at least some AI tools genuinely work-which paradoxically makes the hype worse because real utility gets buried under marketing noise.",
-      "age": "5 hours ago",
-      "points": 10,
-      "kids": [
+        },
         {
-          "id": "y36n9t45",
-          "by": "hot_widget",
+          "id": "29zfybdv",
+          "by": "loudcrate2",
           "time": null,
           "parent": null,
-          "text": "Yeah, the Web3 parallel is spot-on. The key difference you're nailing is that AI actually delivers something, which creates this weird dynamic where the hype becomes self-reinforcing. With crypto, skeptics could point to fundamental issues. With AI, people use it, it works for their task, and then suddenly every deck has \"AI-powered\" slapped on it.\n\nI think the real problem is that most organizations haven't actually figured out where to apply it well yet. They're in the phase of \"we have this powerful tool, what do we do?\" instead of \"we have this specific problem that AI solves.\" So yeah, organizational debt first seems right. The tech amplifies whatever's already broken.",
-          "age": "3 hours ago",
-          "points": 7,
+          "text": "The difference is that dot-com at least had the excuse of being new. Nobody knew what the internet would do. This is just copy-paste hype from a playbook that's been run three times already (social media, blockchain, metaverse). Andreessen and crew figured out that if you attach a hot enough label to your fund's portfolio companies, LPs stop asking hard questions about unit economics.\n\nThe pet food thing is instructive though. Kozmo failed but the *actual demand* for online pet supplies was real and got solved by Amazon and Chewy. With AI, I keep waiting for that moment where it's obvious what the actual demand is. So far it's mostly \"we added ChatGPT to our SaaS\" and \"we fine-tuned a model on your data\" which... yeah, that's not a moat and it's definitely not a business. P",
+          "age": "23 minutes ago",
+          "points": 4,
           "kids": [
             {
-              "id": "5dbncw9p",
-              "by": "parser34",
+              "id": "0typ1etc",
+              "by": "deepcache23",
               "time": null,
               "parent": null,
-              "text": "The problem is you're all still thinking about this wrong. AI actually works, sure, but \"works\" just means it's a better hammer. Most of these organizations don't need a better hammer, they need to figure out what they're actually trying to build. Instead they're just hammering everything because they have a hammer. It's not hype that's the issue, it's organizational dysfunction masquerading as innovation. The crypto crowd at least had the excuse that their tech was fundamentally broken. You lot are just choosing not to think.",
-              "age": "55 minutes ago",
-              "points": 8,
+              "text": "> Andreessen and crew figured out that if you attach a hot enough label to your fund's portfolio companies, LPs stop asking hard questions about unit economics.\n\nBut this has always been true. They said the same thing about cloud, mobile, social. The difference is those actually worked out for enough companies that the hype, in retrospect, looked prescient. AI might too. Or it might",
+              "age": "1 minutes ago",
+              "points": 1,
               "kids": []
             }
           ]
         },
         {
-          "id": "99wgonfk",
-          "by": "clevermatrix42",
+          "id": "cxw0ex7c",
+          "by": "VastCedar_",
           "time": null,
           "parent": null,
-          "text": "The blockchain comparison is apt, but I'd push back slightly on the \"at least some AI tools genuinely work\" part. Web3 had real utility too if you squinted-programmable money, composability, all legitimate ideas. The problem wasn't the tech, it was that every single problem got hammered into a blockchain-shaped nail.\n\nSame thing happening now. Yes, LLMs are useful for certain tasks. But we're watching companies retrofit AI into everything from customer service (worse than phone trees) to \"AI-powered\" recruiting (which just bakes in existing biases faster). The hype cycle is actually obscuring where the real value is because the signal-to-noise ratio has collapsed.",
-          "age": "1 hour ago",
-          "points": 3,
-          "kids": []
-        },
-        {
-          "id": "npa304ys",
-          "by": "redforest",
-          "time": null,
-          "parent": null,
-          "text": "I've been in the trenches building data pipelines for the past 5 years, and the \"AI solves everything\" pitch has completely taken over RFPs. Last month a client asked us to \"add AI\" to a system that just needed better indexing. We did the indexing work, shipped it in 2 weeks, and it solved their actual problem. They still wanted us to slap \"powered by ML\" on the marketing materials though, which we declined. The tools are genuinely useful for specific tasks (code generation, summarization), but treating it as a universal solution is exactly how you end up with overengineered garbage that nobody actually needs.",
-          "age": "39 minutes ago",
-          "points": 5,
+          "text": "Fair point, though I'd push back on the equivalence a bit. \"Synergy\" and \"disruptive\" were at least transparent nonsense-everyone knew what you were getting. With AI, there's actual ambiguity about what's being claimed.\n\nA job posting that says \"we use AI to optimize our routing\" could mean anything from \"we retrained a model last quarter\" to \"we replaced five engineers with Claude.\" The recruiter probably doesn't know either. That uncertainty is worse than dotcom buzzword inflation because it makes it harder to filter signal from noise.\n\nThe real test is whether they can articulate what problem the AI is solving. If they can't do that in the job description, they definitely haven't solved it internally.",
+          "age": "57 minutes ago",
+          "points": 20,
           "kids": [
             {
-              "id": "wgvw6ie7",
-              "by": "brave_compass",
+              "id": "jp0jq3ks",
+              "by": "LostCrate2",
               "time": null,
               "parent": null,
-              "text": "The indexing work solved the problem in 2 weeks. Of course they wanted \"powered by ML\" on the materials anyway. That's the whole game right now. Real utility gets buried because executives read TechCrunch headlines and panic that they're falling behind. Nobody wants to admit their issue was just bad database design or missing monitoring. Way easier to say \"we're leveraging AI\" and move on. The worst part is it actually works for fundraising and board meetings, so the incentives are completely backwards. You'll keep seeing this until the pendulum swings hard the other way, probably when the first major failure gets blamed on \"AI\" instead of the actual root cause.",
-              "age": "50 minutes ago",
-              "points": 6,
+              "text": "I actually looked at this empirically last month. Checked ten \"AI-optimized\" job postings from Series B startups, pulled their engineering repos where public, and traced what they actually shipped.\n\nTwo had legitimate model work (one did fine-tune a Llama variant for internal tooling).",
+              "age": "33 minutes ago",
+              "points": 1,
               "kids": []
             }
           ]
@@ -136,130 +252,88 @@
       ]
     },
     {
-      "id": "csg3ngoj",
-      "by": "bj889",
+      "id": "bx3hqt46",
+      "by": "green_compass2",
       "time": null,
       "parent": null,
-      "text": "The thing that bugs me most is how it's infected the *language* itself. Every job posting, every press release, every product update now has this cargo-cult AI worship baked in. It's not even about whether AI is useful anymore-it's just noise, a tribal signal that you're \"innovating\" and \"future-ready.\" Meanwhile the actual problems in these organizations (terrible documentation, siloed teams, outdated infrastructure) stay exactly the same. AI just gets bolted on top like a spoiler on a minivan.",
-      "age": "3 hours ago",
-      "points": 8,
-      "kids": []
-    },
-    {
-      "id": "cw8esblf",
-      "by": "blue_anchor2",
-      "time": null,
-      "parent": null,
-      "text": "I actually think some of the AI adoption is genuinely useful, but you're hitting on something real about the messaging fatigue. The difference from dot-com for me is that back then the hype was disconnected from any real utility. Now there's actual value, but it's like we've collectively decided to pretend every problem is an AI problem.\n\nI work at a mid-size fintech place and watched our job postings get rewritten three times in six months. The first version had actual technical requirements. By month two, every description had been \"enhanced\" with language about machine learning pipelines and AI-driven decision making, even for roles that have nothing to do with either. The hiring team kept getting pressure from above to \"position us as an AI company\" for investor optics.\n\nThe thing that bugs me more than the marketing is the resource allocation. We have genuine technical debt, our data pipeline is a mess, and we're still doing things manually that could be automated with boring infrastructure work. Instead there's this pull toward flashy AI projects that don't solve our actual problems. It's like the organizational dysfunction you mentioned gets papered over with hype instead of fixed.\n\nI do think this will shake out. The companies that use AI to solve real bottlenecks will win, and the ones doing it for the resume will eventually look silly. But yeah, the next 18 months of job postings are going to be insufferable.",
-      "age": "1 hour ago",
+      "text": "The FTC should probably start looking at how \"AI-first\" positioning in job specs relates to wage suppression and skill requirement inflation. We saw similar dynamics during the dot-com era with \"required experience in technologies that didn't exist two years prior.\" At least then the SEC eventually cracked down on some of the egregious claims. Right now there's no real enforcement mechanism for \"AI-enhanced\" marketing copy that's just the same product with a chatbot bolted on. Cory Doctorow",
+      "age": "38 minutes ago",
       "points": 16,
       "kids": [
         {
-          "id": "y3m8hqv1",
-          "by": "deep_comet42",
+          "id": "6b45q343",
+          "by": "silentfiber99",
           "time": null,
           "parent": null,
-          "text": "> The difference from dot-com for me is that back then the hype was disconnected from any real utility. Now there's actual value, but it's like we've collectively decided to pretend every problem is an AI problem.\n\nThis is where I think you're fooling yourself. The \"actual value\" is mostly confined to a handful of specific tasks: code completion, summarizing dense text, basic content generation. Everything else is theater.\n\nYour fintech place rewrote job postings three times because someone in leadership read a McKinsey report and panicked. That's not utility-driven adoption, that's the same cargo-cult thinking that killed pets.com. You had actual problems before AI and you have the same problems now, except now your stack is harder to maintain because someone bolted on an LLM that adds latency and cost.\n\nThe real tell is that most companies can't articulate what the AI is actually doing for their bottom line. They just know competitors are \"AI-first\" so they need to be too. Dot-com was \"we're an Internet company,\" which at least made semantic sense even when it didn't make financial sense. This is worse because it's pretending to be rigorous when it's pure superstition.\n\nAnd the utility that does exist? It's mostly going to compress into a few libraries and frameworks within 18 months. At that point the hype evaporates and we're left with normal tools that do their job quietly. But by then you'll have already burned money on a bunch of half-baked internal ML projects that nobody maintains.",
-          "age": "2 hours ago",
-          "points": 7,
-          "kids": []
-        },
-        {
-          "id": "cbn4wsop",
-          "by": "qct781",
-          "time": null,
-          "parent": null,
-          "text": "I'd push back on the \"actual value\" framing a bit. Yes, LLMs are genuinely useful for certain narrow tasks-code completion, summarization, drafting boilerplate. But most of what I'm seeing in job postings is cargo cult stuff. \"AI-powered customer insights\" when they mean basic analytics. \"Leveraging machine learning\" for what's essentially regex on structured data.\n\nThe dot-com parallel holds because the infrastructure was real too. TCP/IP, HTTP, databases-those were genuinely transformative. But most startups just bolted \"dot-com\" onto whatever they were already doing. Same energy here. The technology is real, but the deployment often isn't solving the actual problem; it's solving the optics problem of needing to look innovative.",
-          "age": "4 hours ago",
-          "points": 12,
+          "text": "The Cory Doctorow name-drop is doing a lot of work here but I think he's missing the actual mechanism. It's not FTC-level fraud (yet), it's just that HR discovered a magic word. \"AI-enhanced\" costs nothing to add to a job posting and makes",
+          "age": "1 hour ago",
+          "points": 3,
           "kids": [
             {
-              "id": "wr4dsdqy",
-              "by": "clever_wagon7",
+              "id": "tmhhrris",
+              "by": "wet_compass7",
               "time": null,
               "parent": null,
-              "text": "> \"AI-powered customer insights\" when they mean basic analytics.\n\nThe real issue is that we've let companies define the problem space instead of regulators. In the EU, algorithmic accountability rules under the AI Act are starting to force companies to actually document what their \"AI\" does. In the US, the FTC is finally pushing back on vague claims. But most job postings are written before any of that lands, so you get this cargo cult where every analytics pipeline becomes \"AI-driven\" because it sounds better to investors. The dotcom parallel breaks down here: we had no framework then either, but at least the infrastructure debate was honest. Now it's just marketing theater hiding the fact that most companies don't know what they're buying.",
-              "age": "2 hours ago",
-              "points": 3,
+              "text": "I'm not sure \"HR discovered a magic word\" quite captures it. The real mechanism is that job postings are now filtering tools for both sides. A candidate sees \"AI-enhanced\" and either thinks \"this company is ahead of the curve\" or \"this is buzzword soup\"-and the company gets",
+              "age": "14 minutes ago",
+              "points": 1,
               "kids": []
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "bzu5j8hz",
-      "by": "greencache",
-      "time": null,
-      "parent": null,
-      "text": "I think the framing here conflates two separate problems. Yes, there's definitely marketing/HR cargo cult behavior around AI right now. But the underlying technology isn't actually like the dot-com bubble in the way you're suggesting.\n\nDot-com companies were often solving fake problems or solving real problems with business models that couldn't work at scale. The value was speculative. With AI, we're seeing genuine productivity gains in specific domains. I use Claude and GPT-4 in my daily work as a backend engineer, and the efficiency improvement is real and measurable. I'm shipping features 30-40% faster on tasks like boilerplate generation, test writing, and refactoring. That's not speculation.\n\nThe hype cycle is real, sure. The cargo cult marketing is annoying. But conflating \"companies are overselling AI in job postings\" with \"AI is fundamentally worthless like Pets.com\" misses what's actually happening. The tech works. Some applications are genuinely valuable. Others are gimmicks.\n\nThe organizational bottleneck point you raise is actually the more interesting one. Most companies bringing in AI tools without fixing process/communication/knowledge management problems will see disappointment. It's not the tool's fault. But that's an execution problem, not a technology problem.\n\nI'd bet we're still in the early innings for AI utility. The hype will eventually deflate, some companies will fail, and we'll end up with a smaller set of actually useful applications. That's not a bubble bursting, that's normal technology maturation. The dot-com crash happened because the entire value proposition was fictional. Here, at least some of it is real.",
-      "age": "3 hours ago",
-      "points": 15,
-      "kids": [
+        },
         {
-          "id": "uu0z296r",
-          "by": "WiseStone",
+          "id": "3hpx0cq7",
+          "by": "bentsleeve",
           "time": null,
           "parent": null,
-          "text": "> With AI, we're seeing genuine productivity gains in specific domains.\n\nThis is true but needs specificity. \"Productivity gains\" is marketing-speak. Which domains exactly? Code completion in languages with massive training data (Python, JS)? Yes, measurable. Summarizing documents? Sometimes. But I've watched teams adopt Claude for domains where it hallucinates confidently (financial modeling, regulatory interpretation) and then spend weeks debugging the output. The gain evaporates once you account for review time.\n\nThe dot-com comparison might be weaker than the OP suggests, but your counterargument needs receipts, not just assertion.",
-          "age": "2 hours ago",
+          "text": "The FTC enforcement angle is interesting, but the real issue is that \"AI-enhanced\" isn't a false advertising claim the way \"Kozmo will ship in 30 minutes\" was. It's technically true-there's probably some ML somewhere in the pipeline. The dotcom comparison breaks down because those companies made falsifiable promises about delivery logistics",
+          "age": "58 minutes ago",
+          "points": 10,
+          "kids": [
+            {
+              "id": "9aiwv1be",
+              "by": "throwaway_6556",
+              "time": null,
+              "parent": null,
+              "text": "I think you're conflating two separate problems. The FTC angle isn't about false advertising of the feature itself, it's about whether companies are using \"AI-first\" positioning to justify wage suppression or to screen out candidates who could actually do the work without it. That's the dotcom parallel worth examining.",
+              "age": "40 minutes ago",
+              "points": 4,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "bn6v6nj1",
+          "by": "nax360",
+          "time": null,
+          "parent": null,
+          "text": "The dotcom comparison breaks down pretty fast though. Back then you at least had plausible business models that just got executed terribly or at absurd valuations. Pet food delivery makes sense; Kozmo's problem was logistics, not the idea itself.\n\nWith AI in job specs, it's often literally",
+          "age": "30 minutes ago",
           "points": 3,
           "kids": []
         },
         {
-          "id": "be041rq1",
-          "by": "broken_anchor",
+          "id": "k32il48y",
+          "by": "lrj364",
           "time": null,
           "parent": null,
-          "text": "You're just defining \"genuine productivity gains\" in a way that conveniently excludes all the hype. Show me the actual ROI numbers from companies deploying this stuff, not the marketing deck numbers. Most places I've seen are still in the \"throw it at everything and see what sticks\" phase.",
-          "age": "3 hours ago",
-          "points": 4,
-          "kids": [
-            {
-              "id": "ff6wna5j",
-              "by": "dark_valley2",
-              "time": null,
-              "parent": null,
-              "text": "I've actually seen this play out at two companies now. Claude's code review suggestions cut our PR turnaround by 35%, but that only matters because we had the processes in place to use them. The first company just threw it at the codebase and declared victory in a deck. Without the organizational fix (async reviews, clear standards, actual ownership), it was dead weight within three months.\n\nThe ROI gap isn't the tool, it's the willingness to do boring work first.",
-              "age": "3 hours ago",
-              "points": 2,
-              "kids": []
-            }
-          ]
+          "text": "I think you're framing this as a regulatory problem when it's really a signaling problem. Companies aren't trying to deceive the FTC-they're competing for talent by claiming they're \"innovative\" and \"forward-thinking.\" The job specs are cargo cult stuff, yes, but the root issue is that engineers (reasonably) want to work on interesting problems, not legacy CRUD apps. So every",
+          "age": "41 minutes ago",
+          "points": 13,
+          "kids": []
         },
         {
-          "id": "3nriesaj",
-          "by": "cold_feather42",
+          "id": "gx280uhs",
+          "by": "throwaway_1121",
           "time": null,
           "parent": null,
-          "text": "I think you're drawing a useful distinction, but I'd push back slightly on the productivity gains claim. Yes, LLMs are genuinely useful for specific tasks - code generation, summarization, brainstorming - but the organizational deployment we're seeing often isn't about those narrow wins. It's about replacing headcount or \"augmenting\" roles in ways that end up reducing decision quality.\n\nThe dot-com parallel holds because both eras conflate \"the technology works\" with \"throwing it at every problem works.\" Pets.com failed not because online pet supply was fake, but because the business model didn't make sense at scale. Similarly, using Claude to write better emails is real. But using it to replace your entire customer support team because you saw a TechCrunch headline about AI? That's the bubble part.\n\nWhat concerns me more than the hype itself is the asymmetry in outcomes. Early internet investors and engineers who understood the business model won big. Most others lost money or years of their career. We're probably going to see the same bifurcation here - people who use LLMs tactically in their actual workflow will extract real value, while companies that bet their entire strategy on \"AI-first\" will learn the hard way that technology adoption isn't strategy.\n\nThe honest version of the parent comment seems to be: \"yes, there's genuine productivity here, AND yes, most of what you're seeing in job postings and marketing is cargo cult behavior.\" Both things are true. The productivity is real but narrow. The hype is real but mostly divorced from actual implementation plans.",
-          "age": "4 hours ago",
+          "text": "The dotcom comparison breaks down pretty quick though. Kozmo and Pets.com were solving real logistics problems (just ahead of their time), whereas most \"AI-enhanced\" job postings are just describing the same work, same skills, same output. At least back then you could point to actual infrastructure being",
+          "age": "30 minutes ago",
           "points": 4,
-          "kids": [
-            {
-              "id": "5d5cjmfh",
-              "by": "throwaway_1725",
-              "time": null,
-              "parent": null,
-              "text": "> \"the organizational deployment we're seeing often isn't about those narrow wins\"\n\nThis is the key observation, but I'd be more precise about what's actually happening. Most orgs aren't even attempting to measure the productivity gains you're talking about. They're making deployment decisions based on analyst reports and competitor behavior, not on internal ROI analysis.\n\nThe dot-com comparison breaks down because at least Pets.com had a clear (if flawed) business hypothesis: people want pet supplies delivered. With AI, I'm seeing job requisitions that say \"must have LLM experience\" without any corresponding job responsibilities that actually require it. That's not deployment in service of a real problem. That's cargo cult hiring.\n\nThe narrow wins you mention (code generation, summarization) are real and valuable. But those don't require organizational restructuring or headcount reduction. They're tools that make existing roles more efficient. The current behavior looks much more like the dot-com era because the technology is being used as a narrative to justify decisions that were already being made for other reasons (cost cutting, stock price signals, etc.).",
-              "age": "1 hour ago",
-              "points": 17,
-              "kids": []
-            }
-          ]
-        },
-        {
-          "id": "q1a7f5kt",
-          "by": "sharpdust23",
-          "time": null,
-          "parent": null,
-          "text": "I was in the room during the late 90s dot-com chaos, and you're right that the underlying tech was often vapor. But here's what bothers me now: back then at least there was *some* friction keeping the hype somewhat grounded in reality. You had to actually build something, get users, prove unit economics. It was hard and most failed.\n\nNow? A company can slap \"AI-powered\" on their job posting and their stock barely budges either way. The marketing machinery works so fast that substance doesn't matter anymore. At least Pets.com had to ship actual dog food to actual people. There's no equivalent forcing function here. That might actually be worse.",
-          "age": "4 hours ago",
-          "points": 3,
           "kids": []
         }
       ]
     }
   ],
-  "_generated_at": "2026-04-26T10:26:58.305Z"
+  "_generated_at": "2026-04-28T02:04:57.911Z"
 }

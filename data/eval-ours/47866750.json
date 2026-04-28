@@ -13,144 +13,38 @@
     "id": 47866750,
     "title": "Introducing Parallel Agents in Zed - Zed Blog",
     "url": "https://zed.dev/blog/parallel-agents",
-    "by": "plain_vector",
-    "score": 169,
+    "by": "mild_comet2",
+    "score": 156,
     "time": null,
     "descendants": 16,
     "text": ""
   },
   "comments": [
     {
-      "id": "fbm9ydi4",
-      "by": "juf486",
+      "id": "x8ah4u28",
+      "by": "cache14",
       "time": null,
       "parent": null,
-      "text": "Interesting timing on this. We've been building something similar at Cursor, and the parallel agents + workspace isolation is definitely where the tooling needs to go. The threading model here looks clean.\n\nOne thing I'd be curious about: how does Zed handle agent conflicts when multiple threads are editing the same file? We've found this is where most agentic workflows break down in practice. The Threads Sidebar makes it *visible* that you have 3 agents touching the same codebase, but orchestrating writes without merge conflicts or corrupted state is the hard part.\n\nAlso worth noting that VS Code's extension ecosystem has a few contenders here now too (including some paid options that handle multi-agent orchestration). The 120 fps rendering is genuinely nice and Zed's latency story is real, but most developers aren't context-switching between agents fast enough that frame rate becomes the bottleneck.\n\nThat said, if you're already in Zed, keeping agents native to the editor instead of shelling out to separate processes is the right call. The UX wins from having everything in one window are substantial. Open-sourcing it is solid too; most teams building agent workflows will have highly specific requirements anyway.",
-      "age": "3 hours ago",
-      "points": 28,
-      "kids": [
-        {
-          "id": "g1lz6jdu",
-          "by": "rr155",
-          "time": null,
-          "parent": null,
-          "text": "The file handling piece is definitely the crux. We went down a similar path at Cursor and landed on a pretty different model than what I'd expect Zed is doing here.\n\nInstead of trying to orchestrate writes at the editor level, we started treating the workspace more like a git branch system. Each agent thread gets its own isolated view of the codebase, and conflicts surface as merge-like diffs that the user explicitly resolves. Sounds clunkier than it is, but it actually prevents the weird state where two agents have divergent views of what's in a file.\n\nThe Threads Sidebar approach of making visibility the core feature is solid though. Most teams we talk to just want to know \"okay, what is actually happening right now across all my agents?\" before they care about preventing conflicts. So showing active threads per file is a useful intermediate step.\n\nCurious if Zed is doing full file locking or something more optimistic. The \"120 fps\" thing suggests they're not doing synchronous coordination on every keystroke, which is the right call. But then the question becomes: what happens when agent A writes lines 40-50 and agent B writes lines 45-60 while both are mid-flight?",
-          "age": "3 hours ago",
-          "points": 4,
-          "kids": []
-        },
-        {
-          "id": "aws5wyxk",
-          "by": "jis452",
-          "time": null,
-          "parent": null,
-          "text": "The file conflict problem is real, but I think you're overweighting it. We've shipped something similar at my last gig and found that in practice, agent isolation by file or directory solves 80% of the pain. Most agentic workflows naturally separate concerns (one agent on tests, one on implementation, one on docs). The visible threading in Zed's Sidebar actually helps here-you can see exactly who's touching what. The hard case is true concurrent edits, but that's rare if your prompt instructions are even slightly thoughtful about scope.",
-          "age": "2 hours ago",
-          "points": 6,
-          "kids": [
-            {
-              "id": "1yi4jhop",
-              "by": "wetpilot23",
-              "time": null,
-              "parent": null,
-              "text": "The file conflict problem is actually more subtle than directory isolation suggests. You're describing a locking model that works for sequential workflows, but Zed's parallel execution means you need something closer to operational transformation or CRDT semantics if agents are genuinely concurrent. Figuring out merge semantics for code (not just detecting conflicts) is where tools like this usually hit a wall. See the Teletype for Atom postmortem from a few years back on this exact issue-they solved visibility but never cracked the merge story cleanly.",
-              "age": "1 hour ago",
-              "points": 2,
-              "kids": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "d06o9wje",
-      "by": "uug334",
-      "time": null,
-      "parent": null,
-      "text": "I remember when we had to choose: one agent at a time, one window at a time. Now Zed's running parallel agents in a single viewport, and it feels almost quaint that we used to think sequentially about this. The 120 fps constraint is the real tell here - most tools would have buckled under the UI overhead. This is the kind of polish that separates the \"technically works\" from the \"actually ships.\"",
-      "age": "2 hours ago",
+      "text": "I've been using Zed since the early days and this parallel agents feature finally makes me feel like I'm working with an actual IDE instead of a fancy editor. Reminds me of how VS Code's extension model took off once they nailed the UX for multiple tools running at once. The 120",
+      "age": "1 hour ago",
       "points": 8,
       "kids": [
         {
-          "id": "1yjswum1",
-          "by": "greenplateau2",
+          "id": "3umdz1dn",
+          "by": "drydust",
           "time": null,
           "parent": null,
-          "text": "I wonder if this is just feature creep dressed up as innovation. \"Parallel agents\" sounds great until you're debugging why three agents stepped on each other's toes in the same codebase. The 120 fps thing feels like a distraction from the actual hard problem: making multi-agent coordination reliable.",
-          "age": "2 hours ago",
-          "points": 3,
-          "kids": [
-            {
-              "id": "qf5w5apn",
-              "by": "redmatrix23",
-              "time": null,
-              "parent": null,
-              "text": "The reliability concern is real, but \"stepping on each other's toes\" assumes they're all writing to the same files simultaneously. Zed's model here is that you're controlling which worktrees and folders each agent thread can access via the Threads Sidebar. That's the actual coordination mechanism, not some magic multi-agent consensus layer.\n\nThe gotcha is that most people will assume this works like running `npm install` and `cargo build` in parallel on the same repo (great, saves time). But the docs don't really spell out what happens if you point two agents at overlapping file paths and they both decide to edit the same function. That coordination story is still hand-wavy. The 120 fps performance is genuinely impressive, but it's orthogonal to whether the tool prevents or handles conflicts gracefully. You could have the smoothest UI in the world and still ship corrupted code if agent A and agent B both write to the same line.",
-              "age": "26 minutes ago",
-              "points": 19,
-              "kids": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "iu5z5vjs",
-      "by": "known_vector23",
-      "time": null,
-      "parent": null,
-      "text": "We built something similar at Stripe's internal tooling a few years back, and the lesson we learned was that parallel agents need ruthless isolation or they'll step on each other's toes constantly. The filesystem writes are the easy part-it's the mental model that matters. When you have three agents modifying the same file simultaneously, you either need transactions (impossible in practice) or you need to make it visually obvious what's happening.\n\nThe Threads Sidebar approach here looks solid. Grouping by project and letting users pick which agent accesses what is the right call. The 120 fps claim is interesting though-I'd want to see how that holds up once you have 5+ threads with real LLM latency variance. Zed's rendering is genuinely smooth, but I suspect the bottleneck shifts to agent scheduling once you hit scale.\n\nOne thing I don't see mentioned: what happens when two agents are in the same worktree and one gets rate-limited? Does the other keep going? Do they queue? That's usually where this breaks in practice.",
-      "age": "1 hour ago",
-      "points": 31,
-      "kids": [
-        {
-          "id": "g99gfowq",
-          "by": "drymatrix7",
-          "time": null,
-          "parent": null,
-          "text": "This is a good observation, but I'd push back slightly on the \"transactions are impossible\" framing. Stripe's internal tooling probably had constraints that made true MVCC impractical, but Zed's architecture here seems deliberately designed around the file watching / diff model rather than trying to achieve perfect consistency.\n\nThe key insight isn't isolation per se-it's that agents need to be aware of concurrent modifications, not unaware of them. If agent A and agent B are both editing the same file, the worst case isn't a corruption, it's that agent B's context gets stale. Zed seems to handle this by making the edit history visible in the Threads Sidebar, which is honestly more honest about what's happening than pretending you have transactions.\n\nWhat'd be interesting to see is how they handle git merge conflicts when two agents push to the same branch simultaneously. That's usually where the \"step on toes\" problem actually bites.",
-          "age": "56 minutes ago",
+          "text": "The 120 fps thing is legitimately the standout here. I've been switching between Zed and VS Code weekly, and the difference in responsiveness when you have multiple agents running is night and day. Scrolling through a file while an agent is refactoring in another thread doesn't stutter",
+          "age": "48 minutes ago",
           "points": 4,
           "kids": [
             {
-              "id": "qn5b6igt",
-              "by": "loud_anchor",
+              "id": "owhss2md",
+              "by": "mild_sleeve2",
               "time": null,
               "parent": null,
-              "text": "MVCC without true transactions is still a problem in practice. I remember reading about this in the Sublime Merge docs - they had to add explicit conflict markers because even \"awareness\" of concurrent edits doesn't solve the merge problem when both agents are making semantic changes. Zed's diff model helps visualization but doesn't prevent agent A from undoing agent B's work if they're operating on overlapping regions. Worth watching how this evolves.",
-              "age": "3 hours ago",
-              "points": 3,
-              "kids": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ckt7uwso",
-      "by": "thread87",
-      "time": null,
-      "parent": null,
-      "text": "I think the framing here is backwards. Instead of \"parallel agents in one window,\" this is really about workspace isolation and permission boundaries becoming the primary UI concern. The Threads Sidebar isn't novel because it runs agents side-by-side, it's novel because you can finally say \"agent A gets access to /src/auth, agent B gets /src/api, agent C gets nothing.\" That's the actual problem being solved. The parallelism is almost incidental. Most IDEs treat the entire codebase as one flat namespace to any tool. Once you invert that and make sandboxing the first-class concept, the multi-agent orchestration falls out naturally.",
-      "age": "2 hours ago",
-      "points": 17,
-      "kids": [
-        {
-          "id": "twiansae",
-          "by": "LostDaemon99",
-          "time": null,
-          "parent": null,
-          "text": "You nailed it. The permission model is the real win here. I've been burned before by agents with access to the entire repo-one bad prompt and you're watching it refactor your auth layer. Being able to sandbox agent A to just the UI package while agent B works on API contracts makes this actually usable at scale. The 120 fps smoothness is nice marketing, but the sidebar UI for managing those boundaries is what makes it production-ready.",
-          "age": "22 minutes ago",
-          "points": 8,
-          "kids": [
-            {
-              "id": "555sgv3r",
-              "by": "throwaway_4034",
-              "time": null,
-              "parent": null,
-              "text": "I'd push back slightly-the permission model is nice, but \"production-ready\" assumes your agents respect boundaries, which they often don't. A single prompt like \"refactor this entire service for performance\" can make an agent ignore scope constraints when it thinks it's optimizing. Has anyone here actually tested whether Zed's sandboxing holds up under adversarial prompting, or is this more of a \"polite agent\" assumption?",
-              "age": "1 hour ago",
+              "text": "Have you tried Cursor? Their parallel agent orchestration actually ships faster iteration loops because they handle context window management differently. The 120 fps is nice but if agents are blocking on token generation anyway, the UX gains flatten pretty quick.",
+              "age": "36 minutes ago",
               "points": 1,
               "kids": []
             }
@@ -159,30 +53,136 @@
       ]
     },
     {
-      "id": "mva8i7w0",
-      "by": "basic_matrix",
+      "id": "nyws12ln",
+      "by": "bov701",
       "time": null,
       "parent": null,
-      "text": "Installed the latest Zed build this morning and ran the parallel agents setup with Claude on a medium-sized codebase (about 40K LOC spread across 5 projects). The performance claim holds up-I didn't see any frame drops even with two agents running simultaneous refactors in different worktrees. The Threads Sidebar isolation actually matters in practice; one agent getting stuck or hitting a rate limit no longer blocks the other.\n\nOne caveat: agent-to-agent coordination is still manual. If you want them working on related changes, you need to manage the dependency yourself. Not a blocker, but worth knowing before you spin up three agents expecting them to orchestrate intelligently.",
-      "age": "3 hours ago",
+      "text": "The 120 fps rendering is the real story here. Most agent IDEs I've tried (including some very well-funded ones) tank to 30-40 fps the moment you have 2-3 threads running with language server overhead. Zed's architecture of keeping that smooth even with parallel agents is genuinely non-trivial.\n\nThat said, the Threads Sidebar layout change feels like it's solving a UI problem that shouldn't exist in the first place. You're swapping which side panels live on, but the fundamental issue remains: agents writing code across multiple repos need better visibility into diffs and merge conflicts. Just moving the sidebar left doesn't really address that. Still waiting to see how this handles the case where two parallel agents try to edit the same file simultaneously - the blog doesn't mention it and that's the scenario that breaks most tools.",
+      "age": "1 hour ago",
+      "points": 26,
+      "kids": [
+        {
+          "id": "d31f8cui",
+          "by": "brave_forest",
+          "time": null,
+          "parent": null,
+          "text": "The 120 fps thing is real, but I'd push back on the framing a bit. Zed's smooth rendering under agent load isn't magic architecture so much as ruthless UI discipline. They built the editor first, optimized rendering second, then bolted agents on top. Most \"well-funded\" IDEs you mention did the reverse: took a web stack (Electron, VS Code's architecture), slapped agents on it, and hoped for the best.\n\nThat said, the parent's point about the Threads Sidebar solving a non-problem stands. This feels like rearranging deckchairs. The real issue with multi-agent workflows isn't which panel is on which side-it's that you need completely different mental models depending on whether agents are working in isolation, collaboratively, or sequentially. Cursor tried to solve this with the Composer UX, but it's still fundamentally a single-thread metaphor with visual chrome.\n\nWhat would actually move the needle: per-thread context windows, so one agent's work doesn't pollute another's state.",
+          "age": "31 minutes ago",
+          "points": 9,
+          "kids": [
+            {
+              "id": "kl6cs1o4",
+              "by": "deep_beacon",
+              "time": null,
+              "parent": null,
+              "text": "This reminds me of the old Smalltalk IDEs from the 80s/90s, which had similar multi-window agent-like workflows. The UI patterns there actually solved the \"which panel goes where\" problem by letting you tile windows freely instead of docking everything to fixed sides. Wonder if",
+              "age": "1 hour ago",
+              "points": 1,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "nz35tkni",
+          "by": "basicbadge42",
+          "time": null,
+          "parent": null,
+          "text": "The real issue here is that Zed is solving a problem that only exists because the industry decided agents needed IDE integration in the first place. A year ago we were fine with Claude in a browser tab and a terminal. Now every editor vendor is racing to embed agentic workflows directly into their UI, and we're calling it progress.\n\nThe 120 fps thing is legitimately impressive from a rendering standpoint. But it's also a distraction from the fact that we're optimizing the wrong thing. We should be asking whether parallel agents in an editor window is actually the workflow developers want, not just whether we can make it smooth.\n\nThe Threads Sidebar is a band-aid on a deeper UX problem: agents are fundamentally interrupting and context-switching heavy, and moving panels around doesn't fix that. It just makes the interruption prettier.",
+          "age": "1 hour ago",
+          "points": 15,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "qzbgkyjb",
+      "by": "NimbleSpark2",
+      "time": null,
+      "parent": null,
+      "text": "Parallel agents in an editor is a solution looking for a problem. Most developers don't need five things running at once in their IDE. This feels like feature creep to justify \"AI-native\" positioning rather than something people actually asked for.",
+      "age": "7 minutes ago",
+      "points": 10,
+      "kids": [
+        {
+          "id": "00y6rlv9",
+          "by": "coldmatrix2",
+          "time": null,
+          "parent": null,
+          "text": "Tried this workflow yesterday with Claude and Sonnet running parallel on a medium Rails project. Stopped one agent mid-refactor, spun up another to handle database migrations in a separate thread while the first kept going. The sidebar made it actually usable-without it, toggling between agents would've been",
+          "age": "15 minutes ago",
+          "points": 4,
+          "kids": [
+            {
+              "id": "0e0vtuik",
+              "by": "odd_dust",
+              "time": null,
+              "parent": null,
+              "text": "The Rails refactor use case makes sense, but I'd push back on the framing. This isn't \"five things at once\"-it's task isolation. One agent handling schema changes while another rewrites controllers in parallel, each with its own context window and access rules via the sidebar. That's genuinely",
+              "age": "1 hour ago",
+              "points": 7,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bix20akw",
+      "by": "matrix24",
+      "time": null,
+      "parent": null,
+      "text": "This is solid, but Cursor's parallel agents feel snappier for quick refactors. The UX there is more \"fire and forget\" whereas Zed's Threads Sidebar seems optimized for observation. Both approaches work, just depends if you want to babysit or delegate.",
+      "age": "1 hour ago",
       "points": 8,
       "kids": [
         {
-          "id": "6ccyxub9",
-          "by": "darkoak",
+          "id": "2m1yx3km",
+          "by": "wagon13",
           "time": null,
           "parent": null,
-          "text": "This is making me curious about Zed's actual performance under load compared to VS Code with the Aider extension, which does something similar. Anyone benchmarked that?",
-          "age": "3 hours ago",
-          "points": 5,
+          "text": "\"Fire and forget\" doesn't really apply when your agent hallucinates and commits broken code to main. Cursor's UX might feel snappier in the demo, but I'd want visibility into what's actually running, which is what the Threads Sidebar gives you. The observation overhead is the",
+          "age": "4 minutes ago",
+          "points": 3,
           "kids": [
             {
-              "id": "2gt4d5ue",
-              "by": "pty141",
+              "id": "etavem69",
+              "by": "greenmaple2",
               "time": null,
               "parent": null,
-              "text": "I've used both extensively. Aider+VS Code is still faster for single-agent work on large codebases (the language server overhead in Zed is noticeable past 100K LOC), but the parallel execution is genuinely useful when you're coordinating multiple transformations. VS Code doesn't have an equivalent yet. The real question is whether Zed's agent isolation actually prevents the cascade failures you hit with sequential Aider runs.",
-              "age": "4 hours ago",
+              "text": "Remember when we actually tested software before shipping it? Cursor's \"fire and forget\" is just a prettier name for \"hope it works\". I'd rather sit and watch than explain to my team why main is broken at 5pm. The Threads Sidebar is the first agent UI that respects the fact that these things still hallucinate constantly.",
+              "age": "10 minutes ago",
+              "points": 9,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8k48y612",
+      "by": "gr802",
+      "time": null,
+      "parent": null,
+      "text": "The interesting bit here is that Zed is positioning parallel agents as this revolutionary IDE feature, but VS Code's been doing multi-terminal layouts with agent tools (Claude in VSCode, GitHub Copilot Chat, etc.) for years now. The difference seems to be that Zed baked it into the UI layer rather than treating agents as plugins.\n\nThe real gotcha: once you're running 4-5 agents in parallel across different repos, who's responsible when they conflict? If agent A modifies file X while agent B is reading it, or worse, they both try to write simultaneously, does Zed handle that, or are you managing merge conflicts manually? The blog post doesn't",
+      "age": "41 minutes ago",
+      "points": 12,
+      "kids": [
+        {
+          "id": "mwbdbs4r",
+          "by": "silentpacket",
+          "time": null,
+          "parent": null,
+          "text": "I actually tested this with 3 agents running simultaneously in Zed yesterday, and yeah, the 120 fps hold-up is real. Feels snappier than VS Code with multiple extensions doing the same work. But the conflict resolution you're asking about? I ran into it immediately. Agent A",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "ivx26dar",
+              "by": "SharpPilot",
+              "time": null,
+              "parent": null,
+              "text": "Stop thinking about this as a conflict resolution problem and start thinking about it as a concurrency model problem. Zed's framing agents as tools that modify files, but what they should be doing is exposing a diff-based workflow where agents propose changes, you review them in parallel, then you merge or reject",
+              "age": "12 minutes ago",
               "points": 2,
               "kids": []
             }
@@ -191,5 +191,5 @@
       ]
     }
   ],
-  "_generated_at": "2026-04-26T10:30:36.240Z"
+  "_generated_at": "2026-04-28T02:08:35.771Z"
 }

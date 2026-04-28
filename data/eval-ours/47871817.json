@@ -13,244 +13,193 @@
     "id": 47871817,
     "title": "Borrow-checking without type-checking",
     "url": "https://www.scattered-thoughts.net/writing/borrow-checking-without-type-checking/",
-    "by": "bravesignal23",
-    "score": 112,
+    "by": "ih513",
+    "score": 117,
     "time": null,
-    "descendants": 22,
+    "descendants": 17,
     "text": ""
   },
   "comments": [
     {
-      "id": "qcoaohs7",
-      "by": "eec176",
+      "id": "dyczph4t",
+      "by": "valley53",
       "time": null,
       "parent": null,
-      "text": "I'm skeptical that the dynamic borrow-checking here actually solves the expressiveness problem in practice. Yes, you get interior pointers and external iterators without the Rust compiler fights, but now you're pushing the burden to runtime. What happens when a borrow check fails in production? You get a panic instead of a compile error.\n\nThe comparison to Julia and Zig is interesting but I think it glosses over a real issue: those languages work because their type systems are sophisticated enough to catch most errors statically. This toy language punts on that and accepts failure modes that Rust would reject. For systems code or libraries where people depend on your invariants, that's a significant downgrade, not a feature.",
-      "age": "29 minutes ago",
-      "points": 12,
-      "kids": []
-    },
-    {
-      "id": "jrohp2p9",
-      "by": "greencomet2",
-      "time": null,
-      "parent": null,
-      "text": "I'm not convinced the dynamic checks here actually buy you much over Rust's approach. Yes, you avoid the borrow checker's compile-time errors, but you're just moving them to runtime with less useful context. In Rust, if you mess up a borrow, you get a clear error at the line where the mistake is. Here you get a runtime panic that might fire somewhere completely different in your stack trace.",
-      "age": "1 hour ago",
+      "text": "This is a neat exploration, but I think the framing glosses over a real tension that Julia and Zig have both had to grapple with in practice.\n\nThe dynamic-then-static approach sounds elegant in theory, but it only works well if your dynamic checks are truly cheap and your static compiler can eliminate them reliably. Julia's experience has been that neither always holds. You end up with code paths where the compiler can't prove the checks away, and then you're left running expensive type dispatch at runtime in your \"fast\" code. This is why Julia has drifted toward requiring more upfront type annotations despite its dynamic philosophy.\n\nZig took the opposite bet, saying \"no, we just refuse to compile the dynamic case at all\" which is simpler but painful in practice for things like REPL prototyping or dynamic metaprogramming.\n\nThe borrow-checking angle here is interesting though. In a dynamically-typed world, you can't do the static analysis that Rust does, so runtime borrow checks make sense. But the tradeoff is that your interior pointers, stack allocation, and single ownership have to be checked at runtime, which means they're really only \"cheap\" if the dynamic type information is already in the hot path (which it usually is in dynamic languages). You're not really gaining much over just using reference counting or GC at that point.\n\nWhat would be the killer app",
+      "age": "4 minutes ago",
       "points": 8,
       "kids": [
         {
-          "id": "c3how9ol",
-          "by": "broken_compass_",
+          "id": "uqvlig32",
+          "by": "DeepThread23",
           "time": null,
           "parent": null,
-          "text": "I think you're framing this as a tradeoff when it's actually about different design goals. Rust's approach assumes you want compile-time guarantees everywhere. This demo is exploring: what if you're okay with runtime checks in exchange for not fighting the type system during development? It's closer to how Common Lisp handles memory safety through runtime assertions, not as a replacement for Rust but as a different point in the design space. The \"less useful context\" argument assumes the error has to be worse-but dynamic checks can include exactly what values caused the violation, which static errors sometimes can't show.",
-          "age": "44 minutes ago",
-          "points": 3,
-          "kids": [
-            {
-              "id": "kedcd9lf",
-              "by": "WearyCompass",
-              "time": null,
-              "parent": null,
-              "text": "The Common Lisp comparison really clicks for me. I spent a month fighting Rust's borrow checker on a project with lots of dynamic graph structures, and it was genuinely painful. This approach would've let me iterate faster and get something working, then optimize the hot paths if needed. The runtime checks aren't free, but neither is the cognitive load of proving everything at compile time when you're still figuring out your data structure.",
-              "age": "1 minutes ago",
-              "points": 3,
-              "kids": [
-                {
-                  "id": "g8h08mi9",
-                  "by": "compass50",
-                  "time": null,
-                  "parent": null,
-                  "text": "The \"less useful context\" thing doesn't hold up. You hit a borrow violation at runtime and the stack trace tells you exactly where. Rust gives you a compile error three files up the call chain that makes no sense until you've internalized ownership rules. I've seen plenty of junior devs stare at Rust errors for hours. A panic with a backtrace is often clearer, not worse.",
-                  "age": "45 minutes ago",
-                  "points": 5,
-                  "kids": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "ittabsxj",
-          "by": "vector33",
-          "time": null,
-          "parent": null,
-          "text": "I think you're conflating two different problems. Yes, runtime panics lack compile-time context, but the tradeoff here isn't about error quality-it's about when you *need* the guarantee.\n\nRust forces you to prove the borrow is safe before you run a single line. That's powerful for systems code where a segfault is unacceptable. But for a lot of application code, a runtime check that catches the mistake in CI or staging is perfectly fine. You get a stack trace, you fix it, you move on.\n\nThe real win of the dynamic approach is that you can write certain patterns that Rust simply won't let you express without gymnastics. External iterators, self-referential structures, certain kinds of generic code-these aren't just \"slower,\" they're genuinely annoying to write in Rust because you have to fight the borrow checker.\n\nThe question isn't \"is dynamic checking as good as static checking?\" (it obviously isn't). It's \"for the code where I can't easily prove safety statically, is a runtime check that fails fast good enough?\" For many workloads, yes. For others, no.",
-          "age": "41 minutes ago",
-          "points": 14,
-          "kids": []
-        }
-      ]
-    },
-    {
-      "id": "gtpkfqum",
-      "by": "evjw284",
-      "time": null,
-      "parent": null,
-      "text": "I did something similar with a dynamically-typed language a few years back, trying to get borrowing semantics without the compile-time overhead. The runtime checks work fine for most code paths, but you hit a wall when you need to express things like: \"this reference is valid as long as the parent object isn't mutated.\" With dynamic typing, you're essentially doing capability tracking at runtime, and it gets expensive once you have any serious aliasing.\n\nThe demo here is clever about the error messages, which matters for ergonomics. But in practice I found that the cases where you actually want dynamic borrow-checking are pretty narrow. Either you're in a REPL or FFI boundary (where static checking is already a pain), or you're trying to avoid some Rust complexity that probably isn't worth avoiding. Most of the time you just want the static guarantee so you don't have to reason about it.\n\nWorth building as a research project, but I'd be curious whether this stays fast once you add real interpreter overhead and a bigger object graph.",
-      "age": "2 hours ago",
-      "points": 12,
-      "kids": [
-        {
-          "id": "cuer4dy0",
-          "by": "basictundra7",
-          "time": null,
-          "parent": null,
-          "text": "I wonder if the framing here is a bit off. \"Borrow-checking without type-checking\" reads like solving the hard problem, but really this is just \"runtime reference tracking,\" which languages have done forever. The interesting bit isn't that it works-it obviously does-it's whether the performance is acceptable for real code. The post doesn't actually show any benchmarks, just that the error messages are nice.",
-          "age": "2 hours ago",
+          "text": "I ran into exactly this with Julia around 2016 when we were trying to use it for a numerical library. The compiler would refuse to eliminate the dispatch checks in tight loops, and profiling showed we were spending 40% of runtime in type resolution. Switched to Rust for that component and the problem",
+          "age": "3 hours ago",
           "points": 4,
           "kids": [
             {
-              "id": "dmvbgoxj",
-              "by": "BraveRiver23",
+              "id": "ikiq06jp",
+              "by": "bynz155",
               "time": null,
               "parent": null,
-              "text": "> The interesting bit isn't that it works-it's whether the performance is acceptable for real code.\n\nRight. Vijay D'Silva's work on heap assertion checking (PLDI 2021) showed you can get decent performance with runtime reference tracking if you're selective about which pointers you guard. The overhead is usually 10-30% rather than the pessimistic 2-3x you'd expect from naïve capability tracking.\n\nThe trick here is probably that they're only enforcing single ownership + limited borrows, not full aliasing tracking. Much easier to optimize. Zig takes this angle too-the static type system does enough to avoid the aliasing explosion at runtime.",
-              "age": "1 hour ago",
-              "points": 8,
+              "text": "Rust didn't eliminate the dispatch overhead, you just moved it to compile-time. Julia's real problem was that the compiler couldn't prove `@inbounds` safety in hot loops without type stability. Those are different problems. For a numerical library, a few type annotations upfront would have solved it without",
+              "age": "2 hours ago",
+              "points": 7,
               "kids": []
             }
           ]
         },
         {
-          "id": "pyemr6ny",
-          "by": "ri118",
+          "id": "3t9dfn9c",
+          "by": "mv777",
           "time": null,
           "parent": null,
-          "text": "I'm not sure the capability tracking argument holds up here. The demo explicitly handles aliasing by tracking reference counts and invalidating borrows when the parent is mutated-that's the whole point of the dynamic checks. Yes, it's a runtime cost, but the author shows it's measurable, not a wall.\n\nThe interesting trade-off isn't \"borrowing breaks with aliasing.\" It's whether you want static guarantees (Rust's approach) or runtime checks (this one). Both are valid. I'd want to see benchmarks on real code before claiming the runtime overhead becomes prohibitive.",
-          "age": "18 minutes ago",
-          "points": 4,
+          "text": "This reminds me of the early Lua days when Roberto Ierusalimschy was pushing similar ideas: runtime checks that compile away. The tension the parent points out is real though. Julia's specialization works great when you hit the same code paths repeatedly (hence the warm-up problem), but mixed-",
+          "age": "2 hours ago",
+          "points": 8,
           "kids": []
         }
       ]
     },
     {
-      "id": "srhmvau2",
-      "by": "blue_parser7",
+      "id": "tn4gxm0y",
+      "by": "socket54",
       "time": null,
       "parent": null,
-      "text": "This is a really elegant approach. The insight that you can layer static guarantees on top of dynamic checks (rather than requiring everything to be statically proven upfront) feels like it maps onto how people actually code. Most code doesn't need the full power of Rust's borrow checker, and this looks like a sweet spot.",
-      "age": "1 hour ago",
-      "points": 10,
+      "text": "This reminds me of how Lua approached the problem back in the 90s - you had a simple dynamic core with explicit type annotations bolted on top for performance. The difference here is that borrow-checking adds another layer of complexity on top of that already-tricky dual-mode system.\n\nThe nostalgic angle is worth mentioning: languages like Dylan and Cecil tried similar layering (dynamic base, optional static typing) and ran into the problem that most real code ends up needing both at once. You can't really isolate \"this module is dynamic\" and \"this module is static\" when they call each other.\n\nThat said, this approach feels closer to what Cython actually does well in practice - you write Python, you opt into C-like annotations where it matters, and the toolchain figures out the rest. The borrow-checker wrinkle here is novel though. Checking borrows at runtime with useful",
+      "age": "3 hours ago",
+      "points": 13,
       "kids": [
         {
-          "id": "3al1f25k",
-          "by": "wisesleeve",
+          "id": "9yje1uvq",
+          "by": "throwaway_6803",
           "time": null,
           "parent": null,
-          "text": "Yeah, the dynamic-on-static layering is clever. I've been following the Julia approach for a while and always hit the same wall: the moment you need a REPL or plugin system, you're either giving up guarantees or writing two codebases.\n\nThis zest approach of explicit opt-in feels more honest about what you're actually doing. Curious if the borrow-check overhead is noticeable when you do cross the boundary repeatedly though.",
-          "age": "1 hour ago",
-          "points": 7,
+          "text": "The irony is that we keep rediscovering this same tension every decade. Dylan failed, Cecil failed, and now we're watching Zig and Julia dance around it. At some point the dual-mode hypothesis itself might be the problem.",
+          "age": "53 minutes ago",
+          "points": 3,
           "kids": [
             {
-              "id": "6gplezeo",
-              "by": "odd_ember2",
+              "id": "puclxhyr",
+              "by": "softwidget7",
               "time": null,
               "parent": null,
-              "text": "I remember hitting this exact wall back in the early 2000s with some Lisp-based DSL work. You'd have this beautiful statically-verified core, then need to call it from a dynamic context (user scripts, configuration files, whatever), and suddenly all your guarantees evaporated the moment the boundary crossed.\n\nThe honest opt-in annotation thing here really does feel different. Instead of pretending you can make everything static, or just giving up and making everything dynamic, you're explicit about the cost/benefit tradeoff at each callsite.\n\nOne thing I'm curious about though: in practice, how often does the REPL or plugin code actually call back into the statically-typed parts frequently? If it's rare (cold path stuff), the overhead doesn't matter. If it's hot (like, iterating over results from a compiled function in dynamic code), I'd wonder if the repeated boundary crossing adds up. Julia's specialization helps there, but this sounds simpler.\n\nAnyway, this feels like it maps better to actual deployment reality than either Rust's \"prove everything up front\" or Python's \"dynamic all the way down.\"",
-              "age": "42 minutes ago",
+              "text": "I think the dual-mode hypothesis works better than the history suggests, but only if you accept that \"both at once\" isn't a failure-it's the point. Julia's approach (statically verify what you can, dynamically check the rest) actually sidesteps the Dylan/Cecil problem because the language",
+              "age": "1 hour ago",
               "points": 2,
               "kids": []
             }
           ]
         },
         {
-          "id": "qass80id",
-          "by": "nhy460",
+          "id": "izri2khp",
+          "by": "deeptundra",
           "time": null,
           "parent": null,
-          "text": "The dynamic checks here are clever, but I'm curious about the performance model. In Rust you pay nothing at compile time for borrow safety. Here it sounds like you're deferring that cost to runtime on dynamically-typed code paths. Does that create a two-tier performance cliff where you suddenly get much slower code if you can't (or forget to) add static annotations? Julia's approach at least recompiles hot paths once it sees the types.",
-          "age": "59 minutes ago",
+          "text": "Dylan's a good example here. The vision was elegant on paper, but you hit the wall pretty fast when your hot path needs static guarantees and your cold path needs reflection. The dual-mode thing only works if you can cleanly partition them, which in practice you can't.\n\nWhat's interesting about this",
+          "age": "2 hours ago",
           "points": 5,
-          "kids": []
+          "kids": [
+            {
+              "id": "6v1xnbpc",
+              "by": "cache31",
+              "time": null,
+              "parent": null,
+              "text": "I actually tried implementing something similar last year with a Lisp variant. The dual-mode partition breaks down fast once you have callbacks and closures crossing the boundary. Dylan's real problem wasn't the layering itself, but that you can't statically prove which mode a closure needs without whole-program analysis.",
+              "age": "2 hours ago",
+              "points": 2,
+              "kids": []
+            }
+          ]
         }
       ]
     },
     {
-      "id": "5jseg4wg",
-      "by": "maple59",
+      "id": "0zdo9shk",
+      "by": "flat_pilot7",
       "time": null,
       "parent": null,
-      "text": "I think the interesting reframing here is that you're not really solving a Rust-vs-dynamic-typing tradeoff so much as you're exploring a third axis: what if you decouple static typing from compile-time enforcement? You get to keep the reasoning benefits of types without the rigidity, because the type system is a tool for the programmer and the verifier, not a gatekeeper.\n\nMost languages conflate \"I annotated a type\" with \"I proved this is safe at compile time.\" You're separating those concerns. The borrow-checker runs at runtime, sure, but the static layer lets you *prove ahead of time* that it won't find violations in hot paths. That's not a compromise, it's a different shape entirely.",
-      "age": "1 hour ago",
-      "points": 8,
+      "text": "This is exactly the kind of work that should inform language-design standards bodies. Right now we're stuck in a false binary between \"fully static\" and \"fully dynamic,\" and the tooling communities around both camps have basically accepted that tradeoff as inevitable. But you've shown there's interesting design space in the",
+      "age": "2 hours ago",
+      "points": 14,
       "kids": [
         {
-          "id": "m9vob9f1",
-          "by": "odd_pilot42",
+          "id": "aitmb4ic",
+          "by": "anchor77",
           "time": null,
           "parent": null,
-          "text": "This reminds me of Lisp back in the day, where you had interpreted code running alongside compiled code in the same system. The elegance was that you could develop interactively but still get performance when you needed it. Nobody talks about that trade-off anymore, feels like we collectively decided to go all-in on static verification instead.\n\nYour point about decoupling annotation from enforcement is the real insight though. The type checker becomes optional tooling rather than a judge.",
-          "age": "1 hour ago",
+          "text": "The term \"borrow-checking\" here is a bit of a misnomer since you're doing runtime validation, not static borrow-checking. Worth clarifying in the docs.",
+          "age": "2 hours ago",
           "points": 3,
           "kids": [
             {
-              "id": "qprkp4ei",
-              "by": "throwaway_6055",
+              "id": "4zvbwr84",
+              "by": "throwaway_3861",
               "time": null,
               "parent": null,
-              "text": "This reminds me of how Common Lisp actually worked in practice back when people were using it for production systems. You'd have your hot loops compiled and optimized, but the REPL and metaprogramming layers stayed interpreted. The system didn't force a hard boundary between the two modes like most languages do now.",
-              "age": "1 hour ago",
+              "text": "Agreed on the terminology. The docs call it \"dynamic borrow-checking\" in a few places, but that's still confusing since the word \"borrow\" in the PL community specifically means static lifetime analysis. What you're doing here is more like runtime reference-tracking or ownership validation. Cle",
+              "age": "35 minutes ago",
               "points": 1,
-              "kids": [
-                {
-                  "id": "zfw7n16t",
-                  "by": "fast_badge23",
-                  "time": null,
-                  "parent": null,
-                  "text": "I think you're both romanticizing Common Lisp a bit. The reality was that most production code stayed in the interpreter because recompiling was slow and painful, not because the system elegantly supported both modes. You'd lose type information crossing the boundary, debug symbols would get confused, and nobody really had a great story for incremental compilation. Zest's explicit annotation requirement is actually more honest about that tradeoff than Lisp pretended to be.",
-                  "age": "1 hour ago",
-                  "points": 5,
-                  "kids": []
-                }
-              ]
+              "kids": []
             }
           ]
-        },
-        {
-          "id": "nx7boy6d",
-          "by": "basic_widget23",
-          "time": null,
-          "parent": null,
-          "text": "This is a really clean way to frame it. The key insight is that dynamic type checks at runtime are just deferred proof obligations-they don't fundamentally prevent you from reasoning about safety, they just move the verification from compile time to execution time.\n\nWhat's neat about the demo is that the borrow checker still enforces its invariants (no use-after-free, no aliased mutation) via runtime checks instead of static analysis. You lose the guarantee that the check will never fail, but you gain the flexibility of duck typing and optional annotations. For something like a REPL or metaprogramming layer where you can't always prove things statically, that's a real win.\n\nJulia does something similar but less explicitly-it compiles specializations based on observed types. Here you're making the staging explicit: \"this part is checked dynamically, that part was proven statically.\"",
-          "age": "34 minutes ago",
-          "points": 5,
-          "kids": []
         }
       ]
     },
     {
-      "id": "qnu05yqt",
-      "by": "KnownMarble23",
+      "id": "zhb1qg64",
+      "by": "lazyglider",
       "time": null,
       "parent": null,
-      "text": "I'm curious whether the dynamic borrow-checking actually catches the mistakes you're hoping to catch. The demo shows the mechanism works, but does it catch real bugs that a developer would actually make? Or does it mostly surface errors that a sufficiently careful programmer would have avoided anyway? Hard to tell from the post whether this is materially better than just being disciplined with reference counts.",
-      "age": "1 hour ago",
-      "points": 8,
-      "kids": []
-    },
-    {
-      "id": "bnbyyt13",
-      "by": "eagercompass",
-      "time": null,
-      "parent": null,
-      "text": "I think the more interesting framing here is that this isn't really about borrowing at all-it's about ownership tracking with runtime validation. The borrow checker in Rust is fundamentally a compile-time mechanism that prevents certain classes of bugs. What this demo is doing is deferring that check to runtime, which means you've traded a class of compile errors for a class of runtime errors.\n\nThe real question isn't \"can we do borrowing dynamically\" but rather \"what's the performance/ergonomics tradeoff of checking ownership at runtime instead of compile time?\" For a dynamically typed language, that's probably worth it-you're already paying for type checks anyway. But it's a different beast entirely from what Rust does.\n\nThe Julia/Zig comparison in the background is useful, though. They're asking \"how much static analysis can we layer on top of a dynamic base?\" This seems to be asking \"how much dynamic enforcement can we add without the static layer?\" Those are nearly opposite questions, and the answers will look very different.",
-      "age": "2 hours ago",
-      "points": 23,
+      "text": "This reminds me of what Lua does with its metatables and dynamic dispatch. You get runtime flexibility without abandoning performance in the hot path. The Zest approach of explicit opt-in to dynamic code feels pragmatic compared to Julia's \"we'll figure it out at specialization time\" or",
+      "age": "14 minutes ago",
+      "points": 10,
       "kids": [
         {
-          "id": "wwjevu7z",
-          "by": "broken_plateau_",
+          "id": "0z4iger6",
+          "by": "cedar51",
           "time": null,
           "parent": null,
-          "text": "That's a fair distinction, but I'd push back slightly on the framing. The parent comment treats ownership tracking and borrow checking as orthogonal concerns, but they're really entangled here. You need ownership to know whose responsibility it is to validate the borrow at runtime. Rust bakes both into the type system; this demo validates ownership statically (single ownership) and borrows dynamically. The interesting bit is that you can actually catch some of the same bugs (use-after-free, double-free) at runtime without the compile-time machinery, just with different performance characteristics. Not as good, obviously, but the tradeoff is explicit.",
-          "age": "44 minutes ago",
-          "points": 3,
+          "text": "I've been using Lua for years in game engines and you're spot on about metatables. The flexibility is genuinely useful when you're prototyping game behavior or handling data that doesn't fit a rigid schema. But I've hit the same wall repeatedly: you write this elegant dynamic code, it ships, then profiling shows 40% of CPU time is in type dispatch and metamethod lookups.\n\nWhat's interesting about the Zest approach is that it sidesteps the \"guess and recompile\" problem. In Julia you end up with these mystery hotspots where the compiler chose the wrong specialization path and now you're stuck with dynamic checks in production. With explicit opt-in, you at least know where you're paying the cost.\n\nI built a small trading system in Lua a few years back. The entry point was beautiful - dynamic, expressive, easy to reload during market hours. But the tick processor? That ran on every price update. Converting it to statically typed C was painful, but the 10x speedup was necessary. If Zest lets you",
+          "age": "2 hours ago",
+          "points": 9,
+          "kids": [
+            {
+              "id": "938jwr9y",
+              "by": "PlainRiver23",
+              "time": null,
+              "parent": null,
+              "text": "I actually tested this approach in a small interpreter last year. The dynamic borrow-checking overhead was negligible (< 2% in my benchmarks) because the checks are just pointer comparisons and a stack walk, not full type introspection. The real win is that you catch use-after-free",
+              "age": "1 hour ago",
+              "points": 3,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5jnqavsq",
+      "by": "compass36",
+      "time": null,
+      "parent": null,
+      "text": "I actually built something similar to this last year for a research project. The key insight about runtime borrow-checking being \"fairly cheap\" is real, but I wanted to verify the claim with actual numbers.\n\nI instrumented a small dynamically-typed interpreter with borrow tracking and ran it against a few tight",
+      "age": "3 hours ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "9hecrc6r",
+          "by": "blue_comet",
+          "time": null,
+          "parent": null,
+          "text": "I built something in this space too - a Scheme interpreter with runtime borrow tracking for a systems course project. The performance overhead was actually surprising, though. We measured it at about 12-15% on synthetic workloads, which felt reasonable until we hit real code with lots of iterator patterns. Then it jumped to 30-40%.\n\nThe interesting thing we found was that the error messages were the real win, not the performance. Being able to point at the exact line where a borrow violation happened at runtime, with a full stack trace, made debugging so much faster than static errors that take 10 minutes to parse.\n\nIf you're interested in this approach, you might look at what Sorbet does for Ruby - it's not borrow-checking but the idea of layering static guarantees on top of a dynamic runtime is similar. Their approach to gradual typing might inform some of the design choices here.\n\nhttps://sorbet.",
+          "age": "3 hours ago",
+          "points": 19,
           "kids": []
         }
       ]
     }
   ],
-  "_generated_at": "2026-04-26T10:31:00.587Z"
+  "_generated_at": "2026-04-28T02:08:57.629Z"
 }

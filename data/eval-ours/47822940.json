@@ -1,0 +1,265 @@
+{
+  "pair": {
+    "story_type": "ask_hn",
+    "hn_id": 47822940,
+    "title": "Ask HN: How did you land your first projects as a solo engineer/consultant?",
+    "points": 299,
+    "descendants": 144,
+    "article_url": "https://news.ycombinator.com/item?id=47822940",
+    "hn_url": "https://news.ycombinator.com/item?id=47822940",
+    "self_post": true
+  },
+  "story": {
+    "id": 47822940,
+    "title": "Ask HN: How did you land your first projects as a solo engineer/consultant?",
+    "url": "https://news.ycombinator.com/item?id=47822940",
+    "by": "throwaway_7391",
+    "score": 235,
+    "time": null,
+    "descendants": 23,
+    "text": ""
+  },
+  "comments": [
+    {
+      "id": "ats0t4dh",
+      "by": "ypyt524",
+      "time": null,
+      "parent": null,
+      "text": "Got my first consulting gig through a Slack where I was answering questions about Rails. Someone saw my responses, liked my tone, and asked if I did freelance work. That turned into 3 years of steady contract work. The key was just being genuinely helpful without expecting anything back.",
+      "age": "20 minutes ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "o5lmgkpx",
+          "by": "throwaway_7391",
+          "time": null,
+          "parent": null,
+          "text": "Exactly this. The Slack thing works because you're demonstrating competence and reliability in real time, not claiming it on a website. People hire people they've already seen solve problems.\n\nI think what made both those early gigs stick was the same dynamic you're describing - they already knew my thinking before they hired me. No sales pitch needed. Just \"hey, can you do this?\" and they knew the answer from watching me work.\n\nThe visibility angle is huge too. I've had probably a dozen follow-on projects just from people who saw me help someone else in those communities, months or years later. It's slow compared to cold outreach but the conversion rate is absurdly high because there's zero trust gap.",
+          "age": "45 minutes ago",
+          "points": 22,
+          "kids": []
+        },
+        {
+          "id": "42aam6oj",
+          "by": "lostlantern42",
+          "time": null,
+          "parent": null,
+          "text": "I think you're describing something broader than just \"be helpful in communities.\" What's actually working is that you're pre-filtering for clients who value taste and judgment, not just coding ability. The photographer group and the Slack both self-select for people who care about craft and community, not just transactions. When",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "rdkjjgaz",
+              "by": "brave_fiber",
+              "time": null,
+              "parent": null,
+              "text": "I've noticed this same dynamic in the consulting world, but I'd push back slightly on the \"self-selection for craft\" framing. I think what's really happening is more mechanical than that.\n\nWhen you're active and helpful in a community, you're essentially doing free sampling. A potential client watches you solve problems for 6 months, sees how you think about edge cases, notices you admit what you don't know, and observes whether you follow up. That's infinitely more reliable than a portfolio or resume. They're not selecting for taste so much as they're de-risking the hire by watching you work live.\n\nThe photography group example is perfect because it compounds: you're helping people, you're building a portfolio (literally, people see your work), and you're networked with people who care about that work. But that works because photography is visual. For consulting and engineering, the Slack or forum comment thread is the portfolio.\n\nThe transaction-focused freelancers on Upwork or Fiverr can't compete because there's no long observation window. The craft-focused communities win because the client has already decided you're competent before the first contract negotiation. That removes the biggest friction point in selling services to strangers",
+              "age": "1 hour ago",
+              "points": 4,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "rnv4c45z",
+          "by": "throwaway_7391",
+          "time": null,
+          "parent": null,
+          "text": "Yeah, that's been my experience too. The Slack visibility thing is underrated - people will remember you solved their problem or answered their question thoughtfully, and when they need something done, you're top of mind. No sales pitch required.",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "9df2m8s6",
+      "by": "fiber3",
+      "time": null,
+      "parent": null,
+      "text": "This is a really solid observation about community visibility, and it tracks with how I've seen it work in practice. I'd add that there's a meaningful difference between \"being helpful in a community\" and \"positioning yourself as the person who solves a specific class of problem.\"\n\nI built a small consulting practice around Postgres optimization, and honestly most of my early clients came through Stack Overflow answers and blog posts about query performance. Not because I was shilling my services, but because I kept showing up with concrete examples and benchmarks. Someone would google \"why is my query slow\" and land on something I wrote, then reach out months later when they hit the same wall internally.\n\nThe leverage part is that once you're known for something specific, the inbound gets easier. I've ended up spending way less time on business development than I expected because the work just comes.\n\nThat said, there's also a bootstrapping problem here. If you're early in a skill and not yet the \"person\" in your niche, you might want to look at platforms like Gun.io or Toptal as a starting point. They handle the visibility problem for you while you build a track record. I know some consultants who use it as a feeder for the first few clients, then spin out once they have case studies and testimonials to show",
+      "age": "1 hour ago",
+      "points": 12,
+      "kids": [
+        {
+          "id": "ymie64fb",
+          "by": "throwaway_5896",
+          "time": null,
+          "parent": null,
+          "text": "This reminds me of how consulting used to work before the internet flattened everything. Back in the 90s, you had to physically be in the room or know someone who knew someone. The community angle isn't new, it's just that now your \"local network\" is global and asynchronous.\n\nThe shift you're describing feels like we've gone from \"problem visibility\" to \"solver visibility.\" A decade ago, companies would post an RFP and consultants would bid. Now the best projects go to whoever was already trusted in the space. That's actually less efficient in some ways, but it selects harder for people who actually care about the domain rather than just chasing billable hours.\n\nThe Stack Overflow + blog post combo is interesting because it's almost accidental positioning. You weren't trying to market yourself, you were solving problems in public. That's different from someone who starts a consulting business and then tries",
+          "age": "12 minutes ago",
+          "points": 5,
+          "kids": []
+        },
+        {
+          "id": "ycgksf6s",
+          "by": "throwaway_7391",
+          "time": null,
+          "parent": null,
+          "text": "This tracks exactly with what I've seen. The Stack Overflow route is interesting because it's almost a forcing function for specificity-you can't hand-wave your way through a detailed performance problem. Someone asking about a slow query at 3am is asking because they have a real bottleneck, not a theoretical one.\n\nI think the visibility piece is undersold though. In that Slack community I mentioned, people weren't hiring me because I was constantly pitching. They hired me because when they had a problem, they remembered I'd helped someone else solve something similar six months prior. The positioning happened almost incidentally through accumulated helpfulness in a specific domain.\n\nYour SO answers are probably doing the exact same thing-someone hits a wall, Googles it, finds your answer with working code and explanation, solves their problem, and then a year later when their company needs that kind of work, they think of you first. That's a much stickier acquisition channel than cold outreach.\n\nThe limitation I'd mention is that this only works if you're solving problems people are actively searching for. A sufficiently niche expertise",
+          "age": "1 hour ago",
+          "points": 7,
+          "kids": [
+            {
+              "id": "h718f1dd",
+              "by": "anchor24",
+              "time": null,
+              "parent": null,
+              "text": "> Someone asking about a slow query at 3am is asking because they have a real bottleneck, not a theoretical one.\n\nThis is true, but I'd push back slightly on the framing. Stack Overflow answers on performance *do* help you get visibility, but they're also a specific filter. You're only visible to people with that exact problem, at that exact moment, searching that exact way. The real leverage I've seen is when you go one step further: write a blog post or a guide that *canonicalizes* the problem space. \"The 5 query patterns that kill Postgres\" or whatever. Then Stack Overflow answers reference your post. Then people find your post, see you clearly understand the domain, and hire you.\n\nThe difference between \"helpful answerer\" and \"recognized expert\" is usually just one or two pieces of long-form content that aggregate and organize knowledge. The OP's point about visibility still holds, but I think people underestimate how much *positioning* matters within that visibility. You can answer 200 questions,",
+              "age": "1 hour ago",
+              "points": 8,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc76v18i",
+      "by": "greyforest",
+      "time": null,
+      "parent": null,
+      "text": "I had a similar path but it took me longer to realize what was happening. I was active in a few Python Discord servers around 2017-2018, mostly just answering questions about async/await patterns and database stuff. I wasn't trying to land clients. I was genuinely interested in the problems people were wrestling with.\n\nOne person DMed me asking if I could help them debug a production issue with their Django app. It was a mess - connection pooling misconfigured, N+1 queries everywhere. I spent maybe 6 hours on it and they offered to pay me. I charged something absurdly low because I had a day job and didn't think of myself as a consultant yet.\n\nThat first client led to two more referrals from them over the next year. By the time the second client asked if I could do a larger rewrite, I'd quit my job and was doing maybe 20 hours a week of consulting. The rewrite turned into a 9-month engagement and suddenly I had enough buffer to stop being picky.\n\nThe thing the OP nailed that I didn't internalize for way too long: they weren't in those communities to hustle or network. They were there because they liked helping people. That authenticity reads immediately. When you're obviously trying to land clients, people smell it. When you're genuinely engaged in the problem space, people want to work with you.\n\nI think what killed my growth for a while is that I got too transactional about it. I started thinking \"where can I prospect\" instead of \"where do I want to spend time with smart people.\" The irony is the transactional approach made me worse at landing work.",
+      "age": "1 hour ago",
+      "points": 28,
+      "kids": [
+        {
+          "id": "2iqpwnzg",
+          "by": "dark_pebble",
+          "time": null,
+          "parent": null,
+          "text": "This reminds me of how differently things worked before the professionalization of freelance platforms. When I was doing contract work in the early 2010s, the best clients came from being useful in places where people naturally gathered to solve problems.\n\nThe Discord/Slack angle is interesting because it's basically the modern version of hanging out at the local Linux Users Group or mailing lists. The difference is scale and asyncness. Back then you had to show up at a specific place at a specific time. Now you can just be helpful consistently over months and months, and people remember.\n\nI wonder if there's a saturation point though. Those Python Discord servers were maybe 500 active people when you were there. Now they're 50,000+. Does the signal-to-noise ratio collapse at some point? Or do people just get better at pattern-matching \"this person actually knows what they're talking about\" versus noise?\n\nThe",
+          "age": "1 hour ago",
+          "points": 10,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "roeryj5u",
+      "by": "bluecanyon",
+      "time": null,
+      "parent": null,
+      "text": "This is exactly how I landed my first three clients as a solo consultant. I wasn't actively selling anything-I was just helping people in niche Slack communities and Discord servers where I hung out anyway. Word of mouth from that visibility turned into actual paid work.\n\nThe key difference I noticed: communities where people",
+      "age": "1 hour ago",
+      "points": 10,
+      "kids": []
+    },
+    {
+      "id": "o9rf8elp",
+      "by": "mildbeacon23",
+      "time": null,
+      "parent": null,
+      "text": "The consistency angle is underrated. I did contract work for 8 years and my best clients came from being reliably present in a few niche Slack communities and forums, not from aggressive networking. Someone remembers that you answered their question helpfully 6 months ago, they hit a problem, they",
+      "age": "1 hour ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "7af3zsc6",
+          "by": "matrix37",
+          "time": null,
+          "parent": null,
+          "text": "I'd flip this framing: you're not landing clients through \"visibility\" or \"presence,\" you're building trust capital in a specific context where people already have a problem. The Slack community works because it's a pre-filtered group with actual friction to entry and shared constraints. You're not networking, you",
+          "age": "10 minutes ago",
+          "points": 4,
+          "kids": []
+        },
+        {
+          "id": "e4aw64kn",
+          "by": "throwaway_7391",
+          "time": null,
+          "parent": null,
+          "text": "Absolutely. The consistency thing is what surprised me most looking back. I wasn't networking strategically, just showing up and being useful. Six years with the same client came from solving one problem well, not from a pitch deck. The Slack communities work because people remember you as competent and present, not as someone trying to sell",
+          "age": "25 minutes ago",
+          "points": 11,
+          "kids": [
+            {
+              "id": "ynhrt5f2",
+              "by": "basic_wagon",
+              "time": null,
+              "parent": null,
+              "text": "I'd push back slightly on the \"not networking strategically\" framing. What you're describing *is* strategic networking, just the kind that compounds over time. You were optimizing for trust and reputation rather than immediate ROI, which is harder to fake than a cold pitch.\n\nThe Slack communities work for exactly this reason: you're visible during the mundane problem-solving moments, not just when you're selling. A hiring manager sees you answer the same type of question five times over six months, they know you actually understand that domain.\n\nThe consistency part matters less than people think though. I've seen folks grind it out in communities",
+              "age": "1 hour ago",
+              "points": 9,
+              "kids": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0qmqj6nn",
+      "by": "lazy_feather23",
+      "time": null,
+      "parent": null,
+      "text": "This is the classic \"be useful in public\" playbook that Paul Graham wrote about in \"How to Start a Startup\". The visibility part is crucial though - you have to actually *be seen* being helpful, not just helpful in private. The Slack example works because async text creates a searchable record.",
+      "age": "2 hours ago",
+      "points": 11,
+      "kids": [
+        {
+          "id": "ggu6nwtc",
+          "by": "throwaway_7391",
+          "time": null,
+          "parent": null,
+          "text": "You nailed it. The searchable record thing is huge - someone years later can find that helpful response you gave and reach out. With the photography community it was more synchronous (real-time group chats, meetups), but same principle. Visibility + genuine helpfulness over time compounds. The PG",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": [
+            {
+              "id": "5pwi3cmg",
+              "by": "lazywidget",
+              "time": null,
+              "parent": null,
+              "text": "I tested this theory on my own transition from agency work to solo consulting. Built a small tool to track my Slack contributions across three dev communities over 18 months, then cross-referenced with my actual client intake. About 70% of inquiries came from people who'd seen me answer technical questions-not from referrals or my website.\n\nThe searchable record is real. Someone dug up a 14-month-old answer I gave about optimizing Lambda costs and hired me on that basis alone. The synchronous stuff (meetups, Discord voice) generated maybe 15% of leads, but those converted faster.",
+              "age": "1 hour ago",
+              "points": 9,
+              "kids": []
+            }
+          ]
+        },
+        {
+          "id": "qy3jqh8w",
+          "by": "throwaway_7391",
+          "time": null,
+          "parent": null,
+          "text": "You nailed it. The searchability piece is underrated - someone can find your answer to a problem they're facing 6 months later, which wouldn't happen if you were just being helpful in a private DM. And I think the async nature means you end up writing more thoughtfully too, not just",
+          "age": "1 hour ago",
+          "points": 3,
+          "kids": []
+        },
+        {
+          "id": "qpxh3781",
+          "by": "bravecanyon",
+          "time": null,
+          "parent": null,
+          "text": "I'd flip this: the visibility isn't the strategy, it's the byproduct. The real move is solving problems you actually care about, in public. When you do that consistently, people notice and remember you when they need help. Paul Graham's framing makes it sound like a calculated play, but the",
+          "age": "2 minutes ago",
+          "points": 3,
+          "kids": []
+        }
+      ]
+    },
+    {
+      "id": "6yneos6j",
+      "by": "ColdAnchor",
+      "time": null,
+      "parent": null,
+      "text": "This is basically the \"be helpful in public, build your reputation\" acquisition model that Patio11 wrote about years ago. Works great if you have the time and temperament for it. The risk is you end up doing free consulting for years before someone actually pays, or you attract clients who expect the same",
+      "age": "2 hours ago",
+      "points": 8,
+      "kids": [
+        {
+          "id": "u0mfkd5c",
+          "by": "fastmatrix23",
+          "time": null,
+          "parent": null,
+          "text": "This reminds me of the early 2000s web design forums where people would post their portfolios and get feedback. The ones who actually engaged thoughtfully, offered critique on others' work, asked smart questions – they'd get DMs from lurkers saying \"hey, want to redesign my site?\" It",
+          "age": "39 minutes ago",
+          "points": 5,
+          "kids": []
+        }
+      ]
+    }
+  ],
+  "_generated_at": "2026-04-28T02:05:54.600Z"
+}
