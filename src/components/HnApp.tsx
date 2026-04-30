@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { Comment, Thread } from "@/types";
+import type { RecentRow } from "@/lib/feed";
 
 export default function HnApp({ basePath }: { basePath: "/" | "/item" }) {
   const router = useRouter();
@@ -13,6 +14,20 @@ export default function HnApp({ basePath }: { basePath: "/" | "/item" }) {
   const [thread, setThread] = useState<Thread | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [recent, setRecent] = useState<RecentRow[] | null>(null);
+
+  // Front-page feed: fetch recent submissions when on home (no ?id).
+  useEffect(() => {
+    if (id) return;
+    let cancelled = false;
+    fetch("/api/recent?limit=30")
+      .then((r) => (r.ok ? r.json() : { items: [] }))
+      .then((data: { items?: RecentRow[] }) => {
+        if (!cancelled) setRecent(data.items || []);
+      })
+      .catch(() => { if (!cancelled) setRecent([]); });
+    return () => { cancelled = true; };
+  }, [id]);
 
   // Load the thread when ?id changes (initial mount with id in URL, or
   // back/forward navigation between /item?id=X and /item?id=Y).
@@ -120,9 +135,17 @@ export default function HnApp({ basePath }: { basePath: "/" | "/item" }) {
                 />
               )}
               {!thread && !loading && !error && basePath === "/" && (
-                <div className="hnl-status">
-                  paste a URL above to generate an HN-style comment thread for that article
-                </div>
+                <>
+                  {recent === null && (
+                    <div className="hnl-status">loading…</div>
+                  )}
+                  {recent && recent.length === 0 && (
+                    <div className="hnl-status">
+                      no threads yet — paste a URL above to be the first
+                    </div>
+                  )}
+                  {recent && recent.length > 0 && <RecentList items={recent} />}
+                </>
               )}
             </td>
           </tr>
@@ -195,6 +218,72 @@ function Footer() {
         <a href="/">hackernews.lol</a> · comments simulated by an LLM · no real
         people were consulted
       </span>
+    </>
+  );
+}
+
+function RecentList({ items }: { items: RecentRow[] }) {
+  return (
+    <table border={0} cellPadding={0} cellSpacing={0}>
+      <tbody>
+        {items.map((it, i) => (
+          <RecentRowFragment key={it.id} item={it} rank={i + 1} />
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+function RecentRowFragment({ item, rank }: { item: RecentRow; rank: number }) {
+  return (
+    <>
+      <tr className="athing submission">
+        <td className="title" style={{ textAlign: "right", verticalAlign: "top" }}>
+          <span className="rank">{rank}.</span>
+        </td>
+        <td className="votelinks" style={{ verticalAlign: "top" }}>
+          <center>
+            <a href="#" aria-label="upvote" onClick={(e) => e.preventDefault()}>
+              <div className="votearrow" title="upvote" />
+            </a>
+          </center>
+        </td>
+        <td className="title">
+          <span className="titleline">
+            <a href={item.url} target="_blank" rel="noreferrer">{item.title}</a>
+            {item.hostname && (
+              <span className="sitebit comhead">
+                {" "}(<a href="#" onClick={(e) => e.preventDefault()}>
+                  <span className="sitestr">{item.hostname}</span>
+                </a>)
+              </span>
+            )}
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td colSpan={2}></td>
+        <td className="subtext">
+          <span className="subline">
+            <span className="score">{item.points} points</span>
+            {" by "}
+            <a href="#" className="hnuser" onClick={(e) => e.preventDefault()}>{item.by}</a>
+            {" "}
+            <span className="age">
+              <a href={`/item?id=${item.id}`}>{item.age}</a>
+            </span>
+            {" | "}
+            <a href={`/item?id=${item.id}`}>
+              {item.comment_count === 0
+                ? "discuss"
+                : item.comment_count === 1
+                ? "1 comment"
+                : `${item.comment_count} comments`}
+            </a>
+          </span>
+        </td>
+      </tr>
+      <tr className="spacer" style={{ height: 5 }} />
     </>
   );
 }
