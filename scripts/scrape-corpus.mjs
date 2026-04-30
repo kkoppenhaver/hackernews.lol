@@ -28,13 +28,17 @@ const ALGOLIA = "https://hn.algolia.com/api/v1";
 const OUT = "data/corpus.jsonl";
 
 // --- Sampling config ---
-const DAYS_BACK = 21;
-const DAY_BUCKETS = 7;
+// v2 (2026-04-30): doubled corpus from 320 → 640 to widen voice variance
+// the generator can pull from. Lowered MIN_LEN from 60 → 20 to capture the
+// short punchy comments ("Sorry, but ick.", "This is dope.") that the
+// generator was missing — those are a real HN voice we want represented.
+const DAYS_BACK = 28;
+const DAY_BUCKETS = 8;
 const MIN_POINTS = 30;
 const MIN_STORY_COMMENTS = 10;
-const TARGET_STORIES = 45;
-const TARGET_COMMENTS = 320;
-const MIN_LEN = 60;
+const TARGET_STORIES = 75;
+const TARGET_COMMENTS = 640;
+const MIN_LEN = 20;
 const MAX_LEN = 1400;
 const MAX_DEPTH = 4;
 const HITS_PER_BUCKET = 80;
