@@ -9,13 +9,12 @@
  */
 
 import Anthropic from "@anthropic-ai/sdk";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 
 import type { Article } from "@/lib/ingest";
 import type { CommentSlot, ThreadPlan } from "@/lib/planner";
 import type { Comment, Thread } from "@/types";
 import { generateUsernames, pickUsername } from "@/lib/usernames";
+import { pickExemplars, type CorpusRow } from "@/lib/exemplars";
 
 // ---- Claude client (lazy, so `next build` doesn't crash without a key) ----
 
@@ -40,57 +39,35 @@ function maxTokensFor(lengthTarget: number): number {
   return Math.max(64, Math.min(512, Math.round((lengthTarget * 1.6) / 4)));
 }
 
-// ---- Style guide + corpus loading (cached in module scope) ----
+// ---- System prompt construction ----
 
-let styleGuideCache: string | null = null;
-async function loadStyleGuide(): Promise<string> {
-  if (styleGuideCache) return styleGuideCache;
-  const path = join(process.cwd(), "prompts", "style-guide.md");
-  styleGuideCache = await readFile(path, "utf8");
-  return styleGuideCache;
+const PREAMBLE = `You write a single Hacker News comment to fit a specific slot in a thread. Every example below is a REAL HN comment scraped from news.ycombinator.com. Match their voice: their cadence, length, vocabulary, casualness, specificity, abruptness, punctuation, and willingness to be wrong, terse, snarky, or off-topic. Do not synthesize an "average" HN comment — pick one specific exemplar's energy and write in that key.
+
+What real HN comments do that LLMs over-smooth:
+- Many are short. 50-150 chars is common. Don't pad.
+- Sentence fragments are fine. Periods are optional. Run-ons exist.
+- Drop named specifics: actual model numbers, library names, dollar amounts, person names, hardware specs.
+- Disagreement is often blunt: "No.", "That's wrong because...", "Not really.", "Counterpoint:".
+- Praise is often three words: "This is dope.", "Nice work."
+- Some comments ramble; some are dense; some are typo-ridden; some are just a question.
+- DO NOT write balanced essays with three paragraphs and a meta-conclusion. That is the LLM voice. Avoid it.
+
+Output: plain text, the comment body only. No quotes around it, no "Comment:" label, no username. If quoting the parent makes sense, use "> " on its own line; many comments don't quote at all.`;
+
+function exemplarBlock(exemplars: CorpusRow[]): string {
+  return exemplars
+    .map((c, i) => {
+      const parent = c.parent_text
+        ? `[parent] ${c.parent_text.slice(0, 200).replace(/\s+/g, " ")}\n`
+        : "";
+      const len = c.comment_text.length;
+      return `--- exemplar ${i + 1} (${c.story_type}, ${len} chars, depth ${c.depth}) ---\n${parent}${c.comment_text}`;
+    })
+    .join("\n\n");
 }
 
-interface CorpusRow {
-  id: number;
-  story_type: string;
-  story_title: string;
-  depth: number;
-  depth_bin: string;
-  reply_count: number;
-  parent_text: string | null;
-  comment_text: string;
-}
-
-let corpusCache: CorpusRow[] | null = null;
-async function loadCorpus(): Promise<CorpusRow[]> {
-  if (corpusCache) return corpusCache;
-  const path = join(process.cwd(), "data", "corpus.jsonl");
-  const text = await readFile(path, "utf8");
-  corpusCache = text.split("\n").filter(Boolean).map(l => JSON.parse(l) as CorpusRow);
-  return corpusCache;
-}
-
-function sampleExemplars(corpus: CorpusRow[], storyType: string, n: number): CorpusRow[] {
-  const matching = corpus.filter(c => c.story_type === storyType);
-  const pool = matching.length >= n ? matching : corpus;
-  const copy = pool.slice();
-  const out: CorpusRow[] = [];
-  while (out.length < n && copy.length) {
-    const i = Math.floor(Math.random() * copy.length);
-    out.push(copy.splice(i, 1)[0]);
-  }
-  return out;
-}
-
-function buildSystemPrompt(styleGuide: string, exemplars: CorpusRow[]): string {
-  const exBlock = exemplars.map((c, i) => {
-    const parent = c.parent_text
-      ? `[parent excerpt] ${c.parent_text.slice(0, 280).replace(/\s+/g, " ")}\n\n`
-      : "";
-    return `## Example ${i + 1} — story_type=${c.story_type}, depth=${c.depth}, replies=${c.reply_count}\n\n${parent}${c.comment_text}`;
-  }).join("\n\n---\n\n");
-
-  return `${styleGuide}\n\n# Reference exemplars (REAL Hacker News comments — never copy verbatim)\n\n${exBlock}`;
+function buildSystemPrompt(exemplars: CorpusRow[]): string {
+  return `${PREAMBLE}\n\n# REAL HN COMMENTS — match this voice\n\n${exemplarBlock(exemplars)}`;
 }
 
 // ---- Per-comment call ----
@@ -101,53 +78,39 @@ function buildUserMessage(
   parentChain: string[],
   siblingGists: string[],
 ): string {
-  const storyBlock = [
-    "STORY",
-    `title: ${article.title}`,
-    `site:  ${article.hostname}`,
-    article.byline ? `byline: ${article.byline}` : null,
-    article.excerpt ? `excerpt: ${article.excerpt}` : null,
-    `\narticle (first ~1500 chars):\n${article.text.slice(0, 1500)}${article.text.length > 1500 ? "…" : ""}`,
-  ].filter(Boolean).join("\n");
+  const storyLine = `Story: "${article.title}" (${article.hostname})`;
+  const excerpt = article.excerpt
+    ? `\nExcerpt: ${article.excerpt}`
+    : "";
+  const articleSnippet = `\nArticle text:\n${article.text.slice(0, 1200)}${article.text.length > 1200 ? "…" : ""}`;
 
   const parentBlock = parentChain.length
-    ? "\n\nPARENT CHAIN (root → direct parent)\n" +
-      parentChain.map((t, i) => `[${i + 1}] ${t.slice(0, 500)}${t.length > 500 ? "…" : ""}`).join("\n\n")
+    ? `\n\nParent chain (root first):\n${parentChain
+        .map((t, i) => `[${i + 1}] ${t.slice(0, 400)}${t.length > 400 ? "…" : ""}`)
+        .join("\n")}`
     : "";
 
   const siblingBlock = siblingGists.length
-    ? "\n\nSIBLING POINTS ALREADY MADE (avoid repeating)\n" +
-      siblingGists.map((g, i) => `- ${g.slice(0, 160).replace(/\s+/g, " ")}`).join("\n")
+    ? `\n\nPoints siblings have already made (avoid repeating):\n${siblingGists
+        .map((g) => `- ${g.slice(0, 140).replace(/\s+/g, " ")}`)
+        .join("\n")}`
     : "";
 
-  const modText = slot.modifiers.length ? ` · modifiers: ${slot.modifiers.join(", ")}` : "";
-  const role = slot.role === "author"
-    ? `You are the ORIGINAL POSTER (OP) of this ${article.storyType} submission. Reply to the parent comment. Be gracious, substantive, acknowledge limitations openly, never defensive. Often commit to a fix. OP replies are 100-400 chars.`
-    : `Archetype: ${slot.archetype}${modText}`;
+  const role =
+    slot.role === "author"
+      ? "You are the ORIGINAL POSTER replying to this comment. Be gracious and specific, acknowledge limitations, often commit to a fix. Don't defend."
+      : `Voice: ${slot.archetype}${slot.modifiers.length ? ` (${slot.modifiers.join(", ")})` : ""}`;
 
-  const positionHint = slot.depth === 0
-    ? "top-level comment on the story"
-    : `reply at depth ${slot.depth}`;
+  const position = slot.depth === 0 ? "top-level" : `reply at depth ${slot.depth}`;
 
-  return `${storyBlock}${parentBlock}${siblingBlock}
+  return `${storyLine}${excerpt}${articleSnippet}${parentBlock}${siblingBlock}
 
-TASK
-Produce ONE Hacker News comment, nothing else.
-
+Write ONE comment for this slot, in the voice of the exemplars above.
+Position: ${position}
 ${role}
+Aim for around ${slot.lengthTarget} characters but pick whatever length the chosen voice naturally produces — could be 50, could be 600.
 
-Position: ${positionHint}
-
-Hard rules — these are not suggestions:
-- NO em-dashes. Use commas, periods, parentheses, or hyphens. The em-dash is the loudest LLM tell. If you write a "—" the comment will be rejected.
-- Most HN comments do NOT start with a "> " quote. Real rate: ~7%. Only quote ONE specific sentence from the parent if you're disagreeing with that exact wording. Otherwise refer to the parent by paraphrase or respond directly with no quote.
-- Plain text. No markdown headers. No username prefix. No "Comment:" label.
-- Bare URLs are fine when relevant.
-- Length target ${slot.lengthTarget} chars. Stay within ±30%. Many HN comments are SHORT (under 150 chars). Don't write an essay when a sentence will do. Length variance across the thread is critical.
-- Match the voice of the story_type as defined in the style guide.
-- Write ONE comment. Do not write a thread. Do not write replies to yourself.
-
-Return only the comment body.`;
+Comment:`;
 }
 
 /**
@@ -225,15 +188,29 @@ function gist(text: string): string {
   return text.replace(/\s+/g, " ").slice(0, 180);
 }
 
+function medianOf(xs: number[]): number {
+  if (!xs.length) return 200;
+  const sorted = xs.slice().sort((a, b) => a - b);
+  return sorted[Math.floor(sorted.length / 2)];
+}
+
 // ---- Entry point ----
 
 export async function generateThread(
   article: Article,
   plan: ThreadPlan,
 ): Promise<Thread> {
-  const [styleGuide, corpus] = await Promise.all([loadStyleGuide(), loadCorpus()]);
-  const exemplars = sampleExemplars(corpus, article.storyType, 5);
-  const system = buildSystemPrompt(styleGuide, exemplars);
+  // Per-thread system prompt is built once with a single batch of exemplars
+  // matched to the *median* slot length so the same cached prefix is reused
+  // across all the per-slot calls within this thread.
+  const medianLengthTarget = medianOf(plan.slots.map((s) => s.lengthTarget));
+  const exemplars = await pickExemplars({
+    storyType: article.storyType,
+    lengthTarget: medianLengthTarget,
+    n: 14,
+    isReply: false,
+  });
+  const system = buildSystemPrompt(exemplars);
 
   // Index slots for parent-chain lookup + sibling context.
   const slotsById = new Map(plan.slots.map(s => [s.id, s]));
