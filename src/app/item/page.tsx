@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import HnApp from "@/components/HnApp";
 
-export default function Home() {
+export default function Item() {
   return (
     <Suspense fallback={null}>
-      <HnApp basePath="/" />
+      <HnApp basePath="/item" />
     </Suspense>
   );
 }

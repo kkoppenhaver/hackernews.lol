@@ -14,6 +14,15 @@ export function urlKey(raw: string): string {
   return createHash("sha256").update(normalizeUrl(raw)).digest("hex");
 }
 
+/**
+ * Numeric short ID derived from a urlKey, matching HN's 8–10 digit /item?id=N format.
+ * First 8 hex chars → 32-bit unsigned integer in base 10. Stable per URL,
+ * collision space ~4B (sufficient for our scale).
+ */
+export function shortId(key: string): string {
+  return parseInt(key.slice(0, 8), 16).toString(10);
+}
+
 function normalizeUrl(u: string): string {
   try {
     const url = new URL(u);

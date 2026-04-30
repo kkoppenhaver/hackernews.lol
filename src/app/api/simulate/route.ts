@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import type { Thread } from "@/types";
-import { getCache, urlKey } from "@/lib/cache";
+import { getCache, urlKey, shortId } from "@/lib/cache";
 import { ingest } from "@/lib/ingest";
 import { planThread } from "@/lib/planner";
 import { generateThread } from "@/lib/generator";
 
 export const runtime = "nodejs";
-export const maxDuration = 60; // seconds — Vercel Hobby caps at 60s; bump to 300s on Pro if needed
+export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
@@ -16,10 +16,10 @@ export async function POST(req: NextRequest) {
   }
 
   const cache = await getCache();
-  const key = urlKey(rawUrl);
+  const id = shortId(urlKey(rawUrl));
 
-  const cached = await cache.get<Thread>(key);
-  if (cached) return NextResponse.json({ ...cached, _cached: true });
+  const cached = await cache.get<Thread>(id);
+  if (cached) return NextResponse.json({ ...cached, id, _cached: true });
 
   const ingested = await ingest(rawUrl);
   if (!ingested.ok) {
@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  await cache.set(key, thread);
+  thread.id = id;
+  await cache.set(id, thread);
   return NextResponse.json(thread);
 }
