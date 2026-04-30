@@ -46,6 +46,16 @@ export default function HnApp({ basePath }: { basePath: "/" | "/item" }) {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!url) return;
+    await runSimulate(url, false);
+  }
+
+  async function regenerate() {
+    if (!thread?.url) return;
+    if (!confirm("Regenerate this thread? It will overwrite the saved version.")) return;
+    await runSimulate(thread.url, true);
+  }
+
+  async function runSimulate(submitUrl: string, force: boolean) {
     setLoading(true);
     setError(null);
     setThread(null);
@@ -53,7 +63,7 @@ export default function HnApp({ basePath }: { basePath: "/" | "/item" }) {
       const r = await fetch("/api/simulate", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: submitUrl, force }),
       });
       if (!r.ok) {
         let msg: string;
@@ -69,9 +79,10 @@ export default function HnApp({ basePath }: { basePath: "/" | "/item" }) {
       }
       const data = (await r.json()) as Thread;
       setThread(data);
-      // Persist the URL so back/forward/share/refresh all work.
       if (data.id) {
-        router.push(`/item?id=${encodeURIComponent(data.id)}`);
+        const target = `/item?id=${encodeURIComponent(data.id)}`;
+        if (force) router.replace(target); // regenerate keeps you on the same id
+        else router.push(target);            // new submit pushes onto history
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
@@ -102,7 +113,12 @@ export default function HnApp({ basePath }: { basePath: "/" | "/item" }) {
               <SubmitForm url={url} setUrl={setUrl} onSubmit={submit} loading={loading} />
               {error && <div className="hnl-error">error: {error}</div>}
               {loading && <div className="hnl-status">ingesting article and simulating thread…</div>}
-              {thread && <ThreadView thread={thread} />}
+              {thread && (
+                <ThreadView
+                  thread={thread}
+                  onRegenerate={loading ? undefined : regenerate}
+                />
+              )}
               {!thread && !loading && !error && basePath === "/" && (
                 <div className="hnl-status">
                   paste a URL above to generate an HN-style comment thread for that article
@@ -183,7 +199,7 @@ function Footer() {
   );
 }
 
-function ThreadView({ thread }: { thread: Thread }) {
+function ThreadView({ thread, onRegenerate }: { thread: Thread; onRegenerate?: () => void }) {
   const flat: Array<{ c: Comment; depth: number }> = [];
   const walk = (cs: Comment[] | undefined, depth: number) => {
     for (const c of cs || []) {
@@ -195,7 +211,7 @@ function ThreadView({ thread }: { thread: Thread }) {
 
   return (
     <>
-      <StoryRow thread={thread} />
+      <StoryRow thread={thread} onRegenerate={onRegenerate} />
       <br />
       <br />
       <table border={0} className="comment-tree">
@@ -209,7 +225,7 @@ function ThreadView({ thread }: { thread: Thread }) {
   );
 }
 
-function StoryRow({ thread }: { thread: Thread }) {
+function StoryRow({ thread, onRegenerate }: { thread: Thread; onRegenerate?: () => void }) {
   return (
     <table border={0} cellPadding={0} cellSpacing={0}>
       <tbody>
@@ -250,6 +266,18 @@ function StoryRow({ thread }: { thread: Thread }) {
                   <a href="#" onClick={(e) => e.preventDefault()}>{thread.age}</a>
                 )}
               </span>
+              {onRegenerate && (
+                <>
+                  {" | "}
+                  <a
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); onRegenerate(); }}
+                    title="Generate a fresh thread from the same article"
+                  >
+                    regenerate
+                  </a>
+                </>
+              )}
             </span>
           </td>
         </tr>

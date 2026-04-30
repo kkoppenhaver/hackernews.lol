@@ -11,6 +11,7 @@ export const maxDuration = 60;
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   const rawUrl = typeof body?.url === "string" ? body.url.trim() : null;
+  const force = body?.force === true;
   if (!rawUrl) {
     return NextResponse.json({ error: "missing url" }, { status: 400 });
   }
@@ -18,8 +19,10 @@ export async function POST(req: NextRequest) {
   const cache = await getCache();
   const id = shortId(urlKey(rawUrl));
 
-  const cached = await cache.get<Thread>(id);
-  if (cached) return NextResponse.json({ ...cached, id, _cached: true });
+  if (!force) {
+    const cached = await cache.get<Thread>(id);
+    if (cached) return NextResponse.json({ ...cached, id, _cached: true });
+  }
 
   const ingested = await ingest(rawUrl);
   if (!ingested.ok) {

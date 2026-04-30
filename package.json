@@ -13,6 +13,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
     "@mozilla/readability": "^0.6.0",
+    "@supabase/supabase-js": "^2.105.1",
     "@vercel/kv": "^3.0.0",
     "linkedom": "^0.18.12",
     "next": "^15.1.0",

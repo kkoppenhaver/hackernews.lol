@@ -71,6 +71,42 @@ class KvCache implements Cache {
   }
 }
 
+interface SupabaseLike {
+  from: (table: string) => {
+    select: (cols: string) => {
+      eq: (col: string, val: string) => {
+        maybeSingle: () => Promise<{ data: { data: unknown } | null; error: { message: string } | null }>;
+      };
+    };
+    upsert: (row: Record<string, unknown>) => Promise<{ error: { message: string } | null }>;
+  };
+}
+
+class SupabaseCache implements Cache {
+  constructor(private client: SupabaseLike, private table = "threads") {}
+  async get<T>(key: string): Promise<T | null> {
+    const { data, error } = await this.client
+      .from(this.table)
+      .select("data")
+      .eq("id", key)
+      .maybeSingle();
+    if (error) {
+      console.warn("[cache] supabase get error:", error.message);
+      return null;
+    }
+    return (data?.data as T) ?? null;
+  }
+  /** TTL is intentionally ignored — Supabase rows persist forever unless explicitly deleted. */
+  async set<T>(key: string, value: T): Promise<void> {
+    const { error } = await this.client.from(this.table).upsert({
+      id: key,
+      data: value,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) throw new Error(`supabase upsert failed: ${error.message}`);
+  }
+}
+
 class MemoryCache implements Cache {
   private store = new Map<string, { value: unknown; expires: number }>();
   async get<T>(key: string): Promise<T | null> {
@@ -92,15 +128,39 @@ export function getCache(): Promise<Cache> {
 }
 
 async function resolveCache(): Promise<Cache> {
+  // Preferred: Supabase (permanent, queryable for analytics).
+  const supaUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supaKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (supaUrl && supaKey) {
+    try {
+      const { createClient } = await import("@supabase/supabase-js");
+      const client = createClient(supaUrl, supaKey, {
+        auth: { persistSession: false, autoRefreshToken: false },
+      });
+      console.log("[cache] using Supabase");
+      return new SupabaseCache(client as unknown as SupabaseLike);
+    } catch (e) {
+      console.warn("[cache] Supabase import failed, falling back:", e);
+    }
+  }
+
+  // Fallback: Vercel KV (30-day TTL, distributed).
   if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
     try {
       const { kv } = await import("@vercel/kv");
+      console.log("[cache] using Vercel KV");
       return new KvCache(kv as unknown as { get: (k: string) => Promise<unknown>; set: (k: string, v: unknown, o?: { ex?: number }) => Promise<unknown> });
     } catch (e) {
       console.warn("[cache] Vercel KV import failed, falling back:", e);
     }
   }
-  return process.env.NODE_ENV === "production" ? new MemoryCache() : new FsCache(".cache");
+
+  // Last resort: filesystem in dev, memory in prod.
+  if (process.env.NODE_ENV === "production") {
+    console.warn("[cache] no Supabase or KV configured — using in-memory cache (NOT PERSISTENT)");
+    return new MemoryCache();
+  }
+  return new FsCache(".cache");
 }
 
 export const CACHE_TTL_SECONDS = DEFAULT_TTL_SECONDS;
